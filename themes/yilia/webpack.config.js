@@ -67,6 +67,11 @@ module.exports = {
             filename: 'main.css',
             allChunks: true,
         }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'common',
+            filename: 'common.js',
+            minChunks: 2,
+        }),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': '"production"'
         }),
@@ -75,7 +80,7 @@ module.exports = {
             cache: false,
             minify: minifyHTML,
             template: './source-src/script.ejs', // 相对当前目录的
-            filename: '../layout/_partial/script.ejs' // 是相对生成目录source的
+            filename: '../layout/_partial/script.ejs', // 是相对生成目录source的
         }),
         new HtmlWebpackPlugin({
             inject: false,

@@ -1,4 +1,14 @@
 <script>
+    (function() {
+        var loadScript = function(path) {
+            var $script = document.createElement('script')
+            document.getElementsByTagName('body')[0].appendChild($script)
+            $script.setAttribute('src', path)
+        }
+        loadScript('/common.js')
+    })();
+</script>
+<script>
     <% var left = '<%=' %>
     <% var right = '%' %>
     <% var right2 = '>' %>
