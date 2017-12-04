@@ -18,10 +18,9 @@ after_script:
   - git init
   - git config user.name "xiaoyufei"
   - git config user.email "915724526@qq.com"
-  - git remote add origin git@github.com:XyyF/XyyF.github.io.git
   - git add .
   - git commit -m "Update docs"
-  - git push -u origin "https://${GH_TOKEN}@${GH_REF}" master:master
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
 # E: Build LifeCycle
 
 branches:

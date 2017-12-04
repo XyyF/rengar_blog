@@ -9,3 +9,6 @@ tags: travis-ci
 简化流程：自动部署：
 
     只需在rengar_blog仓库git push代码后，travis-ci就会自动执行提前设置的构建流程
+    
+v1.1 失败
+v1.2 失败
