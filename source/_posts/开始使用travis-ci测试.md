@@ -6,6 +6,11 @@ tags: travis-ci
 
 ## 现在开始使用travis-ci持续集成工具
 
+本文解决问题：
+- 为什么使用travis-ci
+- 如何配置travis-ci
+
+<!-- more -->
 持续集成：Continuous Integration，简称CI，即在一个项目中，任何人对代码库的任何改动，都会触发CI服务器自动对项目进行构建，自动运行测试，甚至自动部署到测试环境。这样做的好处就是，可以随时发现问题，随时修复。因为修复问题的成本随着时间的推移而增长，越早发现，修复的成本越低。
 
 travis-ci 是一个开源持续集成构建项目,简洁清新独树一帜,是github的好基友
@@ -13,8 +18,7 @@ travis-ci 是一个开源持续集成构建项目,简洁清新独树一帜,是gi
 目的：简化流程、自动部署
 
 只需在rengar_blog仓库git push代码后，travis-ci就会自动执行提前设置的构建流程,将hexo generate后的代码push到对应的io的repository下
-
-<!-- more -->    
+ 
 步骤：
 
     - 登录travis-ci官网注册账号，并且关联github账号,主界面如下，可以在红框处选择需要构建的repositories

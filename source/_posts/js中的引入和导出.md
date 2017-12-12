@@ -8,16 +8,22 @@ tags: javascript
 
 对于前端和node这些导入/导出区别，有时会经常搞混，现在我整理了一下，希望有所帮助
 
+本文解决的问题：
+- 各自的使用范围
+- exports + module.exports的不同
+- export default + export的不同
+- 为什么require可以在node和es6都可以使用，并且有的地方会使用require('xx').default调用
+
 <!-- more -->
-## 适用范围
-es6和node都适用：require
+## 适用范围(需要配置相应的babel)
+es6和node都适用：require + import
 node适用：exports + module.exports
 es6适用：export + export default
 
 所以这里着重说明两者的导出
 
 
-### exports + module.exports
+## node的exports + module.exports
 node模块在文件初始化的时候，会创建一个module对象和exports对象,大致关系如下：
 ``` bash
 module.exports = exports = {}
@@ -53,7 +59,7 @@ exports = module.exports = { ... }
 推荐统一使用module.exports，以免出错
 
 
-### export + export default
+## es6的export + export default
 * export与export default均可用于导出常量、函数、文件、模块等
 * export default 不能直接导出变量表达式
 * 在一个文件中export、import可以有多个，但是export default只能有一个
@@ -90,3 +96,64 @@ import * as testModule from './test'; //as 集合成对象导入
   console.log(testModule.default); // 100
 ```
 * 从上面可以看出export和export default是关联不大的两个导出方式
+
+## 为什么require和import可以在es6和commonjs规范中使用
+babel能够在打包前提前将es6的导出语法转化成commonjs规范，具体转化如下
+``` bash
+    es6导出模块：
+    export default = 'abc'
+    exporrt const a = 'a'
+    export {b: 4}
+    
+    babel转化后：
+    exports.default = 'abc'
+    exports.a = 'a'
+    exports.b = 4
+    exports.__esModule = true // 标记这个是由es6转化为commonjs输出
+    等价于
+    exports.module = {
+        default: 'abc',
+        a: 'a',
+        b: 4,
+        __esModule: true,
+    }
+```
+
+babel也能够在打包前提前将es6的导入语法转化成commonjs规范，具体转化如下
+``` bash
+    es6导入模块：
+    import a from './a.js' // 导入export default模块
+    import { a } from './a.js' // 导入export下的模块
+    import * as a from './a.js' // 导入所有没款
+    
+    babel转化后：
+    var a = require('./a.js').default // 引入export default模块
+    var a = require('./a.js').a
+    var a = require('./a.js')
+```
+这样require('xx')导入的为对象{default: 'abc', a: 'a', b: 4,...}
+这里也就解释了为什么有的地方会require('xx').default调用
+
+在commonjs规范中的require:
+``` bash
+    babel转化过程：
+    function _interopRequireWildcard(obj) {
+        if (obj && obj.__esModule) {
+            return obj;
+        }
+        else {
+            var newObj = {}; // (A)
+            if (obj != null) {
+                for (var key in obj) {
+                    if (Object.prototype.hasOwnProperty.call(obj, key))
+                        newObj[key] = obj[key];
+                }
+            }
+            newObj.default = obj;
+            return newObj;
+        }
+    }
+    如果是es6模块，直接返回obj,若是commonjs模块，需要添加一个default,并把整个对象赋值个default
+    所以es6中import a from './a.js'导入commonjs模块，即导入的是module.exports的值
+```
+所以import和require在es6和commonjs规范中可以互用
