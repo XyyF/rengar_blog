@@ -15,6 +15,7 @@ tags: javascript
 - 为什么require可以在node和es6都可以使用，并且有的地方会使用require('xx').default调用
 
 <!-- more -->
+
 ## 适用范围(需要配置相应的babel)
 es6和node都适用：require + import
 node适用：exports + module.exports

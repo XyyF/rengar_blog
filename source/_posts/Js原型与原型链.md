@@ -1,7 +1,7 @@
 ---
 title: Js原型与原型链
 date: 2017-11-06 08:34:27
-tags: javascript
+tags: javascriptgit
 ---
 
 # 基本关系-原型链
@@ -19,7 +19,7 @@ tags: javascript
     p1.constructor.prototype === Point.prototype
     p1.__proto__ === Point.prototype
     p2.__proto__ === Point.prototype
-```
+```              
 ### 总结关系图如下
 ![img](clipboard.png)
 \_\_proto\_\_返回实例对象的构造器的原型
