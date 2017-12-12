@@ -1,6 +1,6 @@
 12.4日记录：之前用了一周的时间去了解一些自动构建的工具
-    
-    最后决定使用travis-ci自动构建的工具来帮助自己实现持续集成CI(continuous intergration)
+测试git fetch
+    最后决定使用travis-ci自动构建的工具来帮助自己实现持续集成CI(continuous intergration)
     下面的步骤就可以简化为git push代码就行了
 [travis-ci导航](https://travis-ci.org/)
 
