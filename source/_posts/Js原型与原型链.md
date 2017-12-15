@@ -1,7 +1,7 @@
 ---
 title: Js原型与原型链
 date: 2017-11-06 08:34:27
-tags: javascriptgit
+tags: javascript
 ---
 
 # 基本关系-原型链
