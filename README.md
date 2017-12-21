@@ -1,3 +1,5 @@
+12.21日志：浏览了TypeScript，打算用ts重构部分代码
+
 12.4日记录：之前用了一周的时间去了解一些自动构建的工具
 
     最后决定使用travis-ci自动构建的工具来帮助自己实现持续集成CI(continuous intergration)
@@ -38,7 +40,7 @@ yarn 安装依赖包
 
 ### 目录
 source 目录下存放文章
-theme/yilia 目录下配置UI开发，请阅读相关README
+theme/yilia 目录下配置UI/功能开发
 hexo generate后有个public目录，存放本地开发和提交git的文件
 
 pit.md 文件下记录了一些遇到的坑，希望有所帮助

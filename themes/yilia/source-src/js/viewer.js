@@ -28,9 +28,18 @@ function init() {
 					title: title
 				})
 			})
-			var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
-				index: parseInt(i)
+			const gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+				index: parseInt(i),
+                history: false,
+                shareEl: false,
+                tapToClose: true,
+                fullscreenEl: false,
 			});
+            gallery.listen('close', function() {
+                if (location.search) {
+                    location.search.replace(/(#)?more/gi, '')
+                }
+            });
 			gallery.init()
 		}
 	})
