@@ -3,7 +3,7 @@
   var hasFriends = theme.smart_menu.friends
   var hasAboutme = theme.smart_menu.aboutme
 %>
-<div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
+<div class="tools-col" :class="{ 'show':isShow, 'hide': isFalse(isShow) }" @click="e => stop(e)">
   <div class="tools-nav header-menu">
     <% var count = 0%>
     <% for (var i in theme.smart_menu){ %>
@@ -17,26 +17,29 @@
     <% var divide = 100 / count + '%' %>
     <% for (var i in theme.smart_menu){ %>
       <% if(theme.smart_menu[i]){ %>
-      <li style="width: <%= divide %>" q-on="click: openSlider(e, '<%-i%>')"><a href="javascript:void(0)" q-class="active:<%-i%>"><%= theme.smart_menu[i] %></a></li>
+      <li style="width: <%= divide %>"
+          @click="e => openSlider(e, '<%-i%>')">
+          <a href="javascript:void(0)" :class="{ 'active': <%-i%> }"><%= theme.smart_menu[i] %></a>
+      </li>
       <% } %>
         <%}%>
     </ul>
   </div>
   <div class="tools-wrap">
     <%if(hasInnerArchive){%>
-    	<section class="tools-section tools-section-all" q-show="innerArchive">
+    	<section class="tools-section tools-section-all" v-show="innerArchive">
         <div class="search-wrap">
-          <input class="search-ipt" q-model="search" type="text" placeholder="find something…">
-          <i class="icon-search icon" q-show="search|isEmptyStr"></i>
-          <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
+          <input class="search-ipt" v-model="search" type="text" placeholder="find something…">
+          <i class="icon-search icon" v-show="isEmptyStr(search)"></i>
+          <i class="icon-close icon" v-show="isNotEmptyStr(search)" @click="e => clearChose(e)"></i>
         </div>
         <div class="widget tagcloud search-tag">
           <p class="search-tag-wording">tag:</p>
           <label class="search-switch">
-            <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
+            <input type="checkbox" @click="toggleTag()">
           </label>
-          <ul class="article-tag-list" q-show="showTags">
-            <% site.tags.forEach(function(tag, i){ %> 
+          <ul class="article-tag-list" v-show="showTags">
+            <% site.tags.forEach(function(tag, i){ %>
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color<%= tag.name.length % 5 + 1 %>"><%-tag.name%></a>
               </li>
@@ -45,10 +48,10 @@
           </ul>
         </div>
         <ul class="search-ul">
-          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
+          <p v-show="jsonFail" style="padding: 20px; font-size: 12px;">
             缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
-<pre style="font-size: 12px;" q-show="jsonFail">
+<pre style="font-size: 12px;" v-show="jsonFail">
   jsonContent:
     meta: false
     pages: false
@@ -69,15 +72,15 @@
       tags: true
 </pre>
           </p>
-          <li class="search-li" q-repeat="items" q-show="isShow">
-            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
+          <li class="search-li" v-for="tags in items" v-if="isShow">
+            <a class="search-title"><i class="icon-quo-left icon"></i><span v-text="tags.title"></span></a>
             <p class="search-time">
               <i class="icon-calendar icon"></i>
-              <span q-text="date|dateformat"></span>
+              <span v-text="dateformat(tags.date)"></span>
             </p>
             <p class="search-tag">
               <i class="icon-price-tags icon"></i>
-              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
+              <span v-for="tag in tags" @click="e => choseTag(e, tag.name)" v-text="tagformat(tag.name)"></span>
             </p>
           </li>
         </ul>
@@ -85,7 +88,7 @@
     <%}%>
 
     <%if(hasFriends){%>
-    	<section class="tools-section tools-section-friends" q-show="friends">
+    	<section class="tools-section tools-section-friends" v-show="friends">
   		<%if(theme.friends && theme.friends.length != 0){%>
         <ul class="search-ul">
           <% for (var i in theme.friends){ %>
@@ -99,12 +102,12 @@
     <%}%>
 
     <%if(hasAboutme){%>
-    	<section class="tools-section tools-section-me" q-show="aboutme">
+    	<section class="tools-section tools-section-me" v-show="aboutme">
   	  	<%if(theme.aboutme){%>
   	  		<div class="aboutme-wrap" id="js-aboutme"><%=theme.aboutme%></div>
   	  	<%}%>
     	</section>
     <%}%>
   </div>
-  
+
 </div>

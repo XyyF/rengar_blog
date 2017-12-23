@@ -1,23 +1,23 @@
 <%- partial('_partial/head') %>
 <body>
-  <div id="container" q-class="show:isCtnShow">
+<div id="container" :class="{ 'show': isShow }">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
-    <div class="left-col" q-class="show:isShow">
-      <%- partial('_partial/left-col', null, {cache: !config.relative_link}) %>
+    <div class="left-col" :class="{ 'show': isShow }">
+        <%- partial('_partial/left-col', null, {cache: !config.relative_link}) %>
     </div>
-    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
-      <%- partial('_partial/mobile-nav', null, {cache: !config.relative_link}) %>
-      <div id="wrapper" class="body-wrap">
-        <div class="menu-l">
-          <div class="canvas-wrap">
-            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
-          </div>
-          <div id="js-content" class="content-ll">
-            <%- body %>
-          </div>
+    <div class="mid-col" :class="{ 'show':isShow, 'hide': isFalse(isShow) }">
+        <%- partial('_partial/mobile-nav', null, {cache: !config.relative_link}) %>
+        <div id="wrapper" class="body-wrap">
+            <div class="menu-l">
+                <div class="canvas-wrap">
+                    <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+                </div>
+                <div id="js-content" class="content-ll">
+                    <%- body %>
+                </div>
+            </div>
         </div>
-      </div>
-      <%- partial('_partial/footer') %>
+        <%- partial('_partial/footer') %>
     </div>
     <%- partial('_partial/after-footer') %>
     <%- partial('_partial/tools') %>

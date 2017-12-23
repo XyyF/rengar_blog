@@ -2,7 +2,7 @@
 <nav id="mobile-nav">
   	<div class="overlay js-overlay" style="background: <%= theme.style && theme.style.header ? theme.style.header : defaultBg %>"></div>
 	<div class="btnctn js-mobile-btnctn">
-  		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
+  		<div class="slider-trigger list" @click="openSlider"><i class="icon icon-sort"></i></div>
 	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
@@ -20,7 +20,7 @@
 				<% count++ %>
 			<% } %>
 			<% var ulWidth = count > 2 ? '70%' : '50%' %>
-			
+
 			<nav class="header-nav">
 				<div class="social">
 					<% for (var i in theme.subnav){ %>
@@ -37,7 +37,7 @@
 		        <%}%>
 				</ul>
 			</nav>
-		</header>				
+		</header>
 	</div>
-	<div class="mobile-mask" style="display:none" q-show="isShow"></div>
+	<div class="mobile-mask" style="display:none" v-show="isShow"></div>
 </nav>

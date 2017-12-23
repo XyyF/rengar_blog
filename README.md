@@ -1,3 +1,5 @@
+12.24日志：引入vue的数据驱动机制，后打算使用强大的React，之后解决bug
+
 12.21日志：浏览了TypeScript，打算用ts重构部分代码
     解决：PhotoSwipe插件close时因锚链接滚动条跳转问题
 

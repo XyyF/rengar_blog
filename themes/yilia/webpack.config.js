@@ -1,14 +1,14 @@
-var webpack = require("webpack");
-var path = require('path');
-var autoprefixer = require('autoprefixer');
-var ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var CleanPluginPlugin = require('clean-webpack-plugin');
+const webpack = require("webpack");
+const path = require('path');
+const autoprefixer = require('autoprefixer');
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 // 模板压缩
 // 详见：https://github.com/kangax/html-minifier#options-quick-reference
 
-var minifyHTML = {
+let minifyHTML = {
     collapseInlineTagWhitespace: true,
     collapseWhitespace: true,
     minifyJS: true
@@ -61,17 +61,24 @@ module.exports = {
             options: {limit: 8192, name: '/assets/[name]_[hash:6].[ext]'}
         },]
     },
+    resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.common.js',
+        }
+    },
     plugins: [
         // 把css抽取出来，可以在html中优先加载
         new ExtractTextWebpackPlugin({
             filename: 'main.css',
             allChunks: true,
         }),
+        // 抽离公共组件
         new webpack.optimize.CommonsChunkPlugin({
             name: 'common',
             filename: 'common.js',
             minChunks: 2,
         }),
+        // 命名默认变量
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': '"production"'
         }),
@@ -95,6 +102,12 @@ module.exports = {
             minimize: true, // loader是否切换到优化模式
             debug: false, // loader 是否为 debug 模式。debug 在 webpack 3 中将被移除。
         }),
+        // 删除旧文件
+        new CleanWebpackPlugin(['./source/main_*.js', './source/slider_*.js', './mobile_*.js'], {
+            root: __dirname,
+            verbose: true,
+            dry: false
+        })
     ],
     watch: true
 }
@@ -115,11 +128,5 @@ if (process.env.NODE_ENV === 'production') {
             }
         }),
         new webpack.optimize.OccurenceOrderPlugin(),
-        // 删除旧文件
-        new CleanPluginPlugin(['source'], {
-            root: __dirname,
-            verbose: true,
-            dry: false
-        })
     ])
 }
