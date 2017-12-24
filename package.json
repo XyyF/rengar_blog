@@ -6,6 +6,7 @@
     "version": "3.4.0"
   },
   "dependencies": {
+    "bluebird": "^3.5.1",
     "hexo": "^3.2.0",
     "hexo-asset-image": "0.0.3",
     "hexo-deployer-git": "^0.3.1",
