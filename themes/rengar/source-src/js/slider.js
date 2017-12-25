@@ -17,6 +17,7 @@ let localTagKey = 'rengar-tag'
 let localSearchKey = 'rengar-search'
 const isMobile = (Browser.versions.mobile && window.screen.width < 800)
 
+// 日期格式确定
 function fixzero(str) {
     str = str + ''
     return str.length === 1 ? '0' + str : str
@@ -91,7 +92,7 @@ function init() {
                 // friends: '友情链接'
                 // aboutme: '关于我'
                 app.sliderSelected = type
-                app.type = true
+                type = true
                 app.isShow = true
                 app.isCtnShow = true
                 setScrollZero()
@@ -109,7 +110,7 @@ function init() {
                 let d = new Date(str)
                 return d.getFullYear() + '-' + fixzero((d.getMonth() + 1)) + '-' + fixzero(d.getDate())
             },
-            urlformat(str) {
+            urlForMat(str) {
                 if (window.yiliaConfig && window.yiliaConfig.root) {
                     return window.yiliaConfig.root + str
                 }
@@ -151,11 +152,7 @@ function init() {
                 }
             })
 
-            if ((type === 'title' && matchTitle) || (type === 'tag' && matchTags)) {
-                item.isShow = true
-            } else {
-                item.isShow = false
-            }
+            item.isShow = (type === 'title' && matchTitle) || (type === 'tag' && matchTags);
         })
         app.items = items
     }

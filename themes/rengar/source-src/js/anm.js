@@ -1,5 +1,5 @@
 function init() {
-    var width, height, largeHeader, canvas, ctx, circles, target, animateHeader = true;
+    let width, height, largeHeader, canvas, ctx, circles, target, animateHeader = true;
 
     // Main
     initHeader();
@@ -20,8 +20,8 @@ function init() {
 
         // create particles
         circles = [];
-        for(var x = 0; x < width*0.5; x++) {
-            var c = new Circle();
+        for(let x = 0; x < width*0.5; x++) {
+            const c = new Circle();
             circles.push(c);
         }
         animate();
@@ -34,8 +34,7 @@ function init() {
     }
 
     function scrollCheck() {
-        if(document.body.scrollTop > height) animateHeader = false;
-        else animateHeader = true;
+        animateHeader = (document.body.scrollTop <= height);
     }
 
     function resize() {
@@ -49,8 +48,10 @@ function init() {
     function animate() {
         if(animateHeader) {
             ctx.clearRect(0,0,width,height);
-            for(var i in circles) {
-                circles[i].draw();
+            for(let i in circles) {
+                if (circles.hasOwnProperty(i)) {
+                    circles[i].draw();
+                }
             }
         }
         requestAnimationFrame(animate);
@@ -58,7 +59,7 @@ function init() {
 
     // Canvas manipulation
     function Circle() {
-        var _this = this;
+        const _this = this;
 
         // constructor
         (function() {
