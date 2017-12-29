@@ -49,17 +49,18 @@ function init() {
                 jsonFail: false,
                 showTags: false,
                 search: '',
-                showDialog: false,
+                isShowDialog: false,
+                isContentLoading: true,
             }
         },
         methods: {
             // 点击联系我显示微信加好友
             showCallMe() {
-                this.showDialog = true
+                this.isShowDialog = true
             },
             // 隐藏dialog
             hiddenDialog() {
-                this.showDialog = false
+                this.isShowDialog = false
             },
             // 获取当前文章的url
             goToArchive(tag) {
@@ -137,7 +138,11 @@ function init() {
                 window.localStorage && window.localStorage.setItem(localSearchKey, val)
                 handleSearch(val)
             }
-        }
+        },
+        async mounted() {
+            // 防止页面先行显示出来
+            document.querySelector('#container').setAttribute('class', '')
+        },
     })
 
     function handleSearch(val) {
