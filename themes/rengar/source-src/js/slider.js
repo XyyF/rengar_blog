@@ -48,10 +48,19 @@ function init() {
                 items: [],
                 jsonFail: false,
                 showTags: false,
-                search: ''
+                search: '',
+                showDialog: false,
             }
         },
         methods: {
+            // 点击联系我显示微信加好友
+            showCallMe() {
+                this.showDialog = true
+            },
+            // 隐藏dialog
+            hiddenDialog() {
+                this.showDialog = false
+            },
             // 获取当前文章的url
             goToArchive(tag) {
                 const year = new Date(tag.date).getFullYear()

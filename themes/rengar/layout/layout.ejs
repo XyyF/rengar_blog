@@ -1,6 +1,11 @@
 <%- partial('_partial/head') %>
 <body>
 <div id="container" :class="{ 'show': isShow }">
+    <div class="dialog" v-show="showDialog">
+        <div
+            v-clickoutside="hiddenDialog"
+            class="img-rengar"></div>
+    </div>
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" :class="{ 'show': isShow }">
         <%- partial('_partial/left-col', null, {cache: !config.relative_link}) %>

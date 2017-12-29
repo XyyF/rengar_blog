@@ -1,3 +1,22 @@
+.dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(22, 22, 22, 0.4);
+}
+.img-rengar {
+    position: absolute;
+    width: 287px;
+    height: 287px;
+    top: 50%;
+    left: 50%;
+    margin-top: -144px;
+    margin-left: -144px;
+    background: url('./img/renagr.png');
+}
 .archives-wrap {
     position: relative;
     margin: 0 30px;
