@@ -1,4 +1,4 @@
-17.1.1日志：开发dialog组件、修复#container的class中的display-show对tools组件带来的bug
+17.1.1日志：开发dialog组件、修复#container的class中的display-show对tools组件带来的bug 
 
 12.29日志：添加联系我方式
 
