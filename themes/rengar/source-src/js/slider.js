@@ -5,6 +5,7 @@ import * as fetch from 'fetch-ie8'
 import {on} from 'utils/event'
 import clickoutside from 'common/vue_plugins/clickoutside'
 import sliderConst from 'common/slider_const'
+import Dialog from './dialog'
 
 // 动画
 import Anm from './anm'
@@ -37,6 +38,7 @@ function timeOutPromise(duration) {
 }
 
 function init() {
+
     const app = new Vue({
         el: '#container',
         data() {
@@ -49,18 +51,21 @@ function init() {
                 jsonFail: false,
                 showTags: false,
                 search: '',
-                isShowDialog: false,
                 isContentLoading: true,
+                renderContainer: true,
             }
+        },
+        components: {
+            [Dialog.name]: Dialog,
         },
         methods: {
             // 点击联系我显示微信加好友
             showCallMe() {
-                this.isShowDialog = true
+                this.$dialog.showDialog()
             },
             // 隐藏dialog
             hiddenDialog() {
-                this.isShowDialog = false
+                this.$dialog.hiddenDialog()
             },
             // 获取当前文章的url
             goToArchive(tag) {
@@ -141,7 +146,10 @@ function init() {
         },
         async mounted() {
             // 防止页面先行显示出来
-            document.querySelector('#container').setAttribute('class', '')
+            this.renderContainer = false
+            this.$nextTick(() => {
+                Vue.prototype.$dialog = this.$refs.dialog
+            })
         },
     })
 

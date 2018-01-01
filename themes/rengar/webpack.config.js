@@ -37,6 +37,9 @@ module.exports = {
                 cacheDirectory: true
             }
         }, {
+            test: /\.vue$/,
+            loader: 'vue-loader',
+        }, {
             test: /\.html$/,
             loader: 'html'
         }, {
