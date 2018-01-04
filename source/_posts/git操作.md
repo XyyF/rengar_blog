@@ -73,7 +73,7 @@ git commit -a -amend  #对最近的一次commit注释进行修改
 git push -u origin master  #第一次推送到远程库的master分支(-u代表初始化远程repo)
 git push origin master  #以后的推送
 git push origin <local-branch>  #推送本地分支到远程分支，远程分支跟本地同名(推送前，没有该命名的远程分支)
-git push origin <local-branch>:<remote-branch>  #推送本地分支到远程分支，并命名远程分支(推送前，没有该命名的远程分支)
+git push origin <local-branch>:<remote-branch>  #推送本地分支到远程分支
 git push origin :<remote-branch>  #删除远程分支（可以先git branch -d <local-brach>删除本地分支）
 
 // 回退版本

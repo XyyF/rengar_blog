@@ -65,10 +65,10 @@ const deepCopy = function(arr) {
 
 * Json方法
 JSON.parse(JSON.stringify(arr))
-* 数组的contact方法
-* 数组的slice方法
+* 数组的contact方法: arr.concat()
+* 数组的slice方法: arr.slice(0)
 * jquery的extend方法
-* 对象的Object.assign()方法
+* 对象的Object.assign()方法: Object.assign({}, obj1, obj2)
 
 
 # 总结：

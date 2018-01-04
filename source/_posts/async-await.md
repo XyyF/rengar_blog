@@ -23,7 +23,7 @@ async-await其实是es6的promise和generator的语法糖。
 
 用于函数前,表示该函数是一个异步函数;
 
-函数返回一个promise,所以函数内部接受resolve(),可以使用then链式调用;
+函数返回一个promise,所以函数内部接受resolve(),可以链式调用then;
 
 若没有resolve,可以接受return代表resolve(async才有的特性)。
 ``` bash
@@ -81,7 +81,7 @@ function async demo1() {
     Promise.all([dm1, dm2, dm3])
     return '123'
 }
-所以async-await有他的优点，但也不是能完全的代替promise
+所以async-await有它的优点，但也不是能完全的代替promise
 ```
 
 ## 我实际遇到过的问题
@@ -94,5 +94,3 @@ function async demo1() {
     })
 }
 ```
-
-若
