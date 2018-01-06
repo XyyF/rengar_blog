@@ -47,9 +47,9 @@ export default {
                 return
             }
             if (binding.expression && el[ctx].methodName && vnode.context[el[ctx].methodName]) {
-                vnode.context[el[ctx].methodName]()
+                vnode.context[el[ctx].methodName](mousedown)
             } else {
-                el[ctx].method()
+                el[ctx].method(mousedown)
             }
         }
         el[ctx] = {

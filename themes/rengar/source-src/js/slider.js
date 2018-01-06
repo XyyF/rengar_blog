@@ -45,6 +45,7 @@ function init() {
             return {
                 sliderConst,
                 isCtnShow: false,
+                // control tools组件显示
                 isShow: false,
                 sliderSelected: sliderConst.SLIDER_OPTIONS.CLOSE,
                 items: [],
@@ -52,7 +53,7 @@ function init() {
                 showTags: false,
                 search: '',
                 isContentLoading: true,
-                renderContainer: true,
+                renderContainer: false,
             }
         },
         components: {
@@ -75,8 +76,9 @@ function init() {
                 return `${window.yiliaConfig.root}${year}/${month + 1}/${date}/${tag.title}/`
             },
             // v-clickoutside点击tools自身以外触发事件
-            clickCloseTools() {
-                if (app.isShow) {
+            clickCloseTools(mouseDown) {
+                // 将mousedown事件的元素传入，判断'所有文章/友情链接/关于我'三个按钮
+                if (app.isShow && mouseDown.target.className !== 'click-show-tools') {
                     app.isShow = false
                     app.isCtnShow = false
                     app.sliderSelected = sliderConst.SLIDER_OPTIONS.CLOSE
@@ -146,7 +148,7 @@ function init() {
         },
         async mounted() {
             // 防止页面先行显示出来
-            this.renderContainer = false
+            this.renderContainer = true
             this.$nextTick(() => {
                 Vue.prototype.$dialog = this.$refs.dialog
             })

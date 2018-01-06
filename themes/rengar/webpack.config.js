@@ -90,6 +90,8 @@ module.exports = {
         // 命名默认变量
         new webpack.DefinePlugin({
             'process.env': {
+                // vue.js在正式环境显示错误提示
+                // NODE_ENV: '"development"',
                 // vue.js在正式环境不显示错误提示
                 NODE_ENV: '"production"',
             }
