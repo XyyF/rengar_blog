@@ -3,7 +3,9 @@ var hasInnerArchive = theme.smart_menu.innerArchive
 var hasFriends = theme.smart_menu.friends
 var hasAboutme = theme.smart_menu.aboutme
 %>
-<div class="tools-col" :class="{ 'show':isShow, 'hide': isFalse(isShow) }" @click="e => stop(e)">
+<div class="tools-col"
+     :class="{ 'tools-show': isShow, 'hide': !isShow }"
+     @click="e => stop(e)">
     <div class="tools-nav header-menu" v-show="isShow">
         <% var count = 0 %>
         <% for (var i in theme.smart_menu){ %>

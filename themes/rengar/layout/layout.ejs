@@ -1,12 +1,13 @@
 <%- partial('_partial/head') %>
 <body>
-<div id="container" class="container-none"
-     :class="{ 'show': isShow, 'container-show': renderContainer }">
+<div id="container"
+     class="container-none"
+     :class="{ 'tools-show': isShow, 'container-show': renderContainer }">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
-    <div class="left-col" :class="{ 'show': isShow }">
+    <div class="left-col" :class="{ 'tools-show': isShow }">
         <%- partial('_partial/left-col', null, {cache: !config.relative_link}) %>
     </div>
-    <div class="mid-col" :class="{ 'show':isShow, 'hide': isFalse(isShow) }">
+    <div class="mid-col" :class="{ 'tools-show':isShow, 'hide': isFalse(isShow) }">
         <%- partial('_partial/mobile-nav', null, {cache: !config.relative_link}) %>
         <div id="wrapper" class="body-wrap">
             <div class="menu-l">

@@ -46,7 +46,7 @@ html, body, #container {
     left: 300px;
     width: auto;
     @extend %trans;
-    &.show {
+    &.tools-show {
         background: none;
         opacity: .9;
         @extend %anmLeftIn;
