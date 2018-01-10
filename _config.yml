@@ -2,6 +2,8 @@
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
 
+# 开发时,以config调用
+
 # Site
 title: XyyF的博客
 subtitle: 肖y斐
@@ -45,7 +47,7 @@ external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
 post_asset_folder: true
-relative_link: false
+relative_link: true # 开启cache配置
 highlight:
   enable: true
   auto_detect: true
