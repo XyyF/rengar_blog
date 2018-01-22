@@ -27,6 +27,9 @@ tags: http
 - 401 Unauthorized：请求未经授权，这个状态代码必须和WWW-Authenticate报头域一起使用 
 - 403 Forbidden：对被请求页面的访问被禁止 
 - 404 Not Found：请求资源不存在 
+- 405 需要访问的资源被禁止
+- 407 访问的资源需要代理身份验证
+- 414 请求的URL太长
 - 5XX：服务错误-服务器未能实现合法的请求
 - 500 Internal Server Error：服务器发生不可预期的错误原来缓冲的文档还可以继续使用 
 - 503 Server Unavailable：请求未完成，服务器临时过载或当机，一段事件后恢复正常
