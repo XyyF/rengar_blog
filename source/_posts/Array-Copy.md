@@ -10,6 +10,7 @@ tags: javascript
 对于前端的深浅拷贝问题，面试一直是热门的话题，在这里总结一下，希望有所帮助
 
 本文解决问问题：
+- 基本类型和引用类型
 - 浅拷贝原理
 - 深拷贝原理
 - 一些浅/深拷贝的方法
@@ -21,18 +22,18 @@ tags: javascript
 深拷贝：传递的是值，一个改变，另一个不改变
 总之两个最根本的区别就是是否传递的是值
 
-## 变量类型
+## 基本类型和引用类型
 说到这儿，不得不说一下js里的变量类型
 分为基本类型+引用类型
 基本类型有number、string、boolean、null、undefined、es6的symbol
-引用类型统称为Object，细分下有Array、Function、Object等
+引用类型细分下有Array、Function、Object等
 
-基本类型在内存中是用栈保存键名+值的
+基本类型在栈内存中保存变量名 -> 值的
 ![img](baseType.png)
 
-引用类型在内存中是用栈保存键名+地址，用堆保存值的
+引用类型在堆内存中保存值的，然后再用栈内存保存键名 -> 地址的映射
 ![img](referenceType.png)
-引用类型才会存在浅拷贝
+引用类型才会存在浅拷贝(栈内存保存的是映射关系，堆内存保存的是值)
 
 基本类型的复制原理：
 ![img](baseCopy.png)
@@ -78,5 +79,4 @@ Array 的 slice 和 concat 方法 和 jQuery 中的 extend 复制方法，他们
 
 最基本的for循环也是深拷贝
 
-JSON.parse(JSON.stringify(test))完全的深拷贝
-弊端：无法复制函数+原型链没了
+JSON.parse(JSON.stringify(test))是忽视原型链的深拷贝
