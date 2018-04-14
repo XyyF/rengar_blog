@@ -23,7 +23,7 @@
 
 # rengar的博客备份
 
-地址：xyyfui.club
+地址：xyfui.club
 
 hexo配置说明：[hexo](https://hexo.io/zh-cn/docs/configuration.html)
 
