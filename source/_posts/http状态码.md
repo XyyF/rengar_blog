@@ -55,7 +55,32 @@ tcp：面向连接的传输层协议(对应不稳定的UDP传输协议)
 - 与建立连接相似，只不过是**FIN/ACK**字段
 ![img](http_4.png)
 
-## http状态码
+## 发送请求
+http(应用层协议)的本质是TCP(面向连接的传输层协议)/IP协议簇（对应UDP）
+
+扩展：
+#### get与post请求
+
+- GET参数通过URL传递，POST放在Request body中,因此GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传敏感信息
+- GET在浏览器回退时是无害的，而POST会再次提交请求
+- GET产生的URL地址可以被收藏，而POST不可以
+- GET请求会被浏览器主动缓存，而POST不会，除非手动设置
+- GET请求只能进行URL编码，而POST支持多种编码方式
+- GET请求参数会被完整保留在浏览器历史记录里，而POST中的参数不会被保留
+- GET请求在URL中传送的参数是有长度限制的，而POST没有长度限制
+- 对参数的数据类型，GET只能请求ASCII字符，而POST没有限制
+
+- GET请求会产生一个tcp数据包，将headers和data一起发送
+- POST请求会产生两个tcp数据包，先发送headers，服务器响应后，在发送data
+
+#### 五层Inter模型：
+- 应用层：dns解析，发送http请求
+- 传输层：建立TCP连接
+- 网络层：IP寻址
+- 数据链路层：将数据封装成帧
+- 物理层：数据通过各种物理介质传输
+
+#### http状态码
 
 - **1XX：指示信息-表示请求已接受，继续处理** 
 - **2XX：成功-表示请求已被成功接收**
@@ -77,19 +102,3 @@ tcp：面向连接的传输层协议(对应不稳定的UDP传输协议)
 - 500 Internal Server Error：服务器发生不可预期的错误原来缓冲的文档还可以继续使用 
 - 503 Server Unavailable：请求未完成，服务器临时过载或当机，一段事件后恢复正常
 
-## http请求
-
-
-## get与post请求
-
-- GET参数通过URL传递，POST放在Request body中,因此GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传敏感信息
-- GET在浏览器回退时是无害的，而POST会再次提交请求
-- GET产生的URL地址可以被收藏，而POST不可以
-- GET请求会被浏览器主动缓存，而POST不会，除非手动设置
-- GET请求只能进行URL编码，而POST支持多种编码方式
-- GET请求参数会被完整保留在浏览器历史记录里，而POST中的参数不会被保留
-- GET请求在URL中传送的参数是有长度限制的，而POST没有长度限制
-- 对参数的数据类型，GET只能请求ASCII字符，而POST没有限制
-
-- GET请求会产生一个tcp数据包，将headers和data一起发送
-- POST请求会产生两个tcp数据包，先发送headers，服务器响应后，在发送data
