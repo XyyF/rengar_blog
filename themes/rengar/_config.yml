@@ -84,6 +84,7 @@ changyan_conf: false
 disqus: false
 
 #5 gitment
+enable: true
 gitment_owner: 29220339
 gitment_repo: 'XyyF.github.io'
 gitment_oauth:
