@@ -83,6 +83,13 @@ changyan_conf: false
 #4、Disqus 在hexo根目录的config里也有disqus_shortname字段，优先使用yilia的
 disqus: false
 
+#5 gitment
+gitment_owner: 29220339
+gitment_repo: 'XyyF.github.io'
+gitment_oauth:
+    client_id: 49eac8228181b2222d57
+    client_secret: 96ecc2513c58eebbb14e304c344a322da5b73dee
+
 # 样式定制 - 一般不需要修改，除非有很强的定制欲望…
 style:
   # 头像上面的背景颜色
