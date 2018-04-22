@@ -3,6 +3,7 @@
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
     var gitment = new Gitment({
+        id: window.location.pathname,
         owner: '<%= theme.gitment.gitment_owner %>',
         repo: '<%= theme.gitment.gitment_repo %>',
         oauth: {
