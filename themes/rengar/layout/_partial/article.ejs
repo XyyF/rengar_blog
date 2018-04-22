@@ -87,7 +87,7 @@
       url: config.url+url_for(post.path)
     }) %>
   <% } %>
-  
+
   <% if (theme.wangyiyun){ %>
   <%- partial('post/wangyiyun', {
       key: post.slug,
@@ -122,7 +122,7 @@
     </section>
   <% } %>
 
-  <% if (theme.gitment_owner && theme.gitment_repo &&theme.gitment_oauth && theme.gitment_oauth.client_id && theme.gitment_oauth.client_secret){ %>
+  <% if (theme.gitment.enable && theme.gitment.gitment_owner && theme.gitment.gitment_repo  && theme.gitment.client_id && theme.gitment.client_secret) { %>
   <%- partial('post/gitment', {
       key: post.slug,
       title: post.title,
