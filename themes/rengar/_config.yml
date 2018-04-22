@@ -88,8 +88,8 @@ gitment:
     enable: true
     gitment_owner: 'XyyF'
     gitment_repo: 'XyyF.github.io'
-    client_id: 49eac8228181b2222d57
-    client_secret: 96ecc2513c58eebbb14e304c344a322da5b73dee
+    client_id: '49eac8228181b2222d57'
+    client_secret: '96ecc2513c58eebbb14e304c344a322da5b73dee'
 
 # 样式定制 - 一般不需要修改，除非有很强的定制欲望…
 style:
