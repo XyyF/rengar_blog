@@ -1,3 +1,5 @@
+18.4.22日志：使用gitment库，评论在issues中保存
+
 18.1.6日志：修复tools组件配合v-clioutside指令产生的条件重置bug、修复container先加载出页面再加载animation的问题。
 
 18.1.1日志：开发dialog组件、修复#container的class中的display-show对tools组件带来的bug 
