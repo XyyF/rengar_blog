@@ -29,7 +29,7 @@ Promise的一些特性：
 
 ## async-await含义和使用
 
-async-await其实是es6的promise和generator的语法糖。
+async-await其实是es6的Promise和Generator的语法糖。
 
 - async:
 
