@@ -62,7 +62,7 @@ favicon: /assets/img/favicon.ico
 avatar: /assets/blogImg/rengar.png
 
 #是否开启分享
-share_jia: true
+share_jia: false
 
 mobile:
   social: true
