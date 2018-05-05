@@ -27,31 +27,6 @@ Promise的一些特性：
    - 不可中断：Promise一旦创建,除非其状态改变，否则无法中止；
    - 状态不可逆：Promise有着pending、resolve、reject三种状态，其状态一旦改变就无法再次改变。
 
-## Generator生成器
-
-What：Generator译为生产器，会返回一个iterator迭代器
-定义：
-``` javascript
-funcion* createGenerator(item) {
-yield 1
-yield 2 + item
-return 3
-}
-const iterator = createGenerator()
-iterator.next() // {value: 1, done: false}
-iterator.next(2) // {value: 4, done: false}
-iterator.next() // {value: 3, done: true}
-iterator.next() // {value: undefined, done: true}
-
-for (let item of iterator) {
-console.log(item) // 1、4、3；return不会执行；不必调用next()
-}
-```
-
-Why：Generator就像是休眠机制一样，只有调用next()才会执行到下一个yield，所以说它是惰性的。
-
-How：应用：最大的应用莫过于js异步处理了。ES7的async/await就是Generator和Promise的语法糖了，结合以下是不是感觉很相似？
-
 ## async-await含义和使用
 
 async-await其实是es6的Promise和Generator的语法糖。
