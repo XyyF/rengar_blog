@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="">
+</head>
+<body>
+<div class="mls-info">
+    <div>
+        <div class="copyright-content"></div>
+    </div>
+</div>
+<script>
+    class Node {
+        constructor(node) {
+            this.rootNode = node
+        }
+
+        nextNode(node) {
+            let value = node.value
+            const hasNext = node.hasNext
+            if (!value) {
+                return null
+            }
+            // 优先遍历子节点
+            if (hasNext && value.children.length) {
+                return value.children[0]
+            }
+            // 只会遍历根节点的子节点
+            // 然后遍历兄弟节点
+            if (this.rootNode !== value && value.nextElementSibling) {
+                return value.nextElementSibling
+            }
+            // 最后遍历父节点的兄弟节点，因为父节点已经被遍历过了
+            while (hasNext && value.parentNode) {
+                // 只会遍历根节点的子节点
+                if (this.rootNode !== value.parentNode && value.parentNode.nextElementSibling) {
+                    return value.parentNode.nextElementSibling
+                }
+                value = value.parentNode
+            }
+            return null
+        }
+
+        nextSelectorNode(node, selector) {
+            return {
+                'child': {value: this.nextNode({value: node.value, hasNext: false}), hasNext: false},
+                'descendant': {value: this.nextNode({value: node.value, hasNext: true}), hasNext: true},
+                'subSelector': {value: this.nextNode({value: node.value, hasNext: true}), hasNext: true},
+            }[selector.relation]
+        }
+
+        static match(node, selector) {
+            return {
+                'class': node.className.trim().split(/ +/).indexOf(selector.value) >= 0,
+                'tag': node.tagName.toLowerCase() === selector.value.toLowerCase(),
+            }[selector.matchType]
+        }
+
+        querySelector(selectors) {
+            let node = {value: this.rootNode, hasNext: true}
+            let matchArr = []
+            for (let i = 0; i < selectors.length; i++) {
+                while (node.value) {
+                    node = this.nextSelectorNode(node, selectors[i])
+                    if (node.value && Node.match(node.value, selectors[i])) {
+                        matchArr.push(node)
+                        break
+                    }
+                }
+            }
+            if (matchArr.length === selectors.length) {
+                return node.value
+            }
+            return null
+        }
+    }
+
+    //把selector解析为 .mls-info > div .copyright-content
+    const selectors = [
+        {relation: 'subSelector', matchType: 'class', value: 'mls-info'},
+        {relation: 'child', matchType: 'tag', value: 'div'},
+        {relation: 'descendant', matchType: 'class', value: 'copyright-content'},
+    ]
+
+    const nodeObj = new Node(document)
+    console.log(nodeObj.querySelector(selectors))
+</script>
+</body>
+</html>
