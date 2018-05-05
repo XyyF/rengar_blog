@@ -24,6 +24,7 @@ function fixzero(str) {
     return str.length === 1 ? '0' + str : str
 }
 
+// 滚动条置顶
 function setScrollZero() {
     let $sct = document.querySelectorAll('.tools-section')
     $sct.forEach((em) => {
@@ -31,6 +32,7 @@ function setScrollZero() {
     })
 }
 
+// 延时执行
 function timeOutPromise(duration) {
     return new Promise(resolve => {
         setTimeout(resolve, duration)

@@ -19,8 +19,8 @@ let minifyHTML = {
 
 module.exports = {
     entry: {
-        main: "./source-src/js/main.js",
-        slider: "./source-src/js/slider.js",
+        main: "./source-src/js/main.js", // 工具类
+        slider: "./source-src/js/slider.js", // 基本入口
         mobile: ["babel-polyfill", "./source-src/js/mobile.js"],
     },
     output: {
