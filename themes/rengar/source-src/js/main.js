@@ -7,7 +7,7 @@ import Share from './share'
 // 边缘
 import Gotop from './gotop'
 // 评论
-// import Gitment from './gitment'
+import Gitment from './gitment'
 
 import {addLoadEvent} from './util'
 
@@ -15,5 +15,5 @@ addLoadEvent(function() {
 	new Share().init()
 	new Viewer().init()
 	new Gotop().init()
-    // new Gitment().init()
+    new Gitment().init()
 })

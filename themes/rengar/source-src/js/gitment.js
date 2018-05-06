@@ -1,4 +1,4 @@
-import GitMent from 'gitment'
+import GitMent from 'rengar-gitment2'
 
 class Gitment {
     constructor() {}
