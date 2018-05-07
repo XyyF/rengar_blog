@@ -1,5 +1,5 @@
 ---
-title: transltes_1
+title: 翻译文章
 date: 2018-05-07 13:49:38
 tags: 翻译系列
 ---
