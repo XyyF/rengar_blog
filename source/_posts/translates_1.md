@@ -9,7 +9,7 @@ tags: 翻译系列
 翻译系列
 [原文连接](https://medium.freecodecamp.org/here-are-examples-of-everything-new-in-ecmascript-2016-2017-and-2018-d52fa3b5a70e)(ps：需要翻墙)
 
-[!img](translates_1_1.jpg)
+![img](translates_1_1.jpg)
 
 <!-- more -->
 
@@ -21,21 +21,21 @@ tags: 翻译系列
 
 ### 好, 让我们一个一个认识它们.
 
-[!ECMAScript](translates_1_2.png)
+![ECMAScript](translates_1_2.png)
 
 ## 1.Array.prototype.includes
 includes是Array上一个十分简单的实例方法，并且有助于快速找到一个item是否在Array中(包括NaN不像IndexOf那样)
 
-[!ECMAScript 2016 or ES7 — Array.prototype.includes()](translates_1_3.png)
+![ECMAScript 2016 or ES7 — Array.prototype.includes()](translates_1_3.png)
 
 > 趣事：JavaScript规范人员想要命名它为contains，但是这个早已被Mootools使用了，所以他们使用了includes。
 
 ## 2.Exponentiation infix operator(乘方中缀操作符)
 数学操作符中的加法和减法分别拥有中缀操作符+和-。类似的，中缀操作符**通常被用作指数操作符。在ECMAScript 2016中，**被Math.pow()代替。
-[!Exponentiation infix operator](translates_1_4.png)
+![Exponentiation infix operator](translates_1_4.png)
 
 
-[!ECMAScript 2017](translates_1_5.png)
+![ECMAScript 2017](translates_1_5.png)
 ## 1.Object.values()
 Object.values()是一个类似于Object.keys()的新方法，但是却返回的是对象中不包括原型链的值。
-[!ECMAScript 2017 (ES8)— Object.values()](translates_1_6.png)
+![ECMAScript 2017 (ES8)— Object.values()](translates_1_6.png)

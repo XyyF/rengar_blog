@@ -14,7 +14,7 @@ tags: react
 
 ### React生命周期
 如图：
-[!img](react_1.png)
+![img](react_1.png)
 有如下4种情况：
 - 第一次加载(如ctrl+F4)：
 ``` bash
