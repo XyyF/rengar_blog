@@ -119,4 +119,17 @@ AFTER...
 
 ![ECMAScript 2017 (ES8) — Object.getOwnPropertyDescriptors](translates_1_12.png)
 
-## 5.Add trailing commas in the function parameters
+## 5.Add trailing commas in the function parameters(在函数参数的末尾中添加逗号)
+这是一个小更新，允许在函数参数的末尾添加逗号。为什么这样呢？这是为了像git这样的工具更好的管理代码。
+
+下面的例子展示了问题和解决方案。
+![ECMAScript 2017 (ES 8) — Trailing comma in function paramameter](translates_1_13.png)
+
+> Note:你同样可以整个函数的参数都是用末尾逗号
+
+## 6.Async/Await
+
+单词收集：
+| Word  | Mean |
+| ------------- | ------------- |
+| commas  | 逗号  |
