@@ -13,6 +13,10 @@ tags: 翻译系列
 
 <!-- more -->
 
+**目录 (Table of Contents)**
+###ECMAScript 2016
+- [Array.prototype.includes](/#1-Array-prototype-includes)
+
 对于保持跟进JavaScript(ECMAScript)中的新内容是困难的，并且更难的是找到有用的代码示例。
 
 所以在这篇文章，我将介绍被[TC39采纳的建议](https://github.com/tc39/proposals/blob/master/finished-proposals.md)并且添加在ES2016、ES2017和ES2018 (final draft)中的所有18项功能，并向展示它们一些有用的例子。
@@ -128,6 +132,9 @@ AFTER...
 > Note:你同样可以整个函数的参数都是用末尾逗号
 
 ## 6.Async/Await
+如果你问我这是什么，我会告诉你这是到目前为止最重要并且最有用的部分。Async函数使我们不用去处理回调地狱了，并且使整个代码看起来很简洁。
+
+`async`关键字告诉JavaScript编译器以不同于一般函数来对待。
 
 单词收集：
 | Word  | Mean |
