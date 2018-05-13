@@ -56,12 +56,19 @@ function init() {
                 search: '',
                 isContentLoading: true,
                 renderContainer: false,
+                showCatalog: false,
             }
         },
         components: {
             [Dialog.name]: Dialog,
         },
+        computed: {
+        },
         methods: {
+            // 点击显示目录
+            clickCatalog() {
+                this.showCatalog = !this.showCatalog
+            },
             // 点击联系我显示微信加好友
             showCallMe() {
                 this.$dialog.showDialog()

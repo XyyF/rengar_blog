@@ -1,0 +1,24 @@
+<div
+    @click="clickCatalog"
+    id="article__catalog--js">
+    <div class="catalog__label">
+            <span
+                :class="{'cancel': showCatalog}"
+                class="label__bread label__bread-top">
+                <span class="label__bread-crust-top"></span>
+            </span>
+        <span
+            :class="{'cancel': showCatalog}"
+            class="label__bread label__bread-bottom">
+                <span class="label__bread-crust-bottom"></span>
+            </span>
+    </div>
+
+    <transition name="catalog-list-transition">
+        <div class="article__catalog-list" v-show="showCatalog">
+            <%- toc(page.content) %>
+        </div>
+    </transition>
+</div>
+
+

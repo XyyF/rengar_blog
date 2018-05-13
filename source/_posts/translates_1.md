@@ -13,38 +13,36 @@ tags: 翻译系列
 
 <!-- more -->
 
-**目录 (Table of Contents)**
-###ECMAScript 2016
-- [Array.prototype.includes](/#1-Array-prototype-includes)
-
 对于保持跟进JavaScript(ECMAScript)中的新内容是困难的，并且更难的是找到有用的代码示例。
 
 所以在这篇文章，我将介绍被[TC39采纳的建议](https://github.com/tc39/proposals/blob/master/finished-proposals.md)并且添加在ES2016、ES2017和ES2018 (final draft)中的所有18项功能，并向展示它们一些有用的例子。
 
 > 这是一个很长的文章但是易于读。想象这篇文章为“Netflix binge reading。”在篇文章的最后，我保证你会收获大量关于这些功能的知识。
 
-### 好, 让我们一个一个认识它们.
+好, 让我们一个一个认识它们.
 
 ![ECMAScript](translates_1_2.png)
 
-## 1.Array.prototype.includes
+# ECMAScript 2016
+## Array.prototype.includes
 includes是Array上一个十分简单的实例方法，并且有助于快速找到一个item是否在Array中(包括NaN不像IndexOf那样)
 
 ![ECMAScript 2016 or ES7 — Array.prototype.includes()](translates_1_3.png)
 
 > 趣事：JavaScript规范人员想要命名它为contains，但是这个早已被Mootools使用了，所以他们使用了includes。
 
-## 2.Exponentiation infix operator(乘方中缀操作符)
+## Exponentiation infix operator(乘方中缀操作符)
 数学操作符中的加法和减法分别拥有中缀操作符+和-。类似的，中缀操作符**通常被用作指数操作符。在ECMAScript 2016中，**被Math.pow()代替。
 ![Exponentiation infix operator](translates_1_4.png)
 
 
 ![ECMAScript 2017](translates_1_5.png)
-## 1.Object.values()
+# ECMAScript 2017
+## Object.values()
 Object.values()是一个类似于Object.keys()的新方法，但是返回的是对象中不包括原型链的值。
 ![ECMAScript 2017 (ES8)— Object.values()](translates_1_6.png)
 
-## 2.Object.entries()
+## Object.entries()
 Object.entries()跟Object.keys()有关，但是不同于仅返回键名，该方法以数组的形式返回所有的键名和键值。这使得它做像在循环中使用对象或者将对象转化为映射十分简单。
 Example 1:(for of 中使用)
 ![ECMAScript 2017 (ES8) — Using Object.entries() in loops](translates_1_7.png)
@@ -52,7 +50,7 @@ Example 1:(for of 中使用)
 Example 2:(new Map()中使用)
 ![ECMAScript 2017 (ES8) — Using Object.entries() to convert Object to Map](translates_1_8.png)
 
-## 3.String padding
+## String padding
 两个实例方法被添加到String对象--分别是String.prototype.padStart 和 String.prototype.padEnd--允许在原字符串的首端或者末端添加在空字符串或者其他字符串。
 ``` javascript
 // 语法
@@ -65,11 +63,11 @@ Example 2:(new Map()中使用)
 ```
 > 当我们想要显示漂亮的打印或者终端打印的场景下，这就十分有用了
 
-### 3.1 padStart example:
+### padStart example:
 在开始下面的实例之前，我们准备一个长度可变的number[]。我们打算在首端预置0，这样就所有的item就都显示出10个数字的长度。我们可以使用`padStart(10, '0')`来简单实现。
 ![ECMAScript 2017 — padStart example](translates_1_9.png)
 
-### 3.2 padEnd example:
+### padEnd example:
 `padEnd`真正的有用的地方是，当我们想以右对齐打印一个包含多个项且长度可变的数组的值的时候。
 
 下面的实例很好的展示了如何同时使用`padEnd`、`padStart`，和`Object.entries()`去产生一个漂亮的输出。
@@ -92,7 +90,7 @@ Object.entries(cars).map(([name, count]) => {
 // 🚖Lamborghini - - -  Count: 000
 ```
 
-### 3.3 ⚠️padStart and padEnd on Emojis and other double-byte chars(padStart和padEnd作用在表情符号和其他双字节字符)
+### ⚠️padStart and padEnd on Emojis and other double-byte chars(padStart和padEnd作用在表情符号和其他双字节字符)
 表情符号和其他双字节符号使用多个字节的unicode表示，所以padStart和padEnd可能不会表现的如预期一般。
 
 举个例子：让我们来尝试将用❤️表情符号将字符串'heart'填充到10个字节。结果将会看起来是下面这样：
@@ -108,7 +106,7 @@ PS: 你可以使用此[连接](https://encoder.internetwache.org/#tab_uni)来检
 
 个人批注：若字符串的长度大于等于numberOfCharcters时，返回的结果是原字符串。
 
-## 4. Object.getOwnPropertyDescriptors
+## Object.getOwnPropertyDescriptors
 该方法返回给定对象上所有属性的细节（包括getter和setter方法）。添加该方法的主要动机是允许浅拷贝/复制一个对象到另一个对象的同时也可以将getter和setter方法拷贝，不像Object.assign。
 
 **Object.assign浅拷贝原对象除了getter和setter方法的所有属性。**
@@ -123,7 +121,7 @@ AFTER...
 
 ![ECMAScript 2017 (ES8) — Object.getOwnPropertyDescriptors](translates_1_12.png)
 
-## 5.Add trailing commas in the function parameters(在函数参数的末尾中添加逗号)
+## Add trailing commas in the function parameters(在函数参数的末尾中添加逗号)
 这是一个小更新，允许在函数参数的末尾添加逗号。为什么这样呢？这是为了像git这样的工具更好的管理代码。
 
 下面的例子展示了问题和解决方案。
@@ -131,7 +129,7 @@ AFTER...
 
 > Note:你同样可以整个函数的参数都是用末尾逗号
 
-## 6.Async/Await
+## Async/Await
 如果你问我这是什么，我会告诉你这是到目前为止最重要并且最有用的部分。Async函数使我们不用去处理回调地狱了，并且使整个代码看起来很简洁。
 
 `async`关键字告诉JavaScript编译器以不同于一般函数来对待。
