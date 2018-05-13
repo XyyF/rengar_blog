@@ -23,15 +23,6 @@ tags: 翻译系列
 
 ![ECMAScript](translates_1_2.png)
 
-**目录 (Table of Contents)**
-
-[TOCM]
-
-[TOC]
-
-# ECMAScript 2016
-## 1.Array.prototype.includes
-
 ## 1.Array.prototype.includes
 includes是Array上一个十分简单的实例方法，并且有助于快速找到一个item是否在Array中(包括NaN不像IndexOf那样)
 
@@ -52,10 +43,10 @@ Object.values()是一个类似于Object.keys()的新方法，但是返回的是�
 ## 2.Object.entries()
 Object.entries()跟Object.keys()有关，但是不同于仅返回键名，该方法以数组的形式返回所有的键名和键值。这使得它做像在循环中使用对象或者将对象转化为映射十分简单。
 Example 1:(for of 中使用)
-![ECMAScript 2017 (ES8) — Using Object.entries() in loops]
+![ECMAScript 2017 (ES8) — Using Object.entries() in loops](translates_1_7.png)
 
 Example 2:(new Map()中使用)
-![ECMAScript 2017 (ES8) — Using Object.entries() to convert Object to Map]
+![ECMAScript 2017 (ES8) — Using Object.entries() to convert Object to Map](translates_1_8.png)
 
 ## 3.String padding
 两个实例方法被添加到String对象--分别是String.prototype.padStart 和 String.prototype.padEnd--允许在原字符串的首端或者末端添加在空字符串或者其他字符串。
@@ -72,13 +63,13 @@ Example 2:(new Map()中使用)
 
 ### 3.1 padStart example:
 在开始下面的实例之前，我们准备一个长度可变的number[]。我们打算在首端预置0，这样就所有的item就都显示出10个数字的长度。我们可以使用`padStart(10, '0')`来简单实现。
-![ECMAScript 2017 — padStart example]
+![ECMAScript 2017 — padStart example](translates_1_9.png)
 
 ### 3.2 padEnd example:
 `padEnd`真正的有用的地方是，当我们想以右对齐打印一个包含多个项且长度可变的数组的值的时候。
 
 下面的实例很好的展示了如何同时使用`padEnd`、`padStart`，和`Object.entries()`去产生一个漂亮的输出。
-![ECMAScript 2017 — padEnd, padStart and Object.Entries example]
+![ECMAScript 2017 — padEnd, padStart and Object.Entries example](translates_1_10.png)
 
 ``` javascript
 const cars = {
@@ -114,4 +105,18 @@ PS: 你可以使用此[连接](https://encoder.internetwache.org/#tab_uni)来检
 个人批注：若字符串的长度大于等于numberOfCharcters时，返回的结果是原字符串。
 
 ## 4. Object.getOwnPropertyDescriptors
-该方法返回给定对象上所有属性的细节（包括getter和setter方法）。添加该方法的主要动机是
+该方法返回给定对象上所有属性的细节（包括getter和setter方法）。添加该方法的主要动机是允许浅拷贝/复制一个对象到另一个对象的同时也可以将getter和setter方法拷贝，不像Object.assign。
+
+**Object.assign浅拷贝原对象除了getter和setter方法的所有属性。**
+
+下面的例子展示了分别使用`Object.assign`和`Object.getOwnerPropertyDescriptors`连同`Object.defineProperties`一起来拷贝原对象`Car`到一个新的对象`ElectricCar`。你将会发现，通过使用`Object.getOwnerPropertyDescriptors`将`discount`属性的getter和setter方法同样拷贝到了目标对象。
+
+BEFORE...
+
+![Before — Using Object.assign](translates_1_11.png)
+
+AFTER...
+
+![ECMAScript 2017 (ES8) — Object.getOwnPropertyDescriptors](translates_1_12.png)
+
+## 5.Add trailing commas in the function parameters
