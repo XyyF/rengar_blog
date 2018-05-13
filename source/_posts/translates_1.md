@@ -29,6 +29,9 @@ tags: 翻译系列
 
 [TOC]
 
+# ECMAScript 2016
+## 1.Array.prototype.includes
+
 ## 1.Array.prototype.includes
 includes是Array上一个十分简单的实例方法，并且有助于快速找到一个item是否在Array中(包括NaN不像IndexOf那样)
 
@@ -97,7 +100,7 @@ Object.entries(cars).map(([name, count]) => {
 ### 3.3 ⚠️padStart and padEnd on Emojis and other double-byte chars(padStart和padEnd作用在表情符号和其他双字节字符)
 表情符号和其他双字节符号使用多个字节的unicode表示，所以padStart和padEnd可能不会表现的如预期一般。
 
-举个例子：让我们来尝试将用:tw-1f499:表情符号将字符串'heart'填充到10个字节。结果将会看起来是下面这样：
+举个例子：让我们来尝试将用❤️表情符号将字符串'heart'填充到10个字节。结果将会看起来是下面这样：
      
 > 注意这里不是5颗心，而是只有两颗心和一颗看起来很奇怪的心。
  'heart'.padStart(10, "❤️"); // prints.. '❤️❤️❤heart'
@@ -111,4 +114,4 @@ PS: 你可以使用此[连接](https://encoder.internetwache.org/#tab_uni)来检
 个人批注：若字符串的长度大于等于numberOfCharcters时，返回的结果是原字符串。
 
 ## 4. Object.getOwnPropertyDescriptors
-该方法
+该方法返回给定对象上所有属性的细节（包括getter和setter方法）。添加该方法的主要动机是
