@@ -65,6 +65,9 @@ function init() {
         computed: {
         },
         methods: {
+            hidCatalog() {
+                this.showCatalog = false
+            },
             // 点击显示目录
             clickCatalog() {
                 this.showCatalog = !this.showCatalog
