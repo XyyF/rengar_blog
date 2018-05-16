@@ -40,6 +40,4 @@ source 目录下存放文章
 theme/rengar 目录下配置UI/功能开发
 hexo generate后有个public目录，存放本地开发和提交git的文件
 
-pit.md 文件下记录了一些遇到的坑，希望有所帮助
-
 

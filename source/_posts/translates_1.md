@@ -125,16 +125,34 @@ AFTER...
 这是一个小更新，允许在函数参数的末尾添加逗号。为什么这样呢？这是为了像git这样的工具更好的管理代码。
 
 下面的例子展示了问题和解决方案。
-![ECMAScript 2017 (ES 8) — Trailing comma in function paramameter](translates_1_13.png)
+![ECMAScript 2017 (ES 8) — Trailing comma in function parameter](translates_1_13.png)
 
 > Note:你同样可以整个函数的参数都是用末尾逗号
 
 ## Async/Await
 如果你问我这是什么，我会告诉你这是到目前为止最重要并且最有用的部分。Async函数使我们不用去处理回调地狱了，并且使整个代码看起来很简洁。
 
-`async`关键字告诉JavaScript编译器以不同于一般函数来对待。
+`async`关键字告诉JavaScript编译器以不同于一般函数来对待。当编译器遇到`await`关键字后面跟着一个`async`标名的函数时会暂停。编译器会假定`await`关键字后面的函数会返回一个promise对象，并且直到该promise被resolved或者rejected再进一步执行。
+
+在下面的例子中，`getAmount`函数执行了两个异步函数`getuser`和`getBankBalance`。我们可以在promise中这样做，但是使用`async await`会更加的优雅和简单。
+![ECMAScript 2017 (ES 8) — Async Await basic example](translates_1_14.png)
+
+### Async functions themselves return a Promise(Async函数自身返回一个Promise)
+如果你正在等待Async函数的结果，你需要使用`then`语法去捕获这个结果。
+
+在下面的例子中，我们希望使用`console.log`来打印这个结果,但是却不是在doubleAndAdd函数中操作。所以我们希望等待并且使用`then`语法来传递结果给`console.log`。
+![ECMAScript 2017 (ES 8) — Async Await themselves returns Promise](translates_1_15.png)
+
+### Calling async/await in parallel(并行调用async/await)
+在前面的例子中我们调用了两次await，但是每一次我们都等待了1s(总共2s)。然而我们可以通过使用Promise.all并行实现得到`a`和`b`，而且相互之间不会依赖对方。
+![ECMAScript 2017 (ES 8) — Using Promise.all to parallelize async/await](translates_1_16.png)
+
+
+### Error handling async/await functions
 
 单词收集：
 | Word  | Mean |
 | ------------- | ------------- |
 | commas  | 逗号  |
+| syntax  | 语法  |
+| capture  | 捕获  |
