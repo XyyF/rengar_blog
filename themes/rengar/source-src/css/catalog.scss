@@ -104,6 +104,9 @@
     .toc {
         font-size: 16px;
     }
+    .toc-link {
+        word-break: break-all;
+    }
     li {
         list-style: none;
     }
