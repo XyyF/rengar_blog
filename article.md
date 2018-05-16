@@ -8,3 +8,4 @@
 | [react生命周期](http://xyfui.com/2018/01/02/React_lifecycle/) | [rem布局](http://xyfui.com/2018/04/21/rem_layout/)
 | [this指针](http://xyfui.com/2017/11/03/this-point/) | [travis-ci构建](http://xyfui.com/2017/12/04/travis-ci_testing/)
 | [vue中使用TypeScript](http://xyfui.com/2018/04/21/rem_layout/) | [vue中使用TypeScript](http://xyfui.com/2018/04/21/rem_layout/)
+| [翻译系列_1](http://xyfui.com/2018/04/21/translates_1/) |
