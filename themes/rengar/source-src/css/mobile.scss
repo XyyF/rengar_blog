@@ -403,3 +403,15 @@ html, body, #container {
         }
     }
 }
+
+#article__catalog--js {
+    position: fixed;
+    right: 5px;
+    bottom: 20px;
+    z-index: 999;
+    .article__catalog-list {
+        right: 0;
+        transform: translateY(-102%);
+        width: 100vw;
+    }
+}

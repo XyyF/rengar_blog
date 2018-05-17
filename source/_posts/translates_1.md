@@ -37,6 +37,7 @@ includes是Array上一个十分简单的实例方法，并且有助于快速找�
 
 
 ![ECMAScript 2017](translates_1_5.png)
+
 # ECMAScript 2017
 ## Object.values()
 Object.values()是一个类似于Object.keys()的新方法，但是返回的是对象中不包括原型链的值。
@@ -149,6 +150,25 @@ AFTER...
 
 
 ### Error handling async/await functions
+当我们使用async/await时，这里有多种方式来处理错误。
+
+#### Option 1 - Use try catch within the function(在函数中使用try catch)
+![ECMAScript 2017 (ES 8) — Use try catch within the async/await](translates_1_17.png)
+
+#### Option 2 - Catch every await expression(使用catch捕获所有的await)
+![ECMAScript 2017 (ES 8) — Use try catch every await expression](translates_1_18.png)
+
+#### Option 3 - Catch the entire async-await function(在整个async-await函数外部捕获)
+![ECMAScript 2017 (ES 8) — Catch the entire async/await function at the end](translates_1_19.png)
+
+![ECMAScript 2018](translates_1_20.png)
+> ECMAScript 2018目前正在最终草案中，将于2018年6月或者7月发布。下面介绍的所有功能都在stage-4中，将是ECMAScript 2018的一部分。
+> 个人科普：ECMAScript中的功能发布流程TC39 process大致为：stage-0，strawman，接受成员和注册的非成员的提议；stage-1，proposal，功能的正式提案；stage-2，draft，规范草案，最终的规范中可能会包含该功能；stage-3，candidate，开发者反馈；stage-4，finished，最终完成。一共经历5个部分。
+
+## Shared memory and atomics()
+这是一个十分高级的特性，也是JS引擎的增强。
+
+# ECMAScript 2018
 
 单词收集：
 | Word  | Mean |

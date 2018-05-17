@@ -17,7 +17,7 @@
 
     <transition name="catalog-list-transition">
         <div class="article__catalog-list" v-show="showCatalog">
-            <%- toc(page.content) %>
+            <%- toc(page.content, {list_number: true}) %>
         </div>
     </transition>
 </div>
