@@ -162,13 +162,16 @@ AFTER...
 ![ECMAScript 2017 (ES 8) — Catch the entire async/await function at the end](translates_1_19.png)
 
 ![ECMAScript 2018](translates_1_20.png)
+
+# ECMAScript 2018
+
 > ECMAScript 2018目前正在最终草案中，将于2018年6月或者7月发布。下面介绍的所有功能都在stage-4中，将是ECMAScript 2018的一部分。
+
 > 个人科普：ECMAScript中的功能发布流程TC39 process大致为：stage-0，strawman，接受成员和注册的非成员的提议；stage-1，proposal，功能的正式提案；stage-2，draft，规范草案，最终的规范中可能会包含该功能；stage-3，candidate，开发者反馈；stage-4，finished，最终完成。一共经历5个部分。
 
 ## Shared memory and atomics()
 这是一个十分高级的特性，也是JS引擎的增强。
 
-# ECMAScript 2018
 
 单词收集：
 | Word  | Mean |
