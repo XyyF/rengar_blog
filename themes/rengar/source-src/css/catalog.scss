@@ -112,6 +112,9 @@
     li {
         list-style: none;
     }
+    .toc-number {
+        display: inline-block !important;
+    }
 }
 
 .catalog-list-transition-enter-active, .catalog-list-transition-leave-active {
