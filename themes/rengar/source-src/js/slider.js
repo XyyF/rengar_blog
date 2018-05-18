@@ -62,8 +62,7 @@ function init() {
         components: {
             [Dialog.name]: Dialog,
         },
-        computed: {
-        },
+        computed: {},
         methods: {
             hidCatalog() {
                 this.showCatalog = false
@@ -153,7 +152,7 @@ function init() {
             clickoutside,
         },
         watch: {
-            'search': function(val) {
+            'search': function (val) {
                 window.localStorage && window.localStorage.setItem(localSearchKey, val)
                 handleSearch(val)
             }

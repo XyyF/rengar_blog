@@ -4,6 +4,8 @@
 
 [项目地址](http://xyfui.club)
 
+git提交分类：feat-a开头代表文章写作；feat-r开头表示主题结构开发。可筛选分类查看。
+
 # rengar的博客备份
 
 [hexo配置说明](https://hexo.io/zh-cn/docs/configuration.html)

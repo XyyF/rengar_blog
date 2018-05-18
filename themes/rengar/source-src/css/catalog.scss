@@ -104,13 +104,15 @@
     box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
     .toc {
         font-size: 16px;
-        overflow-y: auto;
     }
     .toc-link {
         word-break: break-all;
+        border-bottom: 1px solid #ccc;
+        color: #666;
     }
     li {
         list-style: none;
+        line-height: 1.8;
     }
     .toc-number {
         display: inline-block !important;
