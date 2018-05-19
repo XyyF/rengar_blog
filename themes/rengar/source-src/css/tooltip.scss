@@ -1,7 +1,9 @@
+@import "./zIndex";
+
 .tooltip-left {
     .tooltip {
         position: absolute;
-        z-index: 999;
+        z-index: $zIndex-10--tooltip;
         cursor: pointer;
         width: 28px;
         height: 28px;

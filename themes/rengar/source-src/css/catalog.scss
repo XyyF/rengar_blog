@@ -1,8 +1,10 @@
+@import "./zIndex";
+
 #article__catalog--js {
     position: fixed;
     right: 40px;
     bottom: 120px;
-    z-index: 999;
+    z-index: $zIndex-10--catalog;
 
     .catalog__label {
         background: #1d89ff;
@@ -13,13 +15,12 @@
         height: 44px;
         line-height: 38px;
         margin: 0;
-        border-color: transparent;
+        border: 0 solid transparent;
         font-weight: 400;
         cursor: pointer;
         position: relative;
         padding: 5px 12px;
         overflow: hidden;
-        border-width: 0;
         border-radius: 50%;
         box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .18), 0 1px 5px 0 rgba(0, 0, 0, .15);
         transition: all .25s cubic-bezier(.02, .01, .47, 1);
@@ -27,7 +28,6 @@
         transform: translateZ(0);
         .label__bread {
             position: absolute;
-            z-index: 3;
             top: 0;
             left: 0;
             width: 44px;
@@ -42,7 +42,6 @@
             background: #fff;
             position: absolute;
             left: 8px;
-            z-index: 1;
             transition: transform 0.2s 0.2s;
             transform: translateY(13px);
             top: 0;
@@ -55,7 +54,6 @@
             background: #fff;
             position: absolute;
             left: 8px;
-            z-index: 1;
             transition: transform 0.2s 0.2s;
             transform: translateY(-13px);
             bottom: 0;
@@ -64,7 +62,6 @@
         .label__bread-top.cancel {
             transform: rotate(45deg);
             position: absolute;
-            z-index: 3;
             top: 0;
             left: 0;
             .label__bread-crust-top {
@@ -74,7 +71,6 @@
         .label__bread-bottom.cancel {
             transform: rotate(-45deg);
             position: absolute;
-            z-index: 3;
             top: 0;
             left: 0;
             .label__bread-crust-bottom {
@@ -96,7 +92,7 @@
     border-radius: 4px;
     border: 1px solid #ebeef5;
     padding: 18px 20px;
-    z-index: 2000;
+    z-index: $zIndex-10--catalogList;
     color: #606266;
     line-height: 1.4;
     text-align: justify;
