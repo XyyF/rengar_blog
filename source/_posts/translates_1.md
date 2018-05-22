@@ -172,10 +172,28 @@ AFTER...
 ## Shared memory and atomics()
 这是一个十分高级的特性，也是JS引擎的增强。
 
+**主要思想是为了为JavaScript提供某种多线程功能，以便JS开发者可以通过自己管理内存来编写高性能的并发程序，而不是通过JS引擎管理内存。**
+
+这是通过一种名为[SharedArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer)的新型全局对象实现的，它基本上将数据存储在共享内存空间。所以这里的数据就能被JS主要的线程和web-worker的线程所共享。
+
+直到现在，如果我们想要在JS主要的线程和web-worker的线程共享数据，我们必须通过`postMessage`将拷贝的数据发送到其他线程，别无他法！
+
+你只需要使用ShareArrayBuffer，所有的主线程和多个web-worker线程就可以共享数据。
+
+但是在线程中共享内存可能会导致资源竞争的状况。为了避免这种情况，一个全局对象["Atomics"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics)产生了。当一个线程在使用数据时，Atomics提供了多种方法来锁定该部分共享的内存。它还提供了安全更新共享内存中数据的方法。
+
+> 建议通过某个库使用此功能，但是现在还没有构建在此功能之上的库。
+
+If you are interested, I recommend reading:
+1. [From Workers to Shared Memory](http://lucasfcosta.com/2017/04/30/JavaScript-From-Workers-to-Shared-Memory.html) — [lucasfcosta](http://lucasfcosta.com/)
+2. [A cartoon intro to SharedArrayBuffers](https://hacks.mozilla.org/category/code-cartoons/a-cartoon-intro-to-sharedarraybuffers/) — [Lin Clark](https://medium.com/@linclark)
+3. [Shared memory and atomics](http://2ality.com/2017/01/shared-array-buffer.html) — [Dr. Axel Rauschmayer](http://rauschma.de/)
 
 单词收集：
+
 | Word  | Mean |
 | ------------- | ------------- |
 | commas  | 逗号  |
 | syntax  | 语法  |
 | capture  | 捕获  |
+| threads | 线程 |
