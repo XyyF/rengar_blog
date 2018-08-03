@@ -1,5 +1,13 @@
-@import "./zIndex";
+@import "../zIndex";
 
+/**
+    侧边目录相关css
+ */
+
+/**
+    made in 18-8-3
+    侧边目录按钮
+ */
 #article__catalog--js {
     position: fixed;
     right: 40px;
@@ -43,7 +51,7 @@
             position: absolute;
             left: 8px;
             transition: transform 0.2s 0.2s;
-            transform: translateY(13px);
+            transform: translateY(12px);
             top: 0;
             border-radius: 5px;
         }
@@ -55,7 +63,7 @@
             position: absolute;
             left: 8px;
             transition: transform 0.2s 0.2s;
-            transform: translateY(-13px);
+            transform: translateY(-12px);
             bottom: 0;
             border-radius: 5px;
         }
@@ -65,7 +73,7 @@
             top: 0;
             left: 0;
             .label__bread-crust-top {
-                transform: translateY(19px);
+                transform: translateY(20px);
             }
         }
         .label__bread-bottom.cancel {
@@ -80,6 +88,10 @@
     }
 }
 
+/**
+    made in 18-8-3
+    侧边目录内容css
+ */
 .article__catalog-list {
     position: absolute;
     top: 0;
@@ -99,7 +111,7 @@
     font-size: 14px;
     box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
     .toc {
-        font-size: 16px;
+        font-size: 14px;
     }
     .toc-link {
         word-break: break-all;
@@ -110,8 +122,11 @@
         list-style: none;
         line-height: 1.8;
     }
-    .toc-number {
-        display: inline-block !important;
+    .toc-level-2 {
+        margin-left: 20px;
+    }
+    .toc-level-3 {
+        margin-left: 40px;
     }
 }
 

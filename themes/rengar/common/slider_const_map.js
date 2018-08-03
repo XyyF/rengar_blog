@@ -1,5 +1,6 @@
 import sliderConst from './slider_const'
-// 性别
+
+// 侧边栏选项
 // eslint-disable-next-line
 export const sliderConstMap = new Map([
     [sliderConst.SLIDER_OPTIONS.INNERARCHIVE, 's1'],

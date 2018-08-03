@@ -184,7 +184,7 @@ AFTER...
 
 > 建议通过某个库使用此功能，但是现在还没有构建在此功能之上的库。
 
-If you are interested, I recommend reading:
+如果你感兴趣，我推荐阅读:
 1. [From Workers to Shared Memory](http://lucasfcosta.com/2017/04/30/JavaScript-From-Workers-to-Shared-Memory.html) — [lucasfcosta](http://lucasfcosta.com/)
 2. [A cartoon intro to SharedArrayBuffers](https://hacks.mozilla.org/category/code-cartoons/a-cartoon-intro-to-sharedarraybuffers/) — [Lin Clark](https://medium.com/@linclark)
 3. [Shared memory and atomics](http://2ality.com/2017/01/shared-array-buffer.html) — [Dr. Axel Rauschmayer](http://rauschma.de/)
