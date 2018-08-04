@@ -3,6 +3,7 @@ import clickoutside from 'common/vue_plugins/clickoutside'
 import Dialog from './../dialog'
 
 import sliderMxin from './slider-mixin/index'
+import catalogMixin from './catalog-mixin/index'
 
 // 日期格式确定
 function fixzero(str) {
@@ -20,13 +21,12 @@ export default {
         // 弹窗组件
         [Dialog.name]: Dialog,
     },
-    mixins: [sliderMxin],
+    mixins: [sliderMxin, catalogMixin],
     data() {
         /* Notice: 给data里面的变量留下说明文字 */
         return {
-            isContentLoading: true,
+            // 是否render完成
             renderContainer: false,
-            showCatalog: false,
         }
     },
     props: {
@@ -39,13 +39,6 @@ export default {
     filters: {},
     methods: {
         /* Notice: 复杂的方法，写下说明 */
-        hidCatalog() {
-            this.showCatalog = false
-        },
-        // 点击显示目录
-        clickCatalog() {
-            this.showCatalog = !this.showCatalog
-        },
         // 点击联系我显示微信加好友
         showCallMe() {
             this.$dialog.showDialog()
@@ -62,7 +55,7 @@ export default {
             return `${window.yiliaConfig.root}${year}/${month + 1}/${date}/${tag.title}/`
         },
         // 阻止冒泡
-        stop: (e) => {
+        stop(e) {
             e.stopPropagation()
         },
         isFalse(val) {

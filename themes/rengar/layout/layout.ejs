@@ -1,13 +1,22 @@
-<%- partial('_partial/head') %>
+<!--主题入口-->
+<!--config变量，根目录下的_config.yml配置项-->
+
+<!--html-head标签头部信息-->
+<%- partial('_partial/html-head/index') %>
+
 <body>
 <div id="container"
      class="container-none"
      :class="{ 'tools-show': isShow, 'container-show': renderContainer }">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" :class="{ 'tools-show': isShow }">
-        <%- partial('_partial/left-col', null, {cache: !config.relative_link}) %>
+        <!--最左侧个人信息展示栏-->
+        <%- partial('_partial/left-col/index', null, {cache: !config.relative_link}) %>
+
     </div>
     <div class="mid-col" :class="{ 'tools-show':isShow, 'hide': isFalse(isShow) }">
+
+        <!--手机端-->
         <%- partial('_partial/mobile-nav', null, {cache: !config.relative_link}) %>
         <div id="wrapper" class="body-wrap">
             <div class="menu-l">
@@ -15,20 +24,32 @@
                     <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
                 </div>
                 <div id="js-content" class="content-ll">
+                    <!--./index.ejs或者page.ejs的内容-->
                     <%- body %>
                 </div>
             </div>
         </div>
+
+        <!--底部联系我栏-->
         <%- partial('_partial/footer') %>
     </div>
+
+    <!--标签栏-->
     <%- partial('_partial/tools') %>
+
+    <!--图片预览-->
     <%- partial('_partial/viewer') %>
+
+    <!--dialog弹窗栏-->
     <rg-dialog ref="dialog">
         <div
             v-clickoutside="hiddenDialog"
             class="img-rengar"></div>
     </rg-dialog>
 </div>
+
+<!--设置全局配置window.yiliaConfig-->
 <%- partial('_partial/after-footer') %>
+
 </body>
 </html>
