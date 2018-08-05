@@ -1,6 +1,6 @@
-import clickoutside from 'common/vue_plugins/clickoutside'
+import {DialogType} from './pages/rg-dialog/dialog_configs'
 
-import Dialog from './../dialog'
+import Dialog from './pages/rg-dialog/index'
 
 import sliderMxin from './slider-mixin/index'
 import catalogMixin from './catalog-mixin/index'
@@ -14,9 +14,7 @@ function fixzero(str) {
 export default {
     el: '#container',
     name: 'app',
-    directives: {
-        clickoutside,
-    },
+    directives: {},
     components: {
         // 弹窗组件
         [Dialog.name]: Dialog,
@@ -41,11 +39,7 @@ export default {
         /* Notice: 复杂的方法，写下说明 */
         // 点击联系我显示微信加好友
         showCallMe() {
-            this.$dialog.showDialog()
-        },
-        // 隐藏dialog
-        hiddenDialog() {
-            this.$dialog.hiddenDialog()
+            this.$dialog.showDialog(DialogType.CALL_ME)
         },
         // 获取当前文章的url
         goToArchive(tag) {

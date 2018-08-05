@@ -1,4 +1,4 @@
-#dialog {
+#rg-dialog {
     position: fixed;
     top: 0;
     left: 0;
@@ -15,5 +15,13 @@
         margin-top: -144px;
         margin-left: -144px;
         background: url('./img/renagr.png');
+    }
+
+    &.hidden-dialog {
+        display: none;
+    }
+
+    &.show-dialog {
+        display: block;
     }
 }
