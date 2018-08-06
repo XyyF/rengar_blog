@@ -4,17 +4,19 @@
 export const DialogType = {
     NONE: '0',
     LOADING: '1',
-    // footer
+    // base
     CALL_ME: '1001',
+    CATALOG: '1002',
 }
 
 /**
  * 弹框样式
  */
 export const DialogStyle = {
-    TITLE_AT_LEFT: 'left-title-dialog',
-    TITLE_AT_MIDDLE: 'middle-title-dialog',
-    FLOAT_TITLE: 'float-title-dialog',
+    // 居中显示
+    MIDDLE_DIALOG: 'middle-dialog',
+    // 靠右显示
+    RIGHT_DIALOG: 'right-dialog',
 }
 
 /**
@@ -25,9 +27,15 @@ export const DialogStyle = {
  * {boolean} closeOnClickOutside 是否在点击窗口以外区域或按下ESC时关闭窗口，默认不关闭
  */
 export const componentConfigs = [{
-    // 添加跟进记录
+    // 联系我
     type: DialogType.CALL_ME,
     loader: () => import(/* webpackChunkName: "slider" */'./content/call-me.js'),
-    dialogClass: DialogStyle.FLOAT_TITLE,
+    dialogClass: DialogStyle.MIDDLE_DIALOG,
+    closeOnClickOutside: true,
+}, {
+    // 目录
+    type: DialogType.CATALOG,
+    loader: () => import(/* webpackChunkName: "slider" */'./content/catalog.js'),
+    dialogClass: DialogStyle.RIGHT_DIALOG,
     closeOnClickOutside: true,
 }]

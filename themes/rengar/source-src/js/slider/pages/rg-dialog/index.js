@@ -3,13 +3,19 @@ import {DialogType, DialogStyle, componentConfigs} from './dialog_configs'
 
 const dialog = {
     name: 'rg-dialog',
-    directives: {
-    },
-    // template: '<div v-show="isShowDialog" id="dialog"><slot></slot></div>',
+    directives: {},
     data() {
         return {
+            // 是否显示弹窗
             isShowDialog: false,
+            // 打开的弹窗组件名
             contentComponentName: '',
+            // 传入弹窗prop的数据
+            dialogData: {},
+            // 是否点击本身之外关闭弹窗
+            closeOnClickOutside: false,
+            // 弹窗的默认样式
+            dialogClass: DialogStyle.MIDDLE_DIALOG,
         }
     },
     methods: {
@@ -22,9 +28,9 @@ const dialog = {
         },
         setupComponent(config, component, dialogData) {
             Vue.component(component.name, component)
-            // this.dialogData = dialogData
-            // this.closeOnClickOutside = !!config.closeOnClickOutside
-            // this.dialogClass = config.dialogClass || DialogStyle.TITLE_AT_LEFT
+            this.dialogData = dialogData
+            this.closeOnClickOutside = config.closeOnClickOutside
+            this.dialogClass = config.dialogClass || DialogStyle.MIDDLE_DIALOG
             this.contentComponentName = component.name
             this.isShowDialog = true
         },
@@ -67,7 +73,11 @@ const dialog = {
     render(h) {
         const createComponet = (h) => {
             if (this.isShowDialog) {
-                return h(this.contentComponentName)
+                return h(this.contentComponentName, {
+                    props: {
+                        dialogData: this.dialogData
+                    },
+                })
             }
             return null
         }
@@ -75,6 +85,7 @@ const dialog = {
             'class': this.isShowDialog ? 'show-dialog' : 'hidden-dialog',
             attrs: {
                 id: 'rg-dialog',
+                'class': this.dialogClass,
             },
             on: {
                 click: this.hiddenDialog.bind(this)

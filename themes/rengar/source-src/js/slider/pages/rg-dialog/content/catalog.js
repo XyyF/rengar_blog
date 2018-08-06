@@ -1,5 +1,5 @@
 export default {
-    name: 'call-me-dialog',
+    name: 'catalog-dialog',
     directives: {},
     components: {},
     mixins: [],
@@ -10,6 +10,12 @@ export default {
     props: {
         /* Notice: 写下props数据的描述、用途 */
         /* Notice: props 里面的定义，使用此结构，type、default */
+        dialogData: {
+            type: Object,
+            default: () => {
+                return {}
+            }
+        }
     },
     computed: {
         /* Notice: 写下computed数据的描述 */
@@ -24,8 +30,11 @@ export default {
     render(h) {
         return h('div', {
             attrs: {
-                'id': 'call-me-dialog'
-            }
+                'class': 'catalog-dialog'
+            },
+            domProps: {
+                innerHTML: this.dialogData.catalogHtml
+            },
         })
     },
     beforeCreate() {

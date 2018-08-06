@@ -1,6 +1,6 @@
+<% var catalogHtml = toc(page.content, {list_number: true}) %>
 <div
-    @click="clickCatalog"
-    v-clickoutside="hidCatalog"
+    @click="e => clickCatalog(e, '<%= catalogHtml %>')"
     id="article__catalog--js">
     <div class="catalog__label">
             <span
@@ -15,11 +15,18 @@
             </span>
     </div>
 
-    <transition name="catalog-list-transition">
-        <div class="article__catalog-list" v-show="showCatalog">
-            <%- toc(page.content, {list_number: true}) %>
-        </div>
-    </transition>
+    <!--<transition name="catalog-list-transition">-->
+        <!--<div-->
+            <!--v-show="showCatalog"-->
+            <!--class="article__catalog-list"-->
+            <!--v-clickoutside="hidCatalog">-->
+            <!--<div class="dir-title">-->
+                <!--目录-->
+                <!--<i class="close"></i>-->
+            <!--</div>-->
+            <!--<%- toc(page.content, {list_number: true}) %>-->
+        <!--</div>-->
+    <!--</transition>-->
 </div>
 
 

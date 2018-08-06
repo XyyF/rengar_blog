@@ -1,7 +1,7 @@
+import clickoutside from 'common/vue_plugins/clickoutside'
+
 import {DialogType} from './pages/rg-dialog/dialog_configs'
-
 import Dialog from './pages/rg-dialog/index'
-
 import sliderMxin from './slider-mixin/index'
 import catalogMixin from './catalog-mixin/index'
 
@@ -14,7 +14,9 @@ function fixzero(str) {
 export default {
     el: '#container',
     name: 'app',
-    directives: {},
+    directives: {
+        clickoutside,
+    },
     components: {
         // 弹窗组件
         [Dialog.name]: Dialog,
