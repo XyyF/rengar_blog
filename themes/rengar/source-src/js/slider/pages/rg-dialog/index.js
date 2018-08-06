@@ -77,15 +77,17 @@ const dialog = {
                     props: {
                         dialogData: this.dialogData
                     },
+                    attrs: {
+                        'class': this.dialogClass,
+                    },
                 })
             }
             return null
         }
         return h('div', {
-            'class': this.isShowDialog ? 'show-dialog' : 'hidden-dialog',
             attrs: {
                 id: 'rg-dialog',
-                'class': this.dialogClass,
+                'class': this.isShowDialog ? 'show-dialog' : 'hidden-dialog',
             },
             on: {
                 click: this.hiddenDialog.bind(this)

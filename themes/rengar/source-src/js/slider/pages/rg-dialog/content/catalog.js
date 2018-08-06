@@ -28,14 +28,35 @@ export default {
         /* Notice: 写下说明 */
     },
     render(h) {
+        // 头部信息
+        const createCatalogTitle = (h) => {
+            return h('div', {
+                attrs: {
+                    'class': 'catalog-top',
+                },
+                domProps: {
+                    innerHTML: '目录'
+                },
+            })
+        }
+
+        // 内容信息
+        const createCatalogContent = (h) => {
+            return h('div', {
+                attrs: {
+                    'class': 'catalog-content',
+                },
+                domProps: {
+                    innerHTML: this.dialogData.catalogHtml,
+                },
+            })
+        }
+
         return h('div', {
             attrs: {
-                'class': 'catalog-dialog'
+                'id': 'catalog-dialog',
             },
-            domProps: {
-                innerHTML: this.dialogData.catalogHtml
-            },
-        })
+        }, [createCatalogTitle(h), createCatalogContent(h)])
     },
     beforeCreate() {
     },

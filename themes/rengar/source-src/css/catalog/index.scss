@@ -15,7 +15,7 @@
     z-index: $zIndex-10--catalog;
 
     .catalog__label {
-        background: #1d89ff;
+        background-color: rgba(52, 108, 250, .8);
         color: #fff;
         font-size: 20px;
         font-family: inherit;
@@ -30,7 +30,7 @@
         padding: 5px 12px;
         overflow: hidden;
         border-radius: 50%;
-        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .18), 0 1px 5px 0 rgba(0, 0, 0, .15);
+        box-shadow: 0 3px 5px 0 rgba(5, 30, 63, .2);
         transition: all .25s cubic-bezier(.02, .01, .47, 1);
         -webkit-transform: translateZ(0);
         transform: translateZ(0);
@@ -109,7 +109,7 @@
     line-height: 1.4;
     text-align: justify;
     font-size: 14px;
-    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
     .toc {
         font-size: 14px;
     }

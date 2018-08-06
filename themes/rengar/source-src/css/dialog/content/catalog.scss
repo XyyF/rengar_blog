@@ -1,0 +1,70 @@
+#catalog-dialog {
+    width: 320px;
+    height: 100%;
+    background: #fff;
+    transition: all .3s ease;
+    overflow-y: auto;
+
+    // 头部信息
+    .catalog-top {
+        height: 44px;
+        padding-left: 13px;
+        font-size: 16px;
+        line-height: 44px;
+        color: #222;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .toc {
+        position: relative;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+        box-sizing: border-box;
+    }
+    // 竖线UI
+    .toc::before {
+        position: absolute;
+        top: 0;
+        left: 20px;
+        width: 1px;
+        height: 100%;
+        background-color: #eee;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        content: "";
+    }
+
+    .toc-item {
+        position: relative;
+    }
+
+    // 圆点UI
+    .toc-level-1::before {
+        position: absolute;
+        left: -6px;
+        top: 14px;
+        width: 10px;
+        height: 10px;
+        border: 1px solid #ccc;
+        -webkit-border-radius: 6px;
+        border-radius: 6px;
+        background-color: #fff;
+        content: "";
+    }
+    // 文本UI
+    a {
+        display: block;
+        position: relative;
+        padding: 10px 0 10px 12px;
+        font-size: 16px;
+        color: #545454;
+        line-height: 20px;
+    }
+    .toc-level-2 a {
+        padding: 10px 0 10px 20px;
+    }
+    .toc-level-3 a {
+        padding: 10px 0 10px 28px;
+    }
+}
