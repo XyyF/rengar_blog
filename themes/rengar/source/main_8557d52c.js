@@ -1,10 +1,5508 @@
-webpackJsonp([2],{185:function(e,t,n){"use strict";function o(e){return e&&e.__esModule?e:{default:e}}n(186);var i=n(187),r=o(i),a=n(194),s=o(a),u=n(195),c=o(u),l=n(196),d=o(l);(0,n(133).addLoadEvent)(function(){(new s.default).init(),(new r.default).init(),(new c.default).init(),(new d.default).init()})},186:function(e,t){},187:function(e,t,n){"use strict";function o(e){return e&&e.__esModule?e:{default:e}}var i=n(64),r=o(i),a=n(65),s=o(a),u=n(190),c=o(u),l=n(191),d=o(l);n(192),n(193),window.PhotoSwipe=c.default,window.PhotoSwipeUI_Default=d.default;var p=function(){function e(){(0,r.default)(this,e)}return(0,s.default)(e,[{key:"init",value:function(){var e=document.querySelectorAll(".pswp")[0],t=document.querySelectorAll(".article-entry img:not(.reward-img)");t.forEach(function(n,o){n.onclick=function(){if(!document.querySelector(".left-col.show")){var n=[];t.forEach(function(e,t){var o=(e.getAttribute("data-idx",t),e.getAttribute("data-target")||e.getAttribute("src")),i=e.getAttribute("alt");n.push({src:o,w:e.width,h:e.height,title:i})});var i=new c.default(e,d.default,n,{index:parseInt(o),history:!1,shareEl:!1,tapToClose:!0,fullscreenEl:!1});i.listen("close",function(){location.search&&location.search.replace(/(#)?more/gi,"")}),i.init()}}})}}]),e}();e.exports=p},190:function(e,t,n){var o,i;/*! PhotoSwipe - v4.1.2 - 2017-04-05
+webpackJsonp([2],{
+
+/***/ 185:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(186);
+
+var _viewer = __webpack_require__(187);
+
+var _viewer2 = _interopRequireDefault(_viewer);
+
+var _share = __webpack_require__(194);
+
+var _share2 = _interopRequireDefault(_share);
+
+var _gotop = __webpack_require__(195);
+
+var _gotop2 = _interopRequireDefault(_gotop);
+
+var _gitment = __webpack_require__(196);
+
+var _gitment2 = _interopRequireDefault(_gitment);
+
+var _util = __webpack_require__(133);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// 评论
+
+// 分享
+// 样式
+(0, _util.addLoadEvent)(function () {
+	new _share2.default().init();
+	new _viewer2.default().init();
+	new _gotop2.default().init();
+	new _gitment2.default().init();
+});
+// 边缘
+
+// 图片查看器
+
+/***/ }),
+
+/***/ 186:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 187:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _classCallCheck2 = __webpack_require__(64);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(65);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _photoswipe = __webpack_require__(190);
+
+var _photoswipe2 = _interopRequireDefault(_photoswipe);
+
+var _photoswipeUiDefault = __webpack_require__(191);
+
+var _photoswipeUiDefault2 = _interopRequireDefault(_photoswipeUiDefault);
+
+__webpack_require__(192);
+
+__webpack_require__(193);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+window.PhotoSwipe = _photoswipe2.default;
+window.PhotoSwipeUI_Default = _photoswipeUiDefault2.default;
+
+var Viewer = function () {
+    function Viewer() {
+        (0, _classCallCheck3.default)(this, Viewer);
+    }
+
+    (0, _createClass3.default)(Viewer, [{
+        key: 'init',
+        value: function init() {
+            var pswpElement = document.querySelectorAll('.pswp')[0];
+            var $imgArr = document.querySelectorAll('.article-entry img:not(.reward-img)');
+
+            $imgArr.forEach(function ($em, i) {
+                $em.onclick = function () {
+                    // slider展开状态
+                    if (document.querySelector('.left-col.show')) return;
+                    var items = [];
+                    $imgArr.forEach(function ($em2, i2) {
+                        var img = $em2.getAttribute('data-idx', i2);
+                        var src = $em2.getAttribute('data-target') || $em2.getAttribute('src');
+                        var title = $em2.getAttribute('alt');
+                        items.push({
+                            src: src,
+                            w: $em2.width,
+                            h: $em2.height,
+                            title: title
+                        });
+                    });
+                    var gallery = new _photoswipe2.default(pswpElement, _photoswipeUiDefault2.default, items, {
+                        index: parseInt(i),
+                        history: false,
+                        shareEl: false,
+                        tapToClose: true,
+                        fullscreenEl: false
+                    });
+                    gallery.listen('close', function () {
+                        if (location.search) {
+                            location.search.replace(/(#)?more/gi, '');
+                        }
+                    });
+                    gallery.init();
+                };
+            });
+        }
+    }]);
+    return Viewer;
+}();
+
+module.exports = Viewer;
+
+/***/ }),
+
+/***/ 190:
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! PhotoSwipe - v4.1.2 - 2017-04-05
 * http://photoswipe.com
 * Copyright (c) 2017 Dmitry Semenov; */
-!function(r,a){o=a,void 0!==(i="function"==typeof o?o.call(t,n,t,e):o)&&(e.exports=i)}(0,function(){"use strict";return function(e,t,n,o){var i={features:null,bind:function(e,t,n,o){var i=(o?"remove":"add")+"EventListener";t=t.split(" ");for(var r=0;r<t.length;r++)t[r]&&e[i](t[r],n,!1)},isArray:function(e){return e instanceof Array},createEl:function(e,t){var n=document.createElement(t||"div");return e&&(n.className=e),n},getScrollY:function(){var e=window.pageYOffset;return void 0!==e?e:document.documentElement.scrollTop},unbind:function(e,t,n){i.bind(e,t,n,!0)},removeClass:function(e,t){var n=new RegExp("(\\s|^)"+t+"(\\s|$)");e.className=e.className.replace(n," ").replace(/^\s\s*/,"").replace(/\s\s*$/,"")},addClass:function(e,t){i.hasClass(e,t)||(e.className+=(e.className?" ":"")+t)},hasClass:function(e,t){return e.className&&new RegExp("(^|\\s)"+t+"(\\s|$)").test(e.className)},getChildByClass:function(e,t){for(var n=e.firstChild;n;){if(i.hasClass(n,t))return n;n=n.nextSibling}},arraySearch:function(e,t,n){for(var o=e.length;o--;)if(e[o][n]===t)return o;return-1},extend:function(e,t,n){for(var o in t)if(t.hasOwnProperty(o)){if(n&&e.hasOwnProperty(o))continue;e[o]=t[o]}},easing:{sine:{out:function(e){return Math.sin(e*(Math.PI/2))},inOut:function(e){return-(Math.cos(Math.PI*e)-1)/2}},cubic:{out:function(e){return--e*e*e+1}}},detectFeatures:function(){if(i.features)return i.features;var e=i.createEl(),t=e.style,n="",o={};if(o.oldIE=document.all&&!document.addEventListener,o.touch="ontouchstart"in window,window.requestAnimationFrame&&(o.raf=window.requestAnimationFrame,o.caf=window.cancelAnimationFrame),o.pointerEvent=navigator.pointerEnabled||navigator.msPointerEnabled,!o.pointerEvent){var r=navigator.userAgent;if(/iP(hone|od)/.test(navigator.platform)){var a=navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)?/);a&&a.length>0&&(a=parseInt(a[1],10))>=1&&a<8&&(o.isOldIOSPhone=!0)}var s=r.match(/Android\s([0-9\.]*)/),u=s?s[1]:0;u=parseFloat(u),u>=1&&(u<4.4&&(o.isOldAndroid=!0),o.androidVersion=u),o.isMobileOpera=/opera mini|opera mobi/i.test(r)}for(var c,l,d=["transform","perspective","animationName"],p=["","webkit","Moz","ms","O"],f=0;f<4;f++){n=p[f];for(var m=0;m<3;m++)c=d[m],l=n+(n?c.charAt(0).toUpperCase()+c.slice(1):c),!o[c]&&l in t&&(o[c]=l);n&&!o.raf&&(n=n.toLowerCase(),o.raf=window[n+"RequestAnimationFrame"],o.raf&&(o.caf=window[n+"CancelAnimationFrame"]||window[n+"CancelRequestAnimationFrame"]))}if(!o.raf){var h=0;o.raf=function(e){var t=(new Date).getTime(),n=Math.max(0,16-(t-h)),o=window.setTimeout(function(){e(t+n)},n);return h=t+n,o},o.caf=function(e){clearTimeout(e)}}return o.svg=!!document.createElementNS&&!!document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect,i.features=o,o}};i.detectFeatures(),i.features.oldIE&&(i.bind=function(e,t,n,o){t=t.split(" ");for(var i,r=(o?"detach":"attach")+"Event",a=function(){n.handleEvent.call(n)},s=0;s<t.length;s++)if(i=t[s])if("object"==typeof n&&n.handleEvent){if(o){if(!n["oldIE"+i])return!1}else n["oldIE"+i]=a;e[r]("on"+i,n["oldIE"+i])}else e[r]("on"+i,n)});var r=this,a={allowPanToNext:!0,spacing:.12,bgOpacity:1,mouseUsed:!1,loop:!0,pinchToClose:!0,closeOnScroll:!0,closeOnVerticalDrag:!0,verticalDragRange:.75,hideAnimationDuration:333,showAnimationDuration:333,showHideOpacity:!1,focus:!0,escKey:!0,arrowKeys:!0,mainScrollEndFriction:.35,panEndFriction:.35,isClickableElement:function(e){return"A"===e.tagName},getDoubleTapZoom:function(e,t){return e?1:t.initialZoomLevel<.7?1:1.33},maxSpreadZoom:1.33,modal:!0,scaleMode:"fit"};i.extend(a,o);var s,u,c,l,d,p,f,m,h,v,g,y,b,w,x,_,S,T,k,O,E,I,C,A,L,D,M,R,P,j,N,z,U,F,V,B,H,K,Z,q,$,G,W,Y,X,J,Q,ee,te,ne,oe,ie,re,ae,se,ue,ce,le=function(){return{x:0,y:0}},de=le(),pe=le(),fe=le(),me={},he=0,ve={},ge=le(),ye=0,be=!0,we=[],xe={},_e=!1,Se=function(e,t){i.extend(r,t.publicMethods),we.push(e)},Te=function(e){var t=Yt();return e>t-1?e-t:e<0?t+e:e},ke={},Oe=function(e,t){return ke[e]||(ke[e]=[]),ke[e].push(t)},Ee=function(e){var t=ke[e];if(t){var n=Array.prototype.slice.call(arguments);n.shift();for(var o=0;o<t.length;o++)t[o].apply(r,n)}},Ie=function(){return(new Date).getTime()},Ce=function(e){se=e,r.bg.style.opacity=e*a.bgOpacity},Ae=function(e,t,n,o,i){(!_e||i&&i!==r.currItem)&&(o/=i?i.fitRatio:r.currItem.fitRatio),e[I]=y+t+"px, "+n+"px"+b+" scale("+o+")"},Le=function(e){ne&&(e&&(v>r.currItem.fitRatio?_e||(cn(r.currItem,!1,!0),_e=!0):_e&&(cn(r.currItem),_e=!1)),Ae(ne,fe.x,fe.y,v))},De=function(e){e.container&&Ae(e.container.style,e.initialPosition.x,e.initialPosition.y,e.initialZoomLevel,e)},Me=function(e,t){t[I]=y+e+"px, 0px"+b},Re=function(e,t){if(!a.loop&&t){var n=l+(ge.x*he-e)/ge.x,o=Math.round(e-ht.x);(n<0&&o>0||n>=Yt()-1&&o<0)&&(e=ht.x+o*a.mainScrollEndFriction)}ht.x=e,Me(e,d)},Pe=function(e,t){var n=vt[e]-ve[e];return pe[e]+de[e]+n-n*(t/g)},je=function(e,t){e.x=t.x,e.y=t.y,t.id&&(e.id=t.id)},Ne=function(e){e.x=Math.round(e.x),e.y=Math.round(e.y)},ze=null,Ue=function(){ze&&(i.unbind(document,"mousemove",Ue),i.addClass(e,"pswp--has_mouse"),a.mouseUsed=!0,Ee("mouseUsed")),ze=setTimeout(function(){ze=null},100)},Fe=function(){i.bind(document,"keydown",r),N.transform&&i.bind(r.scrollWrap,"click",r),a.mouseUsed||i.bind(document,"mousemove",Ue),i.bind(window,"resize scroll orientationchange",r),Ee("bindEvents")},Ve=function(){i.unbind(window,"resize scroll orientationchange",r),i.unbind(window,"scroll",h.scroll),i.unbind(document,"keydown",r),i.unbind(document,"mousemove",Ue),N.transform&&i.unbind(r.scrollWrap,"click",r),Z&&i.unbind(window,f,r),clearTimeout(z),Ee("unbindEvents")},Be=function(e,t){var n=rn(r.currItem,me,e);return t&&(te=n),n},He=function(e){return e||(e=r.currItem),e.initialZoomLevel},Ke=function(e){return e||(e=r.currItem),e.w>0?a.maxSpreadZoom:1},Ze=function(e,t,n,o){return o===r.currItem.initialZoomLevel?(n[e]=r.currItem.initialPosition[e],!0):(n[e]=Pe(e,o),n[e]>t.min[e]?(n[e]=t.min[e],!0):n[e]<t.max[e]&&(n[e]=t.max[e],!0))},qe=function(){if(I){var t=N.perspective&&!A;return y="translate"+(t?"3d(":"("),void(b=N.perspective?", 0px)":")")}I="left",i.addClass(e,"pswp--ie"),Me=function(e,t){t.left=e+"px"},De=function(e){var t=e.fitRatio>1?1:e.fitRatio,n=e.container.style,o=t*e.w,i=t*e.h;n.width=o+"px",n.height=i+"px",n.left=e.initialPosition.x+"px",n.top=e.initialPosition.y+"px"},Le=function(){if(ne){var e=ne,t=r.currItem,n=t.fitRatio>1?1:t.fitRatio,o=n*t.w,i=n*t.h;e.width=o+"px",e.height=i+"px",e.left=fe.x+"px",e.top=fe.y+"px"}}},$e=function(e){var t="";a.escKey&&27===e.keyCode?t="close":a.arrowKeys&&(37===e.keyCode?t="prev":39===e.keyCode&&(t="next")),t&&(e.ctrlKey||e.altKey||e.shiftKey||e.metaKey||(e.preventDefault?e.preventDefault():e.returnValue=!1,r[t]()))},Ge=function(e){e&&(G||$||oe||H)&&(e.preventDefault(),e.stopPropagation())},We=function(){r.setScrollOffset(0,i.getScrollY())},Ye={},Xe=0,Je=function(e){Ye[e]&&(Ye[e].raf&&D(Ye[e].raf),Xe--,delete Ye[e])},Qe=function(e){Ye[e]&&Je(e),Ye[e]||(Xe++,Ye[e]={})},et=function(){for(var e in Ye)Ye.hasOwnProperty(e)&&Je(e)},tt=function(e,t,n,o,i,r,a){var s,u=Ie();Qe(e);var c=function(){if(Ye[e]){if((s=Ie()-u)>=o)return Je(e),r(n),void(a&&a());r((n-t)*i(s/o)+t),Ye[e].raf=L(c)}};c()},nt={shout:Ee,listen:Oe,viewportSize:me,options:a,isMainScrollAnimating:function(){return oe},getZoomLevel:function(){return v},getCurrentIndex:function(){return l},isDragging:function(){return Z},isZooming:function(){return J},setScrollOffset:function(e,t){ve.x=e,j=ve.y=t,Ee("updateScrollOffset",ve)},applyZoomPan:function(e,t,n,o){fe.x=t,fe.y=n,v=e,Le(o)},init:function(){if(!s&&!u){var n;r.framework=i,r.template=e,r.bg=i.getChildByClass(e,"pswp__bg"),M=e.className,s=!0,N=i.detectFeatures(),L=N.raf,D=N.caf,I=N.transform,P=N.oldIE,r.scrollWrap=i.getChildByClass(e,"pswp__scroll-wrap"),r.container=i.getChildByClass(r.scrollWrap,"pswp__container"),d=r.container.style,r.itemHolders=_=[{el:r.container.children[0],wrap:0,index:-1},{el:r.container.children[1],wrap:0,index:-1},{el:r.container.children[2],wrap:0,index:-1}],_[0].el.style.display=_[2].el.style.display="none",qe(),h={resize:r.updateSize,orientationchange:function(){clearTimeout(z),z=setTimeout(function(){me.x!==r.scrollWrap.clientWidth&&r.updateSize()},500)},scroll:We,keydown:$e,click:Ge};var o=N.isOldIOSPhone||N.isOldAndroid||N.isMobileOpera;for(N.animationName&&N.transform&&!o||(a.showAnimationDuration=a.hideAnimationDuration=0),n=0;n<we.length;n++)r["init"+we[n]]();if(t){(r.ui=new t(r,i)).init()}Ee("firstUpdate"),l=l||a.index||0,(isNaN(l)||l<0||l>=Yt())&&(l=0),r.currItem=Wt(l),(N.isOldIOSPhone||N.isOldAndroid)&&(be=!1),e.setAttribute("aria-hidden","false"),a.modal&&(be?e.style.position="fixed":(e.style.position="absolute",e.style.top=i.getScrollY()+"px")),void 0===j&&(Ee("initialLayout"),j=R=i.getScrollY());var c="pswp--open ";for(a.mainClass&&(c+=a.mainClass+" "),a.showHideOpacity&&(c+="pswp--animate_opacity "),c+=A?"pswp--touch":"pswp--notouch",c+=N.animationName?" pswp--css_animation":"",c+=N.svg?" pswp--svg":"",i.addClass(e,c),r.updateSize(),p=-1,ye=null,n=0;n<3;n++)Me((n+p)*ge.x,_[n].el.style);P||i.bind(r.scrollWrap,m,r),Oe("initialZoomInEnd",function(){r.setContent(_[0],l-1),r.setContent(_[2],l+1),_[0].el.style.display=_[2].el.style.display="block",a.focus&&e.focus(),Fe()}),r.setContent(_[1],l),r.updateCurrItem(),Ee("afterInit"),be||(w=setInterval(function(){Xe||Z||J||v!==r.currItem.initialZoomLevel||r.updateSize()},1e3)),i.addClass(e,"pswp--visible")}},close:function(){s&&(s=!1,u=!0,Ee("close"),Ve(),Jt(r.currItem,null,!0,r.destroy))},destroy:function(){Ee("destroy"),Zt&&clearTimeout(Zt),e.setAttribute("aria-hidden","true"),e.className=M,w&&clearInterval(w),i.unbind(r.scrollWrap,m,r),i.unbind(window,"scroll",r),xt(),et(),ke=null},panTo:function(e,t,n){n||(e>te.min.x?e=te.min.x:e<te.max.x&&(e=te.max.x),t>te.min.y?t=te.min.y:t<te.max.y&&(t=te.max.y)),fe.x=e,fe.y=t,Le()},handleEvent:function(e){e=e||window.event,h[e.type]&&h[e.type](e)},goTo:function(e){e=Te(e);var t=e-l;ye=t,l=e,r.currItem=Wt(l),he-=t,Re(ge.x*he),et(),oe=!1,r.updateCurrItem()},next:function(){r.goTo(l+1)},prev:function(){r.goTo(l-1)},updateCurrZoomItem:function(e){if(e&&Ee("beforeChange",0),_[1].el.children.length){var t=_[1].el.children[0];ne=i.hasClass(t,"pswp__zoom-wrap")?t.style:null}else ne=null;te=r.currItem.bounds,g=v=r.currItem.initialZoomLevel,fe.x=te.center.x,fe.y=te.center.y,e&&Ee("afterChange")},invalidateCurrItems:function(){x=!0;for(var e=0;e<3;e++)_[e].item&&(_[e].item.needsUpdate=!0)},updateCurrItem:function(e){if(0!==ye){var t,n=Math.abs(ye);if(!(e&&n<2)){r.currItem=Wt(l),_e=!1,Ee("beforeChange",ye),n>=3&&(p+=ye+(ye>0?-3:3),n=3);for(var o=0;o<n;o++)ye>0?(t=_.shift(),_[2]=t,p++,Me((p+2)*ge.x,t.el.style),r.setContent(t,l-n+o+1+1)):(t=_.pop(),_.unshift(t),p--,Me(p*ge.x,t.el.style),r.setContent(t,l+n-o-1-1));if(ne&&1===Math.abs(ye)){var i=Wt(S);i.initialZoomLevel!==v&&(rn(i,me),cn(i),De(i))}ye=0,r.updateCurrZoomItem(),S=l,Ee("afterChange")}}},updateSize:function(t){if(!be&&a.modal){var n=i.getScrollY();if(j!==n&&(e.style.top=n+"px",j=n),!t&&xe.x===window.innerWidth&&xe.y===window.innerHeight)return;xe.x=window.innerWidth,xe.y=window.innerHeight,e.style.height=xe.y+"px"}if(me.x=r.scrollWrap.clientWidth,me.y=r.scrollWrap.clientHeight,We(),ge.x=me.x+Math.round(me.x*a.spacing),ge.y=me.y,Re(ge.x*he),Ee("beforeResize"),void 0!==p){for(var o,s,u,c=0;c<3;c++)o=_[c],Me((c+p)*ge.x,o.el.style),u=l+c-1,a.loop&&Yt()>2&&(u=Te(u)),s=Wt(u),s&&(x||s.needsUpdate||!s.bounds)?(r.cleanSlide(s),r.setContent(o,u),1===c&&(r.currItem=s,r.updateCurrZoomItem(!0)),s.needsUpdate=!1):-1===o.index&&u>=0&&r.setContent(o,u),s&&s.container&&(rn(s,me),cn(s),De(s));x=!1}g=v=r.currItem.initialZoomLevel,te=r.currItem.bounds,te&&(fe.x=te.center.x,fe.y=te.center.y,Le(!0)),Ee("resize")},zoomTo:function(e,t,n,o,r){t&&(g=v,vt.x=Math.abs(t.x)-fe.x,vt.y=Math.abs(t.y)-fe.y,je(pe,fe));var a=Be(e,!1),s={};Ze("x",a,s,e),Ze("y",a,s,e);var u=v,c={x:fe.x,y:fe.y};Ne(s);var l=function(t){1===t?(v=e,fe.x=s.x,fe.y=s.y):(v=(e-u)*t+u,fe.x=(s.x-c.x)*t+c.x,fe.y=(s.y-c.y)*t+c.y),r&&r(t),Le(1===t)};n?tt("customZoomTo",0,1,n,o||i.easing.sine.inOut,l):l(1)}},ot={},it={},rt={},at={},st={},ut=[],ct={},lt=[],dt={},pt=0,ft=le(),mt=0,ht=le(),vt=le(),gt=le(),yt=function(e,t){return e.x===t.x&&e.y===t.y},bt=function(e,t){return Math.abs(e.x-t.x)<25&&Math.abs(e.y-t.y)<25},wt=function(e,t){return dt.x=Math.abs(e.x-t.x),dt.y=Math.abs(e.y-t.y),Math.sqrt(dt.x*dt.x+dt.y*dt.y)},xt=function(){W&&(D(W),W=null)},_t=function(){Z&&(W=L(_t),zt())},St=function(){return!("fit"===a.scaleMode&&v===r.currItem.initialZoomLevel)},Tt=function(e,t){return!(!e||e===document)&&(!(e.getAttribute("class")&&e.getAttribute("class").indexOf("pswp__scroll-wrap")>-1)&&(t(e)?e:Tt(e.parentNode,t)))},kt={},Ot=function(e,t){return kt.prevent=!Tt(e.target,a.isClickableElement),Ee("preventDragEvent",e,t,kt),kt.prevent},Et=function(e,t){return t.x=e.pageX,t.y=e.pageY,t.id=e.identifier,t},It=function(e,t,n){n.x=.5*(e.x+t.x),n.y=.5*(e.y+t.y)},Ct=function(e,t,n){if(e-F>50){var o=lt.length>2?lt.shift():{};o.x=t,o.y=n,lt.push(o),F=e}},At=function(){var e=fe.y-r.currItem.initialPosition.y;return 1-Math.abs(e/(me.y/2))},Lt={},Dt={},Mt=[],Rt=function(e){for(;Mt.length>0;)Mt.pop();return C?(ce=0,ut.forEach(function(e){0===ce?Mt[0]=e:1===ce&&(Mt[1]=e),ce++})):e.type.indexOf("touch")>-1?e.touches&&e.touches.length>0&&(Mt[0]=Et(e.touches[0],Lt),e.touches.length>1&&(Mt[1]=Et(e.touches[1],Dt))):(Lt.x=e.pageX,Lt.y=e.pageY,Lt.id="",Mt[0]=Lt),Mt},Pt=function(e,t){var n,o,i,s,u=fe[e]+t[e],c=t[e]>0,l=ht.x+t.x,d=ht.x-ct.x;if(n=u>te.min[e]||u<te.max[e]?a.panEndFriction:1,u=fe[e]+t[e]*n,(a.allowPanToNext||v===r.currItem.initialZoomLevel)&&(ne?"h"!==ie||"x"!==e||$||(c?(u>te.min[e]&&(n=a.panEndFriction,te.min[e]-u,o=te.min[e]-pe[e]),(o<=0||d<0)&&Yt()>1?(s=l,d<0&&l>ct.x&&(s=ct.x)):te.min.x!==te.max.x&&(i=u)):(u<te.max[e]&&(n=a.panEndFriction,u-te.max[e],o=pe[e]-te.max[e]),(o<=0||d>0)&&Yt()>1?(s=l,d>0&&l<ct.x&&(s=ct.x)):te.min.x!==te.max.x&&(i=u))):s=l,"x"===e))return void 0!==s&&(Re(s,!0),Y=s!==ct.x),te.min.x!==te.max.x&&(void 0!==i?fe.x=i:Y||(fe.x+=t.x*n)),void 0!==s;oe||Y||v>r.currItem.fitRatio&&(fe[e]+=t[e]*n)},jt=function(e){if(!("mousedown"===e.type&&e.button>0)){if(Gt)return void e.preventDefault();if(!K||"mousedown"!==e.type){if(Ot(e,!0)&&e.preventDefault(),Ee("pointerDown"),C){var t=i.arraySearch(ut,e.pointerId,"id");t<0&&(t=ut.length),ut[t]={x:e.pageX,y:e.pageY,id:e.pointerId}}var n=Rt(e),o=n.length;X=null,et(),Z&&1!==o||(Z=re=!0,i.bind(window,f,r),B=ue=ae=H=Y=G=q=$=!1,ie=null,Ee("firstTouchStart",n),je(pe,fe),de.x=de.y=0,je(at,n[0]),je(st,at),ct.x=ge.x*he,lt=[{x:at.x,y:at.y}],F=U=Ie(),Be(v,!0),xt(),_t()),!J&&o>1&&!oe&&!Y&&(g=v,$=!1,J=q=!0,de.y=de.x=0,je(pe,fe),je(ot,n[0]),je(it,n[1]),It(ot,it,gt),vt.x=Math.abs(gt.x)-fe.x,vt.y=Math.abs(gt.y)-fe.y,Q=ee=wt(ot,it))}}},Nt=function(e){if(e.preventDefault(),C){var t=i.arraySearch(ut,e.pointerId,"id");if(t>-1){var n=ut[t];n.x=e.pageX,n.y=e.pageY}}if(Z){var o=Rt(e);if(ie||G||J)X=o;else if(ht.x!==ge.x*he)ie="h";else{var r=Math.abs(o[0].x-at.x)-Math.abs(o[0].y-at.y);Math.abs(r)>=10&&(ie=r>0?"h":"v",X=o)}}},zt=function(){if(X){var e=X.length;if(0!==e)if(je(ot,X[0]),rt.x=ot.x-at.x,rt.y=ot.y-at.y,J&&e>1){if(at.x=ot.x,at.y=ot.y,!rt.x&&!rt.y&&yt(X[1],it))return;je(it,X[1]),$||($=!0,Ee("zoomGestureStarted"));var t=wt(ot,it),n=Ht(t);n>r.currItem.initialZoomLevel+r.currItem.initialZoomLevel/15&&(ue=!0);var o=1,i=He(),s=Ke();if(n<i)if(a.pinchToClose&&!ue&&g<=r.currItem.initialZoomLevel){var u=i-n,c=1-u/(i/1.2);Ce(c),Ee("onPinchClose",c),ae=!0}else o=(i-n)/i,o>1&&(o=1),n=i-o*(i/3);else n>s&&(o=(n-s)/(6*i),o>1&&(o=1),n=s+o*i);o<0&&(o=0),Q=t,It(ot,it,ft),de.x+=ft.x-gt.x,de.y+=ft.y-gt.y,je(gt,ft),fe.x=Pe("x",n),fe.y=Pe("y",n),B=n>v,v=n,Le()}else{if(!ie)return;if(re&&(re=!1,Math.abs(rt.x)>=10&&(rt.x-=X[0].x-st.x),Math.abs(rt.y)>=10&&(rt.y-=X[0].y-st.y)),at.x=ot.x,at.y=ot.y,0===rt.x&&0===rt.y)return;if("v"===ie&&a.closeOnVerticalDrag&&!St()){de.y+=rt.y,fe.y+=rt.y;var l=At();return H=!0,Ee("onVerticalDrag",l),Ce(l),void Le()}Ct(Ie(),ot.x,ot.y),G=!0,te=r.currItem.bounds;var d=Pt("x",rt);d||(Pt("y",rt),Ne(fe),Le())}}},Ut=function(e){if(N.isOldAndroid){if(K&&"mouseup"===e.type)return;e.type.indexOf("touch")>-1&&(clearTimeout(K),K=setTimeout(function(){K=0},600))}Ee("pointerUp"),Ot(e,!1)&&e.preventDefault();var t;if(C){var n=i.arraySearch(ut,e.pointerId,"id");if(n>-1)if(t=ut.splice(n,1)[0],navigator.pointerEnabled)t.type=e.pointerType||"mouse";else{var o={4:"mouse",2:"touch",3:"pen"};t.type=o[e.pointerType],t.type||(t.type=e.pointerType||"mouse")}}var s,u=Rt(e),c=u.length;if("mouseup"===e.type&&(c=0),2===c)return X=null,!0;1===c&&je(st,u[0]),0!==c||ie||oe||(t||("mouseup"===e.type?t={x:e.pageX,y:e.pageY,type:"mouse"}:e.changedTouches&&e.changedTouches[0]&&(t={x:e.changedTouches[0].pageX,y:e.changedTouches[0].pageY,type:"touch"})),Ee("touchRelease",e,t));var l=-1;if(0===c&&(Z=!1,i.unbind(window,f,r),xt(),J?l=0:-1!==mt&&(l=Ie()-mt)),mt=1===c?Ie():-1,s=-1!==l&&l<150?"zoom":"swipe",J&&c<2&&(J=!1,1===c&&(s="zoomPointerUp"),Ee("zoomGestureEnded")),X=null,G||$||oe||H)if(et(),V||(V=Ft()),V.calculateSwipeSpeed("x"),H){var d=At();if(d<a.verticalDragRange)r.close();else{var p=fe.y,m=se;tt("verticalDrag",0,1,300,i.easing.cubic.out,function(e){fe.y=(r.currItem.initialPosition.y-p)*e+p,Ce((1-m)*e+m),Le()}),Ee("onVerticalDrag",1)}}else{if((Y||oe)&&0===c){var h=Bt(s,V);if(h)return;s="zoomPointerUp"}if(!oe)return"swipe"!==s?void Kt():void(!Y&&v>r.currItem.fitRatio&&Vt(V))}},Ft=function(){var e,t,n={lastFlickOffset:{},lastFlickDist:{},lastFlickSpeed:{},slowDownRatio:{},slowDownRatioReverse:{},speedDecelerationRatio:{},speedDecelerationRatioAbs:{},distanceOffset:{},backAnimDestination:{},backAnimStarted:{},calculateSwipeSpeed:function(o){lt.length>1?(e=Ie()-F+50,t=lt[lt.length-2][o]):(e=Ie()-U,t=st[o]),n.lastFlickOffset[o]=at[o]-t,n.lastFlickDist[o]=Math.abs(n.lastFlickOffset[o]),n.lastFlickDist[o]>20?n.lastFlickSpeed[o]=n.lastFlickOffset[o]/e:n.lastFlickSpeed[o]=0,Math.abs(n.lastFlickSpeed[o])<.1&&(n.lastFlickSpeed[o]=0),n.slowDownRatio[o]=.95,n.slowDownRatioReverse[o]=1-n.slowDownRatio[o],n.speedDecelerationRatio[o]=1},calculateOverBoundsAnimOffset:function(e,t){n.backAnimStarted[e]||(fe[e]>te.min[e]?n.backAnimDestination[e]=te.min[e]:fe[e]<te.max[e]&&(n.backAnimDestination[e]=te.max[e]),void 0!==n.backAnimDestination[e]&&(n.slowDownRatio[e]=.7,n.slowDownRatioReverse[e]=1-n.slowDownRatio[e],n.speedDecelerationRatioAbs[e]<.05&&(n.lastFlickSpeed[e]=0,n.backAnimStarted[e]=!0,tt("bounceZoomPan"+e,fe[e],n.backAnimDestination[e],t||300,i.easing.sine.out,function(t){fe[e]=t,Le()}))))},calculateAnimOffset:function(e){n.backAnimStarted[e]||(n.speedDecelerationRatio[e]=n.speedDecelerationRatio[e]*(n.slowDownRatio[e]+n.slowDownRatioReverse[e]-n.slowDownRatioReverse[e]*n.timeDiff/10),n.speedDecelerationRatioAbs[e]=Math.abs(n.lastFlickSpeed[e]*n.speedDecelerationRatio[e]),n.distanceOffset[e]=n.lastFlickSpeed[e]*n.speedDecelerationRatio[e]*n.timeDiff,fe[e]+=n.distanceOffset[e])},panAnimLoop:function(){if(Ye.zoomPan&&(Ye.zoomPan.raf=L(n.panAnimLoop),n.now=Ie(),n.timeDiff=n.now-n.lastNow,n.lastNow=n.now,n.calculateAnimOffset("x"),n.calculateAnimOffset("y"),Le(),n.calculateOverBoundsAnimOffset("x"),n.calculateOverBoundsAnimOffset("y"),n.speedDecelerationRatioAbs.x<.05&&n.speedDecelerationRatioAbs.y<.05))return fe.x=Math.round(fe.x),fe.y=Math.round(fe.y),Le(),void Je("zoomPan")}};return n},Vt=function(e){if(e.calculateSwipeSpeed("y"),te=r.currItem.bounds,e.backAnimDestination={},e.backAnimStarted={},Math.abs(e.lastFlickSpeed.x)<=.05&&Math.abs(e.lastFlickSpeed.y)<=.05)return e.speedDecelerationRatioAbs.x=e.speedDecelerationRatioAbs.y=0,e.calculateOverBoundsAnimOffset("x"),e.calculateOverBoundsAnimOffset("y"),!0;Qe("zoomPan"),e.lastNow=Ie(),e.panAnimLoop()},Bt=function(e,t){var n;oe||(pt=l);var o;if("swipe"===e){var s=at.x-st.x,u=t.lastFlickDist.x<10;s>30&&(u||t.lastFlickOffset.x>20)?o=-1:s<-30&&(u||t.lastFlickOffset.x<-20)&&(o=1)}var c;o&&(l+=o,l<0?(l=a.loop?Yt()-1:0,c=!0):l>=Yt()&&(l=a.loop?0:Yt()-1,c=!0),c&&!a.loop||(ye+=o,he-=o,n=!0));var d,p=ge.x*he,f=Math.abs(p-ht.x);return n||p>ht.x==t.lastFlickSpeed.x>0?(d=Math.abs(t.lastFlickSpeed.x)>0?f/Math.abs(t.lastFlickSpeed.x):333,d=Math.min(d,400),d=Math.max(d,250)):d=333,pt===l&&(n=!1),oe=!0,Ee("mainScrollAnimStart"),tt("mainScroll",ht.x,p,d,i.easing.cubic.out,Re,function(){et(),oe=!1,pt=-1,(n||pt!==l)&&r.updateCurrItem(),Ee("mainScrollAnimComplete")}),n&&r.updateCurrItem(!0),n},Ht=function(e){return 1/ee*e*g},Kt=function(){var e=v,t=He(),n=Ke();v<t?e=t:v>n&&(e=n);var o,a=se;return ae&&!B&&!ue&&v<t?(r.close(),!0):(ae&&(o=function(e){Ce((1-a)*e+a)}),r.zoomTo(e,0,200,i.easing.cubic.out,o),!0)};Se("Gestures",{publicMethods:{initGestures:function(){var e=function(e,t,n,o,i){T=e+t,k=e+n,O=e+o,E=i?e+i:""};C=N.pointerEvent,C&&N.touch&&(N.touch=!1),C?navigator.pointerEnabled?e("pointer","down","move","up","cancel"):e("MSPointer","Down","Move","Up","Cancel"):N.touch?(e("touch","start","move","end","cancel"),A=!0):e("mouse","down","move","up"),f=k+" "+O+" "+E,m=T,C&&!A&&(A=navigator.maxTouchPoints>1||navigator.msMaxTouchPoints>1),r.likelyTouchDevice=A,h[T]=jt,h[k]=Nt,h[O]=Ut,E&&(h[E]=h[O]),N.touch&&(m+=" mousedown",f+=" mousemove mouseup",h.mousedown=h[T],h.mousemove=h[k],h.mouseup=h[O]),A||(a.allowPanToNext=!1)}}});var Zt,qt,$t,Gt,Wt,Yt,Xt,Jt=function(t,n,o,s){Zt&&clearTimeout(Zt),Gt=!0,$t=!0;var u;t.initialLayout?(u=t.initialLayout,t.initialLayout=null):u=a.getThumbBoundsFn&&a.getThumbBoundsFn(l);var d=o?a.hideAnimationDuration:a.showAnimationDuration,p=function(){Je("initialZoom"),o?(r.template.removeAttribute("style"),r.bg.removeAttribute("style")):(Ce(1),n&&(n.style.display="block"),i.addClass(e,"pswp--animated-in"),Ee("initialZoom"+(o?"OutEnd":"InEnd"))),s&&s(),Gt=!1};if(!d||!u||void 0===u.x)return Ee("initialZoom"+(o?"Out":"In")),v=t.initialZoomLevel,je(fe,t.initialPosition),Le(),e.style.opacity=o?0:1,Ce(1),void(d?setTimeout(function(){p()},d):p());!function(){var n=c,s=!r.currItem.src||r.currItem.loadError||a.showHideOpacity;t.miniImg&&(t.miniImg.style.webkitBackfaceVisibility="hidden"),o||(v=u.w/t.w,fe.x=u.x,fe.y=u.y-R,r[s?"template":"bg"].style.opacity=.001,Le()),Qe("initialZoom"),o&&!n&&i.removeClass(e,"pswp--animated-in"),s&&(o?i[(n?"remove":"add")+"Class"](e,"pswp--animate_opacity"):setTimeout(function(){i.addClass(e,"pswp--animate_opacity")},30)),Zt=setTimeout(function(){if(Ee("initialZoom"+(o?"Out":"In")),o){var r=u.w/t.w,a={x:fe.x,y:fe.y},c=v,l=se,f=function(t){1===t?(v=r,fe.x=u.x,fe.y=u.y-j):(v=(r-c)*t+c,fe.x=(u.x-a.x)*t+a.x,fe.y=(u.y-j-a.y)*t+a.y),Le(),s?e.style.opacity=1-t:Ce(l-t*l)};n?tt("initialZoom",0,1,d,i.easing.cubic.out,f,p):(f(1),Zt=setTimeout(p,d+20))}else v=t.initialZoomLevel,je(fe,t.initialPosition),Le(),Ce(1),s?e.style.opacity=1:Ce(1),Zt=setTimeout(p,d+20)},o?25:90)}()},Qt={},en=[],tn={index:0,errorMsg:'<div class="pswp__error-msg"><a href="%url%" target="_blank">The image</a> could not be loaded.</div>',forceProgressiveLoading:!1,preload:[1,1],getNumItemsFn:function(){return qt.length}},nn=function(){return{center:{x:0,y:0},max:{x:0,y:0},min:{x:0,y:0}}},on=function(e,t,n){var o=e.bounds;o.center.x=Math.round((Qt.x-t)/2),o.center.y=Math.round((Qt.y-n)/2)+e.vGap.top,o.max.x=t>Qt.x?Math.round(Qt.x-t):o.center.x,o.max.y=n>Qt.y?Math.round(Qt.y-n)+e.vGap.top:o.center.y,o.min.x=t>Qt.x?0:o.center.x,o.min.y=n>Qt.y?e.vGap.top:o.center.y},rn=function(e,t,n){if(e.src&&!e.loadError){var o=!n;if(o&&(e.vGap||(e.vGap={top:0,bottom:0}),Ee("parseVerticalMargin",e)),Qt.x=t.x,Qt.y=t.y-e.vGap.top-e.vGap.bottom,o){var i=Qt.x/e.w,r=Qt.y/e.h;e.fitRatio=i<r?i:r;var s=a.scaleMode;"orig"===s?n=1:"fit"===s&&(n=e.fitRatio),n>1&&(n=1),e.initialZoomLevel=n,e.bounds||(e.bounds=nn())}if(!n)return;return on(e,e.w*n,e.h*n),o&&n===e.initialZoomLevel&&(e.initialPosition=e.bounds.center),e.bounds}return e.w=e.h=0,e.initialZoomLevel=e.fitRatio=1,e.bounds=nn(),e.initialPosition=e.bounds.center,e.bounds},an=function(e,t,n,o,i,a){t.loadError||o&&(t.imageAppended=!0,cn(t,o,t===r.currItem&&_e),n.appendChild(o),a&&setTimeout(function(){t&&t.loaded&&t.placeholder&&(t.placeholder.style.display="none",t.placeholder=null)},500))},sn=function(e){e.loading=!0,e.loaded=!1;var t=e.img=i.createEl("pswp__img","img"),n=function(){e.loading=!1,e.loaded=!0,e.loadComplete?e.loadComplete(e):e.img=null,t.onload=t.onerror=null,t=null};return t.onload=n,t.onerror=function(){e.loadError=!0,n()},t.src=e.src,t},un=function(e,t){if(e.src&&e.loadError&&e.container)return t&&(e.container.innerHTML=""),e.container.innerHTML=a.errorMsg.replace("%url%",e.src),!0},cn=function(e,t,n){if(e.src){t||(t=e.container.lastChild);var o=n?e.w:Math.round(e.w*e.fitRatio),i=n?e.h:Math.round(e.h*e.fitRatio);e.placeholder&&!e.loaded&&(e.placeholder.style.width=o+"px",e.placeholder.style.height=i+"px"),t.style.width=o+"px",t.style.height=i+"px"}},ln=function(){if(en.length){for(var e,t=0;t<en.length;t++)e=en[t],e.holder.index===e.index&&an(e.index,e.item,e.baseDiv,e.img,0,e.clearPlaceholder);en=[]}};Se("Controller",{publicMethods:{lazyLoadItem:function(e){e=Te(e);var t=Wt(e);t&&(!t.loaded&&!t.loading||x)&&(Ee("gettingData",e,t),t.src&&sn(t))},initController:function(){i.extend(a,tn,!0),r.items=qt=n,Wt=r.getItemAt,Yt=a.getNumItemsFn,Xt=a.loop,Yt()<3&&(a.loop=!1),Oe("beforeChange",function(e){var t,n=a.preload,o=null===e||e>=0,i=Math.min(n[0],Yt()),s=Math.min(n[1],Yt());for(t=1;t<=(o?s:i);t++)r.lazyLoadItem(l+t);for(t=1;t<=(o?i:s);t++)r.lazyLoadItem(l-t)}),Oe("initialLayout",function(){r.currItem.initialLayout=a.getThumbBoundsFn&&a.getThumbBoundsFn(l)}),Oe("mainScrollAnimComplete",ln),Oe("initialZoomInEnd",ln),Oe("destroy",function(){for(var e,t=0;t<qt.length;t++)e=qt[t],e.container&&(e.container=null),e.placeholder&&(e.placeholder=null),e.img&&(e.img=null),e.preloader&&(e.preloader=null),e.loadError&&(e.loaded=e.loadError=!1);en=null})},getItemAt:function(e){return e>=0&&(void 0!==qt[e]&&qt[e])},allowProgressiveImg:function(){return a.forceProgressiveLoading||!A||a.mouseUsed||screen.width>1200},setContent:function(e,t){a.loop&&(t=Te(t));var n=r.getItemAt(e.index);n&&(n.container=null);var o,u=r.getItemAt(t);if(!u)return void(e.el.innerHTML="");Ee("gettingData",t,u),e.index=t,e.item=u;var c=u.container=i.createEl("pswp__zoom-wrap");if(!u.src&&u.html&&(u.html.tagName?c.appendChild(u.html):c.innerHTML=u.html),un(u),rn(u,me),!u.src||u.loadError||u.loaded)u.src&&!u.loadError&&(o=i.createEl("pswp__img","img"),o.style.opacity=1,o.src=u.src,cn(u,o),an(0,u,c,o));else{if(u.loadComplete=function(n){if(s){if(e&&e.index===t){if(un(n,!0))return n.loadComplete=n.img=null,rn(n,me),De(n),void(e.index===l&&r.updateCurrZoomItem());n.imageAppended?!Gt&&n.placeholder&&(n.placeholder.style.display="none",n.placeholder=null):N.transform&&(oe||Gt)?en.push({item:n,baseDiv:c,img:n.img,index:t,holder:e,clearPlaceholder:!0}):an(0,n,c,n.img,0,!0)}n.loadComplete=null,n.img=null,Ee("imageLoadComplete",t,n)}},i.features.transform){var d="pswp__img pswp__img--placeholder";d+=u.msrc?"":" pswp__img--placeholder--blank";var p=i.createEl(d,u.msrc?"img":"");u.msrc&&(p.src=u.msrc),cn(u,p),c.appendChild(p),u.placeholder=p}u.loading||sn(u),r.allowProgressiveImg()&&(!$t&&N.transform?en.push({item:u,baseDiv:c,img:u.img,index:t,holder:e}):an(0,u,c,u.img,0,!0))}$t||t!==l?De(u):(ne=c.style,Jt(u,o||u.img)),e.el.innerHTML="",e.el.appendChild(c)},cleanSlide:function(e){e.img&&(e.img.onload=e.img.onerror=null),e.loaded=e.loading=e.img=e.imageAppended=!1}}});var dn,pn={},fn=function(e,t,n){var o=document.createEvent("CustomEvent"),i={origEvent:e,target:e.target,releasePoint:t,pointerType:n||"touch"};o.initCustomEvent("pswpTap",!0,!0,i),e.target.dispatchEvent(o)};Se("Tap",{publicMethods:{initTap:function(){Oe("firstTouchStart",r.onTapStart),Oe("touchRelease",r.onTapRelease),Oe("destroy",function(){pn={},dn=null})},onTapStart:function(e){e.length>1&&(clearTimeout(dn),dn=null)},onTapRelease:function(e,t){if(t&&!G&&!q&&!Xe){var n=t;if(dn&&(clearTimeout(dn),dn=null,bt(n,pn)))return void Ee("doubleTap",n);if("mouse"===t.type)return void fn(e,t,"mouse");if("BUTTON"===e.target.tagName.toUpperCase()||i.hasClass(e.target,"pswp__single-tap"))return void fn(e,t);je(pn,n),dn=setTimeout(function(){fn(e,t),dn=null},300)}}}});var mn;Se("DesktopZoom",{publicMethods:{initDesktopZoom:function(){P||(A?Oe("mouseUsed",function(){r.setupDesktopZoom()}):r.setupDesktopZoom(!0))},setupDesktopZoom:function(t){mn={};var n="wheel mousewheel DOMMouseScroll";Oe("bindEvents",function(){i.bind(e,n,r.handleMouseWheel)}),Oe("unbindEvents",function(){mn&&i.unbind(e,n,r.handleMouseWheel)}),r.mouseZoomedIn=!1;var o,a=function(){r.mouseZoomedIn&&(i.removeClass(e,"pswp--zoomed-in"),r.mouseZoomedIn=!1),v<1?i.addClass(e,"pswp--zoom-allowed"):i.removeClass(e,"pswp--zoom-allowed"),s()},s=function(){o&&(i.removeClass(e,"pswp--dragging"),o=!1)};Oe("resize",a),Oe("afterChange",a),Oe("pointerDown",function(){r.mouseZoomedIn&&(o=!0,i.addClass(e,"pswp--dragging"))}),Oe("pointerUp",s),t||a()},handleMouseWheel:function(e){if(v<=r.currItem.fitRatio)return a.modal&&(!a.closeOnScroll||Xe||Z?e.preventDefault():I&&Math.abs(e.deltaY)>2&&(c=!0,r.close())),!0;if(e.stopPropagation(),mn.x=0,"deltaX"in e)1===e.deltaMode?(mn.x=18*e.deltaX,mn.y=18*e.deltaY):(mn.x=e.deltaX,mn.y=e.deltaY);else if("wheelDelta"in e)e.wheelDeltaX&&(mn.x=-.16*e.wheelDeltaX),e.wheelDeltaY?mn.y=-.16*e.wheelDeltaY:mn.y=-.16*e.wheelDelta;else{if(!("detail"in e))return;mn.y=e.detail}Be(v,!0);var t=fe.x-mn.x,n=fe.y-mn.y;(a.modal||t<=te.min.x&&t>=te.max.x&&n<=te.min.y&&n>=te.max.y)&&e.preventDefault(),r.panTo(t,n)},toggleDesktopZoom:function(t){t=t||{x:me.x/2+ve.x,y:me.y/2+ve.y};var n=a.getDoubleTapZoom(!0,r.currItem),o=v===n;r.mouseZoomedIn=!o,r.zoomTo(o?r.currItem.initialZoomLevel:n,t,333),i[(o?"remove":"add")+"Class"](e,"pswp--zoomed-in")}}});var hn,vn,gn,yn,bn,wn,xn,_n,Sn,Tn,kn,On,En={history:!0,galleryUID:1},In=function(){return kn.hash.substring(1)},Cn=function(){hn&&clearTimeout(hn),gn&&clearTimeout(gn)},An=function(){var e=In(),t={};if(e.length<5)return t;var n,o=e.split("&");for(n=0;n<o.length;n++)if(o[n]){var i=o[n].split("=");i.length<2||(t[i[0]]=i[1])}if(a.galleryPIDs){var r=t.pid;for(t.pid=0,n=0;n<qt.length;n++)if(qt[n].pid===r){t.pid=n;break}}else t.pid=parseInt(t.pid,10)-1;return t.pid<0&&(t.pid=0),t},Ln=function(){if(gn&&clearTimeout(gn),Xe||Z)return void(gn=setTimeout(Ln,500));yn?clearTimeout(vn):yn=!0;var e=l+1,t=Wt(l);t.hasOwnProperty("pid")&&(e=t.pid);var n=xn+"&gid="+a.galleryUID+"&pid="+e;_n||-1===kn.hash.indexOf(n)&&(Tn=!0);var o=kn.href.split("#")[0]+"#"+n;On?"#"+n!==window.location.hash&&history[_n?"replaceState":"pushState"]("",document.title,o):_n?kn.replace(o):kn.hash=n,_n=!0,vn=setTimeout(function(){yn=!1},60)};Se("History",{publicMethods:{initHistory:function(){if(i.extend(a,En,!0),a.history){kn=window.location,Tn=!1,Sn=!1,_n=!1,xn=In(),On="pushState"in history,xn.indexOf("gid=")>-1&&(xn=xn.split("&gid=")[0],xn=xn.split("?gid=")[0]),Oe("afterChange",r.updateURL),Oe("unbindEvents",function(){i.unbind(window,"hashchange",r.onHashChange)});var e=function(){wn=!0,Sn||(Tn?history.back():xn?kn.hash=xn:On?history.pushState("",document.title,kn.pathname+kn.search):kn.hash=""),Cn()};Oe("unbindEvents",function(){c&&e()}),Oe("destroy",function(){wn||e()}),Oe("firstUpdate",function(){l=An().pid});var t=xn.indexOf("pid=");t>-1&&(xn=xn.substring(0,t),"&"===xn.slice(-1)&&(xn=xn.slice(0,-1))),setTimeout(function(){s&&i.bind(window,"hashchange",r.onHashChange)},40)}},onHashChange:function(){if(In()===xn)return Sn=!0,void r.close();yn||(bn=!0,r.goTo(An().pid),bn=!1)},updateURL:function(){Cn(),bn||(_n?hn=setTimeout(Ln,800):Ln())}}}),i.extend(r,nt)}})},191:function(e,t,n){var o,i;/*! PhotoSwipe Default UI - 4.1.2 - 2017-04-05
+(function (root, factory) { 
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else if (typeof exports === 'object') {
+		module.exports = factory();
+	} else {
+		root.PhotoSwipe = factory();
+	}
+})(this, function () {
+
+	'use strict';
+	var PhotoSwipe = function(template, UiClass, items, options){
+
+/*>>framework-bridge*/
+/**
+ *
+ * Set of generic functions used by gallery.
+ * 
+ * You're free to modify anything here as long as functionality is kept.
+ * 
+ */
+var framework = {
+	features: null,
+	bind: function(target, type, listener, unbind) {
+		var methodName = (unbind ? 'remove' : 'add') + 'EventListener';
+		type = type.split(' ');
+		for(var i = 0; i < type.length; i++) {
+			if(type[i]) {
+				target[methodName]( type[i], listener, false);
+			}
+		}
+	},
+	isArray: function(obj) {
+		return (obj instanceof Array);
+	},
+	createEl: function(classes, tag) {
+		var el = document.createElement(tag || 'div');
+		if(classes) {
+			el.className = classes;
+		}
+		return el;
+	},
+	getScrollY: function() {
+		var yOffset = window.pageYOffset;
+		return yOffset !== undefined ? yOffset : document.documentElement.scrollTop;
+	},
+	unbind: function(target, type, listener) {
+		framework.bind(target,type,listener,true);
+	},
+	removeClass: function(el, className) {
+		var reg = new RegExp('(\\s|^)' + className + '(\\s|$)');
+		el.className = el.className.replace(reg, ' ').replace(/^\s\s*/, '').replace(/\s\s*$/, ''); 
+	},
+	addClass: function(el, className) {
+		if( !framework.hasClass(el,className) ) {
+			el.className += (el.className ? ' ' : '') + className;
+		}
+	},
+	hasClass: function(el, className) {
+		return el.className && new RegExp('(^|\\s)' + className + '(\\s|$)').test(el.className);
+	},
+	getChildByClass: function(parentEl, childClassName) {
+		var node = parentEl.firstChild;
+		while(node) {
+			if( framework.hasClass(node, childClassName) ) {
+				return node;
+			}
+			node = node.nextSibling;
+		}
+	},
+	arraySearch: function(array, value, key) {
+		var i = array.length;
+		while(i--) {
+			if(array[i][key] === value) {
+				return i;
+			} 
+		}
+		return -1;
+	},
+	extend: function(o1, o2, preventOverwrite) {
+		for (var prop in o2) {
+			if (o2.hasOwnProperty(prop)) {
+				if(preventOverwrite && o1.hasOwnProperty(prop)) {
+					continue;
+				}
+				o1[prop] = o2[prop];
+			}
+		}
+	},
+	easing: {
+		sine: {
+			out: function(k) {
+				return Math.sin(k * (Math.PI / 2));
+			},
+			inOut: function(k) {
+				return - (Math.cos(Math.PI * k) - 1) / 2;
+			}
+		},
+		cubic: {
+			out: function(k) {
+				return --k * k * k + 1;
+			}
+		}
+		/*
+			elastic: {
+				out: function ( k ) {
+
+					var s, a = 0.1, p = 0.4;
+					if ( k === 0 ) return 0;
+					if ( k === 1 ) return 1;
+					if ( !a || a < 1 ) { a = 1; s = p / 4; }
+					else s = p * Math.asin( 1 / a ) / ( 2 * Math.PI );
+					return ( a * Math.pow( 2, - 10 * k) * Math.sin( ( k - s ) * ( 2 * Math.PI ) / p ) + 1 );
+
+				},
+			},
+			back: {
+				out: function ( k ) {
+					var s = 1.70158;
+					return --k * k * ( ( s + 1 ) * k + s ) + 1;
+				}
+			}
+		*/
+	},
+
+	/**
+	 * 
+	 * @return {object}
+	 * 
+	 * {
+	 *  raf : request animation frame function
+	 *  caf : cancel animation frame function
+	 *  transfrom : transform property key (with vendor), or null if not supported
+	 *  oldIE : IE8 or below
+	 * }
+	 * 
+	 */
+	detectFeatures: function() {
+		if(framework.features) {
+			return framework.features;
+		}
+		var helperEl = framework.createEl(),
+			helperStyle = helperEl.style,
+			vendor = '',
+			features = {};
+
+		// IE8 and below
+		features.oldIE = document.all && !document.addEventListener;
+
+		features.touch = 'ontouchstart' in window;
+
+		if(window.requestAnimationFrame) {
+			features.raf = window.requestAnimationFrame;
+			features.caf = window.cancelAnimationFrame;
+		}
+
+		features.pointerEvent = navigator.pointerEnabled || navigator.msPointerEnabled;
+
+		// fix false-positive detection of old Android in new IE
+		// (IE11 ua string contains "Android 4.0")
+		
+		if(!features.pointerEvent) { 
+
+			var ua = navigator.userAgent;
+
+			// Detect if device is iPhone or iPod and if it's older than iOS 8
+			// http://stackoverflow.com/a/14223920
+			// 
+			// This detection is made because of buggy top/bottom toolbars
+			// that don't trigger window.resize event.
+			// For more info refer to _isFixedPosition variable in core.js
+
+			if (/iP(hone|od)/.test(navigator.platform)) {
+				var v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
+				if(v && v.length > 0) {
+					v = parseInt(v[1], 10);
+					if(v >= 1 && v < 8 ) {
+						features.isOldIOSPhone = true;
+					}
+				}
+			}
+
+			// Detect old Android (before KitKat)
+			// due to bugs related to position:fixed
+			// http://stackoverflow.com/questions/7184573/pick-up-the-android-version-in-the-browser-by-javascript
+			
+			var match = ua.match(/Android\s([0-9\.]*)/);
+			var androidversion =  match ? match[1] : 0;
+			androidversion = parseFloat(androidversion);
+			if(androidversion >= 1 ) {
+				if(androidversion < 4.4) {
+					features.isOldAndroid = true; // for fixed position bug & performance
+				}
+				features.androidVersion = androidversion; // for touchend bug
+			}	
+			features.isMobileOpera = /opera mini|opera mobi/i.test(ua);
+
+			// p.s. yes, yes, UA sniffing is bad, propose your solution for above bugs.
+		}
+		
+		var styleChecks = ['transform', 'perspective', 'animationName'],
+			vendors = ['', 'webkit','Moz','ms','O'],
+			styleCheckItem,
+			styleName;
+
+		for(var i = 0; i < 4; i++) {
+			vendor = vendors[i];
+
+			for(var a = 0; a < 3; a++) {
+				styleCheckItem = styleChecks[a];
+
+				// uppercase first letter of property name, if vendor is present
+				styleName = vendor + (vendor ? 
+										styleCheckItem.charAt(0).toUpperCase() + styleCheckItem.slice(1) : 
+										styleCheckItem);
+			
+				if(!features[styleCheckItem] && styleName in helperStyle ) {
+					features[styleCheckItem] = styleName;
+				}
+			}
+
+			if(vendor && !features.raf) {
+				vendor = vendor.toLowerCase();
+				features.raf = window[vendor+'RequestAnimationFrame'];
+				if(features.raf) {
+					features.caf = window[vendor+'CancelAnimationFrame'] || 
+									window[vendor+'CancelRequestAnimationFrame'];
+				}
+			}
+		}
+			
+		if(!features.raf) {
+			var lastTime = 0;
+			features.raf = function(fn) {
+				var currTime = new Date().getTime();
+				var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+				var id = window.setTimeout(function() { fn(currTime + timeToCall); }, timeToCall);
+				lastTime = currTime + timeToCall;
+				return id;
+			};
+			features.caf = function(id) { clearTimeout(id); };
+		}
+
+		// Detect SVG support
+		features.svg = !!document.createElementNS && 
+						!!document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect;
+
+		framework.features = features;
+
+		return features;
+	}
+};
+
+framework.detectFeatures();
+
+// Override addEventListener for old versions of IE
+if(framework.features.oldIE) {
+
+	framework.bind = function(target, type, listener, unbind) {
+		
+		type = type.split(' ');
+
+		var methodName = (unbind ? 'detach' : 'attach') + 'Event',
+			evName,
+			_handleEv = function() {
+				listener.handleEvent.call(listener);
+			};
+
+		for(var i = 0; i < type.length; i++) {
+			evName = type[i];
+			if(evName) {
+
+				if(typeof listener === 'object' && listener.handleEvent) {
+					if(!unbind) {
+						listener['oldIE' + evName] = _handleEv;
+					} else {
+						if(!listener['oldIE' + evName]) {
+							return false;
+						}
+					}
+
+					target[methodName]( 'on' + evName, listener['oldIE' + evName]);
+				} else {
+					target[methodName]( 'on' + evName, listener);
+				}
+
+			}
+		}
+	};
+	
+}
+
+/*>>framework-bridge*/
+
+/*>>core*/
+//function(template, UiClass, items, options)
+
+var self = this;
+
+/**
+ * Static vars, don't change unless you know what you're doing.
+ */
+var DOUBLE_TAP_RADIUS = 25, 
+	NUM_HOLDERS = 3;
+
+/**
+ * Options
+ */
+var _options = {
+	allowPanToNext:true,
+	spacing: 0.12,
+	bgOpacity: 1,
+	mouseUsed: false,
+	loop: true,
+	pinchToClose: true,
+	closeOnScroll: true,
+	closeOnVerticalDrag: true,
+	verticalDragRange: 0.75,
+	hideAnimationDuration: 333,
+	showAnimationDuration: 333,
+	showHideOpacity: false,
+	focus: true,
+	escKey: true,
+	arrowKeys: true,
+	mainScrollEndFriction: 0.35,
+	panEndFriction: 0.35,
+	isClickableElement: function(el) {
+        return el.tagName === 'A';
+    },
+    getDoubleTapZoom: function(isMouseClick, item) {
+    	if(isMouseClick) {
+    		return 1;
+    	} else {
+    		return item.initialZoomLevel < 0.7 ? 1 : 1.33;
+    	}
+    },
+    maxSpreadZoom: 1.33,
+	modal: true,
+
+	// not fully implemented yet
+	scaleMode: 'fit' // TODO
+};
+framework.extend(_options, options);
+
+
+/**
+ * Private helper variables & functions
+ */
+
+var _getEmptyPoint = function() { 
+		return {x:0,y:0}; 
+	};
+
+var _isOpen,
+	_isDestroying,
+	_closedByScroll,
+	_currentItemIndex,
+	_containerStyle,
+	_containerShiftIndex,
+	_currPanDist = _getEmptyPoint(),
+	_startPanOffset = _getEmptyPoint(),
+	_panOffset = _getEmptyPoint(),
+	_upMoveEvents, // drag move, drag end & drag cancel events array
+	_downEvents, // drag start events array
+	_globalEventHandlers,
+	_viewportSize = {},
+	_currZoomLevel,
+	_startZoomLevel,
+	_translatePrefix,
+	_translateSufix,
+	_updateSizeInterval,
+	_itemsNeedUpdate,
+	_currPositionIndex = 0,
+	_offset = {},
+	_slideSize = _getEmptyPoint(), // size of slide area, including spacing
+	_itemHolders,
+	_prevItemIndex,
+	_indexDiff = 0, // difference of indexes since last content update
+	_dragStartEvent,
+	_dragMoveEvent,
+	_dragEndEvent,
+	_dragCancelEvent,
+	_transformKey,
+	_pointerEventEnabled,
+	_isFixedPosition = true,
+	_likelyTouchDevice,
+	_modules = [],
+	_requestAF,
+	_cancelAF,
+	_initalClassName,
+	_initalWindowScrollY,
+	_oldIE,
+	_currentWindowScrollY,
+	_features,
+	_windowVisibleSize = {},
+	_renderMaxResolution = false,
+	_orientationChangeTimeout,
+
+
+	// Registers PhotoSWipe module (History, Controller ...)
+	_registerModule = function(name, module) {
+		framework.extend(self, module.publicMethods);
+		_modules.push(name);
+	},
+
+	_getLoopedId = function(index) {
+		var numSlides = _getNumItems();
+		if(index > numSlides - 1) {
+			return index - numSlides;
+		} else  if(index < 0) {
+			return numSlides + index;
+		}
+		return index;
+	},
+	
+	// Micro bind/trigger
+	_listeners = {},
+	_listen = function(name, fn) {
+		if(!_listeners[name]) {
+			_listeners[name] = [];
+		}
+		return _listeners[name].push(fn);
+	},
+	_shout = function(name) {
+		var listeners = _listeners[name];
+
+		if(listeners) {
+			var args = Array.prototype.slice.call(arguments);
+			args.shift();
+
+			for(var i = 0; i < listeners.length; i++) {
+				listeners[i].apply(self, args);
+			}
+		}
+	},
+
+	_getCurrentTime = function() {
+		return new Date().getTime();
+	},
+	_applyBgOpacity = function(opacity) {
+		_bgOpacity = opacity;
+		self.bg.style.opacity = opacity * _options.bgOpacity;
+	},
+
+	_applyZoomTransform = function(styleObj,x,y,zoom,item) {
+		if(!_renderMaxResolution || (item && item !== self.currItem) ) {
+			zoom = zoom / (item ? item.fitRatio : self.currItem.fitRatio);	
+		}
+			
+		styleObj[_transformKey] = _translatePrefix + x + 'px, ' + y + 'px' + _translateSufix + ' scale(' + zoom + ')';
+	},
+	_applyCurrentZoomPan = function( allowRenderResolution ) {
+		if(_currZoomElementStyle) {
+
+			if(allowRenderResolution) {
+				if(_currZoomLevel > self.currItem.fitRatio) {
+					if(!_renderMaxResolution) {
+						_setImageSize(self.currItem, false, true);
+						_renderMaxResolution = true;
+					}
+				} else {
+					if(_renderMaxResolution) {
+						_setImageSize(self.currItem);
+						_renderMaxResolution = false;
+					}
+				}
+			}
+			
+
+			_applyZoomTransform(_currZoomElementStyle, _panOffset.x, _panOffset.y, _currZoomLevel);
+		}
+	},
+	_applyZoomPanToItem = function(item) {
+		if(item.container) {
+
+			_applyZoomTransform(item.container.style, 
+								item.initialPosition.x, 
+								item.initialPosition.y, 
+								item.initialZoomLevel,
+								item);
+		}
+	},
+	_setTranslateX = function(x, elStyle) {
+		elStyle[_transformKey] = _translatePrefix + x + 'px, 0px' + _translateSufix;
+	},
+	_moveMainScroll = function(x, dragging) {
+
+		if(!_options.loop && dragging) {
+			var newSlideIndexOffset = _currentItemIndex + (_slideSize.x * _currPositionIndex - x) / _slideSize.x,
+				delta = Math.round(x - _mainScrollPos.x);
+
+			if( (newSlideIndexOffset < 0 && delta > 0) || 
+				(newSlideIndexOffset >= _getNumItems() - 1 && delta < 0) ) {
+				x = _mainScrollPos.x + delta * _options.mainScrollEndFriction;
+			} 
+		}
+		
+		_mainScrollPos.x = x;
+		_setTranslateX(x, _containerStyle);
+	},
+	_calculatePanOffset = function(axis, zoomLevel) {
+		var m = _midZoomPoint[axis] - _offset[axis];
+		return _startPanOffset[axis] + _currPanDist[axis] + m - m * ( zoomLevel / _startZoomLevel );
+	},
+	
+	_equalizePoints = function(p1, p2) {
+		p1.x = p2.x;
+		p1.y = p2.y;
+		if(p2.id) {
+			p1.id = p2.id;
+		}
+	},
+	_roundPoint = function(p) {
+		p.x = Math.round(p.x);
+		p.y = Math.round(p.y);
+	},
+
+	_mouseMoveTimeout = null,
+	_onFirstMouseMove = function() {
+		// Wait until mouse move event is fired at least twice during 100ms
+		// We do this, because some mobile browsers trigger it on touchstart
+		if(_mouseMoveTimeout ) { 
+			framework.unbind(document, 'mousemove', _onFirstMouseMove);
+			framework.addClass(template, 'pswp--has_mouse');
+			_options.mouseUsed = true;
+			_shout('mouseUsed');
+		}
+		_mouseMoveTimeout = setTimeout(function() {
+			_mouseMoveTimeout = null;
+		}, 100);
+	},
+
+	_bindEvents = function() {
+		framework.bind(document, 'keydown', self);
+
+		if(_features.transform) {
+			// don't bind click event in browsers that don't support transform (mostly IE8)
+			framework.bind(self.scrollWrap, 'click', self);
+		}
+		
+
+		if(!_options.mouseUsed) {
+			framework.bind(document, 'mousemove', _onFirstMouseMove);
+		}
+
+		framework.bind(window, 'resize scroll orientationchange', self);
+
+		_shout('bindEvents');
+	},
+
+	_unbindEvents = function() {
+		framework.unbind(window, 'resize scroll orientationchange', self);
+		framework.unbind(window, 'scroll', _globalEventHandlers.scroll);
+		framework.unbind(document, 'keydown', self);
+		framework.unbind(document, 'mousemove', _onFirstMouseMove);
+
+		if(_features.transform) {
+			framework.unbind(self.scrollWrap, 'click', self);
+		}
+
+		if(_isDragging) {
+			framework.unbind(window, _upMoveEvents, self);
+		}
+
+		clearTimeout(_orientationChangeTimeout);
+
+		_shout('unbindEvents');
+	},
+	
+	_calculatePanBounds = function(zoomLevel, update) {
+		var bounds = _calculateItemSize( self.currItem, _viewportSize, zoomLevel );
+		if(update) {
+			_currPanBounds = bounds;
+		}
+		return bounds;
+	},
+	
+	_getMinZoomLevel = function(item) {
+		if(!item) {
+			item = self.currItem;
+		}
+		return item.initialZoomLevel;
+	},
+	_getMaxZoomLevel = function(item) {
+		if(!item) {
+			item = self.currItem;
+		}
+		return item.w > 0 ? _options.maxSpreadZoom : 1;
+	},
+
+	// Return true if offset is out of the bounds
+	_modifyDestPanOffset = function(axis, destPanBounds, destPanOffset, destZoomLevel) {
+		if(destZoomLevel === self.currItem.initialZoomLevel) {
+			destPanOffset[axis] = self.currItem.initialPosition[axis];
+			return true;
+		} else {
+			destPanOffset[axis] = _calculatePanOffset(axis, destZoomLevel); 
+
+			if(destPanOffset[axis] > destPanBounds.min[axis]) {
+				destPanOffset[axis] = destPanBounds.min[axis];
+				return true;
+			} else if(destPanOffset[axis] < destPanBounds.max[axis] ) {
+				destPanOffset[axis] = destPanBounds.max[axis];
+				return true;
+			}
+		}
+		return false;
+	},
+
+	_setupTransforms = function() {
+
+		if(_transformKey) {
+			// setup 3d transforms
+			var allow3dTransform = _features.perspective && !_likelyTouchDevice;
+			_translatePrefix = 'translate' + (allow3dTransform ? '3d(' : '(');
+			_translateSufix = _features.perspective ? ', 0px)' : ')';	
+			return;
+		}
+
+		// Override zoom/pan/move functions in case old browser is used (most likely IE)
+		// (so they use left/top/width/height, instead of CSS transform)
+	
+		_transformKey = 'left';
+		framework.addClass(template, 'pswp--ie');
+
+		_setTranslateX = function(x, elStyle) {
+			elStyle.left = x + 'px';
+		};
+		_applyZoomPanToItem = function(item) {
+
+			var zoomRatio = item.fitRatio > 1 ? 1 : item.fitRatio,
+				s = item.container.style,
+				w = zoomRatio * item.w,
+				h = zoomRatio * item.h;
+
+			s.width = w + 'px';
+			s.height = h + 'px';
+			s.left = item.initialPosition.x + 'px';
+			s.top = item.initialPosition.y + 'px';
+
+		};
+		_applyCurrentZoomPan = function() {
+			if(_currZoomElementStyle) {
+
+				var s = _currZoomElementStyle,
+					item = self.currItem,
+					zoomRatio = item.fitRatio > 1 ? 1 : item.fitRatio,
+					w = zoomRatio * item.w,
+					h = zoomRatio * item.h;
+
+				s.width = w + 'px';
+				s.height = h + 'px';
+
+
+				s.left = _panOffset.x + 'px';
+				s.top = _panOffset.y + 'px';
+			}
+			
+		};
+	},
+
+	_onKeyDown = function(e) {
+		var keydownAction = '';
+		if(_options.escKey && e.keyCode === 27) { 
+			keydownAction = 'close';
+		} else if(_options.arrowKeys) {
+			if(e.keyCode === 37) {
+				keydownAction = 'prev';
+			} else if(e.keyCode === 39) { 
+				keydownAction = 'next';
+			}
+		}
+
+		if(keydownAction) {
+			// don't do anything if special key pressed to prevent from overriding default browser actions
+			// e.g. in Chrome on Mac cmd+arrow-left returns to previous page
+			if( !e.ctrlKey && !e.altKey && !e.shiftKey && !e.metaKey ) {
+				if(e.preventDefault) {
+					e.preventDefault();
+				} else {
+					e.returnValue = false;
+				} 
+				self[keydownAction]();
+			}
+		}
+	},
+
+	_onGlobalClick = function(e) {
+		if(!e) {
+			return;
+		}
+
+		// don't allow click event to pass through when triggering after drag or some other gesture
+		if(_moved || _zoomStarted || _mainScrollAnimating || _verticalDragInitiated) {
+			e.preventDefault();
+			e.stopPropagation();
+		}
+	},
+
+	_updatePageScrollOffset = function() {
+		self.setScrollOffset(0, framework.getScrollY());		
+	};
+	
+
+
+	
+
+
+
+// Micro animation engine
+var _animations = {},
+	_numAnimations = 0,
+	_stopAnimation = function(name) {
+		if(_animations[name]) {
+			if(_animations[name].raf) {
+				_cancelAF( _animations[name].raf );
+			}
+			_numAnimations--;
+			delete _animations[name];
+		}
+	},
+	_registerStartAnimation = function(name) {
+		if(_animations[name]) {
+			_stopAnimation(name);
+		}
+		if(!_animations[name]) {
+			_numAnimations++;
+			_animations[name] = {};
+		}
+	},
+	_stopAllAnimations = function() {
+		for (var prop in _animations) {
+
+			if( _animations.hasOwnProperty( prop ) ) {
+				_stopAnimation(prop);
+			} 
+			
+		}
+	},
+	_animateProp = function(name, b, endProp, d, easingFn, onUpdate, onComplete) {
+		var startAnimTime = _getCurrentTime(), t;
+		_registerStartAnimation(name);
+
+		var animloop = function(){
+			if ( _animations[name] ) {
+				
+				t = _getCurrentTime() - startAnimTime; // time diff
+				//b - beginning (start prop)
+				//d - anim duration
+
+				if ( t >= d ) {
+					_stopAnimation(name);
+					onUpdate(endProp);
+					if(onComplete) {
+						onComplete();
+					}
+					return;
+				}
+				onUpdate( (endProp - b) * easingFn(t/d) + b );
+
+				_animations[name].raf = _requestAF(animloop);
+			}
+		};
+		animloop();
+	};
+	
+
+
+var publicMethods = {
+
+	// make a few local variables and functions public
+	shout: _shout,
+	listen: _listen,
+	viewportSize: _viewportSize,
+	options: _options,
+
+	isMainScrollAnimating: function() {
+		return _mainScrollAnimating;
+	},
+	getZoomLevel: function() {
+		return _currZoomLevel;
+	},
+	getCurrentIndex: function() {
+		return _currentItemIndex;
+	},
+	isDragging: function() {
+		return _isDragging;
+	},	
+	isZooming: function() {
+		return _isZooming;
+	},
+	setScrollOffset: function(x,y) {
+		_offset.x = x;
+		_currentWindowScrollY = _offset.y = y;
+		_shout('updateScrollOffset', _offset);
+	},
+	applyZoomPan: function(zoomLevel,panX,panY,allowRenderResolution) {
+		_panOffset.x = panX;
+		_panOffset.y = panY;
+		_currZoomLevel = zoomLevel;
+		_applyCurrentZoomPan( allowRenderResolution );
+	},
+
+	init: function() {
+
+		if(_isOpen || _isDestroying) {
+			return;
+		}
+
+		var i;
+
+		self.framework = framework; // basic functionality
+		self.template = template; // root DOM element of PhotoSwipe
+		self.bg = framework.getChildByClass(template, 'pswp__bg');
+
+		_initalClassName = template.className;
+		_isOpen = true;
+				
+		_features = framework.detectFeatures();
+		_requestAF = _features.raf;
+		_cancelAF = _features.caf;
+		_transformKey = _features.transform;
+		_oldIE = _features.oldIE;
+		
+		self.scrollWrap = framework.getChildByClass(template, 'pswp__scroll-wrap');
+		self.container = framework.getChildByClass(self.scrollWrap, 'pswp__container');
+
+		_containerStyle = self.container.style; // for fast access
+
+		// Objects that hold slides (there are only 3 in DOM)
+		self.itemHolders = _itemHolders = [
+			{el:self.container.children[0] , wrap:0, index: -1},
+			{el:self.container.children[1] , wrap:0, index: -1},
+			{el:self.container.children[2] , wrap:0, index: -1}
+		];
+
+		// hide nearby item holders until initial zoom animation finishes (to avoid extra Paints)
+		_itemHolders[0].el.style.display = _itemHolders[2].el.style.display = 'none';
+
+		_setupTransforms();
+
+		// Setup global events
+		_globalEventHandlers = {
+			resize: self.updateSize,
+
+			// Fixes: iOS 10.3 resize event
+			// does not update scrollWrap.clientWidth instantly after resize
+			// https://github.com/dimsemenov/PhotoSwipe/issues/1315
+			orientationchange: function() {
+				clearTimeout(_orientationChangeTimeout);
+				_orientationChangeTimeout = setTimeout(function() {
+					if(_viewportSize.x !== self.scrollWrap.clientWidth) {
+						self.updateSize();
+					}
+				}, 500);
+			},
+			scroll: _updatePageScrollOffset,
+			keydown: _onKeyDown,
+			click: _onGlobalClick
+		};
+
+		// disable show/hide effects on old browsers that don't support CSS animations or transforms, 
+		// old IOS, Android and Opera mobile. Blackberry seems to work fine, even older models.
+		var oldPhone = _features.isOldIOSPhone || _features.isOldAndroid || _features.isMobileOpera;
+		if(!_features.animationName || !_features.transform || oldPhone) {
+			_options.showAnimationDuration = _options.hideAnimationDuration = 0;
+		}
+
+		// init modules
+		for(i = 0; i < _modules.length; i++) {
+			self['init' + _modules[i]]();
+		}
+		
+		// init
+		if(UiClass) {
+			var ui = self.ui = new UiClass(self, framework);
+			ui.init();
+		}
+
+		_shout('firstUpdate');
+		_currentItemIndex = _currentItemIndex || _options.index || 0;
+		// validate index
+		if( isNaN(_currentItemIndex) || _currentItemIndex < 0 || _currentItemIndex >= _getNumItems() ) {
+			_currentItemIndex = 0;
+		}
+		self.currItem = _getItemAt( _currentItemIndex );
+
+		
+		if(_features.isOldIOSPhone || _features.isOldAndroid) {
+			_isFixedPosition = false;
+		}
+		
+		template.setAttribute('aria-hidden', 'false');
+		if(_options.modal) {
+			if(!_isFixedPosition) {
+				template.style.position = 'absolute';
+				template.style.top = framework.getScrollY() + 'px';
+			} else {
+				template.style.position = 'fixed';
+			}
+		}
+
+		if(_currentWindowScrollY === undefined) {
+			_shout('initialLayout');
+			_currentWindowScrollY = _initalWindowScrollY = framework.getScrollY();
+		}
+		
+		// add classes to root element of PhotoSwipe
+		var rootClasses = 'pswp--open ';
+		if(_options.mainClass) {
+			rootClasses += _options.mainClass + ' ';
+		}
+		if(_options.showHideOpacity) {
+			rootClasses += 'pswp--animate_opacity ';
+		}
+		rootClasses += _likelyTouchDevice ? 'pswp--touch' : 'pswp--notouch';
+		rootClasses += _features.animationName ? ' pswp--css_animation' : '';
+		rootClasses += _features.svg ? ' pswp--svg' : '';
+		framework.addClass(template, rootClasses);
+
+		self.updateSize();
+
+		// initial update
+		_containerShiftIndex = -1;
+		_indexDiff = null;
+		for(i = 0; i < NUM_HOLDERS; i++) {
+			_setTranslateX( (i+_containerShiftIndex) * _slideSize.x, _itemHolders[i].el.style);
+		}
+
+		if(!_oldIE) {
+			framework.bind(self.scrollWrap, _downEvents, self); // no dragging for old IE
+		}	
+
+		_listen('initialZoomInEnd', function() {
+			self.setContent(_itemHolders[0], _currentItemIndex-1);
+			self.setContent(_itemHolders[2], _currentItemIndex+1);
+
+			_itemHolders[0].el.style.display = _itemHolders[2].el.style.display = 'block';
+
+			if(_options.focus) {
+				// focus causes layout, 
+				// which causes lag during the animation, 
+				// that's why we delay it untill the initial zoom transition ends
+				template.focus();
+			}
+			 
+
+			_bindEvents();
+		});
+
+		// set content for center slide (first time)
+		self.setContent(_itemHolders[1], _currentItemIndex);
+		
+		self.updateCurrItem();
+
+		_shout('afterInit');
+
+		if(!_isFixedPosition) {
+
+			// On all versions of iOS lower than 8.0, we check size of viewport every second.
+			// 
+			// This is done to detect when Safari top & bottom bars appear, 
+			// as this action doesn't trigger any events (like resize). 
+			// 
+			// On iOS8 they fixed this.
+			// 
+			// 10 Nov 2014: iOS 7 usage ~40%. iOS 8 usage 56%.
+			
+			_updateSizeInterval = setInterval(function() {
+				if(!_numAnimations && !_isDragging && !_isZooming && (_currZoomLevel === self.currItem.initialZoomLevel)  ) {
+					self.updateSize();
+				}
+			}, 1000);
+		}
+
+		framework.addClass(template, 'pswp--visible');
+	},
+
+	// Close the gallery, then destroy it
+	close: function() {
+		if(!_isOpen) {
+			return;
+		}
+
+		_isOpen = false;
+		_isDestroying = true;
+		_shout('close');
+		_unbindEvents();
+
+		_showOrHide(self.currItem, null, true, self.destroy);
+	},
+
+	// destroys the gallery (unbinds events, cleans up intervals and timeouts to avoid memory leaks)
+	destroy: function() {
+		_shout('destroy');
+
+		if(_showOrHideTimeout) {
+			clearTimeout(_showOrHideTimeout);
+		}
+		
+		template.setAttribute('aria-hidden', 'true');
+		template.className = _initalClassName;
+
+		if(_updateSizeInterval) {
+			clearInterval(_updateSizeInterval);
+		}
+
+		framework.unbind(self.scrollWrap, _downEvents, self);
+
+		// we unbind scroll event at the end, as closing animation may depend on it
+		framework.unbind(window, 'scroll', self);
+
+		_stopDragUpdateLoop();
+
+		_stopAllAnimations();
+
+		_listeners = null;
+	},
+
+	/**
+	 * Pan image to position
+	 * @param {Number} x     
+	 * @param {Number} y     
+	 * @param {Boolean} force Will ignore bounds if set to true.
+	 */
+	panTo: function(x,y,force) {
+		if(!force) {
+			if(x > _currPanBounds.min.x) {
+				x = _currPanBounds.min.x;
+			} else if(x < _currPanBounds.max.x) {
+				x = _currPanBounds.max.x;
+			}
+
+			if(y > _currPanBounds.min.y) {
+				y = _currPanBounds.min.y;
+			} else if(y < _currPanBounds.max.y) {
+				y = _currPanBounds.max.y;
+			}
+		}
+		
+		_panOffset.x = x;
+		_panOffset.y = y;
+		_applyCurrentZoomPan();
+	},
+	
+	handleEvent: function (e) {
+		e = e || window.event;
+		if(_globalEventHandlers[e.type]) {
+			_globalEventHandlers[e.type](e);
+		}
+	},
+
+
+	goTo: function(index) {
+
+		index = _getLoopedId(index);
+
+		var diff = index - _currentItemIndex;
+		_indexDiff = diff;
+
+		_currentItemIndex = index;
+		self.currItem = _getItemAt( _currentItemIndex );
+		_currPositionIndex -= diff;
+		
+		_moveMainScroll(_slideSize.x * _currPositionIndex);
+		
+
+		_stopAllAnimations();
+		_mainScrollAnimating = false;
+
+		self.updateCurrItem();
+	},
+	next: function() {
+		self.goTo( _currentItemIndex + 1);
+	},
+	prev: function() {
+		self.goTo( _currentItemIndex - 1);
+	},
+
+	// update current zoom/pan objects
+	updateCurrZoomItem: function(emulateSetContent) {
+		if(emulateSetContent) {
+			_shout('beforeChange', 0);
+		}
+
+		// itemHolder[1] is middle (current) item
+		if(_itemHolders[1].el.children.length) {
+			var zoomElement = _itemHolders[1].el.children[0];
+			if( framework.hasClass(zoomElement, 'pswp__zoom-wrap') ) {
+				_currZoomElementStyle = zoomElement.style;
+			} else {
+				_currZoomElementStyle = null;
+			}
+		} else {
+			_currZoomElementStyle = null;
+		}
+		
+		_currPanBounds = self.currItem.bounds;	
+		_startZoomLevel = _currZoomLevel = self.currItem.initialZoomLevel;
+
+		_panOffset.x = _currPanBounds.center.x;
+		_panOffset.y = _currPanBounds.center.y;
+
+		if(emulateSetContent) {
+			_shout('afterChange');
+		}
+	},
+
+
+	invalidateCurrItems: function() {
+		_itemsNeedUpdate = true;
+		for(var i = 0; i < NUM_HOLDERS; i++) {
+			if( _itemHolders[i].item ) {
+				_itemHolders[i].item.needsUpdate = true;
+			}
+		}
+	},
+
+	updateCurrItem: function(beforeAnimation) {
+
+		if(_indexDiff === 0) {
+			return;
+		}
+
+		var diffAbs = Math.abs(_indexDiff),
+			tempHolder;
+
+		if(beforeAnimation && diffAbs < 2) {
+			return;
+		}
+
+
+		self.currItem = _getItemAt( _currentItemIndex );
+		_renderMaxResolution = false;
+		
+		_shout('beforeChange', _indexDiff);
+
+		if(diffAbs >= NUM_HOLDERS) {
+			_containerShiftIndex += _indexDiff + (_indexDiff > 0 ? -NUM_HOLDERS : NUM_HOLDERS);
+			diffAbs = NUM_HOLDERS;
+		}
+		for(var i = 0; i < diffAbs; i++) {
+			if(_indexDiff > 0) {
+				tempHolder = _itemHolders.shift();
+				_itemHolders[NUM_HOLDERS-1] = tempHolder; // move first to last
+
+				_containerShiftIndex++;
+				_setTranslateX( (_containerShiftIndex+2) * _slideSize.x, tempHolder.el.style);
+				self.setContent(tempHolder, _currentItemIndex - diffAbs + i + 1 + 1);
+			} else {
+				tempHolder = _itemHolders.pop();
+				_itemHolders.unshift( tempHolder ); // move last to first
+
+				_containerShiftIndex--;
+				_setTranslateX( _containerShiftIndex * _slideSize.x, tempHolder.el.style);
+				self.setContent(tempHolder, _currentItemIndex + diffAbs - i - 1 - 1);
+			}
+			
+		}
+
+		// reset zoom/pan on previous item
+		if(_currZoomElementStyle && Math.abs(_indexDiff) === 1) {
+
+			var prevItem = _getItemAt(_prevItemIndex);
+			if(prevItem.initialZoomLevel !== _currZoomLevel) {
+				_calculateItemSize(prevItem , _viewportSize );
+				_setImageSize(prevItem);
+				_applyZoomPanToItem( prevItem ); 				
+			}
+
+		}
+
+		// reset diff after update
+		_indexDiff = 0;
+
+		self.updateCurrZoomItem();
+
+		_prevItemIndex = _currentItemIndex;
+
+		_shout('afterChange');
+		
+	},
+
+
+
+	updateSize: function(force) {
+		
+		if(!_isFixedPosition && _options.modal) {
+			var windowScrollY = framework.getScrollY();
+			if(_currentWindowScrollY !== windowScrollY) {
+				template.style.top = windowScrollY + 'px';
+				_currentWindowScrollY = windowScrollY;
+			}
+			if(!force && _windowVisibleSize.x === window.innerWidth && _windowVisibleSize.y === window.innerHeight) {
+				return;
+			}
+			_windowVisibleSize.x = window.innerWidth;
+			_windowVisibleSize.y = window.innerHeight;
+
+			//template.style.width = _windowVisibleSize.x + 'px';
+			template.style.height = _windowVisibleSize.y + 'px';
+		}
+
+
+
+		_viewportSize.x = self.scrollWrap.clientWidth;
+		_viewportSize.y = self.scrollWrap.clientHeight;
+
+		_updatePageScrollOffset();
+
+		_slideSize.x = _viewportSize.x + Math.round(_viewportSize.x * _options.spacing);
+		_slideSize.y = _viewportSize.y;
+
+		_moveMainScroll(_slideSize.x * _currPositionIndex);
+
+		_shout('beforeResize'); // even may be used for example to switch image sources
+
+
+		// don't re-calculate size on inital size update
+		if(_containerShiftIndex !== undefined) {
+
+			var holder,
+				item,
+				hIndex;
+
+			for(var i = 0; i < NUM_HOLDERS; i++) {
+				holder = _itemHolders[i];
+				_setTranslateX( (i+_containerShiftIndex) * _slideSize.x, holder.el.style);
+
+				hIndex = _currentItemIndex+i-1;
+
+				if(_options.loop && _getNumItems() > 2) {
+					hIndex = _getLoopedId(hIndex);
+				}
+
+				// update zoom level on items and refresh source (if needsUpdate)
+				item = _getItemAt( hIndex );
+
+				// re-render gallery item if `needsUpdate`,
+				// or doesn't have `bounds` (entirely new slide object)
+				if( item && (_itemsNeedUpdate || item.needsUpdate || !item.bounds) ) {
+
+					self.cleanSlide( item );
+					
+					self.setContent( holder, hIndex );
+
+					// if "center" slide
+					if(i === 1) {
+						self.currItem = item;
+						self.updateCurrZoomItem(true);
+					}
+
+					item.needsUpdate = false;
+
+				} else if(holder.index === -1 && hIndex >= 0) {
+					// add content first time
+					self.setContent( holder, hIndex );
+				}
+				if(item && item.container) {
+					_calculateItemSize(item, _viewportSize);
+					_setImageSize(item);
+					_applyZoomPanToItem( item );
+				}
+				
+			}
+			_itemsNeedUpdate = false;
+		}	
+
+		_startZoomLevel = _currZoomLevel = self.currItem.initialZoomLevel;
+		_currPanBounds = self.currItem.bounds;
+
+		if(_currPanBounds) {
+			_panOffset.x = _currPanBounds.center.x;
+			_panOffset.y = _currPanBounds.center.y;
+			_applyCurrentZoomPan( true );
+		}
+		
+		_shout('resize');
+	},
+	
+	// Zoom current item to
+	zoomTo: function(destZoomLevel, centerPoint, speed, easingFn, updateFn) {
+		/*
+			if(destZoomLevel === 'fit') {
+				destZoomLevel = self.currItem.fitRatio;
+			} else if(destZoomLevel === 'fill') {
+				destZoomLevel = self.currItem.fillRatio;
+			}
+		*/
+
+		if(centerPoint) {
+			_startZoomLevel = _currZoomLevel;
+			_midZoomPoint.x = Math.abs(centerPoint.x) - _panOffset.x ;
+			_midZoomPoint.y = Math.abs(centerPoint.y) - _panOffset.y ;
+			_equalizePoints(_startPanOffset, _panOffset);
+		}
+
+		var destPanBounds = _calculatePanBounds(destZoomLevel, false),
+			destPanOffset = {};
+
+		_modifyDestPanOffset('x', destPanBounds, destPanOffset, destZoomLevel);
+		_modifyDestPanOffset('y', destPanBounds, destPanOffset, destZoomLevel);
+
+		var initialZoomLevel = _currZoomLevel;
+		var initialPanOffset = {
+			x: _panOffset.x,
+			y: _panOffset.y
+		};
+
+		_roundPoint(destPanOffset);
+
+		var onUpdate = function(now) {
+			if(now === 1) {
+				_currZoomLevel = destZoomLevel;
+				_panOffset.x = destPanOffset.x;
+				_panOffset.y = destPanOffset.y;
+			} else {
+				_currZoomLevel = (destZoomLevel - initialZoomLevel) * now + initialZoomLevel;
+				_panOffset.x = (destPanOffset.x - initialPanOffset.x) * now + initialPanOffset.x;
+				_panOffset.y = (destPanOffset.y - initialPanOffset.y) * now + initialPanOffset.y;
+			}
+
+			if(updateFn) {
+				updateFn(now);
+			}
+
+			_applyCurrentZoomPan( now === 1 );
+		};
+
+		if(speed) {
+			_animateProp('customZoomTo', 0, 1, speed, easingFn || framework.easing.sine.inOut, onUpdate);
+		} else {
+			onUpdate(1);
+		}
+	}
+
+
+};
+
+
+/*>>core*/
+
+/*>>gestures*/
+/**
+ * Mouse/touch/pointer event handlers.
+ * 
+ * separated from @core.js for readability
+ */
+
+var MIN_SWIPE_DISTANCE = 30,
+	DIRECTION_CHECK_OFFSET = 10; // amount of pixels to drag to determine direction of swipe
+
+var _gestureStartTime,
+	_gestureCheckSpeedTime,
+
+	// pool of objects that are used during dragging of zooming
+	p = {}, // first point
+	p2 = {}, // second point (for zoom gesture)
+	delta = {},
+	_currPoint = {},
+	_startPoint = {},
+	_currPointers = [],
+	_startMainScrollPos = {},
+	_releaseAnimData,
+	_posPoints = [], // array of points during dragging, used to determine type of gesture
+	_tempPoint = {},
+
+	_isZoomingIn,
+	_verticalDragInitiated,
+	_oldAndroidTouchEndTimeout,
+	_currZoomedItemIndex = 0,
+	_centerPoint = _getEmptyPoint(),
+	_lastReleaseTime = 0,
+	_isDragging, // at least one pointer is down
+	_isMultitouch, // at least two _pointers are down
+	_zoomStarted, // zoom level changed during zoom gesture
+	_moved,
+	_dragAnimFrame,
+	_mainScrollShifted,
+	_currentPoints, // array of current touch points
+	_isZooming,
+	_currPointsDistance,
+	_startPointsDistance,
+	_currPanBounds,
+	_mainScrollPos = _getEmptyPoint(),
+	_currZoomElementStyle,
+	_mainScrollAnimating, // true, if animation after swipe gesture is running
+	_midZoomPoint = _getEmptyPoint(),
+	_currCenterPoint = _getEmptyPoint(),
+	_direction,
+	_isFirstMove,
+	_opacityChanged,
+	_bgOpacity,
+	_wasOverInitialZoom,
+
+	_isEqualPoints = function(p1, p2) {
+		return p1.x === p2.x && p1.y === p2.y;
+	},
+	_isNearbyPoints = function(touch0, touch1) {
+		return Math.abs(touch0.x - touch1.x) < DOUBLE_TAP_RADIUS && Math.abs(touch0.y - touch1.y) < DOUBLE_TAP_RADIUS;
+	},
+	_calculatePointsDistance = function(p1, p2) {
+		_tempPoint.x = Math.abs( p1.x - p2.x );
+		_tempPoint.y = Math.abs( p1.y - p2.y );
+		return Math.sqrt(_tempPoint.x * _tempPoint.x + _tempPoint.y * _tempPoint.y);
+	},
+	_stopDragUpdateLoop = function() {
+		if(_dragAnimFrame) {
+			_cancelAF(_dragAnimFrame);
+			_dragAnimFrame = null;
+		}
+	},
+	_dragUpdateLoop = function() {
+		if(_isDragging) {
+			_dragAnimFrame = _requestAF(_dragUpdateLoop);
+			_renderMovement();
+		}
+	},
+	_canPan = function() {
+		return !(_options.scaleMode === 'fit' && _currZoomLevel ===  self.currItem.initialZoomLevel);
+	},
+	
+	// find the closest parent DOM element
+	_closestElement = function(el, fn) {
+	  	if(!el || el === document) {
+	  		return false;
+	  	}
+
+	  	// don't search elements above pswp__scroll-wrap
+	  	if(el.getAttribute('class') && el.getAttribute('class').indexOf('pswp__scroll-wrap') > -1 ) {
+	  		return false;
+	  	}
+
+	  	if( fn(el) ) {
+	  		return el;
+	  	}
+
+	  	return _closestElement(el.parentNode, fn);
+	},
+
+	_preventObj = {},
+	_preventDefaultEventBehaviour = function(e, isDown) {
+	    _preventObj.prevent = !_closestElement(e.target, _options.isClickableElement);
+
+		_shout('preventDragEvent', e, isDown, _preventObj);
+		return _preventObj.prevent;
+
+	},
+	_convertTouchToPoint = function(touch, p) {
+		p.x = touch.pageX;
+		p.y = touch.pageY;
+		p.id = touch.identifier;
+		return p;
+	},
+	_findCenterOfPoints = function(p1, p2, pCenter) {
+		pCenter.x = (p1.x + p2.x) * 0.5;
+		pCenter.y = (p1.y + p2.y) * 0.5;
+	},
+	_pushPosPoint = function(time, x, y) {
+		if(time - _gestureCheckSpeedTime > 50) {
+			var o = _posPoints.length > 2 ? _posPoints.shift() : {};
+			o.x = x;
+			o.y = y; 
+			_posPoints.push(o);
+			_gestureCheckSpeedTime = time;
+		}
+	},
+
+	_calculateVerticalDragOpacityRatio = function() {
+		var yOffset = _panOffset.y - self.currItem.initialPosition.y; // difference between initial and current position
+		return 1 -  Math.abs( yOffset / (_viewportSize.y / 2)  );
+	},
+
+	
+	// points pool, reused during touch events
+	_ePoint1 = {},
+	_ePoint2 = {},
+	_tempPointsArr = [],
+	_tempCounter,
+	_getTouchPoints = function(e) {
+		// clean up previous points, without recreating array
+		while(_tempPointsArr.length > 0) {
+			_tempPointsArr.pop();
+		}
+
+		if(!_pointerEventEnabled) {
+			if(e.type.indexOf('touch') > -1) {
+
+				if(e.touches && e.touches.length > 0) {
+					_tempPointsArr[0] = _convertTouchToPoint(e.touches[0], _ePoint1);
+					if(e.touches.length > 1) {
+						_tempPointsArr[1] = _convertTouchToPoint(e.touches[1], _ePoint2);
+					}
+				}
+				
+			} else {
+				_ePoint1.x = e.pageX;
+				_ePoint1.y = e.pageY;
+				_ePoint1.id = '';
+				_tempPointsArr[0] = _ePoint1;//_ePoint1;
+			}
+		} else {
+			_tempCounter = 0;
+			// we can use forEach, as pointer events are supported only in modern browsers
+			_currPointers.forEach(function(p) {
+				if(_tempCounter === 0) {
+					_tempPointsArr[0] = p;
+				} else if(_tempCounter === 1) {
+					_tempPointsArr[1] = p;
+				}
+				_tempCounter++;
+
+			});
+		}
+		return _tempPointsArr;
+	},
+
+	_panOrMoveMainScroll = function(axis, delta) {
+
+		var panFriction,
+			overDiff = 0,
+			newOffset = _panOffset[axis] + delta[axis],
+			startOverDiff,
+			dir = delta[axis] > 0,
+			newMainScrollPosition = _mainScrollPos.x + delta.x,
+			mainScrollDiff = _mainScrollPos.x - _startMainScrollPos.x,
+			newPanPos,
+			newMainScrollPos;
+
+		// calculate fdistance over the bounds and friction
+		if(newOffset > _currPanBounds.min[axis] || newOffset < _currPanBounds.max[axis]) {
+			panFriction = _options.panEndFriction;
+			// Linear increasing of friction, so at 1/4 of viewport it's at max value. 
+			// Looks not as nice as was expected. Left for history.
+			// panFriction = (1 - (_panOffset[axis] + delta[axis] + panBounds.min[axis]) / (_viewportSize[axis] / 4) );
+		} else {
+			panFriction = 1;
+		}
+		
+		newOffset = _panOffset[axis] + delta[axis] * panFriction;
+
+		// move main scroll or start panning
+		if(_options.allowPanToNext || _currZoomLevel === self.currItem.initialZoomLevel) {
+
+
+			if(!_currZoomElementStyle) {
+				
+				newMainScrollPos = newMainScrollPosition;
+
+			} else if(_direction === 'h' && axis === 'x' && !_zoomStarted ) {
+				
+				if(dir) {
+					if(newOffset > _currPanBounds.min[axis]) {
+						panFriction = _options.panEndFriction;
+						overDiff = _currPanBounds.min[axis] - newOffset;
+						startOverDiff = _currPanBounds.min[axis] - _startPanOffset[axis];
+					}
+					
+					// drag right
+					if( (startOverDiff <= 0 || mainScrollDiff < 0) && _getNumItems() > 1 ) {
+						newMainScrollPos = newMainScrollPosition;
+						if(mainScrollDiff < 0 && newMainScrollPosition > _startMainScrollPos.x) {
+							newMainScrollPos = _startMainScrollPos.x;
+						}
+					} else {
+						if(_currPanBounds.min.x !== _currPanBounds.max.x) {
+							newPanPos = newOffset;
+						}
+						
+					}
+
+				} else {
+
+					if(newOffset < _currPanBounds.max[axis] ) {
+						panFriction =_options.panEndFriction;
+						overDiff = newOffset - _currPanBounds.max[axis];
+						startOverDiff = _startPanOffset[axis] - _currPanBounds.max[axis];
+					}
+
+					if( (startOverDiff <= 0 || mainScrollDiff > 0) && _getNumItems() > 1 ) {
+						newMainScrollPos = newMainScrollPosition;
+
+						if(mainScrollDiff > 0 && newMainScrollPosition < _startMainScrollPos.x) {
+							newMainScrollPos = _startMainScrollPos.x;
+						}
+
+					} else {
+						if(_currPanBounds.min.x !== _currPanBounds.max.x) {
+							newPanPos = newOffset;
+						}
+					}
+
+				}
+
+
+				//
+			}
+
+			if(axis === 'x') {
+
+				if(newMainScrollPos !== undefined) {
+					_moveMainScroll(newMainScrollPos, true);
+					if(newMainScrollPos === _startMainScrollPos.x) {
+						_mainScrollShifted = false;
+					} else {
+						_mainScrollShifted = true;
+					}
+				}
+
+				if(_currPanBounds.min.x !== _currPanBounds.max.x) {
+					if(newPanPos !== undefined) {
+						_panOffset.x = newPanPos;
+					} else if(!_mainScrollShifted) {
+						_panOffset.x += delta.x * panFriction;
+					}
+				}
+
+				return newMainScrollPos !== undefined;
+			}
+
+		}
+
+		if(!_mainScrollAnimating) {
+			
+			if(!_mainScrollShifted) {
+				if(_currZoomLevel > self.currItem.fitRatio) {
+					_panOffset[axis] += delta[axis] * panFriction;
+				
+				}
+			}
+
+			
+		}
+		
+	},
+
+	// Pointerdown/touchstart/mousedown handler
+	_onDragStart = function(e) {
+
+		// Allow dragging only via left mouse button.
+		// As this handler is not added in IE8 - we ignore e.which
+		// 
+		// http://www.quirksmode.org/js/events_properties.html
+		// https://developer.mozilla.org/en-US/docs/Web/API/event.button
+		if(e.type === 'mousedown' && e.button > 0  ) {
+			return;
+		}
+
+		if(_initialZoomRunning) {
+			e.preventDefault();
+			return;
+		}
+
+		if(_oldAndroidTouchEndTimeout && e.type === 'mousedown') {
+			return;
+		}
+
+		if(_preventDefaultEventBehaviour(e, true)) {
+			e.preventDefault();
+		}
+
+
+
+		_shout('pointerDown');
+
+		if(_pointerEventEnabled) {
+			var pointerIndex = framework.arraySearch(_currPointers, e.pointerId, 'id');
+			if(pointerIndex < 0) {
+				pointerIndex = _currPointers.length;
+			}
+			_currPointers[pointerIndex] = {x:e.pageX, y:e.pageY, id: e.pointerId};
+		}
+		
+
+
+		var startPointsList = _getTouchPoints(e),
+			numPoints = startPointsList.length;
+
+		_currentPoints = null;
+
+		_stopAllAnimations();
+
+		// init drag
+		if(!_isDragging || numPoints === 1) {
+
+			
+
+			_isDragging = _isFirstMove = true;
+			framework.bind(window, _upMoveEvents, self);
+
+			_isZoomingIn = 
+				_wasOverInitialZoom = 
+				_opacityChanged = 
+				_verticalDragInitiated = 
+				_mainScrollShifted = 
+				_moved = 
+				_isMultitouch = 
+				_zoomStarted = false;
+
+			_direction = null;
+
+			_shout('firstTouchStart', startPointsList);
+
+			_equalizePoints(_startPanOffset, _panOffset);
+
+			_currPanDist.x = _currPanDist.y = 0;
+			_equalizePoints(_currPoint, startPointsList[0]);
+			_equalizePoints(_startPoint, _currPoint);
+
+			//_equalizePoints(_startMainScrollPos, _mainScrollPos);
+			_startMainScrollPos.x = _slideSize.x * _currPositionIndex;
+
+			_posPoints = [{
+				x: _currPoint.x,
+				y: _currPoint.y
+			}];
+
+			_gestureCheckSpeedTime = _gestureStartTime = _getCurrentTime();
+
+			//_mainScrollAnimationEnd(true);
+			_calculatePanBounds( _currZoomLevel, true );
+			
+			// Start rendering
+			_stopDragUpdateLoop();
+			_dragUpdateLoop();
+			
+		}
+
+		// init zoom
+		if(!_isZooming && numPoints > 1 && !_mainScrollAnimating && !_mainScrollShifted) {
+			_startZoomLevel = _currZoomLevel;
+			_zoomStarted = false; // true if zoom changed at least once
+
+			_isZooming = _isMultitouch = true;
+			_currPanDist.y = _currPanDist.x = 0;
+
+			_equalizePoints(_startPanOffset, _panOffset);
+
+			_equalizePoints(p, startPointsList[0]);
+			_equalizePoints(p2, startPointsList[1]);
+
+			_findCenterOfPoints(p, p2, _currCenterPoint);
+
+			_midZoomPoint.x = Math.abs(_currCenterPoint.x) - _panOffset.x;
+			_midZoomPoint.y = Math.abs(_currCenterPoint.y) - _panOffset.y;
+			_currPointsDistance = _startPointsDistance = _calculatePointsDistance(p, p2);
+		}
+
+
+	},
+
+	// Pointermove/touchmove/mousemove handler
+	_onDragMove = function(e) {
+
+		e.preventDefault();
+
+		if(_pointerEventEnabled) {
+			var pointerIndex = framework.arraySearch(_currPointers, e.pointerId, 'id');
+			if(pointerIndex > -1) {
+				var p = _currPointers[pointerIndex];
+				p.x = e.pageX;
+				p.y = e.pageY; 
+			}
+		}
+
+		if(_isDragging) {
+			var touchesList = _getTouchPoints(e);
+			if(!_direction && !_moved && !_isZooming) {
+
+				if(_mainScrollPos.x !== _slideSize.x * _currPositionIndex) {
+					// if main scroll position is shifted – direction is always horizontal
+					_direction = 'h';
+				} else {
+					var diff = Math.abs(touchesList[0].x - _currPoint.x) - Math.abs(touchesList[0].y - _currPoint.y);
+					// check the direction of movement
+					if(Math.abs(diff) >= DIRECTION_CHECK_OFFSET) {
+						_direction = diff > 0 ? 'h' : 'v';
+						_currentPoints = touchesList;
+					}
+				}
+				
+			} else {
+				_currentPoints = touchesList;
+			}
+		}	
+	},
+	// 
+	_renderMovement =  function() {
+
+		if(!_currentPoints) {
+			return;
+		}
+
+		var numPoints = _currentPoints.length;
+
+		if(numPoints === 0) {
+			return;
+		}
+
+		_equalizePoints(p, _currentPoints[0]);
+
+		delta.x = p.x - _currPoint.x;
+		delta.y = p.y - _currPoint.y;
+
+		if(_isZooming && numPoints > 1) {
+			// Handle behaviour for more than 1 point
+
+			_currPoint.x = p.x;
+			_currPoint.y = p.y;
+		
+			// check if one of two points changed
+			if( !delta.x && !delta.y && _isEqualPoints(_currentPoints[1], p2) ) {
+				return;
+			}
+
+			_equalizePoints(p2, _currentPoints[1]);
+
+
+			if(!_zoomStarted) {
+				_zoomStarted = true;
+				_shout('zoomGestureStarted');
+			}
+			
+			// Distance between two points
+			var pointsDistance = _calculatePointsDistance(p,p2);
+
+			var zoomLevel = _calculateZoomLevel(pointsDistance);
+
+			// slightly over the of initial zoom level
+			if(zoomLevel > self.currItem.initialZoomLevel + self.currItem.initialZoomLevel / 15) {
+				_wasOverInitialZoom = true;
+			}
+
+			// Apply the friction if zoom level is out of the bounds
+			var zoomFriction = 1,
+				minZoomLevel = _getMinZoomLevel(),
+				maxZoomLevel = _getMaxZoomLevel();
+
+			if ( zoomLevel < minZoomLevel ) {
+				
+				if(_options.pinchToClose && !_wasOverInitialZoom && _startZoomLevel <= self.currItem.initialZoomLevel) {
+					// fade out background if zooming out
+					var minusDiff = minZoomLevel - zoomLevel;
+					var percent = 1 - minusDiff / (minZoomLevel / 1.2);
+
+					_applyBgOpacity(percent);
+					_shout('onPinchClose', percent);
+					_opacityChanged = true;
+				} else {
+					zoomFriction = (minZoomLevel - zoomLevel) / minZoomLevel;
+					if(zoomFriction > 1) {
+						zoomFriction = 1;
+					}
+					zoomLevel = minZoomLevel - zoomFriction * (minZoomLevel / 3);
+				}
+				
+			} else if ( zoomLevel > maxZoomLevel ) {
+				// 1.5 - extra zoom level above the max. E.g. if max is x6, real max 6 + 1.5 = 7.5
+				zoomFriction = (zoomLevel - maxZoomLevel) / ( minZoomLevel * 6 );
+				if(zoomFriction > 1) {
+					zoomFriction = 1;
+				}
+				zoomLevel = maxZoomLevel + zoomFriction * minZoomLevel;
+			}
+
+			if(zoomFriction < 0) {
+				zoomFriction = 0;
+			}
+
+			// distance between touch points after friction is applied
+			_currPointsDistance = pointsDistance;
+
+			// _centerPoint - The point in the middle of two pointers
+			_findCenterOfPoints(p, p2, _centerPoint);
+		
+			// paning with two pointers pressed
+			_currPanDist.x += _centerPoint.x - _currCenterPoint.x;
+			_currPanDist.y += _centerPoint.y - _currCenterPoint.y;
+			_equalizePoints(_currCenterPoint, _centerPoint);
+
+			_panOffset.x = _calculatePanOffset('x', zoomLevel);
+			_panOffset.y = _calculatePanOffset('y', zoomLevel);
+
+			_isZoomingIn = zoomLevel > _currZoomLevel;
+			_currZoomLevel = zoomLevel;
+			_applyCurrentZoomPan();
+
+		} else {
+
+			// handle behaviour for one point (dragging or panning)
+
+			if(!_direction) {
+				return;
+			}
+
+			if(_isFirstMove) {
+				_isFirstMove = false;
+
+				// subtract drag distance that was used during the detection direction  
+
+				if( Math.abs(delta.x) >= DIRECTION_CHECK_OFFSET) {
+					delta.x -= _currentPoints[0].x - _startPoint.x;
+				}
+				
+				if( Math.abs(delta.y) >= DIRECTION_CHECK_OFFSET) {
+					delta.y -= _currentPoints[0].y - _startPoint.y;
+				}
+			}
+
+			_currPoint.x = p.x;
+			_currPoint.y = p.y;
+
+			// do nothing if pointers position hasn't changed
+			if(delta.x === 0 && delta.y === 0) {
+				return;
+			}
+
+			if(_direction === 'v' && _options.closeOnVerticalDrag) {
+				if(!_canPan()) {
+					_currPanDist.y += delta.y;
+					_panOffset.y += delta.y;
+
+					var opacityRatio = _calculateVerticalDragOpacityRatio();
+
+					_verticalDragInitiated = true;
+					_shout('onVerticalDrag', opacityRatio);
+
+					_applyBgOpacity(opacityRatio);
+					_applyCurrentZoomPan();
+					return ;
+				}
+			}
+
+			_pushPosPoint(_getCurrentTime(), p.x, p.y);
+
+			_moved = true;
+			_currPanBounds = self.currItem.bounds;
+			
+			var mainScrollChanged = _panOrMoveMainScroll('x', delta);
+			if(!mainScrollChanged) {
+				_panOrMoveMainScroll('y', delta);
+
+				_roundPoint(_panOffset);
+				_applyCurrentZoomPan();
+			}
+
+		}
+
+	},
+	
+	// Pointerup/pointercancel/touchend/touchcancel/mouseup event handler
+	_onDragRelease = function(e) {
+
+		if(_features.isOldAndroid ) {
+
+			if(_oldAndroidTouchEndTimeout && e.type === 'mouseup') {
+				return;
+			}
+
+			// on Android (v4.1, 4.2, 4.3 & possibly older) 
+			// ghost mousedown/up event isn't preventable via e.preventDefault,
+			// which causes fake mousedown event
+			// so we block mousedown/up for 600ms
+			if( e.type.indexOf('touch') > -1 ) {
+				clearTimeout(_oldAndroidTouchEndTimeout);
+				_oldAndroidTouchEndTimeout = setTimeout(function() {
+					_oldAndroidTouchEndTimeout = 0;
+				}, 600);
+			}
+			
+		}
+
+		_shout('pointerUp');
+
+		if(_preventDefaultEventBehaviour(e, false)) {
+			e.preventDefault();
+		}
+
+		var releasePoint;
+
+		if(_pointerEventEnabled) {
+			var pointerIndex = framework.arraySearch(_currPointers, e.pointerId, 'id');
+			
+			if(pointerIndex > -1) {
+				releasePoint = _currPointers.splice(pointerIndex, 1)[0];
+
+				if(navigator.pointerEnabled) {
+					releasePoint.type = e.pointerType || 'mouse';
+				} else {
+					var MSPOINTER_TYPES = {
+						4: 'mouse', // event.MSPOINTER_TYPE_MOUSE
+						2: 'touch', // event.MSPOINTER_TYPE_TOUCH 
+						3: 'pen' // event.MSPOINTER_TYPE_PEN
+					};
+					releasePoint.type = MSPOINTER_TYPES[e.pointerType];
+
+					if(!releasePoint.type) {
+						releasePoint.type = e.pointerType || 'mouse';
+					}
+				}
+
+			}
+		}
+
+		var touchList = _getTouchPoints(e),
+			gestureType,
+			numPoints = touchList.length;
+
+		if(e.type === 'mouseup') {
+			numPoints = 0;
+		}
+
+		// Do nothing if there were 3 touch points or more
+		if(numPoints === 2) {
+			_currentPoints = null;
+			return true;
+		}
+
+		// if second pointer released
+		if(numPoints === 1) {
+			_equalizePoints(_startPoint, touchList[0]);
+		}				
+
+
+		// pointer hasn't moved, send "tap release" point
+		if(numPoints === 0 && !_direction && !_mainScrollAnimating) {
+			if(!releasePoint) {
+				if(e.type === 'mouseup') {
+					releasePoint = {x: e.pageX, y: e.pageY, type:'mouse'};
+				} else if(e.changedTouches && e.changedTouches[0]) {
+					releasePoint = {x: e.changedTouches[0].pageX, y: e.changedTouches[0].pageY, type:'touch'};
+				}		
+			}
+
+			_shout('touchRelease', e, releasePoint);
+		}
+
+		// Difference in time between releasing of two last touch points (zoom gesture)
+		var releaseTimeDiff = -1;
+
+		// Gesture completed, no pointers left
+		if(numPoints === 0) {
+			_isDragging = false;
+			framework.unbind(window, _upMoveEvents, self);
+
+			_stopDragUpdateLoop();
+
+			if(_isZooming) {
+				// Two points released at the same time
+				releaseTimeDiff = 0;
+			} else if(_lastReleaseTime !== -1) {
+				releaseTimeDiff = _getCurrentTime() - _lastReleaseTime;
+			}
+		}
+		_lastReleaseTime = numPoints === 1 ? _getCurrentTime() : -1;
+		
+		if(releaseTimeDiff !== -1 && releaseTimeDiff < 150) {
+			gestureType = 'zoom';
+		} else {
+			gestureType = 'swipe';
+		}
+
+		if(_isZooming && numPoints < 2) {
+			_isZooming = false;
+
+			// Only second point released
+			if(numPoints === 1) {
+				gestureType = 'zoomPointerUp';
+			}
+			_shout('zoomGestureEnded');
+		}
+
+		_currentPoints = null;
+		if(!_moved && !_zoomStarted && !_mainScrollAnimating && !_verticalDragInitiated) {
+			// nothing to animate
+			return;
+		}
+	
+		_stopAllAnimations();
+
+		
+		if(!_releaseAnimData) {
+			_releaseAnimData = _initDragReleaseAnimationData();
+		}
+		
+		_releaseAnimData.calculateSwipeSpeed('x');
+
+
+		if(_verticalDragInitiated) {
+
+			var opacityRatio = _calculateVerticalDragOpacityRatio();
+
+			if(opacityRatio < _options.verticalDragRange) {
+				self.close();
+			} else {
+				var initalPanY = _panOffset.y,
+					initialBgOpacity = _bgOpacity;
+
+				_animateProp('verticalDrag', 0, 1, 300, framework.easing.cubic.out, function(now) {
+					
+					_panOffset.y = (self.currItem.initialPosition.y - initalPanY) * now + initalPanY;
+
+					_applyBgOpacity(  (1 - initialBgOpacity) * now + initialBgOpacity );
+					_applyCurrentZoomPan();
+				});
+
+				_shout('onVerticalDrag', 1);
+			}
+
+			return;
+		}
+
+
+		// main scroll 
+		if(  (_mainScrollShifted || _mainScrollAnimating) && numPoints === 0) {
+			var itemChanged = _finishSwipeMainScrollGesture(gestureType, _releaseAnimData);
+			if(itemChanged) {
+				return;
+			}
+			gestureType = 'zoomPointerUp';
+		}
+
+		// prevent zoom/pan animation when main scroll animation runs
+		if(_mainScrollAnimating) {
+			return;
+		}
+		
+		// Complete simple zoom gesture (reset zoom level if it's out of the bounds)  
+		if(gestureType !== 'swipe') {
+			_completeZoomGesture();
+			return;
+		}
+	
+		// Complete pan gesture if main scroll is not shifted, and it's possible to pan current image
+		if(!_mainScrollShifted && _currZoomLevel > self.currItem.fitRatio) {
+			_completePanGesture(_releaseAnimData);
+		}
+	},
+
+
+	// Returns object with data about gesture
+	// It's created only once and then reused
+	_initDragReleaseAnimationData  = function() {
+		// temp local vars
+		var lastFlickDuration,
+			tempReleasePos;
+
+		// s = this
+		var s = {
+			lastFlickOffset: {},
+			lastFlickDist: {},
+			lastFlickSpeed: {},
+			slowDownRatio:  {},
+			slowDownRatioReverse:  {},
+			speedDecelerationRatio:  {},
+			speedDecelerationRatioAbs:  {},
+			distanceOffset:  {},
+			backAnimDestination: {},
+			backAnimStarted: {},
+			calculateSwipeSpeed: function(axis) {
+				
+
+				if( _posPoints.length > 1) {
+					lastFlickDuration = _getCurrentTime() - _gestureCheckSpeedTime + 50;
+					tempReleasePos = _posPoints[_posPoints.length-2][axis];
+				} else {
+					lastFlickDuration = _getCurrentTime() - _gestureStartTime; // total gesture duration
+					tempReleasePos = _startPoint[axis];
+				}
+				s.lastFlickOffset[axis] = _currPoint[axis] - tempReleasePos;
+				s.lastFlickDist[axis] = Math.abs(s.lastFlickOffset[axis]);
+				if(s.lastFlickDist[axis] > 20) {
+					s.lastFlickSpeed[axis] = s.lastFlickOffset[axis] / lastFlickDuration;
+				} else {
+					s.lastFlickSpeed[axis] = 0;
+				}
+				if( Math.abs(s.lastFlickSpeed[axis]) < 0.1 ) {
+					s.lastFlickSpeed[axis] = 0;
+				}
+				
+				s.slowDownRatio[axis] = 0.95;
+				s.slowDownRatioReverse[axis] = 1 - s.slowDownRatio[axis];
+				s.speedDecelerationRatio[axis] = 1;
+			},
+
+			calculateOverBoundsAnimOffset: function(axis, speed) {
+				if(!s.backAnimStarted[axis]) {
+
+					if(_panOffset[axis] > _currPanBounds.min[axis]) {
+						s.backAnimDestination[axis] = _currPanBounds.min[axis];
+						
+					} else if(_panOffset[axis] < _currPanBounds.max[axis]) {
+						s.backAnimDestination[axis] = _currPanBounds.max[axis];
+					}
+
+					if(s.backAnimDestination[axis] !== undefined) {
+						s.slowDownRatio[axis] = 0.7;
+						s.slowDownRatioReverse[axis] = 1 - s.slowDownRatio[axis];
+						if(s.speedDecelerationRatioAbs[axis] < 0.05) {
+
+							s.lastFlickSpeed[axis] = 0;
+							s.backAnimStarted[axis] = true;
+
+							_animateProp('bounceZoomPan'+axis,_panOffset[axis], 
+								s.backAnimDestination[axis], 
+								speed || 300, 
+								framework.easing.sine.out, 
+								function(pos) {
+									_panOffset[axis] = pos;
+									_applyCurrentZoomPan();
+								}
+							);
+
+						}
+					}
+				}
+			},
+
+			// Reduces the speed by slowDownRatio (per 10ms)
+			calculateAnimOffset: function(axis) {
+				if(!s.backAnimStarted[axis]) {
+					s.speedDecelerationRatio[axis] = s.speedDecelerationRatio[axis] * (s.slowDownRatio[axis] + 
+												s.slowDownRatioReverse[axis] - 
+												s.slowDownRatioReverse[axis] * s.timeDiff / 10);
+
+					s.speedDecelerationRatioAbs[axis] = Math.abs(s.lastFlickSpeed[axis] * s.speedDecelerationRatio[axis]);
+					s.distanceOffset[axis] = s.lastFlickSpeed[axis] * s.speedDecelerationRatio[axis] * s.timeDiff;
+					_panOffset[axis] += s.distanceOffset[axis];
+
+				}
+			},
+
+			panAnimLoop: function() {
+				if ( _animations.zoomPan ) {
+					_animations.zoomPan.raf = _requestAF(s.panAnimLoop);
+
+					s.now = _getCurrentTime();
+					s.timeDiff = s.now - s.lastNow;
+					s.lastNow = s.now;
+					
+					s.calculateAnimOffset('x');
+					s.calculateAnimOffset('y');
+
+					_applyCurrentZoomPan();
+					
+					s.calculateOverBoundsAnimOffset('x');
+					s.calculateOverBoundsAnimOffset('y');
+
+
+					if (s.speedDecelerationRatioAbs.x < 0.05 && s.speedDecelerationRatioAbs.y < 0.05) {
+
+						// round pan position
+						_panOffset.x = Math.round(_panOffset.x);
+						_panOffset.y = Math.round(_panOffset.y);
+						_applyCurrentZoomPan();
+						
+						_stopAnimation('zoomPan');
+						return;
+					}
+				}
+
+			}
+		};
+		return s;
+	},
+
+	_completePanGesture = function(animData) {
+		// calculate swipe speed for Y axis (paanning)
+		animData.calculateSwipeSpeed('y');
+
+		_currPanBounds = self.currItem.bounds;
+		
+		animData.backAnimDestination = {};
+		animData.backAnimStarted = {};
+
+		// Avoid acceleration animation if speed is too low
+		if(Math.abs(animData.lastFlickSpeed.x) <= 0.05 && Math.abs(animData.lastFlickSpeed.y) <= 0.05 ) {
+			animData.speedDecelerationRatioAbs.x = animData.speedDecelerationRatioAbs.y = 0;
+
+			// Run pan drag release animation. E.g. if you drag image and release finger without momentum.
+			animData.calculateOverBoundsAnimOffset('x');
+			animData.calculateOverBoundsAnimOffset('y');
+			return true;
+		}
+
+		// Animation loop that controls the acceleration after pan gesture ends
+		_registerStartAnimation('zoomPan');
+		animData.lastNow = _getCurrentTime();
+		animData.panAnimLoop();
+	},
+
+
+	_finishSwipeMainScrollGesture = function(gestureType, _releaseAnimData) {
+		var itemChanged;
+		if(!_mainScrollAnimating) {
+			_currZoomedItemIndex = _currentItemIndex;
+		}
+
+
+		
+		var itemsDiff;
+
+		if(gestureType === 'swipe') {
+			var totalShiftDist = _currPoint.x - _startPoint.x,
+				isFastLastFlick = _releaseAnimData.lastFlickDist.x < 10;
+
+			// if container is shifted for more than MIN_SWIPE_DISTANCE, 
+			// and last flick gesture was in right direction
+			if(totalShiftDist > MIN_SWIPE_DISTANCE && 
+				(isFastLastFlick || _releaseAnimData.lastFlickOffset.x > 20) ) {
+				// go to prev item
+				itemsDiff = -1;
+			} else if(totalShiftDist < -MIN_SWIPE_DISTANCE && 
+				(isFastLastFlick || _releaseAnimData.lastFlickOffset.x < -20) ) {
+				// go to next item
+				itemsDiff = 1;
+			}
+		}
+
+		var nextCircle;
+
+		if(itemsDiff) {
+			
+			_currentItemIndex += itemsDiff;
+
+			if(_currentItemIndex < 0) {
+				_currentItemIndex = _options.loop ? _getNumItems()-1 : 0;
+				nextCircle = true;
+			} else if(_currentItemIndex >= _getNumItems()) {
+				_currentItemIndex = _options.loop ? 0 : _getNumItems()-1;
+				nextCircle = true;
+			}
+
+			if(!nextCircle || _options.loop) {
+				_indexDiff += itemsDiff;
+				_currPositionIndex -= itemsDiff;
+				itemChanged = true;
+			}
+			
+
+			
+		}
+
+		var animateToX = _slideSize.x * _currPositionIndex;
+		var animateToDist = Math.abs( animateToX - _mainScrollPos.x );
+		var finishAnimDuration;
+
+
+		if(!itemChanged && animateToX > _mainScrollPos.x !== _releaseAnimData.lastFlickSpeed.x > 0) {
+			// "return to current" duration, e.g. when dragging from slide 0 to -1
+			finishAnimDuration = 333; 
+		} else {
+			finishAnimDuration = Math.abs(_releaseAnimData.lastFlickSpeed.x) > 0 ? 
+									animateToDist / Math.abs(_releaseAnimData.lastFlickSpeed.x) : 
+									333;
+
+			finishAnimDuration = Math.min(finishAnimDuration, 400);
+			finishAnimDuration = Math.max(finishAnimDuration, 250);
+		}
+
+		if(_currZoomedItemIndex === _currentItemIndex) {
+			itemChanged = false;
+		}
+		
+		_mainScrollAnimating = true;
+		
+		_shout('mainScrollAnimStart');
+
+		_animateProp('mainScroll', _mainScrollPos.x, animateToX, finishAnimDuration, framework.easing.cubic.out, 
+			_moveMainScroll,
+			function() {
+				_stopAllAnimations();
+				_mainScrollAnimating = false;
+				_currZoomedItemIndex = -1;
+				
+				if(itemChanged || _currZoomedItemIndex !== _currentItemIndex) {
+					self.updateCurrItem();
+				}
+				
+				_shout('mainScrollAnimComplete');
+			}
+		);
+
+		if(itemChanged) {
+			self.updateCurrItem(true);
+		}
+
+		return itemChanged;
+	},
+
+	_calculateZoomLevel = function(touchesDistance) {
+		return  1 / _startPointsDistance * touchesDistance * _startZoomLevel;
+	},
+
+	// Resets zoom if it's out of bounds
+	_completeZoomGesture = function() {
+		var destZoomLevel = _currZoomLevel,
+			minZoomLevel = _getMinZoomLevel(),
+			maxZoomLevel = _getMaxZoomLevel();
+
+		if ( _currZoomLevel < minZoomLevel ) {
+			destZoomLevel = minZoomLevel;
+		} else if ( _currZoomLevel > maxZoomLevel ) {
+			destZoomLevel = maxZoomLevel;
+		}
+
+		var destOpacity = 1,
+			onUpdate,
+			initialOpacity = _bgOpacity;
+
+		if(_opacityChanged && !_isZoomingIn && !_wasOverInitialZoom && _currZoomLevel < minZoomLevel) {
+			//_closedByScroll = true;
+			self.close();
+			return true;
+		}
+
+		if(_opacityChanged) {
+			onUpdate = function(now) {
+				_applyBgOpacity(  (destOpacity - initialOpacity) * now + initialOpacity );
+			};
+		}
+
+		self.zoomTo(destZoomLevel, 0, 200,  framework.easing.cubic.out, onUpdate);
+		return true;
+	};
+
+
+_registerModule('Gestures', {
+	publicMethods: {
+
+		initGestures: function() {
+
+			// helper function that builds touch/pointer/mouse events
+			var addEventNames = function(pref, down, move, up, cancel) {
+				_dragStartEvent = pref + down;
+				_dragMoveEvent = pref + move;
+				_dragEndEvent = pref + up;
+				if(cancel) {
+					_dragCancelEvent = pref + cancel;
+				} else {
+					_dragCancelEvent = '';
+				}
+			};
+
+			_pointerEventEnabled = _features.pointerEvent;
+			if(_pointerEventEnabled && _features.touch) {
+				// we don't need touch events, if browser supports pointer events
+				_features.touch = false;
+			}
+
+			if(_pointerEventEnabled) {
+				if(navigator.pointerEnabled) {
+					addEventNames('pointer', 'down', 'move', 'up', 'cancel');
+				} else {
+					// IE10 pointer events are case-sensitive
+					addEventNames('MSPointer', 'Down', 'Move', 'Up', 'Cancel');
+				}
+			} else if(_features.touch) {
+				addEventNames('touch', 'start', 'move', 'end', 'cancel');
+				_likelyTouchDevice = true;
+			} else {
+				addEventNames('mouse', 'down', 'move', 'up');	
+			}
+
+			_upMoveEvents = _dragMoveEvent + ' ' + _dragEndEvent  + ' ' +  _dragCancelEvent;
+			_downEvents = _dragStartEvent;
+
+			if(_pointerEventEnabled && !_likelyTouchDevice) {
+				_likelyTouchDevice = (navigator.maxTouchPoints > 1) || (navigator.msMaxTouchPoints > 1);
+			}
+			// make variable public
+			self.likelyTouchDevice = _likelyTouchDevice; 
+			
+			_globalEventHandlers[_dragStartEvent] = _onDragStart;
+			_globalEventHandlers[_dragMoveEvent] = _onDragMove;
+			_globalEventHandlers[_dragEndEvent] = _onDragRelease; // the Kraken
+
+			if(_dragCancelEvent) {
+				_globalEventHandlers[_dragCancelEvent] = _globalEventHandlers[_dragEndEvent];
+			}
+
+			// Bind mouse events on device with detected hardware touch support, in case it supports multiple types of input.
+			if(_features.touch) {
+				_downEvents += ' mousedown';
+				_upMoveEvents += ' mousemove mouseup';
+				_globalEventHandlers.mousedown = _globalEventHandlers[_dragStartEvent];
+				_globalEventHandlers.mousemove = _globalEventHandlers[_dragMoveEvent];
+				_globalEventHandlers.mouseup = _globalEventHandlers[_dragEndEvent];
+			}
+
+			if(!_likelyTouchDevice) {
+				// don't allow pan to next slide from zoomed state on Desktop
+				_options.allowPanToNext = false;
+			}
+		}
+
+	}
+});
+
+
+/*>>gestures*/
+
+/*>>show-hide-transition*/
+/**
+ * show-hide-transition.js:
+ *
+ * Manages initial opening or closing transition.
+ *
+ * If you're not planning to use transition for gallery at all,
+ * you may set options hideAnimationDuration and showAnimationDuration to 0,
+ * and just delete startAnimation function.
+ * 
+ */
+
+
+var _showOrHideTimeout,
+	_showOrHide = function(item, img, out, completeFn) {
+
+		if(_showOrHideTimeout) {
+			clearTimeout(_showOrHideTimeout);
+		}
+
+		_initialZoomRunning = true;
+		_initialContentSet = true;
+		
+		// dimensions of small thumbnail {x:,y:,w:}.
+		// Height is optional, as calculated based on large image.
+		var thumbBounds; 
+		if(item.initialLayout) {
+			thumbBounds = item.initialLayout;
+			item.initialLayout = null;
+		} else {
+			thumbBounds = _options.getThumbBoundsFn && _options.getThumbBoundsFn(_currentItemIndex);
+		}
+
+		var duration = out ? _options.hideAnimationDuration : _options.showAnimationDuration;
+
+		var onComplete = function() {
+			_stopAnimation('initialZoom');
+			if(!out) {
+				_applyBgOpacity(1);
+				if(img) {
+					img.style.display = 'block';
+				}
+				framework.addClass(template, 'pswp--animated-in');
+				_shout('initialZoom' + (out ? 'OutEnd' : 'InEnd'));
+			} else {
+				self.template.removeAttribute('style');
+				self.bg.removeAttribute('style');
+			}
+
+			if(completeFn) {
+				completeFn();
+			}
+			_initialZoomRunning = false;
+		};
+
+		// if bounds aren't provided, just open gallery without animation
+		if(!duration || !thumbBounds || thumbBounds.x === undefined) {
+
+			_shout('initialZoom' + (out ? 'Out' : 'In') );
+
+			_currZoomLevel = item.initialZoomLevel;
+			_equalizePoints(_panOffset,  item.initialPosition );
+			_applyCurrentZoomPan();
+
+			template.style.opacity = out ? 0 : 1;
+			_applyBgOpacity(1);
+
+			if(duration) {
+				setTimeout(function() {
+					onComplete();
+				}, duration);
+			} else {
+				onComplete();
+			}
+
+			return;
+		}
+
+		var startAnimation = function() {
+			var closeWithRaf = _closedByScroll,
+				fadeEverything = !self.currItem.src || self.currItem.loadError || _options.showHideOpacity;
+			
+			// apply hw-acceleration to image
+			if(item.miniImg) {
+				item.miniImg.style.webkitBackfaceVisibility = 'hidden';
+			}
+
+			if(!out) {
+				_currZoomLevel = thumbBounds.w / item.w;
+				_panOffset.x = thumbBounds.x;
+				_panOffset.y = thumbBounds.y - _initalWindowScrollY;
+
+				self[fadeEverything ? 'template' : 'bg'].style.opacity = 0.001;
+				_applyCurrentZoomPan();
+			}
+
+			_registerStartAnimation('initialZoom');
+			
+			if(out && !closeWithRaf) {
+				framework.removeClass(template, 'pswp--animated-in');
+			}
+
+			if(fadeEverything) {
+				if(out) {
+					framework[ (closeWithRaf ? 'remove' : 'add') + 'Class' ](template, 'pswp--animate_opacity');
+				} else {
+					setTimeout(function() {
+						framework.addClass(template, 'pswp--animate_opacity');
+					}, 30);
+				}
+			}
+
+			_showOrHideTimeout = setTimeout(function() {
+
+				_shout('initialZoom' + (out ? 'Out' : 'In') );
+				
+
+				if(!out) {
+
+					// "in" animation always uses CSS transitions (instead of rAF).
+					// CSS transition work faster here, 
+					// as developer may also want to animate other things, 
+					// like ui on top of sliding area, which can be animated just via CSS
+					
+					_currZoomLevel = item.initialZoomLevel;
+					_equalizePoints(_panOffset,  item.initialPosition );
+					_applyCurrentZoomPan();
+					_applyBgOpacity(1);
+
+					if(fadeEverything) {
+						template.style.opacity = 1;
+					} else {
+						_applyBgOpacity(1);
+					}
+
+					_showOrHideTimeout = setTimeout(onComplete, duration + 20);
+				} else {
+
+					// "out" animation uses rAF only when PhotoSwipe is closed by browser scroll, to recalculate position
+					var destZoomLevel = thumbBounds.w / item.w,
+						initialPanOffset = {
+							x: _panOffset.x,
+							y: _panOffset.y
+						},
+						initialZoomLevel = _currZoomLevel,
+						initalBgOpacity = _bgOpacity,
+						onUpdate = function(now) {
+							
+							if(now === 1) {
+								_currZoomLevel = destZoomLevel;
+								_panOffset.x = thumbBounds.x;
+								_panOffset.y = thumbBounds.y  - _currentWindowScrollY;
+							} else {
+								_currZoomLevel = (destZoomLevel - initialZoomLevel) * now + initialZoomLevel;
+								_panOffset.x = (thumbBounds.x - initialPanOffset.x) * now + initialPanOffset.x;
+								_panOffset.y = (thumbBounds.y - _currentWindowScrollY - initialPanOffset.y) * now + initialPanOffset.y;
+							}
+							
+							_applyCurrentZoomPan();
+							if(fadeEverything) {
+								template.style.opacity = 1 - now;
+							} else {
+								_applyBgOpacity( initalBgOpacity - now * initalBgOpacity );
+							}
+						};
+
+					if(closeWithRaf) {
+						_animateProp('initialZoom', 0, 1, duration, framework.easing.cubic.out, onUpdate, onComplete);
+					} else {
+						onUpdate(1);
+						_showOrHideTimeout = setTimeout(onComplete, duration + 20);
+					}
+				}
+			
+			}, out ? 25 : 90); // Main purpose of this delay is to give browser time to paint and
+					// create composite layers of PhotoSwipe UI parts (background, controls, caption, arrows).
+					// Which avoids lag at the beginning of scale transition.
+		};
+		startAnimation();
+
+		
+	};
+
+/*>>show-hide-transition*/
+
+/*>>items-controller*/
+/**
+*
+* Controller manages gallery items, their dimensions, and their content.
+* 
+*/
+
+var _items,
+	_tempPanAreaSize = {},
+	_imagesToAppendPool = [],
+	_initialContentSet,
+	_initialZoomRunning,
+	_controllerDefaultOptions = {
+		index: 0,
+		errorMsg: '<div class="pswp__error-msg"><a href="%url%" target="_blank">The image</a> could not be loaded.</div>',
+		forceProgressiveLoading: false, // TODO
+		preload: [1,1],
+		getNumItemsFn: function() {
+			return _items.length;
+		}
+	};
+
+
+var _getItemAt,
+	_getNumItems,
+	_initialIsLoop,
+	_getZeroBounds = function() {
+		return {
+			center:{x:0,y:0}, 
+			max:{x:0,y:0}, 
+			min:{x:0,y:0}
+		};
+	},
+	_calculateSingleItemPanBounds = function(item, realPanElementW, realPanElementH ) {
+		var bounds = item.bounds;
+
+		// position of element when it's centered
+		bounds.center.x = Math.round((_tempPanAreaSize.x - realPanElementW) / 2);
+		bounds.center.y = Math.round((_tempPanAreaSize.y - realPanElementH) / 2) + item.vGap.top;
+
+		// maximum pan position
+		bounds.max.x = (realPanElementW > _tempPanAreaSize.x) ? 
+							Math.round(_tempPanAreaSize.x - realPanElementW) : 
+							bounds.center.x;
+		
+		bounds.max.y = (realPanElementH > _tempPanAreaSize.y) ? 
+							Math.round(_tempPanAreaSize.y - realPanElementH) + item.vGap.top : 
+							bounds.center.y;
+		
+		// minimum pan position
+		bounds.min.x = (realPanElementW > _tempPanAreaSize.x) ? 0 : bounds.center.x;
+		bounds.min.y = (realPanElementH > _tempPanAreaSize.y) ? item.vGap.top : bounds.center.y;
+	},
+	_calculateItemSize = function(item, viewportSize, zoomLevel) {
+
+		if (item.src && !item.loadError) {
+			var isInitial = !zoomLevel;
+			
+			if(isInitial) {
+				if(!item.vGap) {
+					item.vGap = {top:0,bottom:0};
+				}
+				// allows overriding vertical margin for individual items
+				_shout('parseVerticalMargin', item);
+			}
+
+
+			_tempPanAreaSize.x = viewportSize.x;
+			_tempPanAreaSize.y = viewportSize.y - item.vGap.top - item.vGap.bottom;
+
+			if (isInitial) {
+				var hRatio = _tempPanAreaSize.x / item.w;
+				var vRatio = _tempPanAreaSize.y / item.h;
+
+				item.fitRatio = hRatio < vRatio ? hRatio : vRatio;
+				//item.fillRatio = hRatio > vRatio ? hRatio : vRatio;
+
+				var scaleMode = _options.scaleMode;
+
+				if (scaleMode === 'orig') {
+					zoomLevel = 1;
+				} else if (scaleMode === 'fit') {
+					zoomLevel = item.fitRatio;
+				}
+
+				if (zoomLevel > 1) {
+					zoomLevel = 1;
+				}
+
+				item.initialZoomLevel = zoomLevel;
+				
+				if(!item.bounds) {
+					// reuse bounds object
+					item.bounds = _getZeroBounds(); 
+				}
+			}
+
+			if(!zoomLevel) {
+				return;
+			}
+
+			_calculateSingleItemPanBounds(item, item.w * zoomLevel, item.h * zoomLevel);
+
+			if (isInitial && zoomLevel === item.initialZoomLevel) {
+				item.initialPosition = item.bounds.center;
+			}
+
+			return item.bounds;
+		} else {
+			item.w = item.h = 0;
+			item.initialZoomLevel = item.fitRatio = 1;
+			item.bounds = _getZeroBounds();
+			item.initialPosition = item.bounds.center;
+
+			// if it's not image, we return zero bounds (content is not zoomable)
+			return item.bounds;
+		}
+		
+	},
+
+	
+
+
+	_appendImage = function(index, item, baseDiv, img, preventAnimation, keepPlaceholder) {
+		
+
+		if(item.loadError) {
+			return;
+		}
+
+		if(img) {
+
+			item.imageAppended = true;
+			_setImageSize(item, img, (item === self.currItem && _renderMaxResolution) );
+			
+			baseDiv.appendChild(img);
+
+			if(keepPlaceholder) {
+				setTimeout(function() {
+					if(item && item.loaded && item.placeholder) {
+						item.placeholder.style.display = 'none';
+						item.placeholder = null;
+					}
+				}, 500);
+			}
+		}
+	},
+	
+
+
+	_preloadImage = function(item) {
+		item.loading = true;
+		item.loaded = false;
+		var img = item.img = framework.createEl('pswp__img', 'img');
+		var onComplete = function() {
+			item.loading = false;
+			item.loaded = true;
+
+			if(item.loadComplete) {
+				item.loadComplete(item);
+			} else {
+				item.img = null; // no need to store image object
+			}
+			img.onload = img.onerror = null;
+			img = null;
+		};
+		img.onload = onComplete;
+		img.onerror = function() {
+			item.loadError = true;
+			onComplete();
+		};		
+
+		img.src = item.src;// + '?a=' + Math.random();
+
+		return img;
+	},
+	_checkForError = function(item, cleanUp) {
+		if(item.src && item.loadError && item.container) {
+
+			if(cleanUp) {
+				item.container.innerHTML = '';
+			}
+
+			item.container.innerHTML = _options.errorMsg.replace('%url%',  item.src );
+			return true;
+			
+		}
+	},
+	_setImageSize = function(item, img, maxRes) {
+		if(!item.src) {
+			return;
+		}
+
+		if(!img) {
+			img = item.container.lastChild;
+		}
+
+		var w = maxRes ? item.w : Math.round(item.w * item.fitRatio),
+			h = maxRes ? item.h : Math.round(item.h * item.fitRatio);
+		
+		if(item.placeholder && !item.loaded) {
+			item.placeholder.style.width = w + 'px';
+			item.placeholder.style.height = h + 'px';
+		}
+
+		img.style.width = w + 'px';
+		img.style.height = h + 'px';
+	},
+	_appendImagesPool = function() {
+
+		if(_imagesToAppendPool.length) {
+			var poolItem;
+
+			for(var i = 0; i < _imagesToAppendPool.length; i++) {
+				poolItem = _imagesToAppendPool[i];
+				if( poolItem.holder.index === poolItem.index ) {
+					_appendImage(poolItem.index, poolItem.item, poolItem.baseDiv, poolItem.img, false, poolItem.clearPlaceholder);
+				}
+			}
+			_imagesToAppendPool = [];
+		}
+	};
+	
+
+
+_registerModule('Controller', {
+
+	publicMethods: {
+
+		lazyLoadItem: function(index) {
+			index = _getLoopedId(index);
+			var item = _getItemAt(index);
+
+			if(!item || ((item.loaded || item.loading) && !_itemsNeedUpdate)) {
+				return;
+			}
+
+			_shout('gettingData', index, item);
+
+			if (!item.src) {
+				return;
+			}
+
+			_preloadImage(item);
+		},
+		initController: function() {
+			framework.extend(_options, _controllerDefaultOptions, true);
+			self.items = _items = items;
+			_getItemAt = self.getItemAt;
+			_getNumItems = _options.getNumItemsFn; //self.getNumItems;
+
+
+
+			_initialIsLoop = _options.loop;
+			if(_getNumItems() < 3) {
+				_options.loop = false; // disable loop if less then 3 items
+			}
+
+			_listen('beforeChange', function(diff) {
+
+				var p = _options.preload,
+					isNext = diff === null ? true : (diff >= 0),
+					preloadBefore = Math.min(p[0], _getNumItems() ),
+					preloadAfter = Math.min(p[1], _getNumItems() ),
+					i;
+
+
+				for(i = 1; i <= (isNext ? preloadAfter : preloadBefore); i++) {
+					self.lazyLoadItem(_currentItemIndex+i);
+				}
+				for(i = 1; i <= (isNext ? preloadBefore : preloadAfter); i++) {
+					self.lazyLoadItem(_currentItemIndex-i);
+				}
+			});
+
+			_listen('initialLayout', function() {
+				self.currItem.initialLayout = _options.getThumbBoundsFn && _options.getThumbBoundsFn(_currentItemIndex);
+			});
+
+			_listen('mainScrollAnimComplete', _appendImagesPool);
+			_listen('initialZoomInEnd', _appendImagesPool);
+
+
+
+			_listen('destroy', function() {
+				var item;
+				for(var i = 0; i < _items.length; i++) {
+					item = _items[i];
+					// remove reference to DOM elements, for GC
+					if(item.container) {
+						item.container = null; 
+					}
+					if(item.placeholder) {
+						item.placeholder = null;
+					}
+					if(item.img) {
+						item.img = null;
+					}
+					if(item.preloader) {
+						item.preloader = null;
+					}
+					if(item.loadError) {
+						item.loaded = item.loadError = false;
+					}
+				}
+				_imagesToAppendPool = null;
+			});
+		},
+
+
+		getItemAt: function(index) {
+			if (index >= 0) {
+				return _items[index] !== undefined ? _items[index] : false;
+			}
+			return false;
+		},
+
+		allowProgressiveImg: function() {
+			// 1. Progressive image loading isn't working on webkit/blink 
+			//    when hw-acceleration (e.g. translateZ) is applied to IMG element.
+			//    That's why in PhotoSwipe parent element gets zoom transform, not image itself.
+			//    
+			// 2. Progressive image loading sometimes blinks in webkit/blink when applying animation to parent element.
+			//    That's why it's disabled on touch devices (mainly because of swipe transition)
+			//    
+			// 3. Progressive image loading sometimes doesn't work in IE (up to 11).
+
+			// Don't allow progressive loading on non-large touch devices
+			return _options.forceProgressiveLoading || !_likelyTouchDevice || _options.mouseUsed || screen.width > 1200; 
+			// 1200 - to eliminate touch devices with large screen (like Chromebook Pixel)
+		},
+
+		setContent: function(holder, index) {
+
+			if(_options.loop) {
+				index = _getLoopedId(index);
+			}
+
+			var prevItem = self.getItemAt(holder.index);
+			if(prevItem) {
+				prevItem.container = null;
+			}
+	
+			var item = self.getItemAt(index),
+				img;
+			
+			if(!item) {
+				holder.el.innerHTML = '';
+				return;
+			}
+
+			// allow to override data
+			_shout('gettingData', index, item);
+
+			holder.index = index;
+			holder.item = item;
+
+			// base container DIV is created only once for each of 3 holders
+			var baseDiv = item.container = framework.createEl('pswp__zoom-wrap'); 
+
+			
+
+			if(!item.src && item.html) {
+				if(item.html.tagName) {
+					baseDiv.appendChild(item.html);
+				} else {
+					baseDiv.innerHTML = item.html;
+				}
+			}
+
+			_checkForError(item);
+
+			_calculateItemSize(item, _viewportSize);
+			
+			if(item.src && !item.loadError && !item.loaded) {
+
+				item.loadComplete = function(item) {
+
+					// gallery closed before image finished loading
+					if(!_isOpen) {
+						return;
+					}
+
+					// check if holder hasn't changed while image was loading
+					if(holder && holder.index === index ) {
+						if( _checkForError(item, true) ) {
+							item.loadComplete = item.img = null;
+							_calculateItemSize(item, _viewportSize);
+							_applyZoomPanToItem(item);
+
+							if(holder.index === _currentItemIndex) {
+								// recalculate dimensions
+								self.updateCurrZoomItem();
+							}
+							return;
+						}
+						if( !item.imageAppended ) {
+							if(_features.transform && (_mainScrollAnimating || _initialZoomRunning) ) {
+								_imagesToAppendPool.push({
+									item:item,
+									baseDiv:baseDiv,
+									img:item.img,
+									index:index,
+									holder:holder,
+									clearPlaceholder:true
+								});
+							} else {
+								_appendImage(index, item, baseDiv, item.img, _mainScrollAnimating || _initialZoomRunning, true);
+							}
+						} else {
+							// remove preloader & mini-img
+							if(!_initialZoomRunning && item.placeholder) {
+								item.placeholder.style.display = 'none';
+								item.placeholder = null;
+							}
+						}
+					}
+
+					item.loadComplete = null;
+					item.img = null; // no need to store image element after it's added
+
+					_shout('imageLoadComplete', index, item);
+				};
+
+				if(framework.features.transform) {
+					
+					var placeholderClassName = 'pswp__img pswp__img--placeholder'; 
+					placeholderClassName += (item.msrc ? '' : ' pswp__img--placeholder--blank');
+
+					var placeholder = framework.createEl(placeholderClassName, item.msrc ? 'img' : '');
+					if(item.msrc) {
+						placeholder.src = item.msrc;
+					}
+					
+					_setImageSize(item, placeholder);
+
+					baseDiv.appendChild(placeholder);
+					item.placeholder = placeholder;
+
+				}
+				
+
+				
+
+				if(!item.loading) {
+					_preloadImage(item);
+				}
+
+
+				if( self.allowProgressiveImg() ) {
+					// just append image
+					if(!_initialContentSet && _features.transform) {
+						_imagesToAppendPool.push({
+							item:item, 
+							baseDiv:baseDiv, 
+							img:item.img, 
+							index:index, 
+							holder:holder
+						});
+					} else {
+						_appendImage(index, item, baseDiv, item.img, true, true);
+					}
+				}
+				
+			} else if(item.src && !item.loadError) {
+				// image object is created every time, due to bugs of image loading & delay when switching images
+				img = framework.createEl('pswp__img', 'img');
+				img.style.opacity = 1;
+				img.src = item.src;
+				_setImageSize(item, img);
+				_appendImage(index, item, baseDiv, img, true);
+			}
+			
+
+			if(!_initialContentSet && index === _currentItemIndex) {
+				_currZoomElementStyle = baseDiv.style;
+				_showOrHide(item, (img ||item.img) );
+			} else {
+				_applyZoomPanToItem(item);
+			}
+
+			holder.el.innerHTML = '';
+			holder.el.appendChild(baseDiv);
+		},
+
+		cleanSlide: function( item ) {
+			if(item.img ) {
+				item.img.onload = item.img.onerror = null;
+			}
+			item.loaded = item.loading = item.img = item.imageAppended = false;
+		}
+
+	}
+});
+
+/*>>items-controller*/
+
+/*>>tap*/
+/**
+ * tap.js:
+ *
+ * Displatches tap and double-tap events.
+ * 
+ */
+
+var tapTimer,
+	tapReleasePoint = {},
+	_dispatchTapEvent = function(origEvent, releasePoint, pointerType) {		
+		var e = document.createEvent( 'CustomEvent' ),
+			eDetail = {
+				origEvent:origEvent, 
+				target:origEvent.target, 
+				releasePoint: releasePoint, 
+				pointerType:pointerType || 'touch'
+			};
+
+		e.initCustomEvent( 'pswpTap', true, true, eDetail );
+		origEvent.target.dispatchEvent(e);
+	};
+
+_registerModule('Tap', {
+	publicMethods: {
+		initTap: function() {
+			_listen('firstTouchStart', self.onTapStart);
+			_listen('touchRelease', self.onTapRelease);
+			_listen('destroy', function() {
+				tapReleasePoint = {};
+				tapTimer = null;
+			});
+		},
+		onTapStart: function(touchList) {
+			if(touchList.length > 1) {
+				clearTimeout(tapTimer);
+				tapTimer = null;
+			}
+		},
+		onTapRelease: function(e, releasePoint) {
+			if(!releasePoint) {
+				return;
+			}
+
+			if(!_moved && !_isMultitouch && !_numAnimations) {
+				var p0 = releasePoint;
+				if(tapTimer) {
+					clearTimeout(tapTimer);
+					tapTimer = null;
+
+					// Check if taped on the same place
+					if ( _isNearbyPoints(p0, tapReleasePoint) ) {
+						_shout('doubleTap', p0);
+						return;
+					}
+				}
+
+				if(releasePoint.type === 'mouse') {
+					_dispatchTapEvent(e, releasePoint, 'mouse');
+					return;
+				}
+
+				var clickedTagName = e.target.tagName.toUpperCase();
+				// avoid double tap delay on buttons and elements that have class pswp__single-tap
+				if(clickedTagName === 'BUTTON' || framework.hasClass(e.target, 'pswp__single-tap') ) {
+					_dispatchTapEvent(e, releasePoint);
+					return;
+				}
+
+				_equalizePoints(tapReleasePoint, p0);
+
+				tapTimer = setTimeout(function() {
+					_dispatchTapEvent(e, releasePoint);
+					tapTimer = null;
+				}, 300);
+			}
+		}
+	}
+});
+
+/*>>tap*/
+
+/*>>desktop-zoom*/
+/**
+ *
+ * desktop-zoom.js:
+ *
+ * - Binds mousewheel event for paning zoomed image.
+ * - Manages "dragging", "zoomed-in", "zoom-out" classes.
+ *   (which are used for cursors and zoom icon)
+ * - Adds toggleDesktopZoom function.
+ * 
+ */
+
+var _wheelDelta;
+	
+_registerModule('DesktopZoom', {
+
+	publicMethods: {
+
+		initDesktopZoom: function() {
+
+			if(_oldIE) {
+				// no zoom for old IE (<=8)
+				return;
+			}
+
+			if(_likelyTouchDevice) {
+				// if detected hardware touch support, we wait until mouse is used,
+				// and only then apply desktop-zoom features
+				_listen('mouseUsed', function() {
+					self.setupDesktopZoom();
+				});
+			} else {
+				self.setupDesktopZoom(true);
+			}
+
+		},
+
+		setupDesktopZoom: function(onInit) {
+
+			_wheelDelta = {};
+
+			var events = 'wheel mousewheel DOMMouseScroll';
+			
+			_listen('bindEvents', function() {
+				framework.bind(template, events,  self.handleMouseWheel);
+			});
+
+			_listen('unbindEvents', function() {
+				if(_wheelDelta) {
+					framework.unbind(template, events, self.handleMouseWheel);
+				}
+			});
+
+			self.mouseZoomedIn = false;
+
+			var hasDraggingClass,
+				updateZoomable = function() {
+					if(self.mouseZoomedIn) {
+						framework.removeClass(template, 'pswp--zoomed-in');
+						self.mouseZoomedIn = false;
+					}
+					if(_currZoomLevel < 1) {
+						framework.addClass(template, 'pswp--zoom-allowed');
+					} else {
+						framework.removeClass(template, 'pswp--zoom-allowed');
+					}
+					removeDraggingClass();
+				},
+				removeDraggingClass = function() {
+					if(hasDraggingClass) {
+						framework.removeClass(template, 'pswp--dragging');
+						hasDraggingClass = false;
+					}
+				};
+
+			_listen('resize' , updateZoomable);
+			_listen('afterChange' , updateZoomable);
+			_listen('pointerDown', function() {
+				if(self.mouseZoomedIn) {
+					hasDraggingClass = true;
+					framework.addClass(template, 'pswp--dragging');
+				}
+			});
+			_listen('pointerUp', removeDraggingClass);
+
+			if(!onInit) {
+				updateZoomable();
+			}
+			
+		},
+
+		handleMouseWheel: function(e) {
+
+			if(_currZoomLevel <= self.currItem.fitRatio) {
+				if( _options.modal ) {
+
+					if (!_options.closeOnScroll || _numAnimations || _isDragging) {
+						e.preventDefault();
+					} else if(_transformKey && Math.abs(e.deltaY) > 2) {
+						// close PhotoSwipe
+						// if browser supports transforms & scroll changed enough
+						_closedByScroll = true;
+						self.close();
+					}
+
+				}
+				return true;
+			}
+
+			// allow just one event to fire
+			e.stopPropagation();
+
+			// https://developer.mozilla.org/en-US/docs/Web/Events/wheel
+			_wheelDelta.x = 0;
+
+			if('deltaX' in e) {
+				if(e.deltaMode === 1 /* DOM_DELTA_LINE */) {
+					// 18 - average line height
+					_wheelDelta.x = e.deltaX * 18;
+					_wheelDelta.y = e.deltaY * 18;
+				} else {
+					_wheelDelta.x = e.deltaX;
+					_wheelDelta.y = e.deltaY;
+				}
+			} else if('wheelDelta' in e) {
+				if(e.wheelDeltaX) {
+					_wheelDelta.x = -0.16 * e.wheelDeltaX;
+				}
+				if(e.wheelDeltaY) {
+					_wheelDelta.y = -0.16 * e.wheelDeltaY;
+				} else {
+					_wheelDelta.y = -0.16 * e.wheelDelta;
+				}
+			} else if('detail' in e) {
+				_wheelDelta.y = e.detail;
+			} else {
+				return;
+			}
+
+			_calculatePanBounds(_currZoomLevel, true);
+
+			var newPanX = _panOffset.x - _wheelDelta.x,
+				newPanY = _panOffset.y - _wheelDelta.y;
+
+			// only prevent scrolling in nonmodal mode when not at edges
+			if (_options.modal ||
+				(
+				newPanX <= _currPanBounds.min.x && newPanX >= _currPanBounds.max.x &&
+				newPanY <= _currPanBounds.min.y && newPanY >= _currPanBounds.max.y
+				) ) {
+				e.preventDefault();
+			}
+
+			// TODO: use rAF instead of mousewheel?
+			self.panTo(newPanX, newPanY);
+		},
+
+		toggleDesktopZoom: function(centerPoint) {
+			centerPoint = centerPoint || {x:_viewportSize.x/2 + _offset.x, y:_viewportSize.y/2 + _offset.y };
+
+			var doubleTapZoomLevel = _options.getDoubleTapZoom(true, self.currItem);
+			var zoomOut = _currZoomLevel === doubleTapZoomLevel;
+			
+			self.mouseZoomedIn = !zoomOut;
+
+			self.zoomTo(zoomOut ? self.currItem.initialZoomLevel : doubleTapZoomLevel, centerPoint, 333);
+			framework[ (!zoomOut ? 'add' : 'remove') + 'Class'](template, 'pswp--zoomed-in');
+		}
+
+	}
+});
+
+
+/*>>desktop-zoom*/
+
+/*>>history*/
+/**
+ *
+ * history.js:
+ *
+ * - Back button to close gallery.
+ * 
+ * - Unique URL for each slide: example.com/&pid=1&gid=3
+ *   (where PID is picture index, and GID and gallery index)
+ *   
+ * - Switch URL when slides change.
+ * 
+ */
+
+
+var _historyDefaultOptions = {
+	history: true,
+	galleryUID: 1
+};
+
+var _historyUpdateTimeout,
+	_hashChangeTimeout,
+	_hashAnimCheckTimeout,
+	_hashChangedByScript,
+	_hashChangedByHistory,
+	_hashReseted,
+	_initialHash,
+	_historyChanged,
+	_closedFromURL,
+	_urlChangedOnce,
+	_windowLoc,
+
+	_supportsPushState,
+
+	_getHash = function() {
+		return _windowLoc.hash.substring(1);
+	},
+	_cleanHistoryTimeouts = function() {
+
+		if(_historyUpdateTimeout) {
+			clearTimeout(_historyUpdateTimeout);
+		}
+
+		if(_hashAnimCheckTimeout) {
+			clearTimeout(_hashAnimCheckTimeout);
+		}
+	},
+
+	// pid - Picture index
+	// gid - Gallery index
+	_parseItemIndexFromURL = function() {
+		var hash = _getHash(),
+			params = {};
+
+		if(hash.length < 5) { // pid=1
+			return params;
+		}
+
+		var i, vars = hash.split('&');
+		for (i = 0; i < vars.length; i++) {
+			if(!vars[i]) {
+				continue;
+			}
+			var pair = vars[i].split('=');	
+			if(pair.length < 2) {
+				continue;
+			}
+			params[pair[0]] = pair[1];
+		}
+		if(_options.galleryPIDs) {
+			// detect custom pid in hash and search for it among the items collection
+			var searchfor = params.pid;
+			params.pid = 0; // if custom pid cannot be found, fallback to the first item
+			for(i = 0; i < _items.length; i++) {
+				if(_items[i].pid === searchfor) {
+					params.pid = i;
+					break;
+				}
+			}
+		} else {
+			params.pid = parseInt(params.pid,10)-1;
+		}
+		if( params.pid < 0 ) {
+			params.pid = 0;
+		}
+		return params;
+	},
+	_updateHash = function() {
+
+		if(_hashAnimCheckTimeout) {
+			clearTimeout(_hashAnimCheckTimeout);
+		}
+
+
+		if(_numAnimations || _isDragging) {
+			// changing browser URL forces layout/paint in some browsers, which causes noticable lag during animation
+			// that's why we update hash only when no animations running
+			_hashAnimCheckTimeout = setTimeout(_updateHash, 500);
+			return;
+		}
+		
+		if(_hashChangedByScript) {
+			clearTimeout(_hashChangeTimeout);
+		} else {
+			_hashChangedByScript = true;
+		}
+
+
+		var pid = (_currentItemIndex + 1);
+		var item = _getItemAt( _currentItemIndex );
+		if(item.hasOwnProperty('pid')) {
+			// carry forward any custom pid assigned to the item
+			pid = item.pid;
+		}
+		var newHash = _initialHash + '&'  +  'gid=' + _options.galleryUID + '&' + 'pid=' + pid;
+
+		if(!_historyChanged) {
+			if(_windowLoc.hash.indexOf(newHash) === -1) {
+				_urlChangedOnce = true;
+			}
+			// first time - add new hisory record, then just replace
+		}
+
+		var newURL = _windowLoc.href.split('#')[0] + '#' +  newHash;
+
+		if( _supportsPushState ) {
+
+			if('#' + newHash !== window.location.hash) {
+				history[_historyChanged ? 'replaceState' : 'pushState']('', document.title, newURL);
+			}
+
+		} else {
+			if(_historyChanged) {
+				_windowLoc.replace( newURL );
+			} else {
+				_windowLoc.hash = newHash;
+			}
+		}
+		
+		
+
+		_historyChanged = true;
+		_hashChangeTimeout = setTimeout(function() {
+			_hashChangedByScript = false;
+		}, 60);
+	};
+
+
+
+	
+
+_registerModule('History', {
+
+	
+
+	publicMethods: {
+		initHistory: function() {
+
+			framework.extend(_options, _historyDefaultOptions, true);
+
+			if( !_options.history ) {
+				return;
+			}
+
+
+			_windowLoc = window.location;
+			_urlChangedOnce = false;
+			_closedFromURL = false;
+			_historyChanged = false;
+			_initialHash = _getHash();
+			_supportsPushState = ('pushState' in history);
+
+
+			if(_initialHash.indexOf('gid=') > -1) {
+				_initialHash = _initialHash.split('&gid=')[0];
+				_initialHash = _initialHash.split('?gid=')[0];
+			}
+			
+
+			_listen('afterChange', self.updateURL);
+			_listen('unbindEvents', function() {
+				framework.unbind(window, 'hashchange', self.onHashChange);
+			});
+
+
+			var returnToOriginal = function() {
+				_hashReseted = true;
+				if(!_closedFromURL) {
+
+					if(_urlChangedOnce) {
+						history.back();
+					} else {
+
+						if(_initialHash) {
+							_windowLoc.hash = _initialHash;
+						} else {
+							if (_supportsPushState) {
+
+								// remove hash from url without refreshing it or scrolling to top
+								history.pushState('', document.title,  _windowLoc.pathname + _windowLoc.search );
+							} else {
+								_windowLoc.hash = '';
+							}
+						}
+					}
+					
+				}
+
+				_cleanHistoryTimeouts();
+			};
+
+
+			_listen('unbindEvents', function() {
+				if(_closedByScroll) {
+					// if PhotoSwipe is closed by scroll, we go "back" before the closing animation starts
+					// this is done to keep the scroll position
+					returnToOriginal();
+				}
+			});
+			_listen('destroy', function() {
+				if(!_hashReseted) {
+					returnToOriginal();
+				}
+			});
+			_listen('firstUpdate', function() {
+				_currentItemIndex = _parseItemIndexFromURL().pid;
+			});
+
+			
+
+			
+			var index = _initialHash.indexOf('pid=');
+			if(index > -1) {
+				_initialHash = _initialHash.substring(0, index);
+				if(_initialHash.slice(-1) === '&') {
+					_initialHash = _initialHash.slice(0, -1);
+				}
+			}
+			
+
+			setTimeout(function() {
+				if(_isOpen) { // hasn't destroyed yet
+					framework.bind(window, 'hashchange', self.onHashChange);
+				}
+			}, 40);
+			
+		},
+		onHashChange: function() {
+
+			if(_getHash() === _initialHash) {
+
+				_closedFromURL = true;
+				self.close();
+				return;
+			}
+			if(!_hashChangedByScript) {
+
+				_hashChangedByHistory = true;
+				self.goTo( _parseItemIndexFromURL().pid );
+				_hashChangedByHistory = false;
+			}
+			
+		},
+		updateURL: function() {
+
+			// Delay the update of URL, to avoid lag during transition, 
+			// and to not to trigger actions like "refresh page sound" or "blinking favicon" to often
+			
+			_cleanHistoryTimeouts();
+			
+
+			if(_hashChangedByHistory) {
+				return;
+			}
+
+			if(!_historyChanged) {
+				_updateHash(); // first time
+			} else {
+				_historyUpdateTimeout = setTimeout(_updateHash, 800);
+			}
+		}
+	
+	}
+});
+
+
+/*>>history*/
+	framework.extend(self, publicMethods); };
+	return PhotoSwipe;
+});
+
+/***/ }),
+
+/***/ 191:
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! PhotoSwipe Default UI - 4.1.2 - 2017-04-05
 * http://photoswipe.com
 * Copyright (c) 2017 Dmitry Semenov; */
-!function(r,a){o=a,void 0!==(i="function"==typeof o?o.call(t,n,t,e):o)&&(e.exports=i)}(0,function(){"use strict";return function(e,t){var n,o,i,r,a,s,u,c,l,d,p,f,m,h,v,g,y,b,w,x=this,_=!1,S=!0,T=!0,k={barsSize:{top:44,bottom:"auto"},closeElClasses:["item","caption","zoom-wrap","ui","top-bar"],timeToIdle:4e3,timeToIdleOutside:1e3,loadingIndicatorDelay:1e3,addCaptionHTMLFn:function(e,t){return e.title?(t.children[0].innerHTML=e.title,!0):(t.children[0].innerHTML="",!1)},closeEl:!0,captionEl:!0,fullscreenEl:!0,zoomEl:!0,shareEl:!0,counterEl:!0,arrowEl:!0,preloaderEl:!0,tapToClose:!1,tapToToggleControls:!0,clickToCloseNonZoomable:!0,shareButtons:[{id:"facebook",label:"Share on Facebook",url:"https://www.facebook.com/sharer/sharer.php?u={{url}}"},{id:"twitter",label:"Tweet",url:"https://twitter.com/intent/tweet?text={{text}}&url={{url}}"},{id:"pinterest",label:"Pin it",url:"http://www.pinterest.com/pin/create/button/?url={{url}}&media={{image_url}}&description={{text}}"},{id:"download",label:"Download image",url:"{{raw_image_url}}",download:!0}],getImageURLForShare:function(){return e.currItem.src||""},getPageURLForShare:function(){return window.location.href},getTextForShare:function(){return e.currItem.title||""},indexIndicatorSep:" / ",fitControlsWidth:1200},O=function(e){if(g)return!0;e=e||window.event,v.timeToIdle&&v.mouseUsed&&!l&&j();for(var n,o,i=e.target||e.srcElement,r=i.getAttribute("class")||"",a=0;a<K.length;a++)n=K[a],n.onTap&&r.indexOf("pswp__"+n.name)>-1&&(n.onTap(),o=!0);if(o){e.stopPropagation&&e.stopPropagation(),g=!0;var s=t.features.isOldAndroid?600:30;y=setTimeout(function(){g=!1},s)}},E=function(){return!e.likelyTouchDevice||v.mouseUsed||screen.width>v.fitControlsWidth},I=function(e,n,o){t[(o?"add":"remove")+"Class"](e,"pswp__"+n)},C=function(){var e=1===v.getNumItemsFn();e!==h&&(I(o,"ui--one-slide",e),h=e)},A=function(){I(u,"share-modal--hidden",T)},L=function(){return T=!T,T?(t.removeClass(u,"pswp__share-modal--fade-in"),setTimeout(function(){T&&A()},300)):(A(),setTimeout(function(){T||t.addClass(u,"pswp__share-modal--fade-in")},30)),T||M(),!1},D=function(t){t=t||window.event;var n=t.target||t.srcElement;return e.shout("shareLinkClick",t,n),!!n.href&&(!!n.hasAttribute("download")||(window.open(n.href,"pswp_share","scrollbars=yes,resizable=yes,toolbar=no,location=yes,width=550,height=420,top=100,left="+(window.screen?Math.round(screen.width/2-275):100)),T||L(),!1))},M=function(){for(var e,t,n,o,i,r="",a=0;a<v.shareButtons.length;a++)e=v.shareButtons[a],n=v.getImageURLForShare(e),o=v.getPageURLForShare(e),i=v.getTextForShare(e),t=e.url.replace("{{url}}",encodeURIComponent(o)).replace("{{image_url}}",encodeURIComponent(n)).replace("{{raw_image_url}}",n).replace("{{text}}",encodeURIComponent(i)),r+='<a href="'+t+'" target="_blank" class="pswp__share--'+e.id+'"'+(e.download?"download":"")+">"+e.label+"</a>",v.parseShareButtonOut&&(r=v.parseShareButtonOut(e,r));u.children[0].innerHTML=r,u.children[0].onclick=D},R=function(e){for(var n=0;n<v.closeElClasses.length;n++)if(t.hasClass(e,"pswp__"+v.closeElClasses[n]))return!0},P=0,j=function(){clearTimeout(w),P=0,l&&x.setIdle(!1)},N=function(e){e=e||window.event;var t=e.relatedTarget||e.toElement;t&&"HTML"!==t.nodeName||(clearTimeout(w),w=setTimeout(function(){x.setIdle(!0)},v.timeToIdleOutside))},z=function(){v.fullscreenEl&&!t.features.isOldAndroid&&(n||(n=x.getFullscreenAPI()),n?(t.bind(document,n.eventK,x.updateFullscreen),x.updateFullscreen(),t.addClass(e.template,"pswp--supports-fs")):t.removeClass(e.template,"pswp--supports-fs"))},U=function(){v.preloaderEl&&(F(!0),d("beforeChange",function(){clearTimeout(m),m=setTimeout(function(){e.currItem&&e.currItem.loading?(!e.allowProgressiveImg()||e.currItem.img&&!e.currItem.img.naturalWidth)&&F(!1):F(!0)},v.loadingIndicatorDelay)}),d("imageLoadComplete",function(t,n){e.currItem===n&&F(!0)}))},F=function(e){f!==e&&(I(p,"preloader--active",!e),f=e)},V=function(e){var n=e.vGap;if(E()){var a=v.barsSize;if(v.captionEl&&"auto"===a.bottom)if(r||(r=t.createEl("pswp__caption pswp__caption--fake"),r.appendChild(t.createEl("pswp__caption__center")),o.insertBefore(r,i),t.addClass(o,"pswp__ui--fit")),v.addCaptionHTMLFn(e,r,!0)){var s=r.clientHeight;n.bottom=parseInt(s,10)||44}else n.bottom=a.top;else n.bottom="auto"===a.bottom?0:a.bottom;n.top=a.top}else n.top=n.bottom=0},B=function(){v.timeToIdle&&d("mouseUsed",function(){t.bind(document,"mousemove",j),t.bind(document,"mouseout",N),b=setInterval(function(){2===++P&&x.setIdle(!0)},v.timeToIdle/2)})},H=function(){d("onVerticalDrag",function(e){S&&e<.95?x.hideControls():!S&&e>=.95&&x.showControls()});var e;d("onPinchClose",function(t){S&&t<.9?(x.hideControls(),e=!0):e&&!S&&t>.9&&x.showControls()}),d("zoomGestureEnded",function(){(e=!1)&&!S&&x.showControls()})},K=[{name:"caption",option:"captionEl",onInit:function(e){i=e}},{name:"share-modal",option:"shareEl",onInit:function(e){u=e},onTap:function(){L()}},{name:"button--share",option:"shareEl",onInit:function(e){s=e},onTap:function(){L()}},{name:"button--zoom",option:"zoomEl",onTap:e.toggleDesktopZoom},{name:"counter",option:"counterEl",onInit:function(e){a=e}},{name:"button--close",option:"closeEl",onTap:e.close},{name:"button--arrow--left",option:"arrowEl",onTap:e.prev},{name:"button--arrow--right",option:"arrowEl",onTap:e.next},{name:"button--fs",option:"fullscreenEl",onTap:function(){n.isFullscreen()?n.exit():n.enter()}},{name:"preloader",option:"preloaderEl",onInit:function(e){p=e}}],Z=function(){var e,n,i,r=function(o){if(o)for(var r=o.length,a=0;a<r;a++){e=o[a],n=e.className;for(var s=0;s<K.length;s++)i=K[s],n.indexOf("pswp__"+i.name)>-1&&(v[i.option]?(t.removeClass(e,"pswp__element--disabled"),i.onInit&&i.onInit(e)):t.addClass(e,"pswp__element--disabled"))}};r(o.children);var a=t.getChildByClass(o,"pswp__top-bar");a&&r(a.children)};x.init=function(){t.extend(e.options,k,!0),v=e.options,o=t.getChildByClass(e.scrollWrap,"pswp__ui"),d=e.listen,H(),d("beforeChange",x.update),d("doubleTap",function(t){var n=e.currItem.initialZoomLevel;e.getZoomLevel()!==n?e.zoomTo(n,t,333):e.zoomTo(v.getDoubleTapZoom(!1,e.currItem),t,333)}),d("preventDragEvent",function(e,t,n){var o=e.target||e.srcElement;o&&o.getAttribute("class")&&e.type.indexOf("mouse")>-1&&(o.getAttribute("class").indexOf("__caption")>0||/(SMALL|STRONG|EM)/i.test(o.tagName))&&(n.prevent=!1)}),d("bindEvents",function(){t.bind(o,"pswpTap click",O),t.bind(e.scrollWrap,"pswpTap",x.onGlobalTap),e.likelyTouchDevice||t.bind(e.scrollWrap,"mouseover",x.onMouseOver)}),d("unbindEvents",function(){T||L(),b&&clearInterval(b),t.unbind(document,"mouseout",N),t.unbind(document,"mousemove",j),t.unbind(o,"pswpTap click",O),t.unbind(e.scrollWrap,"pswpTap",x.onGlobalTap),t.unbind(e.scrollWrap,"mouseover",x.onMouseOver),n&&(t.unbind(document,n.eventK,x.updateFullscreen),n.isFullscreen()&&(v.hideAnimationDuration=0,n.exit()),n=null)}),d("destroy",function(){v.captionEl&&(r&&o.removeChild(r),t.removeClass(i,"pswp__caption--empty")),u&&(u.children[0].onclick=null),t.removeClass(o,"pswp__ui--over-close"),t.addClass(o,"pswp__ui--hidden"),x.setIdle(!1)}),v.showAnimationDuration||t.removeClass(o,"pswp__ui--hidden"),d("initialZoomIn",function(){v.showAnimationDuration&&t.removeClass(o,"pswp__ui--hidden")}),d("initialZoomOut",function(){t.addClass(o,"pswp__ui--hidden")}),d("parseVerticalMargin",V),Z(),v.shareEl&&s&&u&&(T=!0),C(),B(),z(),U()},x.setIdle=function(e){l=e,I(o,"ui--idle",e)},x.update=function(){S&&e.currItem?(x.updateIndexIndicator(),v.captionEl&&(v.addCaptionHTMLFn(e.currItem,i),I(i,"caption--empty",!e.currItem.title)),_=!0):_=!1,T||L(),C()},x.updateFullscreen=function(o){o&&setTimeout(function(){e.setScrollOffset(0,t.getScrollY())},50),t[(n.isFullscreen()?"add":"remove")+"Class"](e.template,"pswp--fs")},x.updateIndexIndicator=function(){v.counterEl&&(a.innerHTML=e.getCurrentIndex()+1+v.indexIndicatorSep+v.getNumItemsFn())},x.onGlobalTap=function(n){n=n||window.event;var o=n.target||n.srcElement;if(!g)if(n.detail&&"mouse"===n.detail.pointerType){if(R(o))return void e.close();t.hasClass(o,"pswp__img")&&(1===e.getZoomLevel()&&e.getZoomLevel()<=e.currItem.fitRatio?v.clickToCloseNonZoomable&&e.close():e.toggleDesktopZoom(n.detail.releasePoint))}else if(v.tapToToggleControls&&(S?x.hideControls():x.showControls()),v.tapToClose&&(t.hasClass(o,"pswp__img")||R(o)))return void e.close()},x.onMouseOver=function(e){e=e||window.event;var t=e.target||e.srcElement;I(o,"ui--over-close",R(t))},x.hideControls=function(){t.addClass(o,"pswp__ui--hidden"),S=!1},x.showControls=function(){S=!0,_||x.update(),t.removeClass(o,"pswp__ui--hidden")},x.supportsFullscreen=function(){var e=document;return!!(e.exitFullscreen||e.mozCancelFullScreen||e.webkitExitFullscreen||e.msExitFullscreen)},x.getFullscreenAPI=function(){var t,n=document.documentElement,o="fullscreenchange";return n.requestFullscreen?t={enterK:"requestFullscreen",exitK:"exitFullscreen",elementK:"fullscreenElement",eventK:o}:n.mozRequestFullScreen?t={enterK:"mozRequestFullScreen",exitK:"mozCancelFullScreen",elementK:"mozFullScreenElement",eventK:"moz"+o}:n.webkitRequestFullscreen?t={enterK:"webkitRequestFullscreen",exitK:"webkitExitFullscreen",elementK:"webkitFullscreenElement",eventK:"webkit"+o}:n.msRequestFullscreen&&(t={enterK:"msRequestFullscreen",exitK:"msExitFullscreen",elementK:"msFullscreenElement",eventK:"MSFullscreenChange"}),t&&(t.enter=function(){if(c=v.closeOnScroll,v.closeOnScroll=!1,"webkitRequestFullscreen"!==this.enterK)return e.template[this.enterK]();e.template[this.enterK](Element.ALLOW_KEYBOARD_INPUT)},t.exit=function(){return v.closeOnScroll=c,document[this.exitK]()},t.isFullscreen=function(){return document[this.elementK]}),t}}})},192:function(e,t){},193:function(e,t){},194:function(e,t,n){"use strict";function o(e){return e&&e.__esModule?e:{default:e}}var i=n(64),r=o(i),a=n(65),s=o(a),u=n(131),c=o(u),l=n(132),d=o(l),p=n(89),f=function(){function e(){(0,r.default)(this,e)}return(0,s.default)(e,[{key:"init",value:function(){var t=document.querySelectorAll(".share-sns");if(t&&0!==t.length){var n=window.location.href,o=document.querySelector("title").innerHTML,i=document.querySelectorAll(".article-entry img"),r=i.length?document.querySelector(".article-entry img").getAttribute("src"):"";""===r||/^(http:|https:)?\/\//.test(r)||(r=window.location.origin+r),t.forEach(function(t){t.onclick=function(i){var a=t.getAttribute("data-type");e.handleClick(a,{sUrl:n,sPic:r,sTitle:o,sDesc:o})}}),(0,p.on)(document.querySelector(".mask"),"click",e.hideWX),(0,p.on)(document.querySelector(".js-modal-close"),"click",e.hideWX)}}}],[{key:"generate",value:function(e,t){var n=e.replace(/<%-sUrl%>/g,encodeURIComponent(t.sUrl)).replace(/<%-sTitle%>/g,t.sTitle).replace(/<%-sDesc%>/g,t.sDesc).replace(/<%-sPic%>/g,encodeURIComponent(t.sPic));window.open(n)}},{key:"handleClick",value:function(t,n){"weibo"===t?e.generate("http://service.weibo.com/share/share.php?url=<%-sUrl%>&title=<%-sTitle%>&pic=<%-sPic%>",n):"qq"===t?e.generate("http://connect.qq.com/widget/shareqq/index.html?url=<%-sUrl%>&title=<%-sTitle%>&source=<%-sDesc%>",n):"douban"===t?e.generate("https://www.douban.com/share/service?image=<%-sPic%>&href=<%-sUrl%>&name=<%-sTitle%>&text=<%-sDesc%>",n):"qzone"===t?e.generate("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=<%-sUrl%>&title=<%-sTitle%>&pics=<%-sPic%>&summary=<%-sDesc%>",n):"facebook"===t?e.generate("https://www.facebook.com/sharer/sharer.php?u=<%-sUrl%>",n):"twitter"===t?e.generate("https://twitter.com/intent/tweet?text=<%-sTitle%>&url=<%-sUrl%>&via=<%-config.url%>",n):"google"===t?e.generate("https://plus.google.com/share?url=<%-sUrl%>",n):"weixin"===t&&e.showWX()}},{key:"hideWX",value:function(){var e=document.querySelector(".js-wx-box"),t=document.querySelector(".mask");(0,d.default)(e,"in"),(0,d.default)(e,"ready"),(0,d.default)(t,"in")}},{key:"showWX",value:function(){var e=document.querySelector(".js-wx-box"),t=document.querySelector(".mask");(0,c.default)(e,"in"),(0,c.default)(e,"ready"),(0,c.default)(t,"in")}}]),e}();e.exports=f},195:function(e,t,n){"use strict";function o(e){return e&&e.__esModule?e:{default:e}}var i=n(64),r=o(i),a=n(65),s=o(a),u=function(){function e(){(0,r.default)(this,e)}return(0,s.default)(e,[{key:"init",value:function(){e.backTop(document.getElementById("js-jump-container"),document.getElementById("container"))}}],[{key:"throttle",value:function(e,t){var n=null;return function(){var o=this,i=arguments;n&&clearTimeout(n),n=setTimeout(function(){return"function"==typeof e&&e.apply(o,i)},t)}}},{key:"backTop",value:function(t,n,o){function i(){t.style.display=(n.scrollTop||document.documentElement.scrollTop||document.body.scrollTop)>(o||500)?"block":"none"}if(t){var r=null,a=window.onscroll,s=t.onclick;(n||window).onscroll=e.throttle(function(){"function"==typeof a&&a.apply(this,arguments),i()},100),t.onclick=function(){"function"==typeof s&&s.apply(this,arguments),r=setInterval(function(){var e=n.scrollTop||document.documentElement.scrollTop||document.body.scrollTop,t=e/7,o=t<1?Math.ceil(t):Math.floor(t);e-=o,e>0?(n.scrollTop=n.scrollTop-o,window.scrollTo(0,e)):(n.scrollTop=0,window.scrollTo(0,0),clearInterval(r))},10)}}}}]),e}();e.exports=u},196:function(e,t,n){"use strict";function o(e){return e&&e.__esModule?e:{default:e}}var i=n(64),r=o(i),a=n(65),s=o(a),u=n(197),c=o(u),l=function(){function e(){(0,r.default)(this,e)}return(0,s.default)(e,[{key:"init",value:function(){new c.default({owner:"XyyF",repo:"XyyF.github.io",oauth:{client_id:"49eac8228181b2222d57",client_secret:"96ecc2513c58eebbb14e304c344a322da5b73dee"}}).render("gitment-ctn")}}]),e}();e.exports=l},197:function(e,t,n){"use strict";function o(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function i(e,t){e[t]=function(n){var o=(0,u.getTargetContainer)(n),i=e.theme[t]||e.defaultTheme[t];return(0,a.autorun)(function(){var t=i(e.state,e);o.firstChild?o.replaceChild(t,o.firstChild):o.appendChild(t)}),o}}var r=function(){function e(e,t){for(var n=0;n<t.length;n++){var o=t[n];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),Object.defineProperty(e,o.key,o)}}return function(t,n,o){return n&&e(t.prototype,n),o&&e(t,o),t}}(),a=n(198),s=n(90),u=n(199),c=n(200),l=function(e){return e&&e.__esModule?e:{default:e}}(c),d=function(){function e(){var t=this,n=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};o(this,e),this.defaultTheme=l.default,this.useTheme(l.default),Object.assign(this,{id:window.location.href,title:window.document.title,link:window.location.href,desc:"",labels:[],theme:l.default,oauth:{},perPage:20,maxCommentHeight:250},n),this.useTheme(this.theme);var i={};try{var r=localStorage.getItem(s.LS_USER_KEY);this.accessToken&&r&&Object.assign(i,JSON.parse(r),{fromCache:!0})}catch(e){localStorage.removeItem(s.LS_USER_KEY)}this.state=(0,a.observable)({user:i,error:null,meta:{},comments:void 0,reactions:[],commentReactions:{},currentPage:1});var c=u.Query.parse();if(c.code){var d=this.oauth,p=d.client_id,f=d.client_secret,m=c.code;delete c.code;var h=u.Query.stringify(c),v=""+window.location.origin+window.location.pathname+h+window.location.hash;history.replaceState({},"",v),Object.assign(this,{id:v,link:v},n),this.state.user.isLoggingIn=!0,u.http.post("https://gh-oauth.imsun.net",{code:m,client_id:p,client_secret:f},"").then(function(e){t.accessToken=e.access_token,t.update()}).catch(function(e){t.state.user.isLoggingIn=!1,alert(e)})}else this.update()}return r(e,[{key:"accessToken",get:function(){return localStorage.getItem(s.LS_ACCESS_TOKEN_KEY)},set:function(e){localStorage.setItem(s.LS_ACCESS_TOKEN_KEY,e)}},{key:"loginLink",get:function(){var e=this.oauth.redirect_uri||window.location.href,t=Object.assign({scope:"public_repo",redirect_uri:e},this.oauth);return"https://github.com/login/oauth/authorize"+u.Query.stringify(t)}}]),r(e,[{key:"init",value:function(){var e=this;return this.createIssue().then(function(){return e.loadComments()}).then(function(t){return e.state.error=null,t})}},{key:"useTheme",value:function(){var e=this,t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};this.theme=t,Object.keys(this.theme).forEach(function(t){return i(e,t)})}},{key:"update",value:function(){var e=this;return Promise.all([this.loadMeta(),this.loadUserInfo()]).then(function(){return Promise.all([e.loadComments().then(function(){return e.loadCommentReactions()}),e.loadReactions()])}).catch(function(t){return e.state.error=t})}},{key:"markdown",value:function(e){return u.http.post("/markdown",{text:e,mode:"gfm"})}},{key:"createIssue",value:function(){var e=this,t=this.id,n=this.owner,o=this.repo,i=this.title,r=this.link,a=this.desc,s=this.labels;return u.http.post("/repos/"+n+"/"+o+"/issues",{title:i,labels:s.concat(["gitment",t]),body:r+"\n\n"+a}).then(function(t){return e.state.meta=t,t})}},{key:"getIssue",value:function(){return this.state.meta.id?Promise.resolve(this.state.meta):this.loadMeta()}},{key:"post",value:function(e){var t=this;return this.getIssue().then(function(t){return u.http.post(t.comments_url,{body:e},"")}).then(function(e){t.state.meta.comments++;var n=Math.ceil(t.state.meta.comments/t.perPage);return t.state.currentPage===n&&t.state.comments.push(e),e})}},{key:"loadMeta",value:function(){var e=this,t=this.id,n=this.owner,o=this.repo;return u.http.get("/repos/"+n+"/"+o+"/issues",{creator:n,labels:t}).then(function(t){return t.length?(e.state.meta=t[0],t[0]):Promise.reject(s.NOT_INITIALIZED_ERROR)})}},{key:"loadComments",value:function(){var e=this,t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:this.state.currentPage;return this.getIssue().then(function(n){return u.http.get(n.comments_url,{page:t,per_page:e.perPage},"")}).then(function(t){return e.state.comments=t,t})}},{key:"loadUserInfo",value:function(){var e=this;return this.accessToken?u.http.get("/user").then(function(t){return e.state.user=t,localStorage.setItem(s.LS_USER_KEY,JSON.stringify(t)),t}):(this.logout(),Promise.resolve({}))}},{key:"loadReactions",value:function(){var e=this;return this.accessToken?this.getIssue().then(function(e){return e.reactions.total_count?u.http.get(e.reactions.url,{},""):[]}).then(function(t){return e.state.reactions=t,t}):(this.state.reactions=[],Promise.resolve([]))}},{key:"loadCommentReactions",value:function(){var e=this;if(!this.accessToken)return this.state.commentReactions={},Promise.resolve([]);var t=this.state.comments,n={};return Promise.all(t.map(function(t){if(!t.reactions.total_count)return[];var n=e.owner,o=e.repo;return u.http.get("/repos/"+n+"/"+o+"/issues/comments/"+t.id+"/reactions",{})})).then(function(o){return t.forEach(function(e,t){n[e.id]=o[t]}),e.state.commentReactions=n,n})}},{key:"login",value:function(){window.location.href=this.loginLink}},{key:"logout",value:function(){localStorage.removeItem(s.LS_ACCESS_TOKEN_KEY),localStorage.removeItem(s.LS_USER_KEY),this.state.user={}}},{key:"goto",value:function(e){return this.state.currentPage=e,this.state.comments=void 0,this.loadComments(e)}},{key:"like",value:function(){var e=this;if(!this.accessToken)return alert("Login to Like"),Promise.reject();var t=this.owner,n=this.repo;return u.http.post("/repos/"+t+"/"+n+"/issues/"+this.state.meta.number+"/reactions",{content:"heart"}).then(function(t){e.state.reactions.push(t),e.state.meta.reactions.heart++})}},{key:"unlike",value:function(){var e=this;if(!this.accessToken)return Promise.reject();var t=this.state,n=t.user,o=t.reactions,i=o.findIndex(function(e){return e.user.login===n.login});return u.http.delete("/reactions/"+o[i].id).then(function(){o.splice(i,1),e.state.meta.reactions.heart--})}},{key:"likeAComment",value:function(e){var t=this;if(!this.accessToken)return alert("Login to Like"),Promise.reject();var n=this.owner,o=this.repo,i=this.state.comments.find(function(t){return t.id===e});return u.http.post("/repos/"+n+"/"+o+"/issues/comments/"+e+"/reactions",{content:"heart"}).then(function(n){t.state.commentReactions[e].push(n),i.reactions.heart++})}},{key:"unlikeAComment",value:function(e){if(!this.accessToken)return Promise.reject();var t=this.state.commentReactions[e],n=this.state.comments.find(function(t){return t.id===e}),o=this.state.user,i=t.findIndex(function(e){return e.user.login===o.login});return u.http.delete("/reactions/"+t[i].id).then(function(){t.splice(i,1),n.reactions.heart--})}}]),e}();e.exports=d},198:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),function(e){function o(e,t){function n(){this.constructor=e}tn(e,t),e.prototype=null===t?Object.create(t):(n.prototype=t.prototype,new n)}function i(e){return e.interceptors&&e.interceptors.length>0}function r(e,t){var n=e.interceptors||(e.interceptors=[]);return n.push(t),Ce(function(){var e=n.indexOf(t);-1!==e&&n.splice(e,1)})}function a(e,t){var n=Ot();try{var o=e.interceptors;if(o)for(var i=0,r=o.length;i<r&&(t=o[i](t),Ee(!t||t.type,"Intercept handlers should return nothing or a change object"),t);i++);return t}finally{Et(n)}}function s(e){return e.changeListeners&&e.changeListeners.length>0}function u(e,t){var n=e.changeListeners||(e.changeListeners=[]);return n.push(t),Ce(function(){var e=n.indexOf(t);-1!==e&&n.splice(e,1)})}function c(e,t){var n=Ot(),o=e.changeListeners;if(o){o=o.slice();for(var i=0,r=o.length;i<r;i++)o[i](t);Et(n)}}function l(){return!!qn.spyListeners.length}function d(e){if(qn.spyListeners.length)for(var t=qn.spyListeners,n=0,o=t.length;n<o;n++)t[n](e)}function p(e){d(Re({},e,{spyReportStart:!0}))}function f(e){d(e?Re({},e,an):an)}function m(e){return qn.spyListeners.push(e),Ce(function(){var t=qn.spyListeners.indexOf(e);-1!==t&&qn.spyListeners.splice(t,1)})}function h(){return"function"==typeof Symbol&&Symbol.iterator||"@@iterator"}function v(e){Ee(!0!==e[sn],"Illegal state: cannot recycle array as iterator"),Ne(e,sn,!0);var t=-1;return Ne(e,"next",function(){return t++,{done:t>=this.length,value:t<this.length?this[t]:void 0}}),e}function g(e,t){Ne(e,h(),t)}function y(e){return{enumerable:!1,configurable:!1,get:function(){return this.get(e)},set:function(t){this.set(e,t)}}}function b(e){Object.defineProperty(pn.prototype,""+e,y(e))}function w(e){for(var t=cn;t<e;t++)b(t);cn=e}function x(e){return De(e)&&mn(e.$mobx)}function _(e){return yn[e]}function S(e,t){Ee("function"==typeof t,_("m026")),Ee("string"==typeof e&&e.length>0,"actions should have valid names, got: '"+e+"'");var n=function(){return T(e,t,this,arguments)};return n.originalFn=t,n.isMobxAction=!0,n}function T(e,t,n,o){var i=k(e,t,n,o);try{return t.apply(n,o)}finally{O(i)}}function k(e,t,n,o){var i=l()&&!!e,r=0;if(i){r=Date.now();var a=o&&o.length||0,s=new Array(a);if(a>0)for(var u=0;u<a;u++)s[u]=o[u];p({type:"action",name:e,fn:t,object:n,arguments:s})}var c=Ot();return lt(),{prevDerivation:c,prevAllowStateChanges:A(!0),notifySpy:i,startTime:r}}function O(e){L(e.prevAllowStateChanges),dt(),Et(e.prevDerivation),e.notifySpy&&f({time:Date.now()-e.startTime})}function E(e){Ee(null===qn.trackingDerivation,_("m028")),qn.strictMode=e,qn.allowStateChanges=!e}function I(){return qn.strictMode}function C(e,t){var n,o=A(e);try{n=t()}finally{L(o)}return n}function A(e){var t=qn.allowStateChanges;return qn.allowStateChanges=e,t}function L(e){qn.allowStateChanges=e}function D(e,t,n,o,i){function r(r,a,s,u,c){if(void 0===c&&(c=0),Ee(i||P(arguments),"This function is a decorator, but it wasn't invoked like a decorator"),s){Pe(r,"__mobxLazyInitializers")||je(r,"__mobxLazyInitializers",r.__mobxLazyInitializers&&r.__mobxLazyInitializers.slice()||[]);var l=s.value,d=s.initializer;return r.__mobxLazyInitializers.push(function(t){e(t,a,d?d.call(t):l,u,s)}),{enumerable:o,configurable:!0,get:function(){return!0!==this.__mobxDidRunLazyInitializers&&R(this),t.call(this,a)},set:function(e){!0!==this.__mobxDidRunLazyInitializers&&R(this),n.call(this,a,e)}}}var p={enumerable:o,configurable:!0,get:function(){return this.__mobxInitializedProps&&!0===this.__mobxInitializedProps[a]||M(this,a,void 0,e,u,s),t.call(this,a)},set:function(t){this.__mobxInitializedProps&&!0===this.__mobxInitializedProps[a]?n.call(this,a,t):M(this,a,t,e,u,s)}};return(arguments.length<3||5===arguments.length&&c<3)&&Object.defineProperty(r,a,p),p}return i?function(){if(P(arguments))return r.apply(null,arguments);var e=arguments,t=arguments.length;return function(n,o,i){return r(n,o,i,e,t)}}:r}function M(e,t,n,o,i,r){Pe(e,"__mobxInitializedProps")||je(e,"__mobxInitializedProps",{}),e.__mobxInitializedProps[t]=!0,o(e,t,n,i,r)}function R(e){!0!==e.__mobxDidRunLazyInitializers&&e.__mobxLazyInitializers&&(je(e,"__mobxDidRunLazyInitializers",!0),e.__mobxDidRunLazyInitializers&&e.__mobxLazyInitializers.forEach(function(t){return t(e)}))}function P(e){return(2===e.length||3===e.length)&&"string"==typeof e[1]}function j(e){return function(t,n,o){if(o&&"function"==typeof o.value)return o.value=S(e,o.value),o.enumerable=!1,o.configurable=!0,o;if(void 0!==o&&void 0!==o.get)throw new Error("[mobx] action is not expected to be used with getters");return bn(e).apply(this,arguments)}}function N(e,t,n){var o="string"==typeof e?e:e.name||"<unnamed action>",i="function"==typeof e?e:t,r="function"==typeof e?t:n;return Ee("function"==typeof i,_("m002")),Ee(0===i.length,_("m003")),Ee("string"==typeof o&&o.length>0,"actions should have valid names, got: '"+o+"'"),T(o,i,r,void 0)}function z(e){return"function"==typeof e&&!0===e.isMobxAction}function U(e,t,n){var o=function(){return T(t,n,e,arguments)};o.isMobxAction=!0,je(e,t,o)}function F(e,t){return V(e,t)}function V(e,t,n,o){if(e===t)return 0!==e||1/e==1/t;if(null==e||null==t)return!1;if(e!==e)return t!==t;var i=typeof e;return("function"===i||"object"===i||"object"==typeof t)&&B(e,t,n,o)}function B(e,t,n,o){e=H(e),t=H(t);var i=_n.call(e);if(i!==_n.call(t))return!1;switch(i){case"[object RegExp]":case"[object String]":return""+e==""+t;case"[object Number]":return+e!=+e?+t!=+t:0==+e?1/+e==1/t:+e==+t;case"[object Date]":case"[object Boolean]":return+e==+t;case"[object Symbol]":return"undefined"!=typeof Symbol&&Symbol.valueOf.call(e)===Symbol.valueOf.call(t)}var r="[object Array]"===i;if(!r){if("object"!=typeof e||"object"!=typeof t)return!1;var a=e.constructor,s=t.constructor;if(a!==s&&!("function"==typeof a&&a instanceof a&&"function"==typeof s&&s instanceof s)&&"constructor"in e&&"constructor"in t)return!1}n=n||[],o=o||[];for(var u=n.length;u--;)if(n[u]===e)return o[u]===t;if(n.push(e),o.push(t),r){if((u=e.length)!==t.length)return!1;for(;u--;)if(!V(e[u],t[u],n,o))return!1}else{var c,l=Object.keys(e);if(u=l.length,Object.keys(t).length!==u)return!1;for(;u--;)if(c=l[u],!K(t,c)||!V(e[c],t[c],n,o))return!1}return n.pop(),o.pop(),!0}function H(e){return x(e)?e.peek():Un(e)?e.entries():He(e)?Ze(e.entries()):e}function K(e,t){return Object.prototype.hasOwnProperty.call(e,t)}function Z(e,t){return e===t}function q(e,t){return F(e,t)}function $(e,t){return Ve(e,t)||Z(e,t)}function G(e,t,n){function o(){r(s)}var i,r,a;"string"==typeof e?(i=e,r=t,a=n):(i=e.name||"Autorun@"+ke(),r=e,a=t),Ee("function"==typeof r,_("m004")),Ee(!1===z(r),_("m005")),a&&(r=r.bind(a));var s=new eo(i,function(){this.track(o)});return s.schedule(),s.getDisposer()}function W(e,t,n,o){var i,r,a,s;return"string"==typeof e?(i=e,r=t,a=n,s=o):(i="When@"+ke(),r=e,a=t,s=n),G(i,function(e){if(r.call(s)){e.dispose();var t=Ot();a.call(s),Et(t)}})}function Y(e,t,n,o){function i(){a(l)}var r,a,s,u;"string"==typeof e?(r=e,a=t,s=n,u=o):(r=e.name||"AutorunAsync@"+ke(),a=e,s=t,u=n),Ee(!1===z(a),_("m006")),void 0===s&&(s=1),u&&(a=a.bind(u));var c=!1,l=new eo(r,function(){c||(c=!0,setTimeout(function(){c=!1,l.isDisposed||l.track(i)},s))});return l.schedule(),l.getDisposer()}function X(e,t,n){function o(){if(!c.isDisposed){var n=!1;c.track(function(){var t=e(c);n=a||!u(r,t),r=t}),a&&i.fireImmediately&&t(r,c),a||!0!==n||t(r,c),a&&(a=!1)}}arguments.length>3&&Oe(_("m007")),he(e)&&Oe(_("m008"));var i;i="object"==typeof n?n:{},i.name=i.name||e.name||t.name||"Reaction@"+ke(),i.fireImmediately=!0===n||!0===i.fireImmediately,i.delay=i.delay||0,i.compareStructural=i.compareStructural||i.struct||!1,t=xn(i.name,i.context?t.bind(i.context):t),i.context&&(e=e.bind(i.context));var r,a=!0,s=!1,u=i.equals?i.equals:i.compareStructural||i.struct?Sn.structural:Sn.default,c=new eo(i.name,function(){a||i.delay<1?o():s||(s=!0,setTimeout(function(){s=!1,o()},i.delay))});return c.schedule(),c.getDisposer()}function J(e,t){if(se(e)&&e.hasOwnProperty("$mobx"))return e.$mobx;Ee(Object.isExtensible(e),_("m035")),Me(e)||(t=(e.constructor.name||"ObservableObject")+"@"+ke()),t||(t="ObservableObject@"+ke());var n=new On(e,t);return Ne(e,"$mobx",n),n}function Q(e,t,n,o){if(e.values[t]&&!kn(e.values[t]))return Ee("value"in n,"The property "+t+" in "+e.name+" is already observable, cannot redefine it as computed property"),void(e.target[t]=n.value);if("value"in n)if(he(n.value)){var i=n.value;ee(e,t,i.initialValue,i.enhancer)}else z(n.value)&&!0===n.value.autoBind?U(e.target,t,n.value.originalFn):kn(n.value)?ne(e,t,n.value):ee(e,t,n.value,o);else te(e,t,n.get,n.set,Sn.default,!0)}function ee(e,t,n,o){if(Ue(e.target,t),i(e)){var r=a(e,{object:e.target,name:t,type:"add",newValue:n});if(!r)return;n=r.newValue}n=(e.values[t]=new vn(n,o,e.name+"."+t,!1)).value,Object.defineProperty(e.target,t,oe(t)),ae(e,e.target,t,n)}function te(e,t,n,o,i,r){r&&Ue(e.target,t),e.values[t]=new Tn(n,e.target,i,e.name+"."+t,o),r&&Object.defineProperty(e.target,t,ie(t))}function ne(e,t,n){var o=e.name+"."+t;n.name=o,n.scope||(n.scope=e.target),e.values[t]=n,Object.defineProperty(e.target,t,ie(t))}function oe(e){return En[e]||(En[e]={configurable:!0,enumerable:!0,get:function(){return this.$mobx.values[e].get()},set:function(t){re(this,e,t)}})}function ie(e){return In[e]||(In[e]={configurable:!0,enumerable:!1,get:function(){return this.$mobx.values[e].get()},set:function(t){return this.$mobx.values[e].set(t)}})}function re(e,t,n){var o=e.$mobx,r=o.values[t];if(i(o)){var u=a(o,{type:"update",object:e,name:t,newValue:n});if(!u)return;n=u.newValue}if((n=r.prepareNewValue(n))!==hn){var d=s(o),m=l(),u=d||m?{type:"update",object:e,oldValue:r.value,name:t,newValue:n}:null;m&&p(u),r.setNewValue(n),d&&c(o,u),m&&f()}}function ae(e,t,n,o){var i=s(e),r=l(),a=i||r?{type:"add",object:t,name:n,newValue:o}:null;r&&p(a),i&&c(e,a),r&&f()}function se(e){return!!De(e)&&(R(e),Cn(e.$mobx))}function ue(e,t){if(null===e||void 0===e)return!1;if(void 0!==t){if(x(e)||Un(e))throw new Error(_("m019"));if(se(e)){var n=e.$mobx;return n.values&&!!n.values[t]}return!1}return se(e)||!!e.$mobx||rn(e)||oo(e)||kn(e)}function ce(e){return Ee(!!e,":("),D(function(t,n,o,i,r){Ue(t,n),Ee(!r||!r.get,_("m022")),ee(J(t,void 0),n,o,e)},function(e){var t=this.$mobx.values[e];if(void 0!==t)return t.get()},function(e,t){re(this,e,t)},!0,!1)}function le(e){for(var t=[],n=1;n<arguments.length;n++)t[n-1]=arguments[n];return pe(e,ge,t)}function de(e){for(var t=[],n=1;n<arguments.length;n++)t[n-1]=arguments[n];return pe(e,be,t)}function pe(e,t,n){Ee(arguments.length>=2,_("m014")),Ee("object"==typeof e,_("m015")),Ee(!Un(e),_("m016")),n.forEach(function(e){Ee("object"==typeof e,_("m017")),Ee(!ue(e),_("m018"))});for(var o=J(e),i={},r=n.length-1;r>=0;r--){var a=n[r];for(var s in a)if(!0!==i[s]&&Pe(a,s)){if(i[s]=!0,e===a&&!ze(e,s))continue;var u=Object.getOwnPropertyDescriptor(a,s);Q(o,s,u,t)}}return e}function fe(e){if(void 0===e&&(e=void 0),"string"==typeof arguments[1])return An.apply(null,arguments);if(Ee(arguments.length<=1,_("m021")),Ee(!he(e),_("m020")),ue(e))return e;var t=ge(e,void 0,void 0);return t!==e?t:jn.box(e)}function me(e){Oe("Expected one or two arguments to observable."+e+". Did you accidentally try to use observable."+e+" as decorator?")}function he(e){return"object"==typeof e&&null!==e&&!0===e.isMobxModifierDescriptor}function ve(e,t){return Ee(!he(t),"Modifiers cannot be nested"),{isMobxModifierDescriptor:!0,initialValue:t,enhancer:e}}function ge(e,t,n){return he(e)&&Oe("You tried to assign a modifier wrapped value to a collection, please define modifiers when creating the collection, not when modifying it"),ue(e)?e:Array.isArray(e)?jn.array(e,n):Me(e)?jn.object(e,n):He(e)?jn.map(e,n):e}function ye(e,t,n){return he(e)&&Oe("You tried to assign a modifier wrapped value to a collection, please define modifiers when creating the collection, not when modifying it"),void 0===e||null===e?e:se(e)||x(e)||Un(e)?e:Array.isArray(e)?jn.shallowArray(e,n):Me(e)?jn.shallowObject(e,n):He(e)?jn.shallowMap(e,n):Oe("The shallow modifier / decorator can only used in combination with arrays, objects and maps")}function be(e){return e}function we(e,t,n){if(F(e,t))return t;if(ue(e))return e;if(Array.isArray(e))return new pn(e,we,n);if(He(e))return new zn(e,we,n);if(Me(e)){var o={};return J(o,n),pe(o,we,[e]),o}return e}function xe(e,t,n){return F(e,t)?t:e}function _e(e,t){void 0===t&&(t=void 0),lt();try{return e.apply(t)}finally{dt()}}function Se(e){return Ie("`mobx.map` is deprecated, use `new ObservableMap` or `mobx.observable.map` instead"),jn.map(e)}function Te(){return"undefined"!=typeof window?window:e}function ke(){return++qn.mobxGuid}function Oe(e,t){throw Ee(!1,e,t),"X"}function Ee(e,t,n){if(!e)throw new Error("[mobx] Invariant failed: "+t+(n?" in '"+n+"'":""))}function Ie(e){return-1===Vn.indexOf(e)&&(Vn.push(e),console.error("[mobx] Deprecated: "+e),!0)}function Ce(e){var t=!1;return function(){if(!t)return t=!0,e.apply(this,arguments)}}function Ae(e){var t=[];return e.forEach(function(e){-1===t.indexOf(e)&&t.push(e)}),t}function Le(e,t,n){return void 0===t&&(t=100),void 0===n&&(n=" - "),e?e.slice(0,t).join(n)+(e.length>t?" (... and "+(e.length-t)+"more)":""):""}function De(e){return null!==e&&"object"==typeof e}function Me(e){if(null===e||"object"!=typeof e)return!1;var t=Object.getPrototypeOf(e);return t===Object.prototype||null===t}function Re(){for(var e=arguments[0],t=1,n=arguments.length;t<n;t++){var o=arguments[t];for(var i in o)Pe(o,i)&&(e[i]=o[i])}return e}function Pe(e,t){return Hn.call(e,t)}function je(e,t,n){Object.defineProperty(e,t,{enumerable:!1,writable:!0,configurable:!0,value:n})}function Ne(e,t,n){Object.defineProperty(e,t,{enumerable:!1,writable:!1,configurable:!0,value:n})}function ze(e,t){var n=Object.getOwnPropertyDescriptor(e,t);return!n||!1!==n.configurable&&!1!==n.writable}function Ue(e,t){Ee(ze(e,t),"Cannot make property '"+t+"' observable, it is not configurable and writable in the target object")}function Fe(e,t){var n="isMobX"+e;return t.prototype[n]=!0,function(e){return De(e)&&!0===e[n]}}function Ve(e,t){return"number"==typeof e&&"number"==typeof t&&isNaN(e)&&isNaN(t)}function Be(e){return Array.isArray(e)||x(e)}function He(e){return void 0!==Te().Map&&e instanceof Te().Map}function Ke(e){return Me(e)?Object.keys(e):Array.isArray(e)?e.map(function(e){return e[0]}):He(e)?Array.from(e.keys()):Un(e)?e.keys():Oe("Cannot get keys from "+e)}function Ze(e){for(var t=[];;){var n=e.next();if(n.done)break;t.push(n.value)}return t}function qe(){return"function"==typeof Symbol&&Symbol.toPrimitive||"@@toPrimitive"}function $e(e){return null===e?null:"object"==typeof e?""+e:e}function Ge(){Gn=!0,Te().__mobxInstanceCount--}function We(){Ie("Using `shareGlobalState` is not recommended, use peer dependencies instead. See https://github.com/mobxjs/mobx/issues/1082 for details."),$n=!0;var e=Te(),t=qn;if(e.__mobservableTrackingStack||e.__mobservableViewStack)throw new Error("[mobx] An incompatible version of mobservable is already loaded.");if(e.__mobxGlobal&&e.__mobxGlobal.version!==t.version)throw new Error("[mobx] An incompatible version of mobx is already loaded.");e.__mobxGlobal?qn=e.__mobxGlobal:e.__mobxGlobal=t}function Ye(){return qn}function Xe(){qn.resetId++;var e=new Zn;for(var t in e)-1===Kn.indexOf(t)&&(qn[t]=e[t]);qn.allowStateChanges=!qn.strictMode}function Je(e,t){if("object"==typeof e&&null!==e){if(x(e))return Ee(void 0===t,_("m036")),e.$mobx.atom;if(Un(e)){var n=e;if(void 0===t)return Je(n._keys);var o=n._data[t]||n._hasMap[t];return Ee(!!o,"the entry '"+t+"' does not exist in the observable map '"+et(e)+"'"),o}if(R(e),t&&!e.$mobx&&e[t],se(e)){if(!t)return Oe("please specify a property");var o=e.$mobx.values[t];return Ee(!!o,"no observable property '"+t+"' found on the observable object '"+et(e)+"'"),o}if(rn(e)||kn(e)||oo(e))return e}else if("function"==typeof e&&oo(e.$mobx))return e.$mobx;return Oe("Cannot obtain atom from "+e)}function Qe(e,t){return Ee(e,"Expecting some object"),void 0!==t?Qe(Je(e,t)):rn(e)||kn(e)||oo(e)?e:Un(e)?e:(R(e),e.$mobx?e.$mobx:void Ee(!1,"Cannot obtain administration from "+e))}function et(e,t){var n;return n=void 0!==t?Je(e,t):se(e)||Un(e)?Qe(e):Je(e),n.name}function tt(e,t){return nt(Je(e,t))}function nt(e){var t={name:e.name};return e.observing&&e.observing.length>0&&(t.dependencies=Ae(e.observing).map(nt)),t}function ot(e,t){return it(Je(e,t))}function it(e){var t={name:e.name};return rt(e)&&(t.observers=at(e).map(it)),t}function rt(e){return e.observers&&e.observers.length>0}function at(e){return e.observers}function st(e,t){var n=e.observers.length;n&&(e.observersIndexes[t.__mapid]=n),e.observers[n]=t,e.lowestObserverState>t.dependenciesState&&(e.lowestObserverState=t.dependenciesState)}function ut(e,t){if(1===e.observers.length)e.observers.length=0,ct(e);else{var n=e.observers,o=e.observersIndexes,i=n.pop();if(i!==t){var r=o[t.__mapid]||0;r?o[i.__mapid]=r:delete o[i.__mapid],n[r]=i}delete o[t.__mapid]}}function ct(e){e.isPendingUnobservation||(e.isPendingUnobservation=!0,qn.pendingUnobservations.push(e))}function lt(){qn.inBatch++}function dt(){if(0==--qn.inBatch){Pt();for(var e=qn.pendingUnobservations,t=0;t<e.length;t++){var n=e[t];n.isPendingUnobservation=!1,0===n.observers.length&&n.onBecomeUnobserved()}qn.pendingUnobservations=[]}}function pt(e){var t=qn.trackingDerivation;null!==t?t.runId!==e.lastAccessedBy&&(e.lastAccessedBy=t.runId,t.newObserving[t.unboundDepsCount++]=e):0===e.observers.length&&ct(e)}function ft(e){if(e.lowestObserverState!==Xn.STALE){e.lowestObserverState=Xn.STALE;for(var t=e.observers,n=t.length;n--;){var o=t[n];o.dependenciesState===Xn.UP_TO_DATE&&(o.isTracing!==Jn.NONE&&vt(o,e),o.onBecomeStale()),o.dependenciesState=Xn.STALE}}}function mt(e){if(e.lowestObserverState!==Xn.STALE){e.lowestObserverState=Xn.STALE;for(var t=e.observers,n=t.length;n--;){var o=t[n];o.dependenciesState===Xn.POSSIBLY_STALE?o.dependenciesState=Xn.STALE:o.dependenciesState===Xn.UP_TO_DATE&&(e.lowestObserverState=Xn.UP_TO_DATE)}}}function ht(e){if(e.lowestObserverState===Xn.UP_TO_DATE){e.lowestObserverState=Xn.POSSIBLY_STALE;for(var t=e.observers,n=t.length;n--;){var o=t[n];o.dependenciesState===Xn.UP_TO_DATE&&(o.dependenciesState=Xn.POSSIBLY_STALE,o.isTracing!==Jn.NONE&&vt(o,e),o.onBecomeStale())}}}function vt(e,t){if(console.log("[mobx.trace] '"+e.name+"' is invalidated due to a change in: '"+t.name+"'"),e.isTracing===Jn.BREAK){var n=[];gt(tt(e),n,1),new Function("debugger;\n/*\nTracing '"+e.name+"'\n\nYou are entering this break point because derivation '"+e.name+"' is being traced and '"+t.name+"' is now forcing it to update.\nJust follow the stacktrace you should now see in the devtools to see precisely what piece of your code is causing this update\nThe stackframe you are looking for is at least ~6-8 stack-frames up.\n\n"+(e instanceof Tn?e.derivation.toString():"")+"\n\nThe dependencies for this derivation are:\n\n"+n.join("\n")+"\n*/\n    ")()}}function gt(e,t,n){if(t.length>=1e3)return void t.push("(and many more)");t.push(""+new Array(n).join("\t")+e.name),e.dependencies&&e.dependencies.forEach(function(e){return gt(e,t,n+1)})}function yt(e){return e instanceof Qn}function bt(e){switch(e.dependenciesState){case Xn.UP_TO_DATE:return!1;case Xn.NOT_TRACKING:case Xn.STALE:return!0;case Xn.POSSIBLY_STALE:for(var t=Ot(),n=e.observing,o=n.length,i=0;i<o;i++){var r=n[i];if(kn(r)){try{r.get()}catch(e){return Et(t),!0}if(e.dependenciesState===Xn.STALE)return Et(t),!0}}return It(e),Et(t),!1}}function wt(){return null!==qn.trackingDerivation}function xt(e){var t=e.observers.length>0;qn.computationDepth>0&&t&&Oe(_("m031")+e.name),!qn.allowStateChanges&&t&&Oe(_(qn.strictMode?"m030a":"m030b")+e.name)}function _t(e,t,n){It(e),e.newObserving=new Array(e.observing.length+100),e.unboundDepsCount=0,e.runId=++qn.runId;var o=qn.trackingDerivation;qn.trackingDerivation=e;var i;try{i=t.call(n)}catch(e){i=new Qn(e)}return qn.trackingDerivation=o,St(e),i}function St(e){for(var t=e.observing,n=e.observing=e.newObserving,o=Xn.UP_TO_DATE,i=0,r=e.unboundDepsCount,a=0;a<r;a++){var s=n[a];0===s.diffValue&&(s.diffValue=1,i!==a&&(n[i]=s),i++),s.dependenciesState>o&&(o=s.dependenciesState)}for(n.length=i,e.newObserving=null,r=t.length;r--;){var s=t[r];0===s.diffValue&&ut(s,e),s.diffValue=0}for(;i--;){var s=n[i];1===s.diffValue&&(s.diffValue=0,st(s,e))}o!==Xn.UP_TO_DATE&&(e.dependenciesState=o,e.onBecomeStale())}function Tt(e){var t=e.observing;e.observing=[];for(var n=t.length;n--;)ut(t[n],e);e.dependenciesState=Xn.NOT_TRACKING}function kt(e){var t=Ot(),n=e();return Et(t),n}function Ot(){var e=qn.trackingDerivation;return qn.trackingDerivation=null,e}function Et(e){qn.trackingDerivation=e}function It(e){if(e.dependenciesState!==Xn.UP_TO_DATE){e.dependenciesState=Xn.UP_TO_DATE;for(var t=e.observing,n=t.length;n--;)t[n].lowestObserverState=Xn.UP_TO_DATE}}function Ct(e){return console.log(e),e}function At(e,t){return Ie("`whyRun` is deprecated in favor of `trace`"),e=Dt(arguments),e?kn(e)||oo(e)?Ct(e.whyRun()):Oe(_("m025")):Ct(_("m024"))}function Lt(){for(var e=[],t=0;t<arguments.length;t++)e[t]=arguments[t];var n=!1;"boolean"==typeof e[e.length-1]&&(n=e.pop());var o=Dt(e);if(!o)return Oe("'trace(break?)' can only be used inside a tracked computed value or a Reaction. Consider passing in the computed value or reaction explicitly");o.isTracing===Jn.NONE&&console.log("[mobx.trace] '"+o.name+"' tracing enabled"),o.isTracing=n?Jn.BREAK:Jn.LOG}function Dt(e){switch(e.length){case 0:return qn.trackingDerivation;case 1:return Je(e[0]);case 2:return Je(e[0],e[1])}}function Mt(e){Ee(this&&this.$mobx&&oo(this.$mobx),"Invalid `this`"),Ee(!this.$mobx.errorHandler,"Only one onErrorHandler can be registered"),this.$mobx.errorHandler=e}function Rt(e){return qn.globalReactionErrorHandlers.push(e),function(){var t=qn.globalReactionErrorHandlers.indexOf(e);t>=0&&qn.globalReactionErrorHandlers.splice(t,1)}}function Pt(){qn.inBatch>0||qn.isRunningReactions||no(jt)}function jt(){qn.isRunningReactions=!0;for(var e=qn.pendingReactions,t=0;e.length>0;){++t===to&&(console.error("Reaction doesn't converge to a stable state after "+to+" iterations. Probably there is a cycle in the reactive function: "+e[0]),e.splice(0));for(var n=e.splice(0),o=0,i=n.length;o<i;o++)n[o].runReaction()}qn.isRunningReactions=!1}function Nt(e){var t=no;no=function(n){return e(function(){return t(n)})}}function zt(e){return Ie("asReference is deprecated, use observable.ref instead"),jn.ref(e)}function Ut(e){return Ie("asStructure is deprecated. Use observable.struct, computed.struct or reaction options instead."),jn.struct(e)}function Ft(e){return Ie("asFlat is deprecated, use observable.shallow instead"),jn.shallow(e)}function Vt(e){return Ie("asMap is deprecated, use observable.map or observable.shallowMap instead"),jn.map(e||{})}function Bt(e){return D(function(t,n,o,i,r){Ee(void 0!==r,_("m009")),Ee("function"==typeof r.get,_("m010")),te(J(t,""),n,r.get,r.set,e,!1)},function(e){var t=this.$mobx.values[e];if(void 0!==t)return t.get()},function(e,t){this.$mobx.values[e].set(t)},!1,!1)}function Ht(e,t){if(null===e||void 0===e)return!1;if(void 0!==t){if(!1===se(e))return!1;if(!e.$mobx.values[t])return!1;var n=Je(e,t);return kn(n)}return kn(e)}function Kt(e,t,n,o){return"function"==typeof n?qt(e,t,n,o):Zt(e,t,n)}function Zt(e,t,n){return Qe(e).observe(t,n)}function qt(e,t,n,o){return Qe(e,t).observe(n,o)}function $t(e,t,n){return"function"==typeof n?Wt(e,t,n):Gt(e,t)}function Gt(e,t){return Qe(e).intercept(t)}function Wt(e,t,n){return Qe(e,t).intercept(n)}function Yt(e,t){return wt()||console.warn(_("m013")),ao(e,{context:t}).get()}function Xt(e,t,n){function o(o){return t&&n.push([e,o]),o}if(void 0===t&&(t=!0),void 0===n&&(n=[]),ue(e)){if(t&&null===n&&(n=[]),t&&null!==e&&"object"==typeof e)for(var i=0,r=n.length;i<r;i++)if(n[i][0]===e)return n[i][1];if(x(e)){var a=o([]),s=e.map(function(e){return Xt(e,t,n)});a.length=s.length;for(var i=0,r=s.length;i<r;i++)a[i]=s[i];return a}if(se(e)){var a=o({});for(var u in e)a[u]=Xt(e[u],t,n);return a}if(Un(e)){var c=o({});return e.forEach(function(e,o){return c[o]=Xt(e,t,n)}),c}if(gn(e))return Xt(e.get(),t,n)}return e}function Jt(e,t){Ee("function"==typeof e&&e.length<2,"createTransformer expects a function that accepts one argument");var n={},i=qn.resetId,r=function(i){function r(t,n){var o=i.call(this,function(){return e(n)},void 0,Sn.default,"Transformer-"+e.name+"-"+t,void 0)||this;return o.sourceIdentifier=t,o.sourceObject=n,o}return o(r,i),r.prototype.onBecomeUnobserved=function(){var e=this.value;i.prototype.onBecomeUnobserved.call(this),delete n[this.sourceIdentifier],t&&t(e,this.sourceObject)},r}(Tn);return function(e){i!==qn.resetId&&(n={},i=qn.resetId);var t=Qt(e),o=n[t];return o?o.get():(o=n[t]=new r(t,e),o.get())}}function Qt(e){if("string"==typeof e||"number"==typeof e)return e;if(null===e||"object"!=typeof e)throw new Error("[mobx] transform expected some kind of object or primitive value, got: "+e);var t=e.$transformId;return void 0===t&&(t=ke(),je(e,"$transformId",t)),t}function en(e,t,n){var o;if(Un(e)||x(e)||gn(e))o=Qe(e);else{if(!se(e))return Oe("Expected observable map, object or array as first array");if("string"!=typeof t)return Oe("InterceptReads can only be used with a specific property, not with an object in general");o=Qe(e,t)}return void 0!==o.dehancer?Oe("An intercept reader was already established"):(o.dehancer="function"==typeof t?t:n,function(){o.dehancer=void 0})}n.d(t,"extras",function(){return so}),n.d(t,"Reaction",function(){return eo}),n.d(t,"untracked",function(){return kt}),n.d(t,"IDerivationState",function(){return Xn}),n.d(t,"Atom",function(){return on}),n.d(t,"BaseAtom",function(){return nn}),n.d(t,"useStrict",function(){return E}),n.d(t,"isStrictModeEnabled",function(){return I}),n.d(t,"spy",function(){return m}),n.d(t,"comparer",function(){return Sn}),n.d(t,"asReference",function(){return zt}),n.d(t,"asFlat",function(){return Ft}),n.d(t,"asStructure",function(){return Ut}),n.d(t,"asMap",function(){return Vt}),n.d(t,"isModifierDescriptor",function(){return he}),n.d(t,"isObservableObject",function(){return se}),n.d(t,"isBoxedObservable",function(){return gn}),n.d(t,"isObservableArray",function(){return x}),n.d(t,"ObservableMap",function(){return zn}),n.d(t,"isObservableMap",function(){return Un}),n.d(t,"map",function(){return Se}),n.d(t,"transaction",function(){return _e}),n.d(t,"observable",function(){return jn}),n.d(t,"computed",function(){return ao}),n.d(t,"isObservable",function(){return ue}),n.d(t,"isComputed",function(){return Ht}),n.d(t,"extendObservable",function(){return le}),n.d(t,"extendShallowObservable",function(){return de}),n.d(t,"observe",function(){return Kt}),n.d(t,"intercept",function(){return $t}),n.d(t,"autorun",function(){return G}),n.d(t,"autorunAsync",function(){return Y}),n.d(t,"when",function(){return W}),n.d(t,"reaction",function(){return X}),n.d(t,"action",function(){return xn}),n.d(t,"isAction",function(){return z}),n.d(t,"runInAction",function(){return N}),n.d(t,"expr",function(){return Yt}),n.d(t,"toJS",function(){return Xt}),n.d(t,"createTransformer",function(){return Jt}),n.d(t,"whyRun",function(){return At}),n.d(t,"trace",function(){return Lt}),n.d(t,"isArrayLike",function(){return Be});/*! *****************************************************************************
+/**
+*
+* UI on top of main sliding area (caption, arrows, close button, etc.).
+* Built just using public methods/properties of PhotoSwipe.
+* 
+*/
+(function (root, factory) { 
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else if (typeof exports === 'object') {
+		module.exports = factory();
+	} else {
+		root.PhotoSwipeUI_Default = factory();
+	}
+})(this, function () {
+
+	'use strict';
+
+
+
+var PhotoSwipeUI_Default =
+ function(pswp, framework) {
+
+	var ui = this;
+	var _overlayUIUpdated = false,
+		_controlsVisible = true,
+		_fullscrenAPI,
+		_controls,
+		_captionContainer,
+		_fakeCaptionContainer,
+		_indexIndicator,
+		_shareButton,
+		_shareModal,
+		_shareModalHidden = true,
+		_initalCloseOnScrollValue,
+		_isIdle,
+		_listen,
+
+		_loadingIndicator,
+		_loadingIndicatorHidden,
+		_loadingIndicatorTimeout,
+
+		_galleryHasOneSlide,
+
+		_options,
+		_defaultUIOptions = {
+			barsSize: {top:44, bottom:'auto'},
+			closeElClasses: ['item', 'caption', 'zoom-wrap', 'ui', 'top-bar'], 
+			timeToIdle: 4000, 
+			timeToIdleOutside: 1000,
+			loadingIndicatorDelay: 1000, // 2s
+			
+			addCaptionHTMLFn: function(item, captionEl /*, isFake */) {
+				if(!item.title) {
+					captionEl.children[0].innerHTML = '';
+					return false;
+				}
+				captionEl.children[0].innerHTML = item.title;
+				return true;
+			},
+
+			closeEl:true,
+			captionEl: true,
+			fullscreenEl: true,
+			zoomEl: true,
+			shareEl: true,
+			counterEl: true,
+			arrowEl: true,
+			preloaderEl: true,
+
+			tapToClose: false,
+			tapToToggleControls: true,
+
+			clickToCloseNonZoomable: true,
+
+			shareButtons: [
+				{id:'facebook', label:'Share on Facebook', url:'https://www.facebook.com/sharer/sharer.php?u={{url}}'},
+				{id:'twitter', label:'Tweet', url:'https://twitter.com/intent/tweet?text={{text}}&url={{url}}'},
+				{id:'pinterest', label:'Pin it', url:'http://www.pinterest.com/pin/create/button/'+
+													'?url={{url}}&media={{image_url}}&description={{text}}'},
+				{id:'download', label:'Download image', url:'{{raw_image_url}}', download:true}
+			],
+			getImageURLForShare: function( /* shareButtonData */ ) {
+				return pswp.currItem.src || '';
+			},
+			getPageURLForShare: function( /* shareButtonData */ ) {
+				return window.location.href;
+			},
+			getTextForShare: function( /* shareButtonData */ ) {
+				return pswp.currItem.title || '';
+			},
+				
+			indexIndicatorSep: ' / ',
+			fitControlsWidth: 1200
+
+		},
+		_blockControlsTap,
+		_blockControlsTapTimeout;
+
+
+
+	var _onControlsTap = function(e) {
+			if(_blockControlsTap) {
+				return true;
+			}
+
+
+			e = e || window.event;
+
+			if(_options.timeToIdle && _options.mouseUsed && !_isIdle) {
+				// reset idle timer
+				_onIdleMouseMove();
+			}
+
+
+			var target = e.target || e.srcElement,
+				uiElement,
+				clickedClass = target.getAttribute('class') || '',
+				found;
+
+			for(var i = 0; i < _uiElements.length; i++) {
+				uiElement = _uiElements[i];
+				if(uiElement.onTap && clickedClass.indexOf('pswp__' + uiElement.name ) > -1 ) {
+					uiElement.onTap();
+					found = true;
+
+				}
+			}
+
+			if(found) {
+				if(e.stopPropagation) {
+					e.stopPropagation();
+				}
+				_blockControlsTap = true;
+
+				// Some versions of Android don't prevent ghost click event 
+				// when preventDefault() was called on touchstart and/or touchend.
+				// 
+				// This happens on v4.3, 4.2, 4.1, 
+				// older versions strangely work correctly, 
+				// but just in case we add delay on all of them)	
+				var tapDelay = framework.features.isOldAndroid ? 600 : 30;
+				_blockControlsTapTimeout = setTimeout(function() {
+					_blockControlsTap = false;
+				}, tapDelay);
+			}
+
+		},
+		_fitControlsInViewport = function() {
+			return !pswp.likelyTouchDevice || _options.mouseUsed || screen.width > _options.fitControlsWidth;
+		},
+		_togglePswpClass = function(el, cName, add) {
+			framework[ (add ? 'add' : 'remove') + 'Class' ](el, 'pswp__' + cName);
+		},
+
+		// add class when there is just one item in the gallery
+		// (by default it hides left/right arrows and 1ofX counter)
+		_countNumItems = function() {
+			var hasOneSlide = (_options.getNumItemsFn() === 1);
+
+			if(hasOneSlide !== _galleryHasOneSlide) {
+				_togglePswpClass(_controls, 'ui--one-slide', hasOneSlide);
+				_galleryHasOneSlide = hasOneSlide;
+			}
+		},
+		_toggleShareModalClass = function() {
+			_togglePswpClass(_shareModal, 'share-modal--hidden', _shareModalHidden);
+		},
+		_toggleShareModal = function() {
+
+			_shareModalHidden = !_shareModalHidden;
+			
+			
+			if(!_shareModalHidden) {
+				_toggleShareModalClass();
+				setTimeout(function() {
+					if(!_shareModalHidden) {
+						framework.addClass(_shareModal, 'pswp__share-modal--fade-in');
+					}
+				}, 30);
+			} else {
+				framework.removeClass(_shareModal, 'pswp__share-modal--fade-in');
+				setTimeout(function() {
+					if(_shareModalHidden) {
+						_toggleShareModalClass();
+					}
+				}, 300);
+			}
+			
+			if(!_shareModalHidden) {
+				_updateShareURLs();
+			}
+			return false;
+		},
+
+		_openWindowPopup = function(e) {
+			e = e || window.event;
+			var target = e.target || e.srcElement;
+
+			pswp.shout('shareLinkClick', e, target);
+
+			if(!target.href) {
+				return false;
+			}
+
+			if( target.hasAttribute('download') ) {
+				return true;
+			}
+
+			window.open(target.href, 'pswp_share', 'scrollbars=yes,resizable=yes,toolbar=no,'+
+										'location=yes,width=550,height=420,top=100,left=' + 
+										(window.screen ? Math.round(screen.width / 2 - 275) : 100)  );
+
+			if(!_shareModalHidden) {
+				_toggleShareModal();
+			}
+			
+			return false;
+		},
+		_updateShareURLs = function() {
+			var shareButtonOut = '',
+				shareButtonData,
+				shareURL,
+				image_url,
+				page_url,
+				share_text;
+
+			for(var i = 0; i < _options.shareButtons.length; i++) {
+				shareButtonData = _options.shareButtons[i];
+
+				image_url = _options.getImageURLForShare(shareButtonData);
+				page_url = _options.getPageURLForShare(shareButtonData);
+				share_text = _options.getTextForShare(shareButtonData);
+
+				shareURL = shareButtonData.url.replace('{{url}}', encodeURIComponent(page_url) )
+									.replace('{{image_url}}', encodeURIComponent(image_url) )
+									.replace('{{raw_image_url}}', image_url )
+									.replace('{{text}}', encodeURIComponent(share_text) );
+
+				shareButtonOut += '<a href="' + shareURL + '" target="_blank" '+
+									'class="pswp__share--' + shareButtonData.id + '"' +
+									(shareButtonData.download ? 'download' : '') + '>' + 
+									shareButtonData.label + '</a>';
+
+				if(_options.parseShareButtonOut) {
+					shareButtonOut = _options.parseShareButtonOut(shareButtonData, shareButtonOut);
+				}
+			}
+			_shareModal.children[0].innerHTML = shareButtonOut;
+			_shareModal.children[0].onclick = _openWindowPopup;
+
+		},
+		_hasCloseClass = function(target) {
+			for(var  i = 0; i < _options.closeElClasses.length; i++) {
+				if( framework.hasClass(target, 'pswp__' + _options.closeElClasses[i]) ) {
+					return true;
+				}
+			}
+		},
+		_idleInterval,
+		_idleTimer,
+		_idleIncrement = 0,
+		_onIdleMouseMove = function() {
+			clearTimeout(_idleTimer);
+			_idleIncrement = 0;
+			if(_isIdle) {
+				ui.setIdle(false);
+			}
+		},
+		_onMouseLeaveWindow = function(e) {
+			e = e ? e : window.event;
+			var from = e.relatedTarget || e.toElement;
+			if (!from || from.nodeName === 'HTML') {
+				clearTimeout(_idleTimer);
+				_idleTimer = setTimeout(function() {
+					ui.setIdle(true);
+				}, _options.timeToIdleOutside);
+			}
+		},
+		_setupFullscreenAPI = function() {
+			if(_options.fullscreenEl && !framework.features.isOldAndroid) {
+				if(!_fullscrenAPI) {
+					_fullscrenAPI = ui.getFullscreenAPI();
+				}
+				if(_fullscrenAPI) {
+					framework.bind(document, _fullscrenAPI.eventK, ui.updateFullscreen);
+					ui.updateFullscreen();
+					framework.addClass(pswp.template, 'pswp--supports-fs');
+				} else {
+					framework.removeClass(pswp.template, 'pswp--supports-fs');
+				}
+			}
+		},
+		_setupLoadingIndicator = function() {
+			// Setup loading indicator
+			if(_options.preloaderEl) {
+			
+				_toggleLoadingIndicator(true);
+
+				_listen('beforeChange', function() {
+
+					clearTimeout(_loadingIndicatorTimeout);
+
+					// display loading indicator with delay
+					_loadingIndicatorTimeout = setTimeout(function() {
+
+						if(pswp.currItem && pswp.currItem.loading) {
+
+							if( !pswp.allowProgressiveImg() || (pswp.currItem.img && !pswp.currItem.img.naturalWidth)  ) {
+								// show preloader if progressive loading is not enabled, 
+								// or image width is not defined yet (because of slow connection)
+								_toggleLoadingIndicator(false); 
+								// items-controller.js function allowProgressiveImg
+							}
+							
+						} else {
+							_toggleLoadingIndicator(true); // hide preloader
+						}
+
+					}, _options.loadingIndicatorDelay);
+					
+				});
+				_listen('imageLoadComplete', function(index, item) {
+					if(pswp.currItem === item) {
+						_toggleLoadingIndicator(true);
+					}
+				});
+
+			}
+		},
+		_toggleLoadingIndicator = function(hide) {
+			if( _loadingIndicatorHidden !== hide ) {
+				_togglePswpClass(_loadingIndicator, 'preloader--active', !hide);
+				_loadingIndicatorHidden = hide;
+			}
+		},
+		_applyNavBarGaps = function(item) {
+			var gap = item.vGap;
+
+			if( _fitControlsInViewport() ) {
+				
+				var bars = _options.barsSize; 
+				if(_options.captionEl && bars.bottom === 'auto') {
+					if(!_fakeCaptionContainer) {
+						_fakeCaptionContainer = framework.createEl('pswp__caption pswp__caption--fake');
+						_fakeCaptionContainer.appendChild( framework.createEl('pswp__caption__center') );
+						_controls.insertBefore(_fakeCaptionContainer, _captionContainer);
+						framework.addClass(_controls, 'pswp__ui--fit');
+					}
+					if( _options.addCaptionHTMLFn(item, _fakeCaptionContainer, true) ) {
+
+						var captionSize = _fakeCaptionContainer.clientHeight;
+						gap.bottom = parseInt(captionSize,10) || 44;
+					} else {
+						gap.bottom = bars.top; // if no caption, set size of bottom gap to size of top
+					}
+				} else {
+					gap.bottom = bars.bottom === 'auto' ? 0 : bars.bottom;
+				}
+				
+				// height of top bar is static, no need to calculate it
+				gap.top = bars.top;
+			} else {
+				gap.top = gap.bottom = 0;
+			}
+		},
+		_setupIdle = function() {
+			// Hide controls when mouse is used
+			if(_options.timeToIdle) {
+				_listen('mouseUsed', function() {
+					
+					framework.bind(document, 'mousemove', _onIdleMouseMove);
+					framework.bind(document, 'mouseout', _onMouseLeaveWindow);
+
+					_idleInterval = setInterval(function() {
+						_idleIncrement++;
+						if(_idleIncrement === 2) {
+							ui.setIdle(true);
+						}
+					}, _options.timeToIdle / 2);
+				});
+			}
+		},
+		_setupHidingControlsDuringGestures = function() {
+
+			// Hide controls on vertical drag
+			_listen('onVerticalDrag', function(now) {
+				if(_controlsVisible && now < 0.95) {
+					ui.hideControls();
+				} else if(!_controlsVisible && now >= 0.95) {
+					ui.showControls();
+				}
+			});
+
+			// Hide controls when pinching to close
+			var pinchControlsHidden;
+			_listen('onPinchClose' , function(now) {
+				if(_controlsVisible && now < 0.9) {
+					ui.hideControls();
+					pinchControlsHidden = true;
+				} else if(pinchControlsHidden && !_controlsVisible && now > 0.9) {
+					ui.showControls();
+				}
+			});
+
+			_listen('zoomGestureEnded', function() {
+				pinchControlsHidden = false;
+				if(pinchControlsHidden && !_controlsVisible) {
+					ui.showControls();
+				}
+			});
+
+		};
+
+
+
+	var _uiElements = [
+		{ 
+			name: 'caption', 
+			option: 'captionEl',
+			onInit: function(el) {  
+				_captionContainer = el; 
+			} 
+		},
+		{ 
+			name: 'share-modal', 
+			option: 'shareEl',
+			onInit: function(el) {  
+				_shareModal = el;
+			},
+			onTap: function() {
+				_toggleShareModal();
+			} 
+		},
+		{ 
+			name: 'button--share', 
+			option: 'shareEl',
+			onInit: function(el) { 
+				_shareButton = el;
+			},
+			onTap: function() {
+				_toggleShareModal();
+			} 
+		},
+		{ 
+			name: 'button--zoom', 
+			option: 'zoomEl',
+			onTap: pswp.toggleDesktopZoom
+		},
+		{ 
+			name: 'counter', 
+			option: 'counterEl',
+			onInit: function(el) {  
+				_indexIndicator = el;
+			} 
+		},
+		{ 
+			name: 'button--close', 
+			option: 'closeEl',
+			onTap: pswp.close
+		},
+		{ 
+			name: 'button--arrow--left', 
+			option: 'arrowEl',
+			onTap: pswp.prev
+		},
+		{ 
+			name: 'button--arrow--right', 
+			option: 'arrowEl',
+			onTap: pswp.next
+		},
+		{ 
+			name: 'button--fs', 
+			option: 'fullscreenEl',
+			onTap: function() {  
+				if(_fullscrenAPI.isFullscreen()) {
+					_fullscrenAPI.exit();
+				} else {
+					_fullscrenAPI.enter();
+				}
+			} 
+		},
+		{ 
+			name: 'preloader', 
+			option: 'preloaderEl',
+			onInit: function(el) {  
+				_loadingIndicator = el;
+			} 
+		}
+
+	];
+
+	var _setupUIElements = function() {
+		var item,
+			classAttr,
+			uiElement;
+
+		var loopThroughChildElements = function(sChildren) {
+			if(!sChildren) {
+				return;
+			}
+
+			var l = sChildren.length;
+			for(var i = 0; i < l; i++) {
+				item = sChildren[i];
+				classAttr = item.className;
+
+				for(var a = 0; a < _uiElements.length; a++) {
+					uiElement = _uiElements[a];
+
+					if(classAttr.indexOf('pswp__' + uiElement.name) > -1  ) {
+
+						if( _options[uiElement.option] ) { // if element is not disabled from options
+							
+							framework.removeClass(item, 'pswp__element--disabled');
+							if(uiElement.onInit) {
+								uiElement.onInit(item);
+							}
+							
+							//item.style.display = 'block';
+						} else {
+							framework.addClass(item, 'pswp__element--disabled');
+							//item.style.display = 'none';
+						}
+					}
+				}
+			}
+		};
+		loopThroughChildElements(_controls.children);
+
+		var topBar =  framework.getChildByClass(_controls, 'pswp__top-bar');
+		if(topBar) {
+			loopThroughChildElements( topBar.children );
+		}
+	};
+
+
+	
+
+	ui.init = function() {
+
+		// extend options
+		framework.extend(pswp.options, _defaultUIOptions, true);
+
+		// create local link for fast access
+		_options = pswp.options;
+
+		// find pswp__ui element
+		_controls = framework.getChildByClass(pswp.scrollWrap, 'pswp__ui');
+
+		// create local link
+		_listen = pswp.listen;
+
+
+		_setupHidingControlsDuringGestures();
+
+		// update controls when slides change
+		_listen('beforeChange', ui.update);
+
+		// toggle zoom on double-tap
+		_listen('doubleTap', function(point) {
+			var initialZoomLevel = pswp.currItem.initialZoomLevel;
+			if(pswp.getZoomLevel() !== initialZoomLevel) {
+				pswp.zoomTo(initialZoomLevel, point, 333);
+			} else {
+				pswp.zoomTo(_options.getDoubleTapZoom(false, pswp.currItem), point, 333);
+			}
+		});
+
+		// Allow text selection in caption
+		_listen('preventDragEvent', function(e, isDown, preventObj) {
+			var t = e.target || e.srcElement;
+			if(
+				t && 
+				t.getAttribute('class') && e.type.indexOf('mouse') > -1 && 
+				( t.getAttribute('class').indexOf('__caption') > 0 || (/(SMALL|STRONG|EM)/i).test(t.tagName) ) 
+			) {
+				preventObj.prevent = false;
+			}
+		});
+
+		// bind events for UI
+		_listen('bindEvents', function() {
+			framework.bind(_controls, 'pswpTap click', _onControlsTap);
+			framework.bind(pswp.scrollWrap, 'pswpTap', ui.onGlobalTap);
+
+			if(!pswp.likelyTouchDevice) {
+				framework.bind(pswp.scrollWrap, 'mouseover', ui.onMouseOver);
+			}
+		});
+
+		// unbind events for UI
+		_listen('unbindEvents', function() {
+			if(!_shareModalHidden) {
+				_toggleShareModal();
+			}
+
+			if(_idleInterval) {
+				clearInterval(_idleInterval);
+			}
+			framework.unbind(document, 'mouseout', _onMouseLeaveWindow);
+			framework.unbind(document, 'mousemove', _onIdleMouseMove);
+			framework.unbind(_controls, 'pswpTap click', _onControlsTap);
+			framework.unbind(pswp.scrollWrap, 'pswpTap', ui.onGlobalTap);
+			framework.unbind(pswp.scrollWrap, 'mouseover', ui.onMouseOver);
+
+			if(_fullscrenAPI) {
+				framework.unbind(document, _fullscrenAPI.eventK, ui.updateFullscreen);
+				if(_fullscrenAPI.isFullscreen()) {
+					_options.hideAnimationDuration = 0;
+					_fullscrenAPI.exit();
+				}
+				_fullscrenAPI = null;
+			}
+		});
+
+
+		// clean up things when gallery is destroyed
+		_listen('destroy', function() {
+			if(_options.captionEl) {
+				if(_fakeCaptionContainer) {
+					_controls.removeChild(_fakeCaptionContainer);
+				}
+				framework.removeClass(_captionContainer, 'pswp__caption--empty');
+			}
+
+			if(_shareModal) {
+				_shareModal.children[0].onclick = null;
+			}
+			framework.removeClass(_controls, 'pswp__ui--over-close');
+			framework.addClass( _controls, 'pswp__ui--hidden');
+			ui.setIdle(false);
+		});
+		
+
+		if(!_options.showAnimationDuration) {
+			framework.removeClass( _controls, 'pswp__ui--hidden');
+		}
+		_listen('initialZoomIn', function() {
+			if(_options.showAnimationDuration) {
+				framework.removeClass( _controls, 'pswp__ui--hidden');
+			}
+		});
+		_listen('initialZoomOut', function() {
+			framework.addClass( _controls, 'pswp__ui--hidden');
+		});
+
+		_listen('parseVerticalMargin', _applyNavBarGaps);
+		
+		_setupUIElements();
+
+		if(_options.shareEl && _shareButton && _shareModal) {
+			_shareModalHidden = true;
+		}
+
+		_countNumItems();
+
+		_setupIdle();
+
+		_setupFullscreenAPI();
+
+		_setupLoadingIndicator();
+	};
+
+	ui.setIdle = function(isIdle) {
+		_isIdle = isIdle;
+		_togglePswpClass(_controls, 'ui--idle', isIdle);
+	};
+
+	ui.update = function() {
+		// Don't update UI if it's hidden
+		if(_controlsVisible && pswp.currItem) {
+			
+			ui.updateIndexIndicator();
+
+			if(_options.captionEl) {
+				_options.addCaptionHTMLFn(pswp.currItem, _captionContainer);
+
+				_togglePswpClass(_captionContainer, 'caption--empty', !pswp.currItem.title);
+			}
+
+			_overlayUIUpdated = true;
+
+		} else {
+			_overlayUIUpdated = false;
+		}
+
+		if(!_shareModalHidden) {
+			_toggleShareModal();
+		}
+
+		_countNumItems();
+	};
+
+	ui.updateFullscreen = function(e) {
+
+		if(e) {
+			// some browsers change window scroll position during the fullscreen
+			// so PhotoSwipe updates it just in case
+			setTimeout(function() {
+				pswp.setScrollOffset( 0, framework.getScrollY() );
+			}, 50);
+		}
+		
+		// toogle pswp--fs class on root element
+		framework[ (_fullscrenAPI.isFullscreen() ? 'add' : 'remove') + 'Class' ](pswp.template, 'pswp--fs');
+	};
+
+	ui.updateIndexIndicator = function() {
+		if(_options.counterEl) {
+			_indexIndicator.innerHTML = (pswp.getCurrentIndex()+1) + 
+										_options.indexIndicatorSep + 
+										_options.getNumItemsFn();
+		}
+	};
+	
+	ui.onGlobalTap = function(e) {
+		e = e || window.event;
+		var target = e.target || e.srcElement;
+
+		if(_blockControlsTap) {
+			return;
+		}
+
+		if(e.detail && e.detail.pointerType === 'mouse') {
+
+			// close gallery if clicked outside of the image
+			if(_hasCloseClass(target)) {
+				pswp.close();
+				return;
+			}
+
+			if(framework.hasClass(target, 'pswp__img')) {
+				if(pswp.getZoomLevel() === 1 && pswp.getZoomLevel() <= pswp.currItem.fitRatio) {
+					if(_options.clickToCloseNonZoomable) {
+						pswp.close();
+					}
+				} else {
+					pswp.toggleDesktopZoom(e.detail.releasePoint);
+				}
+			}
+			
+		} else {
+
+			// tap anywhere (except buttons) to toggle visibility of controls
+			if(_options.tapToToggleControls) {
+				if(_controlsVisible) {
+					ui.hideControls();
+				} else {
+					ui.showControls();
+				}
+			}
+
+			// tap to close gallery
+			if(_options.tapToClose && (framework.hasClass(target, 'pswp__img') || _hasCloseClass(target)) ) {
+				pswp.close();
+				return;
+			}
+			
+		}
+	};
+	ui.onMouseOver = function(e) {
+		e = e || window.event;
+		var target = e.target || e.srcElement;
+
+		// add class when mouse is over an element that should close the gallery
+		_togglePswpClass(_controls, 'ui--over-close', _hasCloseClass(target));
+	};
+
+	ui.hideControls = function() {
+		framework.addClass(_controls,'pswp__ui--hidden');
+		_controlsVisible = false;
+	};
+
+	ui.showControls = function() {
+		_controlsVisible = true;
+		if(!_overlayUIUpdated) {
+			ui.update();
+		}
+		framework.removeClass(_controls,'pswp__ui--hidden');
+	};
+
+	ui.supportsFullscreen = function() {
+		var d = document;
+		return !!(d.exitFullscreen || d.mozCancelFullScreen || d.webkitExitFullscreen || d.msExitFullscreen);
+	};
+
+	ui.getFullscreenAPI = function() {
+		var dE = document.documentElement,
+			api,
+			tF = 'fullscreenchange';
+
+		if (dE.requestFullscreen) {
+			api = {
+				enterK: 'requestFullscreen',
+				exitK: 'exitFullscreen',
+				elementK: 'fullscreenElement',
+				eventK: tF
+			};
+
+		} else if(dE.mozRequestFullScreen ) {
+			api = {
+				enterK: 'mozRequestFullScreen',
+				exitK: 'mozCancelFullScreen',
+				elementK: 'mozFullScreenElement',
+				eventK: 'moz' + tF
+			};
+
+			
+
+		} else if(dE.webkitRequestFullscreen) {
+			api = {
+				enterK: 'webkitRequestFullscreen',
+				exitK: 'webkitExitFullscreen',
+				elementK: 'webkitFullscreenElement',
+				eventK: 'webkit' + tF
+			};
+
+		} else if(dE.msRequestFullscreen) {
+			api = {
+				enterK: 'msRequestFullscreen',
+				exitK: 'msExitFullscreen',
+				elementK: 'msFullscreenElement',
+				eventK: 'MSFullscreenChange'
+			};
+		}
+
+		if(api) {
+			api.enter = function() { 
+				// disable close-on-scroll in fullscreen
+				_initalCloseOnScrollValue = _options.closeOnScroll; 
+				_options.closeOnScroll = false; 
+
+				if(this.enterK === 'webkitRequestFullscreen') {
+					pswp.template[this.enterK]( Element.ALLOW_KEYBOARD_INPUT );
+				} else {
+					return pswp.template[this.enterK](); 
+				}
+			};
+			api.exit = function() { 
+				_options.closeOnScroll = _initalCloseOnScrollValue;
+
+				return document[this.exitK](); 
+
+			};
+			api.isFullscreen = function() { return document[this.elementK]; };
+		}
+
+		return api;
+	};
+
+
+
+};
+return PhotoSwipeUI_Default;
+
+
+});
+
+
+/***/ }),
+
+/***/ 192:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 193:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 194:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _classCallCheck2 = __webpack_require__(64);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(65);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _addClass = __webpack_require__(131);
+
+var _addClass2 = _interopRequireDefault(_addClass);
+
+var _removeClass = __webpack_require__(132);
+
+var _removeClass2 = _interopRequireDefault(_removeClass);
+
+var _event = __webpack_require__(89);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Share = function () {
+    function Share() {
+        (0, _classCallCheck3.default)(this, Share);
+    }
+
+    (0, _createClass3.default)(Share, [{
+        key: 'init',
+        value: function init() {
+            var $sns = document.querySelectorAll('.share-sns');
+            if (!$sns || $sns.length === 0) return;
+
+            var sUrl = window.location.href;
+            var sTitle = document.querySelector('title').innerHTML;
+            var $img = document.querySelectorAll('.article-entry img');
+            var sPic = $img.length ? document.querySelector('.article-entry img').getAttribute('src') : '';
+            if (sPic !== '' && !/^(http:|https:)?\/\//.test(sPic)) {
+                sPic = window.location.origin + sPic;
+            }
+
+            $sns.forEach(function ($em) {
+                $em.onclick = function (e) {
+                    var type = $em.getAttribute('data-type');
+                    Share.handleClick(type, {
+                        sUrl: sUrl,
+                        sPic: sPic,
+                        sTitle: sTitle,
+                        sDesc: sTitle
+                    });
+                };
+            });
+
+            (0, _event.on)(document.querySelector('.mask'), 'click', Share.hideWX);
+            (0, _event.on)(document.querySelector('.js-modal-close'), 'click', Share.hideWX);
+        }
+    }], [{
+        key: 'generate',
+        value: function generate(url, opts) {
+            var urls = url.replace(/<%-sUrl%>/g, encodeURIComponent(opts.sUrl)).replace(/<%-sTitle%>/g, opts.sTitle).replace(/<%-sDesc%>/g, opts.sDesc).replace(/<%-sPic%>/g, encodeURIComponent(opts.sPic));
+
+            window.open(urls);
+        }
+    }, {
+        key: 'handleClick',
+        value: function handleClick(type, opts) {
+            if (type === 'weibo') {
+                Share.generate('http://service.weibo.com/share/share.php?url=<%-sUrl%>&title=<%-sTitle%>&pic=<%-sPic%>', opts);
+            } else if (type === 'qq') {
+                Share.generate('http://connect.qq.com/widget/shareqq/index.html?url=<%-sUrl%>&title=<%-sTitle%>&source=<%-sDesc%>', opts);
+            } else if (type === 'douban') {
+                Share.generate('https://www.douban.com/share/service?image=<%-sPic%>&href=<%-sUrl%>&name=<%-sTitle%>&text=<%-sDesc%>', opts);
+            } else if (type === 'qzone') {
+                Share.generate('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=<%-sUrl%>&title=<%-sTitle%>&pics=<%-sPic%>&summary=<%-sDesc%>', opts);
+            } else if (type === 'facebook') {
+                Share.generate('https://www.facebook.com/sharer/sharer.php?u=<%-sUrl%>', opts);
+            } else if (type === 'twitter') {
+                Share.generate('https://twitter.com/intent/tweet?text=<%-sTitle%>&url=<%-sUrl%>&via=<%-config.url%>', opts);
+            } else if (type === 'google') {
+                Share.generate('https://plus.google.com/share?url=<%-sUrl%>', opts);
+            } else if (type === 'weixin') {
+                Share.showWX();
+            }
+        }
+    }, {
+        key: 'hideWX',
+        value: function hideWX() {
+            var $wx = document.querySelector('.js-wx-box');
+            var $mask = document.querySelector('.mask');
+            (0, _removeClass2.default)($wx, 'in');
+            (0, _removeClass2.default)($wx, 'ready');
+            (0, _removeClass2.default)($mask, 'in');
+        }
+    }, {
+        key: 'showWX',
+        value: function showWX() {
+            var $wx = document.querySelector('.js-wx-box');
+            var $mask = document.querySelector('.mask');
+            (0, _addClass2.default)($wx, 'in');
+            (0, _addClass2.default)($wx, 'ready');
+            (0, _addClass2.default)($mask, 'in');
+        }
+    }]);
+    return Share;
+}();
+
+module.exports = Share;
+
+/***/ }),
+
+/***/ 195:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _classCallCheck2 = __webpack_require__(64);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(65);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Gotop = function () {
+    function Gotop() {
+        (0, _classCallCheck3.default)(this, Gotop);
+    }
+
+    (0, _createClass3.default)(Gotop, [{
+        key: 'init',
+        value: function init() {
+            Gotop.backTop(document.getElementById('js-jump-container'), document.getElementById('container'));
+        }
+    }], [{
+        key: 'throttle',
+        value: function throttle(func, wait) {
+            var timer = null;
+            return function () {
+                var self = this,
+                    args = arguments;
+                if (timer) clearTimeout(timer);
+                timer = setTimeout(function () {
+                    return typeof func === 'function' && func.apply(self, args);
+                }, wait);
+            };
+        }
+    }, {
+        key: 'backTop',
+        value: function backTop(domE, ctn, distance) {
+            if (!domE) return;
+            var timer = null;
+            var _onscroll = window.onscroll,
+                _onclick = domE.onclick;
+            (ctn || window).onscroll = Gotop.throttle(function () {
+                typeof _onscroll === 'function' && _onscroll.apply(this, arguments);
+                toggleDomE(domE);
+            }, 100);
+            domE.onclick = function () {
+                typeof _onclick === 'function' && _onclick.apply(this, arguments);
+                timer = setInterval(function () {
+                    //设置一个计时器
+                    var ct = ctn.scrollTop || document.documentElement.scrollTop || document.body.scrollTop; //获取距离顶部的距离
+                    var speed = ct / 7;
+                    var diff = speed < 1 ? Math.ceil(speed) : Math.floor(speed);
+                    ct -= diff;
+                    if (ct > 0) {
+                        //如果与顶部的距离大于零
+                        ctn.scrollTop = ctn.scrollTop - diff;
+                        window.scrollTo(0, ct); //向上移动10px
+                    } else {
+                        //如果距离小于等于零
+                        ctn.scrollTop = 0;
+                        window.scrollTo(0, 0); //移动到顶部
+                        clearInterval(timer); //清除计时器
+                    }
+                }, 10); //隔10ms执行一次前面的function，展现一种平滑滑动效果
+            };
+
+            function toggleDomE() {
+                domE.style.display = (ctn.scrollTop || document.documentElement.scrollTop || document.body.scrollTop) > (distance || 500) ? 'block' : 'none';
+            }
+        }
+    }]);
+    return Gotop;
+}();
+
+module.exports = Gotop;
+
+/***/ }),
+
+/***/ 196:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _classCallCheck2 = __webpack_require__(64);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(65);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _rengarGitment = __webpack_require__(197);
+
+var _rengarGitment2 = _interopRequireDefault(_rengarGitment);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Gitment = function () {
+    function Gitment() {
+        (0, _classCallCheck3.default)(this, Gitment);
+    }
+
+    (0, _createClass3.default)(Gitment, [{
+        key: 'init',
+        value: function init() {
+            var gitment = new _rengarGitment2.default({
+                owner: 'XyyF',
+                repo: 'XyyF.github.io',
+                oauth: {
+                    client_id: '49eac8228181b2222d57',
+                    client_secret: '96ecc2513c58eebbb14e304c344a322da5b73dee'
+                }
+            });
+            gitment.render('gitment-ctn');
+        }
+    }]);
+    return Gitment;
+}();
+
+module.exports = Gitment;
+
+/***/ }),
+
+/***/ 197:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _mobx = __webpack_require__(198);
+
+var _constants = __webpack_require__(90);
+
+var _utils = __webpack_require__(199);
+
+var _default = __webpack_require__(200);
+
+var _default2 = _interopRequireDefault(_default);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var scope = 'public_repo';
+
+function extendRenderer(instance, renderer) {
+  instance[renderer] = function (container) {
+    var targetContainer = (0, _utils.getTargetContainer)(container);
+    var render = instance.theme[renderer] || instance.defaultTheme[renderer];
+
+    (0, _mobx.autorun)(function () {
+      var e = render(instance.state, instance);
+      if (targetContainer.firstChild) {
+        targetContainer.replaceChild(e, targetContainer.firstChild);
+      } else {
+        targetContainer.appendChild(e);
+      }
+    });
+
+    return targetContainer;
+  };
+}
+
+var Gitment = function () {
+  _createClass(Gitment, [{
+    key: 'accessToken',
+    get: function get() {
+      return localStorage.getItem(_constants.LS_ACCESS_TOKEN_KEY);
+    },
+    set: function set(token) {
+      localStorage.setItem(_constants.LS_ACCESS_TOKEN_KEY, token);
+    }
+  }, {
+    key: 'loginLink',
+    get: function get() {
+      var oauthUri = 'https://github.com/login/oauth/authorize';
+      var redirect_uri = this.oauth.redirect_uri || window.location.href;
+
+      var oauthParams = Object.assign({
+        scope: scope,
+        redirect_uri: redirect_uri
+      }, this.oauth);
+
+      return '' + oauthUri + _utils.Query.stringify(oauthParams);
+    }
+  }]);
+
+  function Gitment() {
+    var _this = this;
+
+    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+    _classCallCheck(this, Gitment);
+
+    this.defaultTheme = _default2.default;
+    this.useTheme(_default2.default);
+
+    Object.assign(this, {
+      id: window.location.href,
+      title: window.document.title,
+      link: window.location.href,
+      desc: '',
+      labels: [],
+      theme: _default2.default,
+      oauth: {},
+      perPage: 20,
+      maxCommentHeight: 250
+    }, options);
+
+    this.useTheme(this.theme);
+
+    var user = {};
+    try {
+      var userInfo = localStorage.getItem(_constants.LS_USER_KEY);
+      if (this.accessToken && userInfo) {
+        Object.assign(user, JSON.parse(userInfo), {
+          fromCache: true
+        });
+      }
+    } catch (e) {
+      localStorage.removeItem(_constants.LS_USER_KEY);
+    }
+
+    this.state = (0, _mobx.observable)({
+      user: user,
+      error: null,
+      meta: {},
+      comments: undefined,
+      reactions: [],
+      commentReactions: {},
+      currentPage: 1
+    });
+
+    var query = _utils.Query.parse();
+    if (query.code) {
+      var _oauth = this.oauth,
+          client_id = _oauth.client_id,
+          client_secret = _oauth.client_secret;
+
+      var code = query.code;
+      delete query.code;
+      var search = _utils.Query.stringify(query);
+      var replacedUrl = '' + window.location.origin + window.location.pathname + search + window.location.hash;
+      history.replaceState({}, '', replacedUrl);
+
+      Object.assign(this, {
+        id: replacedUrl,
+        link: replacedUrl
+      }, options);
+
+      this.state.user.isLoggingIn = true;
+      _utils.http.post('https://gh-oauth.imsun.net', {
+        code: code,
+        client_id: client_id,
+        client_secret: client_secret
+      }, '').then(function (data) {
+        _this.accessToken = data.access_token;
+        _this.update();
+      }).catch(function (e) {
+        _this.state.user.isLoggingIn = false;
+        alert(e);
+      });
+    } else {
+      this.update();
+    }
+  }
+
+  _createClass(Gitment, [{
+    key: 'init',
+    value: function init() {
+      var _this2 = this;
+
+      return this.createIssue().then(function () {
+        return _this2.loadComments();
+      }).then(function (comments) {
+        _this2.state.error = null;
+        return comments;
+      });
+    }
+  }, {
+    key: 'useTheme',
+    value: function useTheme() {
+      var _this3 = this;
+
+      var theme = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+      this.theme = theme;
+
+      var renderers = Object.keys(this.theme);
+      renderers.forEach(function (renderer) {
+        return extendRenderer(_this3, renderer);
+      });
+    }
+  }, {
+    key: 'update',
+    value: function update() {
+      var _this4 = this;
+
+      return Promise.all([this.loadMeta(), this.loadUserInfo()]).then(function () {
+        return Promise.all([_this4.loadComments().then(function () {
+          return _this4.loadCommentReactions();
+        }), _this4.loadReactions()]);
+      }).catch(function (e) {
+        return _this4.state.error = e;
+      });
+    }
+  }, {
+    key: 'markdown',
+    value: function markdown(text) {
+      return _utils.http.post('/markdown', {
+        text: text,
+        mode: 'gfm'
+      });
+    }
+  }, {
+    key: 'createIssue',
+    value: function createIssue() {
+      var _this5 = this;
+
+      var id = this.id,
+          owner = this.owner,
+          repo = this.repo,
+          title = this.title,
+          link = this.link,
+          desc = this.desc,
+          labels = this.labels;
+
+
+      return _utils.http.post('/repos/' + owner + '/' + repo + '/issues', {
+        title: title,
+        labels: labels.concat(['gitment', id]),
+        body: link + '\n\n' + desc
+      }).then(function (meta) {
+        _this5.state.meta = meta;
+        return meta;
+      });
+    }
+  }, {
+    key: 'getIssue',
+    value: function getIssue() {
+      if (this.state.meta.id) return Promise.resolve(this.state.meta);
+
+      return this.loadMeta();
+    }
+  }, {
+    key: 'post',
+    value: function post(body) {
+      var _this6 = this;
+
+      return this.getIssue().then(function (issue) {
+        return _utils.http.post(issue.comments_url, { body: body }, '');
+      }).then(function (data) {
+        _this6.state.meta.comments++;
+        var pageCount = Math.ceil(_this6.state.meta.comments / _this6.perPage);
+        if (_this6.state.currentPage === pageCount) {
+          _this6.state.comments.push(data);
+        }
+        return data;
+      });
+    }
+  }, {
+    key: 'loadMeta',
+    value: function loadMeta() {
+      var _this7 = this;
+
+      var id = this.id,
+          owner = this.owner,
+          repo = this.repo;
+
+      return _utils.http.get('/repos/' + owner + '/' + repo + '/issues', {
+        creator: owner,
+        labels: id
+      }).then(function (issues) {
+        if (!issues.length) return Promise.reject(_constants.NOT_INITIALIZED_ERROR);
+        _this7.state.meta = issues[0];
+        return issues[0];
+      });
+    }
+  }, {
+    key: 'loadComments',
+    value: function loadComments() {
+      var _this8 = this;
+
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.state.currentPage;
+
+      return this.getIssue().then(function (issue) {
+        return _utils.http.get(issue.comments_url, { page: page, per_page: _this8.perPage }, '');
+      }).then(function (comments) {
+        _this8.state.comments = comments;
+        return comments;
+      });
+    }
+  }, {
+    key: 'loadUserInfo',
+    value: function loadUserInfo() {
+      var _this9 = this;
+
+      if (!this.accessToken) {
+        this.logout();
+        return Promise.resolve({});
+      }
+
+      return _utils.http.get('/user').then(function (user) {
+        _this9.state.user = user;
+        localStorage.setItem(_constants.LS_USER_KEY, JSON.stringify(user));
+        return user;
+      });
+    }
+  }, {
+    key: 'loadReactions',
+    value: function loadReactions() {
+      var _this10 = this;
+
+      if (!this.accessToken) {
+        this.state.reactions = [];
+        return Promise.resolve([]);
+      }
+
+      return this.getIssue().then(function (issue) {
+        if (!issue.reactions.total_count) return [];
+        return _utils.http.get(issue.reactions.url, {}, '');
+      }).then(function (reactions) {
+        _this10.state.reactions = reactions;
+        return reactions;
+      });
+    }
+  }, {
+    key: 'loadCommentReactions',
+    value: function loadCommentReactions() {
+      var _this11 = this;
+
+      if (!this.accessToken) {
+        this.state.commentReactions = {};
+        return Promise.resolve([]);
+      }
+
+      var comments = this.state.comments;
+      var comentReactions = {};
+
+      return Promise.all(comments.map(function (comment) {
+        if (!comment.reactions.total_count) return [];
+
+        var owner = _this11.owner,
+            repo = _this11.repo;
+
+        return _utils.http.get('/repos/' + owner + '/' + repo + '/issues/comments/' + comment.id + '/reactions', {});
+      })).then(function (reactionsArray) {
+        comments.forEach(function (comment, index) {
+          comentReactions[comment.id] = reactionsArray[index];
+        });
+        _this11.state.commentReactions = comentReactions;
+
+        return comentReactions;
+      });
+    }
+  }, {
+    key: 'login',
+    value: function login() {
+      window.location.href = this.loginLink;
+    }
+  }, {
+    key: 'logout',
+    value: function logout() {
+      localStorage.removeItem(_constants.LS_ACCESS_TOKEN_KEY);
+      localStorage.removeItem(_constants.LS_USER_KEY);
+      this.state.user = {};
+    }
+  }, {
+    key: 'goto',
+    value: function goto(page) {
+      this.state.currentPage = page;
+      this.state.comments = undefined;
+      return this.loadComments(page);
+    }
+  }, {
+    key: 'like',
+    value: function like() {
+      var _this12 = this;
+
+      if (!this.accessToken) {
+        alert('Login to Like');
+        return Promise.reject();
+      }
+
+      var owner = this.owner,
+          repo = this.repo;
+
+
+      return _utils.http.post('/repos/' + owner + '/' + repo + '/issues/' + this.state.meta.number + '/reactions', {
+        content: 'heart'
+      }).then(function (reaction) {
+        _this12.state.reactions.push(reaction);
+        _this12.state.meta.reactions.heart++;
+      });
+    }
+  }, {
+    key: 'unlike',
+    value: function unlike() {
+      var _this13 = this;
+
+      if (!this.accessToken) return Promise.reject();
+
+      var _state = this.state,
+          user = _state.user,
+          reactions = _state.reactions;
+
+      var index = reactions.findIndex(function (reaction) {
+        return reaction.user.login === user.login;
+      });
+      return _utils.http.delete('/reactions/' + reactions[index].id).then(function () {
+        reactions.splice(index, 1);
+        _this13.state.meta.reactions.heart--;
+      });
+    }
+  }, {
+    key: 'likeAComment',
+    value: function likeAComment(commentId) {
+      var _this14 = this;
+
+      if (!this.accessToken) {
+        alert('Login to Like');
+        return Promise.reject();
+      }
+
+      var owner = this.owner,
+          repo = this.repo;
+
+      var comment = this.state.comments.find(function (comment) {
+        return comment.id === commentId;
+      });
+
+      return _utils.http.post('/repos/' + owner + '/' + repo + '/issues/comments/' + commentId + '/reactions', {
+        content: 'heart'
+      }).then(function (reaction) {
+        _this14.state.commentReactions[commentId].push(reaction);
+        comment.reactions.heart++;
+      });
+    }
+  }, {
+    key: 'unlikeAComment',
+    value: function unlikeAComment(commentId) {
+      if (!this.accessToken) return Promise.reject();
+
+      var reactions = this.state.commentReactions[commentId];
+      var comment = this.state.comments.find(function (comment) {
+        return comment.id === commentId;
+      });
+      var user = this.state.user;
+
+      var index = reactions.findIndex(function (reaction) {
+        return reaction.user.login === user.login;
+      });
+
+      return _utils.http.delete('/reactions/' + reactions[index].id).then(function () {
+        reactions.splice(index, 1);
+        comment.reactions.heart--;
+      });
+    }
+  }]);
+
+  return Gitment;
+}();
+
+module.exports = Gitment;
+//# sourceMappingURL=gitment.js.map
+
+/***/ }),
+
+/***/ 198:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* WEBPACK VAR INJECTION */(function(global) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "extras", function() { return extras; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Reaction", function() { return Reaction; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "untracked", function() { return untracked; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IDerivationState", function() { return IDerivationState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Atom", function() { return Atom; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BaseAtom", function() { return BaseAtom; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useStrict", function() { return useStrict; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isStrictModeEnabled", function() { return isStrictModeEnabled; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "spy", function() { return spy; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "comparer", function() { return comparer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "asReference", function() { return asReference; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "asFlat", function() { return asFlat; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "asStructure", function() { return asStructure; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "asMap", function() { return asMap; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isModifierDescriptor", function() { return isModifierDescriptor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isObservableObject", function() { return isObservableObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isBoxedObservable", function() { return isObservableValue; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isObservableArray", function() { return isObservableArray; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ObservableMap", function() { return ObservableMap; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isObservableMap", function() { return isObservableMap; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "map", function() { return map; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "transaction", function() { return transaction; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "observable", function() { return observable; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "computed", function() { return computed; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isObservable", function() { return isObservable; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isComputed", function() { return isComputed; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "extendObservable", function() { return extendObservable; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "extendShallowObservable", function() { return extendShallowObservable; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "observe", function() { return observe; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "intercept", function() { return intercept; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "autorun", function() { return autorun; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "autorunAsync", function() { return autorunAsync; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "when", function() { return when; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reaction", function() { return reaction; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "action", function() { return action; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isAction", function() { return isAction; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "runInAction", function() { return runInAction; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "expr", function() { return expr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toJS", function() { return toJS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createTransformer", function() { return createTransformer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "whyRun", function() { return whyRun; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "trace", function() { return trace; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isArrayLike", function() { return isArrayLike; });
+/** MobX - (c) Michel Weststrate 2015, 2016 - MIT Licensed */
+/*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use
 this file except in compliance with the License. You may obtain a copy of the
@@ -18,4 +5516,4304 @@ MERCHANTABLITY OR NON-INFRINGEMENT.
 See the Apache Version 2.0 License for specific language governing permissions
 and limitations under the License.
 ***************************************************************************** */
-var tn=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var n in t)t.hasOwnProperty(n)&&(e[n]=t[n])},nn=function(){function e(e){void 0===e&&(e="Atom@"+ke()),this.name=e,this.isPendingUnobservation=!0,this.observers=[],this.observersIndexes={},this.diffValue=0,this.lastAccessedBy=0,this.lowestObserverState=Xn.NOT_TRACKING}return e.prototype.onBecomeUnobserved=function(){},e.prototype.reportObserved=function(){pt(this)},e.prototype.reportChanged=function(){lt(),ft(this),dt()},e.prototype.toString=function(){return this.name},e}(),on=function(e){function t(t,n,o){void 0===t&&(t="Atom@"+ke()),void 0===n&&(n=Bn),void 0===o&&(o=Bn);var i=e.call(this,t)||this;return i.name=t,i.onBecomeObservedHandler=n,i.onBecomeUnobservedHandler=o,i.isPendingUnobservation=!1,i.isBeingTracked=!1,i}return o(t,e),t.prototype.reportObserved=function(){return lt(),e.prototype.reportObserved.call(this),this.isBeingTracked||(this.isBeingTracked=!0,this.onBecomeObservedHandler()),dt(),!!qn.trackingDerivation},t.prototype.onBecomeUnobserved=function(){this.isBeingTracked=!1,this.onBecomeUnobservedHandler()},t}(nn),rn=Fe("Atom",nn),an={spyReportEnd:!0},sn="__$$iterating",un=function(){var e=!1,t={};return Object.defineProperty(t,"0",{set:function(){e=!0}}),Object.create(t)[0]=1,!1===e}(),cn=0,ln=function(){function e(){}return e}();!function(e,t){void 0!==Object.setPrototypeOf?Object.setPrototypeOf(e.prototype,t):void 0!==e.prototype.__proto__?e.prototype.__proto__=t:e.prototype=t}(ln,Array.prototype),Object.isFrozen(Array)&&["constructor","push","shift","concat","pop","unshift","replace","find","findIndex","splice","reverse","sort"].forEach(function(e){Object.defineProperty(ln.prototype,e,{configurable:!0,writable:!0,value:Array.prototype[e]})});var dn=function(){function e(e,t,n,o){this.array=n,this.owned=o,this.values=[],this.lastKnownLength=0,this.interceptors=null,this.changeListeners=null,this.atom=new nn(e||"ObservableArray@"+ke()),this.enhancer=function(n,o){return t(n,o,e+"[..]")}}return e.prototype.dehanceValue=function(e){return void 0!==this.dehancer?this.dehancer(e):e},e.prototype.dehanceValues=function(e){return void 0!==this.dehancer?e.map(this.dehancer):e},e.prototype.intercept=function(e){return r(this,e)},e.prototype.observe=function(e,t){return void 0===t&&(t=!1),t&&e({object:this.array,type:"splice",index:0,added:this.values.slice(),addedCount:this.values.length,removed:[],removedCount:0}),u(this,e)},e.prototype.getArrayLength=function(){return this.atom.reportObserved(),this.values.length},e.prototype.setArrayLength=function(e){if("number"!=typeof e||e<0)throw new Error("[mobx.array] Out of range: "+e);var t=this.values.length;if(e!==t)if(e>t){for(var n=new Array(e-t),o=0;o<e-t;o++)n[o]=void 0;this.spliceWithArray(t,0,n)}else this.spliceWithArray(e,t-e)},e.prototype.updateArrayLength=function(e,t){if(e!==this.lastKnownLength)throw new Error("[mobx] Modification exception: the internal structure of an observable array was changed. Did you use peek() to change it?");this.lastKnownLength+=t,t>0&&e+t+1>cn&&w(e+t+1)},e.prototype.spliceWithArray=function(e,t,n){var o=this;xt(this.atom);var r=this.values.length;if(void 0===e?e=0:e>r?e=r:e<0&&(e=Math.max(0,r+e)),t=1===arguments.length?r-e:void 0===t||null===t?0:Math.max(0,Math.min(t,r-e)),void 0===n&&(n=[]),i(this)){var s=a(this,{object:this.array,type:"splice",index:e,removedCount:t,added:n});if(!s)return Fn;t=s.removedCount,n=s.added}n=n.map(function(e){return o.enhancer(e,void 0)});var u=n.length-t;this.updateArrayLength(r,u);var c=this.spliceItemsIntoValues(e,t,n);return 0===t&&0===n.length||this.notifyArraySplice(e,n,c),this.dehanceValues(c)},e.prototype.spliceItemsIntoValues=function(e,t,n){if(n.length<1e4)return(i=this.values).splice.apply(i,[e,t].concat(n));var o=this.values.slice(e,e+t);return this.values=this.values.slice(0,e).concat(n,this.values.slice(e+t)),o;var i},e.prototype.notifyArrayChildUpdate=function(e,t,n){var o=!this.owned&&l(),i=s(this),r=i||o?{object:this.array,type:"update",index:e,newValue:t,oldValue:n}:null;o&&p(r),this.atom.reportChanged(),i&&c(this,r),o&&f()},e.prototype.notifyArraySplice=function(e,t,n){var o=!this.owned&&l(),i=s(this),r=i||o?{object:this.array,type:"splice",index:e,removed:n,added:t,removedCount:n.length,addedCount:t.length}:null;o&&p(r),this.atom.reportChanged(),i&&c(this,r),o&&f()},e}(),pn=function(e){function t(t,n,o,i){void 0===o&&(o="ObservableArray@"+ke()),void 0===i&&(i=!1);var r=e.call(this)||this,a=new dn(o,n,r,i);return Ne(r,"$mobx",a),t&&t.length&&r.spliceWithArray(0,0,t),un&&Object.defineProperty(a.array,"0",fn),r}return o(t,e),t.prototype.intercept=function(e){return this.$mobx.intercept(e)},t.prototype.observe=function(e,t){return void 0===t&&(t=!1),this.$mobx.observe(e,t)},t.prototype.clear=function(){return this.splice(0)},t.prototype.concat=function(){for(var e=[],t=0;t<arguments.length;t++)e[t]=arguments[t];return this.$mobx.atom.reportObserved(),Array.prototype.concat.apply(this.peek(),e.map(function(e){return x(e)?e.peek():e}))},t.prototype.replace=function(e){return this.$mobx.spliceWithArray(0,this.$mobx.values.length,e)},t.prototype.toJS=function(){return this.slice()},t.prototype.toJSON=function(){return this.toJS()},t.prototype.peek=function(){return this.$mobx.atom.reportObserved(),this.$mobx.dehanceValues(this.$mobx.values)},t.prototype.find=function(e,t,n){void 0===n&&(n=0);var o=this.findIndex.apply(this,arguments);return-1===o?void 0:this.get(o)},t.prototype.findIndex=function(e,t,n){void 0===n&&(n=0);for(var o=this.peek(),i=o.length,r=n;r<i;r++)if(e.call(t,o[r],r,this))return r;return-1},t.prototype.splice=function(e,t){for(var n=[],o=2;o<arguments.length;o++)n[o-2]=arguments[o];switch(arguments.length){case 0:return[];case 1:return this.$mobx.spliceWithArray(e);case 2:return this.$mobx.spliceWithArray(e,t)}return this.$mobx.spliceWithArray(e,t,n)},t.prototype.spliceWithArray=function(e,t,n){return this.$mobx.spliceWithArray(e,t,n)},t.prototype.push=function(){for(var e=[],t=0;t<arguments.length;t++)e[t]=arguments[t];var n=this.$mobx;return n.spliceWithArray(n.values.length,0,e),n.values.length},t.prototype.pop=function(){return this.splice(Math.max(this.$mobx.values.length-1,0),1)[0]},t.prototype.shift=function(){return this.splice(0,1)[0]},t.prototype.unshift=function(){for(var e=[],t=0;t<arguments.length;t++)e[t]=arguments[t];var n=this.$mobx;return n.spliceWithArray(0,0,e),n.values.length},t.prototype.reverse=function(){var e=this.slice();return e.reverse.apply(e,arguments)},t.prototype.sort=function(e){var t=this.slice();return t.sort.apply(t,arguments)},t.prototype.remove=function(e){var t=this.$mobx.dehanceValues(this.$mobx.values).indexOf(e);return t>-1&&(this.splice(t,1),!0)},t.prototype.move=function(e,t){function n(e){if(e<0)throw new Error("[mobx.array] Index out of bounds: "+e+" is negative");var t=this.$mobx.values.length;if(e>=t)throw new Error("[mobx.array] Index out of bounds: "+e+" is not smaller than "+t)}if(n.call(this,e),n.call(this,t),e!==t){var o,i=this.$mobx.values;o=e<t?i.slice(0,e).concat(i.slice(e+1,t+1),[i[e]],i.slice(t+1)):i.slice(0,t).concat([i[e]],i.slice(t,e),i.slice(e+1)),this.replace(o)}},t.prototype.get=function(e){var t=this.$mobx;if(t){if(e<t.values.length)return t.atom.reportObserved(),t.dehanceValue(t.values[e]);console.warn("[mobx.array] Attempt to read an array index ("+e+") that is out of bounds ("+t.values.length+"). Please check length first. Out of bound indices will not be tracked by MobX")}},t.prototype.set=function(e,t){var n=this.$mobx,o=n.values;if(e<o.length){xt(n.atom);var r=o[e];if(i(n)){var s=a(n,{type:"update",object:this,index:e,newValue:t});if(!s)return;t=s.newValue}t=n.enhancer(t,r);t!==r&&(o[e]=t,n.notifyArrayChildUpdate(e,t,r))}else{if(e!==o.length)throw new Error("[mobx.array] Index out of bounds, "+e+" is larger than "+o.length);n.spliceWithArray(e,0,[t])}},t}(ln);g(pn.prototype,function(){return v(this.slice())}),Object.defineProperty(pn.prototype,"length",{enumerable:!1,configurable:!0,get:function(){return this.$mobx.getArrayLength()},set:function(e){this.$mobx.setArrayLength(e)}}),["every","filter","forEach","indexOf","join","lastIndexOf","map","reduce","reduceRight","slice","some","toString","toLocaleString"].forEach(function(e){var t=Array.prototype[e];Ee("function"==typeof t,"Base function not defined on Array prototype: '"+e+"'"),je(pn.prototype,e,function(){return t.apply(this.peek(),arguments)})}),function(e,t){for(var n=0;n<t.length;n++)je(e,t[n],e[t[n]])}(pn.prototype,["constructor","intercept","observe","clear","concat","get","replace","toJS","toJSON","peek","find","findIndex","splice","spliceWithArray","push","pop","set","shift","unshift","reverse","sort","remove","move","toString","toLocaleString"]);var fn=y(0);w(1e3);var mn=Fe("ObservableArrayAdministration",dn),hn={},vn=function(e){function t(t,n,o,i){void 0===o&&(o="ObservableValue@"+ke()),void 0===i&&(i=!0);var r=e.call(this,o)||this;return r.enhancer=n,r.hasUnreportedChange=!1,r.dehancer=void 0,r.value=n(t,void 0,o),i&&l()&&d({type:"create",object:r,newValue:r.value}),r}return o(t,e),t.prototype.dehanceValue=function(e){return void 0!==this.dehancer?this.dehancer(e):e},t.prototype.set=function(e){var t=this.value;if((e=this.prepareNewValue(e))!==hn){var n=l();n&&p({type:"update",object:this,newValue:e,oldValue:t}),this.setNewValue(e),n&&f()}},t.prototype.prepareNewValue=function(e){if(xt(this),i(this)){var t=a(this,{object:this,type:"update",newValue:e});if(!t)return hn;e=t.newValue}return e=this.enhancer(e,this.value,this.name),this.value!==e?e:hn},t.prototype.setNewValue=function(e){var t=this.value;this.value=e,this.reportChanged(),s(this)&&c(this,{type:"update",object:this,newValue:e,oldValue:t})},t.prototype.get=function(){return this.reportObserved(),this.dehanceValue(this.value)},t.prototype.intercept=function(e){return r(this,e)},t.prototype.observe=function(e,t){return t&&e({object:this,type:"update",newValue:this.value,oldValue:void 0}),u(this,e)},t.prototype.toJSON=function(){return this.get()},t.prototype.toString=function(){return this.name+"["+this.value+"]"},t.prototype.valueOf=function(){return $e(this.get())},t}(nn);vn.prototype[qe()]=vn.prototype.valueOf;var gn=Fe("ObservableValue",vn),yn={m001:"It is not allowed to assign new values to @action fields",m002:"`runInAction` expects a function",m003:"`runInAction` expects a function without arguments",m004:"autorun expects a function",m005:"Warning: attempted to pass an action to autorun. Actions are untracked and will not trigger on state changes. Use `reaction` or wrap only your state modification code in an action.",m006:"Warning: attempted to pass an action to autorunAsync. Actions are untracked and will not trigger on state changes. Use `reaction` or wrap only your state modification code in an action.",m007:"reaction only accepts 2 or 3 arguments. If migrating from MobX 2, please provide an options object",m008:"wrapping reaction expression in `asReference` is no longer supported, use options object instead",m009:"@computed can only be used on getter functions, like: '@computed get myProps() { return ...; }'. It looks like it was used on a property.",m010:"@computed can only be used on getter functions, like: '@computed get myProps() { return ...; }'",m011:"First argument to `computed` should be an expression. If using computed as decorator, don't pass it arguments",m012:"computed takes one or two arguments if used as function",m013:"[mobx.expr] 'expr' should only be used inside other reactive functions.",m014:"extendObservable expected 2 or more arguments",m015:"extendObservable expects an object as first argument",m016:"extendObservable should not be used on maps, use map.merge instead",m017:"all arguments of extendObservable should be objects",m018:"extending an object with another observable (object) is not supported. Please construct an explicit propertymap, using `toJS` if need. See issue #540",m019:"[mobx.isObservable] isObservable(object, propertyName) is not supported for arrays and maps. Use map.has or array.length instead.",m020:"modifiers can only be used for individual object properties",m021:"observable expects zero or one arguments",m022:"@observable can not be used on getters, use @computed instead",m024:"whyRun() can only be used if a derivation is active, or by passing an computed value / reaction explicitly. If you invoked whyRun from inside a computation; the computation is currently suspended but re-evaluating because somebody requested its value.",m025:"whyRun can only be used on reactions and computed values",m026:"`action` can only be invoked on functions",m028:"It is not allowed to set `useStrict` when a derivation is running",m029:"INTERNAL ERROR only onBecomeUnobserved shouldn't be called twice in a row",m030a:"Since strict-mode is enabled, changing observed observable values outside actions is not allowed. Please wrap the code in an `action` if this change is intended. Tried to modify: ",m030b:"Side effects like changing state are not allowed at this point. Are you trying to modify state from, for example, the render function of a React component? Tried to modify: ",m031:"Computed values are not allowed to cause side effects by changing observables that are already being observed. Tried to modify: ",m032:"* This computation is suspended (not in use by any reaction) and won't run automatically.\n\tDidn't expect this computation to be suspended at this point?\n\t  1. Make sure this computation is used by a reaction (reaction, autorun, observer).\n\t  2. Check whether you are using this computation synchronously (in the same stack as they reaction that needs it).",m033:"`observe` doesn't support the fire immediately property for observable maps.",m034:"`mobx.map` is deprecated, use `new ObservableMap` or `mobx.observable.map` instead",m035:"Cannot make the designated object observable; it is not extensible",m036:"It is not possible to get index atoms from arrays",m037:'Hi there! I\'m sorry you have just run into an exception.\nIf your debugger ends up here, know that some reaction (like the render() of an observer component, autorun or reaction)\nthrew an exception and that mobx caught it, to avoid that it brings the rest of your application down.\nThe original cause of the exception (the code that caused this reaction to run (again)), is still in the stack.\n\nHowever, more interesting is the actual stack trace of the error itself.\nHopefully the error is an instanceof Error, because in that case you can inspect the original stack of the error from where it was thrown.\nSee `error.stack` property, or press the very subtle "(...)" link you see near the console.error message that probably brought you here.\nThat stack is more interesting than the stack of this console.error itself.\n\nIf the exception you see is an exception you created yourself, make sure to use `throw new Error("Oops")` instead of `throw "Oops"`,\nbecause the javascript environment will only preserve the original stack trace in the first form.\n\nYou can also make sure the debugger pauses the next time this very same exception is thrown by enabling "Pause on caught exception".\n(Note that it might pause on many other, unrelated exception as well).\n\nIf that all doesn\'t help you out, feel free to open an issue https://github.com/mobxjs/mobx/issues!\n',m038:"Missing items in this list?\n    1. Check whether all used values are properly marked as observable (use isObservable to verify)\n    2. Make sure you didn't dereference values too early. MobX observes props, not primitives. E.g: use 'person.name' instead of 'name' in your computation.\n"},bn=D(function(e,t,n,o,i){var r=o&&1===o.length?o[0]:n.name||t||"<unnamed action>";je(e,t,xn(r,n))},function(e){return this[e]},function(){Ee(!1,_("m001"))},!1,!0),wn=D(function(e,t,n){U(e,t,n)},function(e){return this[e]},function(){Ee(!1,_("m001"))},!1,!1),xn=function(e,t,n,o){return 1===arguments.length&&"function"==typeof e?S(e.name||"<unnamed action>",e):2===arguments.length&&"function"==typeof t?S(e,t):1===arguments.length&&"string"==typeof e?j(e):j(t).apply(null,arguments)};xn.bound=function(e,t,n){if("function"==typeof e){var o=S("<not yet bound action>",e);return o.autoBind=!0,o}return wn.apply(null,arguments)};var _n=Object.prototype.toString,Sn={identity:Z,structural:q,default:$},Tn=function(){function e(e,t,n,o,i){this.derivation=e,this.scope=t,this.equals=n,this.dependenciesState=Xn.NOT_TRACKING,this.observing=[],this.newObserving=null,this.isPendingUnobservation=!1,this.observers=[],this.observersIndexes={},this.diffValue=0,this.runId=0,this.lastAccessedBy=0,this.lowestObserverState=Xn.UP_TO_DATE,this.unboundDepsCount=0,this.__mapid="#"+ke(),this.value=new Qn(null),this.isComputing=!1,this.isRunningSetter=!1,this.isTracing=Jn.NONE,this.name=o||"ComputedValue@"+ke(),i&&(this.setter=S(o+"-setter",i))}return e.prototype.onBecomeStale=function(){ht(this)},e.prototype.onBecomeUnobserved=function(){Tt(this),this.value=void 0},e.prototype.get=function(){Ee(!this.isComputing,"Cycle detected in computation "+this.name,this.derivation),0===qn.inBatch?(lt(),bt(this)&&(this.isTracing!==Jn.NONE&&console.log("[mobx.trace] '"+this.name+"' is being read outside a reactive context and doing a full recompute"),this.value=this.computeValue(!1)),dt()):(pt(this),bt(this)&&this.trackAndCompute()&&mt(this));var e=this.value;if(yt(e))throw e.cause;return e},e.prototype.peek=function(){var e=this.computeValue(!1);if(yt(e))throw e.cause;return e},e.prototype.set=function(e){if(this.setter){Ee(!this.isRunningSetter,"The setter of computed value '"+this.name+"' is trying to update itself. Did you intend to update an _observable_ value, instead of the computed property?"),this.isRunningSetter=!0;try{this.setter.call(this.scope,e)}finally{this.isRunningSetter=!1}}else Ee(!1,"[ComputedValue '"+this.name+"'] It is not possible to assign a new value to a computed value.")},e.prototype.trackAndCompute=function(){l()&&d({object:this.scope,type:"compute",fn:this.derivation});var e=this.value,t=this.dependenciesState===Xn.NOT_TRACKING,n=this.value=this.computeValue(!0);return t||yt(e)||yt(n)||!this.equals(e,n)},e.prototype.computeValue=function(e){this.isComputing=!0,qn.computationDepth++;var t;if(e)t=_t(this,this.derivation,this.scope);else try{t=this.derivation.call(this.scope)}catch(e){t=new Qn(e)}return qn.computationDepth--,this.isComputing=!1,t},e.prototype.observe=function(e,t){var n=this,o=!0,i=void 0;return G(function(){var r=n.get();if(!o||t){var a=Ot();e({type:"update",object:n,newValue:r,oldValue:i}),Et(a)}o=!1,i=r})},e.prototype.toJSON=function(){return this.get()},e.prototype.toString=function(){return this.name+"["+this.derivation.toString()+"]"},e.prototype.valueOf=function(){return $e(this.get())},e.prototype.whyRun=function(){var e=Boolean(qn.trackingDerivation),t=Ae(this.isComputing?this.newObserving:this.observing).map(function(e){return e.name}),n=Ae(at(this).map(function(e){return e.name}));return"\nWhyRun? computation '"+this.name+"':\n * Running because: "+(e?"[active] the value of this computation is needed by a reaction":this.isComputing?"[get] The value of this computed was requested outside a reaction":"[idle] not running at the moment")+"\n"+(this.dependenciesState===Xn.NOT_TRACKING?_("m032"):" * This computation will re-run if any of the following observables changes:\n    "+Le(t)+"\n    "+(this.isComputing&&e?" (... or any observable accessed during the remainder of the current run)":"")+"\n    "+_("m038")+"\n\n  * If the outcome of this computation changes, the following observers will be re-run:\n    "+Le(n)+"\n")},e}();Tn.prototype[qe()]=Tn.prototype.valueOf;var kn=Fe("ComputedValue",Tn),On=function(){function e(e,t){this.target=e,this.name=t,this.values={},this.changeListeners=null,this.interceptors=null}return e.prototype.observe=function(e,t){return Ee(!0!==t,"`observe` doesn't support the fire immediately property for observable objects."),u(this,e)},e.prototype.intercept=function(e){return r(this,e)},e}(),En={},In={},Cn=Fe("ObservableObjectAdministration",On),An=ce(ge),Ln=ce(ye),Dn=ce(be),Mn=ce(we),Rn=ce(xe),Pn={box:function(e,t){return arguments.length>2&&me("box"),new vn(e,ge,t)},shallowBox:function(e,t){return arguments.length>2&&me("shallowBox"),new vn(e,be,t)},array:function(e,t){return arguments.length>2&&me("array"),new pn(e,ge,t)},shallowArray:function(e,t){return arguments.length>2&&me("shallowArray"),new pn(e,be,t)},map:function(e,t){return arguments.length>2&&me("map"),new zn(e,ge,t)},shallowMap:function(e,t){return arguments.length>2&&me("shallowMap"),new zn(e,be,t)},object:function(e,t){arguments.length>2&&me("object");var n={};return J(n,t),le(n,e),n},shallowObject:function(e,t){arguments.length>2&&me("shallowObject");var n={};return J(n,t),de(n,e),n},ref:function(){return arguments.length<2?ve(be,arguments[0]):Dn.apply(null,arguments)},shallow:function(){return arguments.length<2?ve(ye,arguments[0]):Ln.apply(null,arguments)},deep:function(){return arguments.length<2?ve(ge,arguments[0]):An.apply(null,arguments)},struct:function(){return arguments.length<2?ve(we,arguments[0]):Mn.apply(null,arguments)}},jn=fe;Object.keys(Pn).forEach(function(e){return jn[e]=Pn[e]}),jn.deep.struct=jn.struct,jn.ref.struct=function(){return arguments.length<2?ve(xe,arguments[0]):Rn.apply(null,arguments)};var Nn={},zn=function(){function e(e,t,n){void 0===t&&(t=ge),void 0===n&&(n="ObservableMap@"+ke()),this.enhancer=t,this.name=n,this.$mobx=Nn,this._data=Object.create(null),this._hasMap=Object.create(null),this._keys=new pn(void 0,be,this.name+".keys()",!0),this.interceptors=null,this.changeListeners=null,this.dehancer=void 0,this.merge(e)}return e.prototype._has=function(e){return void 0!==this._data[e]},e.prototype.has=function(e){return!!this.isValidKey(e)&&(e=""+e,this._hasMap[e]?this._hasMap[e].get():this._updateHasMapEntry(e,!1).get())},e.prototype.set=function(e,t){this.assertValidKey(e),e=""+e;var n=this._has(e);if(i(this)){var o=a(this,{type:n?"update":"add",object:this,newValue:t,name:e});if(!o)return this;t=o.newValue}return n?this._updateValue(e,t):this._addValue(e,t),this},e.prototype.delete=function(e){var t=this;if(this.assertValidKey(e),e=""+e,i(this)){var n=a(this,{type:"delete",object:this,name:e});if(!n)return!1}if(this._has(e)){var o=l(),r=s(this),n=r||o?{type:"delete",object:this,oldValue:this._data[e].value,name:e}:null;return o&&p(n),_e(function(){t._keys.remove(e),t._updateHasMapEntry(e,!1),t._data[e].setNewValue(void 0),t._data[e]=void 0}),r&&c(this,n),o&&f(),!0}return!1},e.prototype._updateHasMapEntry=function(e,t){var n=this._hasMap[e];return n?n.setNewValue(t):n=this._hasMap[e]=new vn(t,be,this.name+"."+e+"?",!1),n},e.prototype._updateValue=function(e,t){var n=this._data[e];if((t=n.prepareNewValue(t))!==hn){var o=l(),i=s(this),r=i||o?{type:"update",object:this,oldValue:n.value,name:e,newValue:t}:null;o&&p(r),n.setNewValue(t),i&&c(this,r),o&&f()}},e.prototype._addValue=function(e,t){var n=this;_e(function(){var o=n._data[e]=new vn(t,n.enhancer,n.name+"."+e,!1);t=o.value,n._updateHasMapEntry(e,!0),n._keys.push(e)});var o=l(),i=s(this),r=i||o?{type:"add",object:this,name:e,newValue:t}:null;o&&p(r),i&&c(this,r),o&&f()},e.prototype.get=function(e){return e=""+e,this.has(e)?this.dehanceValue(this._data[e].get()):this.dehanceValue(void 0)},e.prototype.dehanceValue=function(e){return void 0!==this.dehancer?this.dehancer(e):e},e.prototype.keys=function(){return v(this._keys.slice())},e.prototype.values=function(){return v(this._keys.map(this.get,this))},e.prototype.entries=function(){var e=this;return v(this._keys.map(function(t){return[t,e.get(t)]}))},e.prototype.forEach=function(e,t){var n=this;this.keys().forEach(function(o){return e.call(t,n.get(o),o,n)})},e.prototype.merge=function(e){var t=this;return Un(e)&&(e=e.toJS()),_e(function(){Me(e)?Object.keys(e).forEach(function(n){return t.set(n,e[n])}):Array.isArray(e)?e.forEach(function(e){var n=e[0],o=e[1];return t.set(n,o)}):He(e)?e.forEach(function(e,n){return t.set(n,e)}):null!==e&&void 0!==e&&Oe("Cannot initialize map from "+e)}),this},e.prototype.clear=function(){var e=this;_e(function(){kt(function(){e.keys().forEach(e.delete,e)})})},e.prototype.replace=function(e){var t=this;return _e(function(){var n=Ke(e);t.keys().filter(function(e){return-1===n.indexOf(e)}).forEach(function(e){return t.delete(e)}),t.merge(e)}),this},Object.defineProperty(e.prototype,"size",{get:function(){return this._keys.length},enumerable:!0,configurable:!0}),e.prototype.toJS=function(){var e=this,t={};return this.keys().forEach(function(n){return t[n]=e.get(n)}),t},e.prototype.toJSON=function(){return this.toJS()},e.prototype.isValidKey=function(e){return null!==e&&void 0!==e&&("string"==typeof e||"number"==typeof e||"boolean"==typeof e)},e.prototype.assertValidKey=function(e){if(!this.isValidKey(e))throw new Error("[mobx.map] Invalid key: '"+e+"', only strings, numbers and booleans are accepted as key in observable maps.")},e.prototype.toString=function(){var e=this;return this.name+"[{ "+this.keys().map(function(t){return t+": "+e.get(t)}).join(", ")+" }]"},e.prototype.observe=function(e,t){return Ee(!0!==t,_("m033")),u(this,e)},e.prototype.intercept=function(e){return r(this,e)},e}();g(zn.prototype,function(){return this.entries()});var Un=Fe("ObservableMap",zn),Fn=[];Object.freeze(Fn);var Vn=[],Bn=function(){},Hn=Object.prototype.hasOwnProperty,Kn=["mobxGuid","resetId","spyListeners","strictMode","runId"],Zn=function(){function e(){this.version=5,this.trackingDerivation=null,this.computationDepth=0,this.runId=0,this.mobxGuid=0,this.inBatch=0,this.pendingUnobservations=[],this.pendingReactions=[],this.isRunningReactions=!1,this.allowStateChanges=!0,this.strictMode=!1,this.resetId=0,this.spyListeners=[],this.globalReactionErrorHandlers=[]}return e}(),qn=new Zn,$n=!1,Gn=!1,Wn=!1,Yn=Te();Yn.__mobxInstanceCount?(Yn.__mobxInstanceCount++,setTimeout(function(){$n||Gn||Wn||(Wn=!0,console.warn("[mobx] Warning: there are multiple mobx instances active. This might lead to unexpected results. See https://github.com/mobxjs/mobx/issues/1082 for details."))},1)):Yn.__mobxInstanceCount=1;var Xn;!function(e){e[e.NOT_TRACKING=-1]="NOT_TRACKING",e[e.UP_TO_DATE=0]="UP_TO_DATE",e[e.POSSIBLY_STALE=1]="POSSIBLY_STALE",e[e.STALE=2]="STALE"}(Xn||(Xn={}));var Jn;!function(e){e[e.NONE=0]="NONE",e[e.LOG=1]="LOG",e[e.BREAK=2]="BREAK"}(Jn||(Jn={}));var Qn=function(){function e(e){this.cause=e}return e}(),eo=function(){function e(e,t){void 0===e&&(e="Reaction@"+ke()),this.name=e,this.onInvalidate=t,this.observing=[],this.newObserving=[],this.dependenciesState=Xn.NOT_TRACKING,this.diffValue=0,this.runId=0,this.unboundDepsCount=0,this.__mapid="#"+ke(),this.isDisposed=!1,this._isScheduled=!1,this._isTrackPending=!1,this._isRunning=!1,this.isTracing=Jn.NONE}return e.prototype.onBecomeStale=function(){this.schedule()},e.prototype.schedule=function(){this._isScheduled||(this._isScheduled=!0,qn.pendingReactions.push(this),Pt())},e.prototype.isScheduled=function(){return this._isScheduled},e.prototype.runReaction=function(){this.isDisposed||(lt(),this._isScheduled=!1,bt(this)&&(this._isTrackPending=!0,this.onInvalidate(),this._isTrackPending&&l()&&d({object:this,type:"scheduled-reaction"})),dt())},e.prototype.track=function(e){lt();var t,n=l();n&&(t=Date.now(),p({object:this,type:"reaction",fn:e})),this._isRunning=!0;var o=_t(this,e,void 0);this._isRunning=!1,this._isTrackPending=!1,this.isDisposed&&Tt(this),yt(o)&&this.reportExceptionInDerivation(o.cause),n&&f({time:Date.now()-t}),dt()},e.prototype.reportExceptionInDerivation=function(e){var t=this;if(this.errorHandler)return void this.errorHandler(e,this);var n="[mobx] Encountered an uncaught exception that was thrown by a reaction or observer component, in: '"+this,o=_("m037");console.error(n||o,e),l()&&d({type:"error",message:n,error:e,object:this}),qn.globalReactionErrorHandlers.forEach(function(n){return n(e,t)})},e.prototype.dispose=function(){this.isDisposed||(this.isDisposed=!0,this._isRunning||(lt(),Tt(this),dt()))},e.prototype.getDisposer=function(){var e=this.dispose.bind(this);return e.$mobx=this,e.onError=Mt,e},e.prototype.toString=function(){return"Reaction["+this.name+"]"},e.prototype.whyRun=function(){var e=Ae(this._isRunning?this.newObserving:this.observing).map(function(e){return e.name});return"\nWhyRun? reaction '"+this.name+"':\n * Status: ["+(this.isDisposed?"stopped":this._isRunning?"running":this.isScheduled()?"scheduled":"idle")+"]\n * This reaction will re-run if any of the following observables changes:\n    "+Le(e)+"\n    "+(this._isRunning?" (... or any observable accessed during the remainder of the current run)":"")+"\n\t"+_("m038")+"\n"},e.prototype.trace=function(e){void 0===e&&(e=!1),Lt(this,e)},e}(),to=100,no=function(e){return e()},oo=Fe("Reaction",eo),io=Bt(Sn.default),ro=Bt(Sn.structural),ao=function(e,t,n){if("string"==typeof t)return io.apply(null,arguments);Ee("function"==typeof e,_("m011")),Ee(arguments.length<3,_("m012"));var o="object"==typeof t?t:{};o.setter="function"==typeof t?t:o.setter;var i=o.equals?o.equals:o.compareStructural||o.struct?Sn.structural:Sn.default;return new Tn(e,o.context,i,o.name||e.name||"",o.setter)};ao.struct=ro,ao.equals=Bt;var so={allowStateChanges:C,deepEqual:F,getAtom:Je,getDebugName:et,getDependencyTree:tt,getAdministration:Qe,getGlobalState:Ye,getObserverTree:ot,interceptReads:en,isComputingDerivation:wt,isSpyEnabled:l,onReactionError:Rt,reserveArrayBuffer:w,resetGlobalState:Xe,isolateGlobalState:Ge,shareGlobalState:We,spyReport:d,spyReportEnd:f,spyReportStart:p,setReactionScheduler:Nt},uo={Reaction:eo,untracked:kt,Atom:on,BaseAtom:nn,useStrict:E,isStrictModeEnabled:I,spy:m,comparer:Sn,asReference:zt,asFlat:Ft,asStructure:Ut,asMap:Vt,isModifierDescriptor:he,isObservableObject:se,isBoxedObservable:gn,isObservableArray:x,ObservableMap:zn,isObservableMap:Un,map:Se,transaction:_e,observable:jn,computed:ao,isObservable:ue,isComputed:Ht,extendObservable:le,extendShallowObservable:de,observe:Kt,intercept:$t,autorun:G,autorunAsync:Y,when:W,reaction:X,action:xn,isAction:z,runInAction:N,expr:Yt,toJS:Xt,createTransformer:Jt,whyRun:At,isArrayLike:Be,extras:so},co=!1;for(var lo in uo)!function(e){var t=uo[e];Object.defineProperty(uo,e,{get:function(){return co||(co=!0,console.warn("Using default export (`import mobx from 'mobx'`) is deprecated and won’t work in mobx@4.0.0\nUse `import * as mobx from 'mobx'` instead")),t}})}(lo);"object"==typeof __MOBX_DEVTOOLS_GLOBAL_HOOK__&&__MOBX_DEVTOOLS_GLOBAL_HOOK__.injectMobx({spy:m,extras:so}),t.default=uo}.call(t,n(52))},199:function(e,t,n){"use strict";function o(e){return e instanceof Element?e:s(e)?document.getElementById(e):document.createElement("div")}function i(e){return function(t){var n=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},o=arguments.length>2&&void 0!==arguments[2]?arguments[2]:"https://api.github.com",i=new XMLHttpRequest,r=localStorage.getItem(a.LS_ACCESS_TOKEN_KEY),s=""+o+t,c=null;"GET"!==e&&"DELETE"!==e||(s+=u.stringify(n));var l=new Promise(function(e,t){i.addEventListener("load",function(){var n=i.getResponseHeader("content-type"),o=i.responseText;if(!/json/.test(n))return void e(o);var r=i.responseText?JSON.parse(o):{};r.message?t(new Error(r.message)):e(r)}),i.addEventListener("error",function(e){return t(e)})});return i.open(e,s,!0),i.setRequestHeader("Accept","application/vnd.github.squirrel-girl-preview, application/vnd.github.html+json"),r&&i.setRequestHeader("Authorization","token "+r),"GET"!==e&&"DELETE"!==e&&(c=JSON.stringify(n),i.setRequestHeader("Content-Type","application/json")),i.send(c),l}}Object.defineProperty(t,"__esModule",{value:!0}),t.http=t.Query=t.isString=void 0;var r=function(){function e(e,t){var n=[],o=!0,i=!1,r=void 0;try{for(var a,s=e[Symbol.iterator]();!(o=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);o=!0);}catch(e){i=!0,r=e}finally{try{!o&&s.return&&s.return()}finally{if(i)throw r}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}();t.getTargetContainer=o;var a=n(90),s=t.isString=function(e){return"[object String]"===toString.call(e)},u=t.Query={parse:function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:window.location.search;if(!e)return{};var t="?"===e[0]?e.substring(1):e,n={};return t.split("&").forEach(function(e){var t=e.split("="),o=r(t,2),i=o[0],a=o[1];i&&(n[i]=a)}),n},stringify:function(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"?",n=Object.keys(e).map(function(t){return t+"="+encodeURIComponent(e[t]||"")}).join("&");return n?t+n:""}};t.http={get:i("GET"),post:i("POST"),delete:i("DELETE"),put:i("PUT")}},200:function(e,t,n){"use strict";function o(e,t){var n=e.meta,o=e.user,i=e.reactions,r=document.createElement("div");r.lang="en-US",r.className="gitment-container gitment-header-container";var a=document.createElement("span"),s=i.find(function(e){return"heart"===e.content&&e.user.login===o.login});a.className="gitment-header-like-btn",a.innerHTML="\n    "+c.heart+"\n    "+(s?"Unlike":"Like")+"\n    "+(n.reactions&&n.reactions.heart?" • <strong>"+n.reactions.heart+"</strong> Liked":"")+"\n  ",s?(a.classList.add("liked"),a.onclick=function(){return t.unlike()}):(a.classList.remove("liked"),a.onclick=function(){return t.like()}),r.appendChild(a);var u=document.createElement("span");u.innerHTML="\n    "+(n.comments?" • <strong>"+n.comments+"</strong> Comments":"")+"\n  ",r.appendChild(u);var l=document.createElement("a");return l.className="gitment-header-issue-link",l.href=n.html_url,l.target="_blank",l.innerText="Issue Page",r.appendChild(l),r}function i(e,t){var n=e.meta,o=e.comments,i=e.commentReactions,r=e.currentPage,a=e.user,s=e.error,u=document.createElement("div");if(u.lang="en-US",u.className="gitment-container gitment-comments-container",s){var d=document.createElement("div");if(d.className="gitment-comments-error",s===l.NOT_INITIALIZED_ERROR&&a.login&&a.login.toLowerCase()===t.owner.toLowerCase()){var p=document.createElement("div"),f=document.createElement("button");f.className="gitment-comments-init-btn",f.onclick=function(){f.setAttribute("disabled",!0),t.init().catch(function(e){f.removeAttribute("disabled"),alert(e)})},f.innerText="Initialize Comments",p.appendChild(f),d.appendChild(p)}else d.innerText=s;return u.appendChild(d),u}if(void 0===o){var m=document.createElement("div");return m.innerText="Loading comments...",m.className="gitment-comments-loading",u.appendChild(m),u}if(!o.length){var h=document.createElement("div");return h.className="gitment-comments-empty",h.innerText="No Comment Yet",u.appendChild(h),u}var v=document.createElement("ul");if(v.className="gitment-comments-list",o.forEach(function(e){var n=new Date(e.created_at),o=new Date(e.updated_at),r=document.createElement("li");r.className="gitment-comment",r.innerHTML='\n      <a class="gitment-comment-avatar" href="'+e.user.html_url+'" target="_blank">\n        <img class="gitment-comment-avatar-img" src="'+e.user.avatar_url+'"/>\n      </a>\n      <div class="gitment-comment-main">\n        <div class="gitment-comment-header">\n          <a class="gitment-comment-name" href="'+e.user.html_url+'" target="_blank">\n            '+e.user.login+'\n          </a>\n          commented on\n          <span title="'+n+'">'+n.toDateString()+"</span>\n          "+(n.toString()!==o.toString()?' • <span title="comment was edited at '+o+'">edited</span>':"")+'\n          <div class="gitment-comment-like-btn">'+c.heart+" "+(e.reactions.heart||"")+'</div>\n        </div>\n        <div class="gitment-comment-body gitment-markdown">'+e.body_html+"</div>\n      </div>\n    ";var s=r.querySelector(".gitment-comment-like-btn");i[e.id]&&i[e.id].find(function(e){return"heart"===e.content&&e.user.login===a.login})?(s.classList.add("liked"),s.onclick=function(){return t.unlikeAComment(e.id)}):(s.classList.remove("liked"),s.onclick=function(){return t.likeAComment(e.id)});var u=document.createElement("img"),l=r.querySelector(".gitment-comment-body");u.className="gitment-hidden",u.src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==",u.onload=function(){l.clientHeight>t.maxCommentHeight&&(l.classList.add("gitment-comment-body-folded"),l.style.maxHeight=t.maxCommentHeight+"px",l.title="Click to Expand",l.onclick=function(){l.classList.remove("gitment-comment-body-folded"),l.style.maxHeight="",l.title="",l.onclick=null})},r.appendChild(u),v.appendChild(r)}),u.appendChild(v),n){var g=Math.ceil(n.comments/t.perPage);if(g>1){var y=document.createElement("ul");if(y.className="gitment-comments-pagination",r>1){var b=document.createElement("li");b.className="gitment-comments-page-item",b.innerText="Previous",b.onclick=function(){return t.goto(r-1)},y.appendChild(b)}for(var w=1;w<=g;w++)!function(e){var n=document.createElement("li");n.className="gitment-comments-page-item",n.innerText=e,n.onclick=function(){return t.goto(e)},r===e&&n.classList.add("gitment-selected"),y.appendChild(n)}(w);if(r<g){var x=document.createElement("li");x.className="gitment-comments-page-item",x.innerText="Next",x.onclick=function(){return t.goto(r+1)},y.appendChild(x)}u.appendChild(y)}}return u}function r(e,t){var n=e.user,o=e.error,i=document.createElement("div");i.lang="en-US",i.className="gitment-container gitment-editor-container";var r=n.login&&!o?"":"disabled",a=n.login?"":"Login to Comment";i.innerHTML="\n      "+(n.login?'<a class="gitment-editor-avatar" href="'+n.html_url+'" target="_blank">\n            <img class="gitment-editor-avatar-img" src="'+n.avatar_url+'"/>\n          </a>':n.isLoggingIn?'<div class="gitment-editor-avatar">'+c.spinner+"</div>":'<a class="gitment-editor-avatar" href="'+t.loginLink+'" title="login with GitHub">\n              '+c.github+"\n            </a>")+'\n    </a>\n    <div class="gitment-editor-main">\n      <div class="gitment-editor-header">\n        <nav class="gitment-editor-tabs">\n          <button class="gitment-editor-tab gitment-selected">Write</button>\n          <button class="gitment-editor-tab">Preview</button>\n        </nav>\n        <div class="gitment-editor-login">\n          '+(n.login?'<a class="gitment-editor-logout-link">Logout</a>':n.isLoggingIn?"Logging in...":'<a class="gitment-editor-login-link" href="'+t.loginLink+'">Login</a> with GitHub')+'\n        </div>\n      </div>\n      <div class="gitment-editor-body">\n        <div class="gitment-editor-write-field">\n          <textarea placeholder="Leave a comment" title="'+a+'" '+r+'></textarea>\n        </div>\n        <div class="gitment-editor-preview-field gitment-hidden">\n          <div class="gitment-editor-preview gitment-markdown"></div>\n        </div>\n      </div>\n    </div>\n    <div class="gitment-editor-footer">\n      <a class="gitment-editor-footer-tip" href="https://guides.github.com/features/mastering-markdown/" target="_blank">\n        Styling with Markdown is supported\n      </a>\n      <button class="gitment-editor-submit" title="'+a+'" '+r+">Comment</button>\n    </div>\n  ",n.login&&(i.querySelector(".gitment-editor-logout-link").onclick=function(){return t.logout()});var s=i.querySelector(".gitment-editor-write-field"),l=i.querySelector(".gitment-editor-preview-field"),d=s.querySelector("textarea");d.oninput=function(){d.style.height="auto";var e=window.getComputedStyle(d,null),t=parseInt(e.height,10),n=d.clientHeight,o=d.scrollHeight;n<o&&(d.style.height=t+o-n+"px")};var p=i.querySelectorAll(".gitment-editor-tab"),f=u(p,2),m=f[0],h=f[1];m.onclick=function(){m.classList.add("gitment-selected"),h.classList.remove("gitment-selected"),s.classList.remove("gitment-hidden"),l.classList.add("gitment-hidden"),d.focus()},h.onclick=function(){h.classList.add("gitment-selected"),m.classList.remove("gitment-selected"),l.classList.remove("gitment-hidden"),s.classList.add("gitment-hidden");var e=l.querySelector(".gitment-editor-preview"),n=d.value.trim();if(!n)return void(e.innerText="Nothing to preview");e.innerText="Loading preview...",t.markdown(n).then(function(t){return e.innerHTML=t})};var v=i.querySelector(".gitment-editor-submit");return v.onclick=function(){v.innerText="Submitting...",v.setAttribute("disabled",!0),t.post(d.value.trim()).then(function(e){d.value="",d.style.height="auto",v.removeAttribute("disabled"),v.innerText="Comment"}).catch(function(e){alert(e),v.removeAttribute("disabled"),v.innerText="Comment"})},i}function a(){var e=document.createElement("div");return e.lang="en-US",e.className="gitment-container gitment-footer-container",e.innerHTML='\n    Powered by\n    <a class="gitment-footer-project-link" href="https://github.com/imsun/gitment" target="_blank">\n      Gitment\n    </a>\n  ',e}function s(e,t){var n=document.createElement("div");return n.lang="en-US",n.className="gitment-container gitment-root-container",n.appendChild(t.renderHeader(e,t)),n.appendChild(t.renderComments(e,t)),n.appendChild(t.renderEditor(e,t)),n.appendChild(t.renderFooter(e,t)),n}Object.defineProperty(t,"__esModule",{value:!0});var u=function(){function e(e,t){var n=[],o=!0,i=!1,r=void 0;try{for(var a,s=e[Symbol.iterator]();!(o=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);o=!0);}catch(e){i=!0,r=e}finally{try{!o&&s.return&&s.return()}finally{if(i)throw r}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),c=n(201),l=n(90);t.default={render:s,renderHeader:o,renderComments:i,renderEditor:r,renderFooter:a}},201:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});t.close='<svg class="gitment-close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M37.304 11.282l1.414 1.414-26.022 26.02-1.414-1.413z"/><path d="M12.696 11.282l26.022 26.02-1.414 1.415-26.022-26.02z"/></svg>',t.github='<svg class="gitment-github-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M25 10c-8.3 0-15 6.7-15 15 0 6.6 4.3 12.2 10.3 14.2.8.1 1-.3 1-.7v-2.6c-4.2.9-5.1-2-5.1-2-.7-1.7-1.7-2.2-1.7-2.2-1.4-.9.1-.9.1-.9 1.5.1 2.3 1.5 2.3 1.5 1.3 2.3 3.5 1.6 4.4 1.2.1-1 .5-1.6 1-2-3.3-.4-6.8-1.7-6.8-7.4 0-1.6.6-3 1.5-4-.2-.4-.7-1.9.1-4 0 0 1.3-.4 4.1 1.5 1.2-.3 2.5-.5 3.8-.5 1.3 0 2.6.2 3.8.5 2.9-1.9 4.1-1.5 4.1-1.5.8 2.1.3 3.6.1 4 1 1 1.5 2.4 1.5 4 0 5.8-3.5 7-6.8 7.4.5.5 1 1.4 1 2.8v4.1c0 .4.3.9 1 .7 6-2 10.2-7.6 10.2-14.2C40 16.7 33.3 10 25 10z"/></svg>',t.heart='<svg class="gitment-heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M25 39.7l-.6-.5C11.5 28.7 8 25 8 19c0-5 4-9 9-9 4.1 0 6.4 2.3 8 4.1 1.6-1.8 3.9-4.1 8-4.1 5 0 9 4 9 9 0 6-3.5 9.7-16.4 20.2l-.6.5zM17 12c-3.9 0-7 3.1-7 7 0 5.1 3.2 8.5 15 18.1 11.8-9.6 15-13 15-18.1 0-3.9-3.1-7-7-7-3.5 0-5.4 2.1-6.9 3.8L25 17.1l-1.1-1.3C22.4 14.1 20.5 12 17 12z"/></svg>',t.spinner='<svg class="gitment-spinner-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M25 18c-.6 0-1-.4-1-1V9c0-.6.4-1 1-1s1 .4 1 1v8c0 .6-.4 1-1 1z"/><path opacity=".3" d="M25 42c-.6 0-1-.4-1-1v-8c0-.6.4-1 1-1s1 .4 1 1v8c0 .6-.4 1-1 1z"/><path opacity=".3" d="M29 19c-.2 0-.3 0-.5-.1-.4-.3-.6-.8-.3-1.3l4-6.9c.3-.4.8-.6 1.3-.3.4.3.6.8.3 1.3l-4 6.9c-.2.2-.5.4-.8.4z"/><path opacity=".3" d="M17 39.8c-.2 0-.3 0-.5-.1-.4-.3-.6-.8-.3-1.3l4-6.9c.3-.4.8-.6 1.3-.3.4.3.6.8.3 1.3l-4 6.9c-.2.2-.5.4-.8.4z"/><path opacity=".93" d="M21 19c-.3 0-.6-.2-.8-.5l-4-6.9c-.3-.4-.1-1 .3-1.3.4-.3 1-.1 1.3.3l4 6.9c.3.4.1 1-.3 1.3-.2.2-.3.2-.5.2z"/><path opacity=".3" d="M33 39.8c-.3 0-.6-.2-.8-.5l-4-6.9c-.3-.4-.1-1 .3-1.3.4-.3 1-.1 1.3.3l4 6.9c.3.4.1 1-.3 1.3-.2.1-.3.2-.5.2z"/><path opacity=".65" d="M17 26H9c-.6 0-1-.4-1-1s.4-1 1-1h8c.6 0 1 .4 1 1s-.4 1-1 1z"/><path opacity=".3" d="M41 26h-8c-.6 0-1-.4-1-1s.4-1 1-1h8c.6 0 1 .4 1 1s-.4 1-1 1z"/><path opacity=".86" d="M18.1 21.9c-.2 0-.3 0-.5-.1l-6.9-4c-.4-.3-.6-.8-.3-1.3.3-.4.8-.6 1.3-.3l6.9 4c.4.3.6.8.3 1.3-.2.3-.5.4-.8.4z"/><path opacity=".3" d="M38.9 33.9c-.2 0-.3 0-.5-.1l-6.9-4c-.4-.3-.6-.8-.3-1.3.3-.4.8-.6 1.3-.3l6.9 4c.4.3.6.8.3 1.3-.2.3-.5.4-.8.4z"/><path opacity=".44" d="M11.1 33.9c-.3 0-.6-.2-.8-.5-.3-.4-.1-1 .3-1.3l6.9-4c.4-.3 1-.1 1.3.3.3.4.1 1-.3 1.3l-6.9 4c-.1.2-.3.2-.5.2z"/><path opacity=".3" d="M31.9 21.9c-.3 0-.6-.2-.8-.5-.3-.4-.1-1 .3-1.3l6.9-4c.4-.3 1-.1 1.3.3.3.4.1 1-.3 1.3l-6.9 4c-.2.2-.3.2-.5.2z"/></svg>'},64:function(e,t,n){"use strict";t.__esModule=!0,t.default=function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}},65:function(e,t,n){"use strict";t.__esModule=!0;var o=n(129),i=function(e){return e&&e.__esModule?e:{default:e}}(o);t.default=function(){function e(e,t){for(var n=0;n<t.length;n++){var o=t[n];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),(0,i.default)(e,o.key,o)}}return function(t,n,o){return n&&e(t.prototype,n),o&&e(t,o),t}}()},90:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});t.LS_ACCESS_TOKEN_KEY="gitment-comments-token",t.LS_USER_KEY="gitment-user-info",t.NOT_INITIALIZED_ERROR=new Error("Comments Not Initialized")}},[185]);
+/* global Reflect, Promise */
+
+var extendStatics = Object.setPrototypeOf ||
+    ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+    function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+
+function __extends(d, b) {
+    extendStatics(d, b);
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+}
+
+/**
+ * Anything that can be used to _store_ state is an Atom in mobx. Atoms have two important jobs
+ *
+ * 1) detect when they are being _used_ and report this (using reportObserved). This allows mobx to make the connection between running functions and the data they used
+ * 2) they should notify mobx whenever they have _changed_. This way mobx can re-run any functions (derivations) that are using this atom.
+ */
+var BaseAtom = /** @class */ (function () {
+    /**
+     * Create a new atom. For debugging purposes it is recommended to give it a name.
+     * The onBecomeObserved and onBecomeUnobserved callbacks can be used for resource management.
+     */
+    function BaseAtom(name) {
+        if (name === void 0) { name = "Atom@" + getNextId(); }
+        this.name = name;
+        this.isPendingUnobservation = true; // for effective unobserving. BaseAtom has true, for extra optimization, so its onBecomeUnobserved never gets called, because it's not needed
+        this.observers = [];
+        this.observersIndexes = {};
+        this.diffValue = 0;
+        this.lastAccessedBy = 0;
+        this.lowestObserverState = IDerivationState.NOT_TRACKING;
+    }
+    BaseAtom.prototype.onBecomeUnobserved = function () {
+        // noop
+    };
+    /**
+     * Invoke this method to notify mobx that your atom has been used somehow.
+     */
+    BaseAtom.prototype.reportObserved = function () {
+        reportObserved(this);
+    };
+    /**
+     * Invoke this method _after_ this method has changed to signal mobx that all its observers should invalidate.
+     */
+    BaseAtom.prototype.reportChanged = function () {
+        startBatch();
+        propagateChanged(this);
+        endBatch();
+    };
+    BaseAtom.prototype.toString = function () {
+        return this.name;
+    };
+    return BaseAtom;
+}());
+var Atom = /** @class */ (function (_super) {
+    __extends(Atom, _super);
+    /**
+     * Create a new atom. For debugging purposes it is recommended to give it a name.
+     * The onBecomeObserved and onBecomeUnobserved callbacks can be used for resource management.
+     */
+    function Atom(name, onBecomeObservedHandler, onBecomeUnobservedHandler) {
+        if (name === void 0) { name = "Atom@" + getNextId(); }
+        if (onBecomeObservedHandler === void 0) { onBecomeObservedHandler = noop; }
+        if (onBecomeUnobservedHandler === void 0) { onBecomeUnobservedHandler = noop; }
+        var _this = _super.call(this, name) || this;
+        _this.name = name;
+        _this.onBecomeObservedHandler = onBecomeObservedHandler;
+        _this.onBecomeUnobservedHandler = onBecomeUnobservedHandler;
+        _this.isPendingUnobservation = false; // for effective unobserving.
+        _this.isBeingTracked = false;
+        return _this;
+    }
+    Atom.prototype.reportObserved = function () {
+        startBatch();
+        _super.prototype.reportObserved.call(this);
+        if (!this.isBeingTracked) {
+            this.isBeingTracked = true;
+            this.onBecomeObservedHandler();
+        }
+        endBatch();
+        return !!globalState.trackingDerivation;
+        // return doesn't really give useful info, because it can be as well calling computed which calls atom (no reactions)
+        // also it could not trigger when calculating reaction dependent on Atom because Atom's value was cached by computed called by given reaction.
+    };
+    Atom.prototype.onBecomeUnobserved = function () {
+        this.isBeingTracked = false;
+        this.onBecomeUnobservedHandler();
+    };
+    return Atom;
+}(BaseAtom));
+var isAtom = createInstanceofPredicate("Atom", BaseAtom);
+
+function hasInterceptors(interceptable) {
+    return interceptable.interceptors && interceptable.interceptors.length > 0;
+}
+function registerInterceptor(interceptable, handler) {
+    var interceptors = interceptable.interceptors || (interceptable.interceptors = []);
+    interceptors.push(handler);
+    return once(function () {
+        var idx = interceptors.indexOf(handler);
+        if (idx !== -1)
+            interceptors.splice(idx, 1);
+    });
+}
+function interceptChange(interceptable, change) {
+    var prevU = untrackedStart();
+    try {
+        var interceptors = interceptable.interceptors;
+        if (interceptors)
+            for (var i = 0, l = interceptors.length; i < l; i++) {
+                change = interceptors[i](change);
+                invariant(!change || change.type, "Intercept handlers should return nothing or a change object");
+                if (!change)
+                    break;
+            }
+        return change;
+    }
+    finally {
+        untrackedEnd(prevU);
+    }
+}
+
+function hasListeners(listenable) {
+    return listenable.changeListeners && listenable.changeListeners.length > 0;
+}
+function registerListener(listenable, handler) {
+    var listeners = listenable.changeListeners || (listenable.changeListeners = []);
+    listeners.push(handler);
+    return once(function () {
+        var idx = listeners.indexOf(handler);
+        if (idx !== -1)
+            listeners.splice(idx, 1);
+    });
+}
+function notifyListeners(listenable, change) {
+    var prevU = untrackedStart();
+    var listeners = listenable.changeListeners;
+    if (!listeners)
+        return;
+    listeners = listeners.slice();
+    for (var i = 0, l = listeners.length; i < l; i++) {
+        listeners[i](change);
+    }
+    untrackedEnd(prevU);
+}
+
+function isSpyEnabled() {
+    return !!globalState.spyListeners.length;
+}
+function spyReport(event) {
+    if (!globalState.spyListeners.length)
+        return;
+    var listeners = globalState.spyListeners;
+    for (var i = 0, l = listeners.length; i < l; i++)
+        listeners[i](event);
+}
+function spyReportStart(event) {
+    var change = objectAssign({}, event, { spyReportStart: true });
+    spyReport(change);
+}
+var END_EVENT = { spyReportEnd: true };
+function spyReportEnd(change) {
+    if (change)
+        spyReport(objectAssign({}, change, END_EVENT));
+    else
+        spyReport(END_EVENT);
+}
+function spy(listener) {
+    globalState.spyListeners.push(listener);
+    return once(function () {
+        var idx = globalState.spyListeners.indexOf(listener);
+        if (idx !== -1)
+            globalState.spyListeners.splice(idx, 1);
+    });
+}
+
+function iteratorSymbol() {
+    return (typeof Symbol === "function" && Symbol.iterator) || "@@iterator";
+}
+var IS_ITERATING_MARKER = "__$$iterating";
+function arrayAsIterator(array) {
+    // returning an array for entries(), values() etc for maps was a mis-interpretation of the specs..,
+    // yet it is quite convenient to be able to use the response both as array directly and as iterator
+    // it is suboptimal, but alas...
+    invariant(array[IS_ITERATING_MARKER] !== true, "Illegal state: cannot recycle array as iterator");
+    addHiddenFinalProp(array, IS_ITERATING_MARKER, true);
+    var idx = -1;
+    addHiddenFinalProp(array, "next", function next() {
+        idx++;
+        return {
+            done: idx >= this.length,
+            value: idx < this.length ? this[idx] : undefined
+        };
+    });
+    return array;
+}
+function declareIterator(prototType, iteratorFactory) {
+    addHiddenFinalProp(prototType, iteratorSymbol(), iteratorFactory);
+}
+
+var MAX_SPLICE_SIZE = 10000; // See e.g. https://github.com/mobxjs/mobx/issues/859
+// Detects bug in safari 9.1.1 (or iOS 9 safari mobile). See #364
+var safariPrototypeSetterInheritanceBug = (function () {
+    var v = false;
+    var p = {};
+    Object.defineProperty(p, "0", {
+        set: function () {
+            v = true;
+        }
+    });
+    Object.create(p)["0"] = 1;
+    return v === false;
+})();
+/**
+ * This array buffer contains two lists of properties, so that all arrays
+ * can recycle their property definitions, which significantly improves performance of creating
+ * properties on the fly.
+ */
+var OBSERVABLE_ARRAY_BUFFER_SIZE = 0;
+// Typescript workaround to make sure ObservableArray extends Array
+var StubArray = /** @class */ (function () {
+    function StubArray() {
+    }
+    return StubArray;
+}());
+function inherit(ctor, proto) {
+    if (typeof Object["setPrototypeOf"] !== "undefined") {
+        Object["setPrototypeOf"](ctor.prototype, proto);
+    }
+    else if (typeof ctor.prototype.__proto__ !== "undefined") {
+        ctor.prototype.__proto__ = proto;
+    }
+    else {
+        ctor["prototype"] = proto;
+    }
+}
+inherit(StubArray, Array.prototype);
+// Weex freeze Array.prototype
+// Make them writeable and configurable in prototype chain
+// https://github.com/alibaba/weex/pull/1529
+if (Object.isFrozen(Array)) {
+    
+    [
+        "constructor",
+        "push",
+        "shift",
+        "concat",
+        "pop",
+        "unshift",
+        "replace",
+        "find",
+        "findIndex",
+        "splice",
+        "reverse",
+        "sort"
+    ].forEach(function (key) {
+        Object.defineProperty(StubArray.prototype, key, {
+            configurable: true,
+            writable: true,
+            value: Array.prototype[key]
+        });
+    });
+}
+var ObservableArrayAdministration = /** @class */ (function () {
+    function ObservableArrayAdministration(name, enhancer, array, owned) {
+        this.array = array;
+        this.owned = owned;
+        this.values = [];
+        this.lastKnownLength = 0;
+        this.interceptors = null;
+        this.changeListeners = null;
+        this.atom = new BaseAtom(name || "ObservableArray@" + getNextId());
+        this.enhancer = function (newV, oldV) { return enhancer(newV, oldV, name + "[..]"); };
+    }
+    ObservableArrayAdministration.prototype.dehanceValue = function (value) {
+        if (this.dehancer !== undefined)
+            return this.dehancer(value);
+        return value;
+    };
+    ObservableArrayAdministration.prototype.dehanceValues = function (values) {
+        if (this.dehancer !== undefined)
+            return values.map(this.dehancer);
+        return values;
+    };
+    ObservableArrayAdministration.prototype.intercept = function (handler) {
+        return registerInterceptor(this, handler);
+    };
+    ObservableArrayAdministration.prototype.observe = function (listener, fireImmediately) {
+        if (fireImmediately === void 0) { fireImmediately = false; }
+        if (fireImmediately) {
+            listener({
+                object: this.array,
+                type: "splice",
+                index: 0,
+                added: this.values.slice(),
+                addedCount: this.values.length,
+                removed: [],
+                removedCount: 0
+            });
+        }
+        return registerListener(this, listener);
+    };
+    ObservableArrayAdministration.prototype.getArrayLength = function () {
+        this.atom.reportObserved();
+        return this.values.length;
+    };
+    ObservableArrayAdministration.prototype.setArrayLength = function (newLength) {
+        if (typeof newLength !== "number" || newLength < 0)
+            throw new Error("[mobx.array] Out of range: " + newLength);
+        var currentLength = this.values.length;
+        if (newLength === currentLength)
+            return;
+        else if (newLength > currentLength) {
+            var newItems = new Array(newLength - currentLength);
+            for (var i = 0; i < newLength - currentLength; i++)
+                newItems[i] = undefined; // No Array.fill everywhere...
+            this.spliceWithArray(currentLength, 0, newItems);
+        }
+        else
+            this.spliceWithArray(newLength, currentLength - newLength);
+    };
+    // adds / removes the necessary numeric properties to this object
+    ObservableArrayAdministration.prototype.updateArrayLength = function (oldLength, delta) {
+        if (oldLength !== this.lastKnownLength)
+            throw new Error("[mobx] Modification exception: the internal structure of an observable array was changed. Did you use peek() to change it?");
+        this.lastKnownLength += delta;
+        if (delta > 0 && oldLength + delta + 1 > OBSERVABLE_ARRAY_BUFFER_SIZE)
+            reserveArrayBuffer(oldLength + delta + 1);
+    };
+    ObservableArrayAdministration.prototype.spliceWithArray = function (index, deleteCount, newItems) {
+        var _this = this;
+        checkIfStateModificationsAreAllowed(this.atom);
+        var length = this.values.length;
+        if (index === undefined)
+            index = 0;
+        else if (index > length)
+            index = length;
+        else if (index < 0)
+            index = Math.max(0, length + index);
+        if (arguments.length === 1)
+            deleteCount = length - index;
+        else if (deleteCount === undefined || deleteCount === null)
+            deleteCount = 0;
+        else
+            deleteCount = Math.max(0, Math.min(deleteCount, length - index));
+        if (newItems === undefined)
+            newItems = [];
+        if (hasInterceptors(this)) {
+            var change = interceptChange(this, {
+                object: this.array,
+                type: "splice",
+                index: index,
+                removedCount: deleteCount,
+                added: newItems
+            });
+            if (!change)
+                return EMPTY_ARRAY;
+            deleteCount = change.removedCount;
+            newItems = change.added;
+        }
+        newItems = newItems.map(function (v) { return _this.enhancer(v, undefined); });
+        var lengthDelta = newItems.length - deleteCount;
+        this.updateArrayLength(length, lengthDelta); // create or remove new entries
+        var res = this.spliceItemsIntoValues(index, deleteCount, newItems);
+        if (deleteCount !== 0 || newItems.length !== 0)
+            this.notifyArraySplice(index, newItems, res);
+        return this.dehanceValues(res);
+    };
+    ObservableArrayAdministration.prototype.spliceItemsIntoValues = function (index, deleteCount, newItems) {
+        if (newItems.length < MAX_SPLICE_SIZE) {
+            return (_a = this.values).splice.apply(_a, [index, deleteCount].concat(newItems));
+        }
+        else {
+            var res = this.values.slice(index, index + deleteCount);
+            this.values = this.values
+                .slice(0, index)
+                .concat(newItems, this.values.slice(index + deleteCount));
+            return res;
+        }
+        var _a;
+    };
+    ObservableArrayAdministration.prototype.notifyArrayChildUpdate = function (index, newValue, oldValue) {
+        var notifySpy = !this.owned && isSpyEnabled();
+        var notify = hasListeners(this);
+        var change = notify || notifySpy
+            ? {
+                object: this.array,
+                type: "update",
+                index: index,
+                newValue: newValue,
+                oldValue: oldValue
+            }
+            : null;
+        if (notifySpy)
+            spyReportStart(change);
+        this.atom.reportChanged();
+        if (notify)
+            notifyListeners(this, change);
+        if (notifySpy)
+            spyReportEnd();
+    };
+    ObservableArrayAdministration.prototype.notifyArraySplice = function (index, added, removed) {
+        var notifySpy = !this.owned && isSpyEnabled();
+        var notify = hasListeners(this);
+        var change = notify || notifySpy
+            ? {
+                object: this.array,
+                type: "splice",
+                index: index,
+                removed: removed,
+                added: added,
+                removedCount: removed.length,
+                addedCount: added.length
+            }
+            : null;
+        if (notifySpy)
+            spyReportStart(change);
+        this.atom.reportChanged();
+        // conform: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/observe
+        if (notify)
+            notifyListeners(this, change);
+        if (notifySpy)
+            spyReportEnd();
+    };
+    return ObservableArrayAdministration;
+}());
+var ObservableArray = /** @class */ (function (_super) {
+    __extends(ObservableArray, _super);
+    function ObservableArray(initialValues, enhancer, name, owned) {
+        if (name === void 0) { name = "ObservableArray@" + getNextId(); }
+        if (owned === void 0) { owned = false; }
+        var _this = _super.call(this) || this;
+        var adm = new ObservableArrayAdministration(name, enhancer, _this, owned);
+        addHiddenFinalProp(_this, "$mobx", adm);
+        if (initialValues && initialValues.length) {
+            _this.spliceWithArray(0, 0, initialValues);
+        }
+        if (safariPrototypeSetterInheritanceBug) {
+            // Seems that Safari won't use numeric prototype setter untill any * numeric property is
+            // defined on the instance. After that it works fine, even if this property is deleted.
+            Object.defineProperty(adm.array, "0", ENTRY_0);
+        }
+        return _this;
+    }
+    ObservableArray.prototype.intercept = function (handler) {
+        return this.$mobx.intercept(handler);
+    };
+    ObservableArray.prototype.observe = function (listener, fireImmediately) {
+        if (fireImmediately === void 0) { fireImmediately = false; }
+        return this.$mobx.observe(listener, fireImmediately);
+    };
+    ObservableArray.prototype.clear = function () {
+        return this.splice(0);
+    };
+    ObservableArray.prototype.concat = function () {
+        var arrays = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            arrays[_i] = arguments[_i];
+        }
+        this.$mobx.atom.reportObserved();
+        return Array.prototype.concat.apply(this.peek(), arrays.map(function (a) { return (isObservableArray(a) ? a.peek() : a); }));
+    };
+    ObservableArray.prototype.replace = function (newItems) {
+        return this.$mobx.spliceWithArray(0, this.$mobx.values.length, newItems);
+    };
+    /**
+     * Converts this array back to a (shallow) javascript structure.
+     * For a deep clone use mobx.toJS
+     */
+    ObservableArray.prototype.toJS = function () {
+        return this.slice();
+    };
+    ObservableArray.prototype.toJSON = function () {
+        // Used by JSON.stringify
+        return this.toJS();
+    };
+    ObservableArray.prototype.peek = function () {
+        this.$mobx.atom.reportObserved();
+        return this.$mobx.dehanceValues(this.$mobx.values);
+    };
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+    ObservableArray.prototype.find = function (predicate, thisArg, fromIndex) {
+        if (fromIndex === void 0) { fromIndex = 0; }
+        var idx = this.findIndex.apply(this, arguments);
+        return idx === -1 ? undefined : this.get(idx);
+    };
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
+    ObservableArray.prototype.findIndex = function (predicate, thisArg, fromIndex) {
+        if (fromIndex === void 0) { fromIndex = 0; }
+        var items = this.peek(), l = items.length;
+        for (var i = fromIndex; i < l; i++)
+            if (predicate.call(thisArg, items[i], i, this))
+                return i;
+        return -1;
+    };
+    /*
+     * functions that do alter the internal structure of the array, (based on lib.es6.d.ts)
+     * since these functions alter the inner structure of the array, the have side effects.
+     * Because the have side effects, they should not be used in computed function,
+     * and for that reason the do not call dependencyState.notifyObserved
+     */
+    ObservableArray.prototype.splice = function (index, deleteCount) {
+        var newItems = [];
+        for (var _i = 2; _i < arguments.length; _i++) {
+            newItems[_i - 2] = arguments[_i];
+        }
+        switch (arguments.length) {
+            case 0:
+                return [];
+            case 1:
+                return this.$mobx.spliceWithArray(index);
+            case 2:
+                return this.$mobx.spliceWithArray(index, deleteCount);
+        }
+        return this.$mobx.spliceWithArray(index, deleteCount, newItems);
+    };
+    ObservableArray.prototype.spliceWithArray = function (index, deleteCount, newItems) {
+        return this.$mobx.spliceWithArray(index, deleteCount, newItems);
+    };
+    ObservableArray.prototype.push = function () {
+        var items = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            items[_i] = arguments[_i];
+        }
+        var adm = this.$mobx;
+        adm.spliceWithArray(adm.values.length, 0, items);
+        return adm.values.length;
+    };
+    ObservableArray.prototype.pop = function () {
+        return this.splice(Math.max(this.$mobx.values.length - 1, 0), 1)[0];
+    };
+    ObservableArray.prototype.shift = function () {
+        return this.splice(0, 1)[0];
+    };
+    ObservableArray.prototype.unshift = function () {
+        var items = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            items[_i] = arguments[_i];
+        }
+        var adm = this.$mobx;
+        adm.spliceWithArray(0, 0, items);
+        return adm.values.length;
+    };
+    ObservableArray.prototype.reverse = function () {
+        // reverse by default mutates in place before returning the result
+        // which makes it both a 'derivation' and a 'mutation'.
+        // so we deviate from the default and just make it an dervitation
+        var clone = this.slice();
+        return clone.reverse.apply(clone, arguments);
+    };
+    ObservableArray.prototype.sort = function (compareFn) {
+        // sort by default mutates in place before returning the result
+        // which goes against all good practices. Let's not change the array in place!
+        var clone = this.slice();
+        return clone.sort.apply(clone, arguments);
+    };
+    ObservableArray.prototype.remove = function (value) {
+        var idx = this.$mobx.dehanceValues(this.$mobx.values).indexOf(value);
+        if (idx > -1) {
+            this.splice(idx, 1);
+            return true;
+        }
+        return false;
+    };
+    ObservableArray.prototype.move = function (fromIndex, toIndex) {
+        function checkIndex(index) {
+            if (index < 0) {
+                throw new Error("[mobx.array] Index out of bounds: " + index + " is negative");
+            }
+            var length = this.$mobx.values.length;
+            if (index >= length) {
+                throw new Error("[mobx.array] Index out of bounds: " + index + " is not smaller than " + length);
+            }
+        }
+        checkIndex.call(this, fromIndex);
+        checkIndex.call(this, toIndex);
+        if (fromIndex === toIndex) {
+            return;
+        }
+        var oldItems = this.$mobx.values;
+        var newItems;
+        if (fromIndex < toIndex) {
+            newItems = oldItems.slice(0, fromIndex).concat(oldItems.slice(fromIndex + 1, toIndex + 1), [
+                oldItems[fromIndex]
+            ], oldItems.slice(toIndex + 1));
+        }
+        else {
+            // toIndex < fromIndex
+            newItems = oldItems.slice(0, toIndex).concat([
+                oldItems[fromIndex]
+            ], oldItems.slice(toIndex, fromIndex), oldItems.slice(fromIndex + 1));
+        }
+        this.replace(newItems);
+    };
+    // See #734, in case property accessors are unreliable...
+    ObservableArray.prototype.get = function (index) {
+        var impl = this.$mobx;
+        if (impl) {
+            if (index < impl.values.length) {
+                impl.atom.reportObserved();
+                return impl.dehanceValue(impl.values[index]);
+            }
+            console.warn("[mobx.array] Attempt to read an array index (" + index + ") that is out of bounds (" + impl
+                .values
+                .length + "). Please check length first. Out of bound indices will not be tracked by MobX");
+        }
+        return undefined;
+    };
+    // See #734, in case property accessors are unreliable...
+    ObservableArray.prototype.set = function (index, newValue) {
+        var adm = this.$mobx;
+        var values = adm.values;
+        if (index < values.length) {
+            // update at index in range
+            checkIfStateModificationsAreAllowed(adm.atom);
+            var oldValue = values[index];
+            if (hasInterceptors(adm)) {
+                var change = interceptChange(adm, {
+                    type: "update",
+                    object: this,
+                    index: index,
+                    newValue: newValue
+                });
+                if (!change)
+                    return;
+                newValue = change.newValue;
+            }
+            newValue = adm.enhancer(newValue, oldValue);
+            var changed = newValue !== oldValue;
+            if (changed) {
+                values[index] = newValue;
+                adm.notifyArrayChildUpdate(index, newValue, oldValue);
+            }
+        }
+        else if (index === values.length) {
+            // add a new item
+            adm.spliceWithArray(index, 0, [newValue]);
+        }
+        else {
+            // out of bounds
+            throw new Error("[mobx.array] Index out of bounds, " + index + " is larger than " + values.length);
+        }
+    };
+    return ObservableArray;
+}(StubArray));
+declareIterator(ObservableArray.prototype, function () {
+    return arrayAsIterator(this.slice());
+});
+Object.defineProperty(ObservableArray.prototype, "length", {
+    enumerable: false,
+    configurable: true,
+    get: function () {
+        return this.$mobx.getArrayLength();
+    },
+    set: function (newLength) {
+        this.$mobx.setArrayLength(newLength);
+    }
+});
+[
+    "every",
+    "filter",
+    "forEach",
+    "indexOf",
+    "join",
+    "lastIndexOf",
+    "map",
+    "reduce",
+    "reduceRight",
+    "slice",
+    "some",
+    "toString",
+    "toLocaleString"
+].forEach(function (funcName) {
+    var baseFunc = Array.prototype[funcName];
+    invariant(typeof baseFunc === "function", "Base function not defined on Array prototype: '" + funcName + "'");
+    addHiddenProp(ObservableArray.prototype, funcName, function () {
+        return baseFunc.apply(this.peek(), arguments);
+    });
+});
+/**
+ * We don't want those to show up in `for (const key in ar)` ...
+ */
+makeNonEnumerable(ObservableArray.prototype, [
+    "constructor",
+    "intercept",
+    "observe",
+    "clear",
+    "concat",
+    "get",
+    "replace",
+    "toJS",
+    "toJSON",
+    "peek",
+    "find",
+    "findIndex",
+    "splice",
+    "spliceWithArray",
+    "push",
+    "pop",
+    "set",
+    "shift",
+    "unshift",
+    "reverse",
+    "sort",
+    "remove",
+    "move",
+    "toString",
+    "toLocaleString"
+]);
+// See #364
+var ENTRY_0 = createArrayEntryDescriptor(0);
+function createArrayEntryDescriptor(index) {
+    return {
+        enumerable: false,
+        configurable: false,
+        get: function () {
+            // TODO: Check `this`?, see #752?
+            return this.get(index);
+        },
+        set: function (value) {
+            this.set(index, value);
+        }
+    };
+}
+function createArrayBufferItem(index) {
+    Object.defineProperty(ObservableArray.prototype, "" + index, createArrayEntryDescriptor(index));
+}
+function reserveArrayBuffer(max) {
+    for (var index = OBSERVABLE_ARRAY_BUFFER_SIZE; index < max; index++)
+        createArrayBufferItem(index);
+    OBSERVABLE_ARRAY_BUFFER_SIZE = max;
+}
+reserveArrayBuffer(1000);
+var isObservableArrayAdministration = createInstanceofPredicate("ObservableArrayAdministration", ObservableArrayAdministration);
+function isObservableArray(thing) {
+    return isObject(thing) && isObservableArrayAdministration(thing.$mobx);
+}
+
+var UNCHANGED = {};
+var ObservableValue = /** @class */ (function (_super) {
+    __extends(ObservableValue, _super);
+    function ObservableValue(value, enhancer, name, notifySpy) {
+        if (name === void 0) { name = "ObservableValue@" + getNextId(); }
+        if (notifySpy === void 0) { notifySpy = true; }
+        var _this = _super.call(this, name) || this;
+        _this.enhancer = enhancer;
+        _this.hasUnreportedChange = false;
+        _this.dehancer = undefined;
+        _this.value = enhancer(value, undefined, name);
+        if (notifySpy && isSpyEnabled()) {
+            // only notify spy if this is a stand-alone observable
+            spyReport({ type: "create", object: _this, newValue: _this.value });
+        }
+        return _this;
+    }
+    ObservableValue.prototype.dehanceValue = function (value) {
+        if (this.dehancer !== undefined)
+            return this.dehancer(value);
+        return value;
+    };
+    ObservableValue.prototype.set = function (newValue) {
+        var oldValue = this.value;
+        newValue = this.prepareNewValue(newValue);
+        if (newValue !== UNCHANGED) {
+            var notifySpy = isSpyEnabled();
+            if (notifySpy) {
+                spyReportStart({
+                    type: "update",
+                    object: this,
+                    newValue: newValue,
+                    oldValue: oldValue
+                });
+            }
+            this.setNewValue(newValue);
+            if (notifySpy)
+                spyReportEnd();
+        }
+    };
+    ObservableValue.prototype.prepareNewValue = function (newValue) {
+        checkIfStateModificationsAreAllowed(this);
+        if (hasInterceptors(this)) {
+            var change = interceptChange(this, {
+                object: this,
+                type: "update",
+                newValue: newValue
+            });
+            if (!change)
+                return UNCHANGED;
+            newValue = change.newValue;
+        }
+        // apply modifier
+        newValue = this.enhancer(newValue, this.value, this.name);
+        return this.value !== newValue ? newValue : UNCHANGED;
+    };
+    ObservableValue.prototype.setNewValue = function (newValue) {
+        var oldValue = this.value;
+        this.value = newValue;
+        this.reportChanged();
+        if (hasListeners(this)) {
+            notifyListeners(this, {
+                type: "update",
+                object: this,
+                newValue: newValue,
+                oldValue: oldValue
+            });
+        }
+    };
+    ObservableValue.prototype.get = function () {
+        this.reportObserved();
+        return this.dehanceValue(this.value);
+    };
+    ObservableValue.prototype.intercept = function (handler) {
+        return registerInterceptor(this, handler);
+    };
+    ObservableValue.prototype.observe = function (listener, fireImmediately) {
+        if (fireImmediately)
+            listener({
+                object: this,
+                type: "update",
+                newValue: this.value,
+                oldValue: undefined
+            });
+        return registerListener(this, listener);
+    };
+    ObservableValue.prototype.toJSON = function () {
+        return this.get();
+    };
+    ObservableValue.prototype.toString = function () {
+        return this.name + "[" + this.value + "]";
+    };
+    ObservableValue.prototype.valueOf = function () {
+        return toPrimitive(this.get());
+    };
+    return ObservableValue;
+}(BaseAtom));
+ObservableValue.prototype[primitiveSymbol()] = ObservableValue.prototype.valueOf;
+var isObservableValue = createInstanceofPredicate("ObservableValue", ObservableValue);
+
+var messages = {
+    m001: "It is not allowed to assign new values to @action fields",
+    m002: "`runInAction` expects a function",
+    m003: "`runInAction` expects a function without arguments",
+    m004: "autorun expects a function",
+    m005: "Warning: attempted to pass an action to autorun. Actions are untracked and will not trigger on state changes. Use `reaction` or wrap only your state modification code in an action.",
+    m006: "Warning: attempted to pass an action to autorunAsync. Actions are untracked and will not trigger on state changes. Use `reaction` or wrap only your state modification code in an action.",
+    m007: "reaction only accepts 2 or 3 arguments. If migrating from MobX 2, please provide an options object",
+    m008: "wrapping reaction expression in `asReference` is no longer supported, use options object instead",
+    m009: "@computed can only be used on getter functions, like: '@computed get myProps() { return ...; }'. It looks like it was used on a property.",
+    m010: "@computed can only be used on getter functions, like: '@computed get myProps() { return ...; }'",
+    m011: "First argument to `computed` should be an expression. If using computed as decorator, don't pass it arguments",
+    m012: "computed takes one or two arguments if used as function",
+    m013: "[mobx.expr] 'expr' should only be used inside other reactive functions.",
+    m014: "extendObservable expected 2 or more arguments",
+    m015: "extendObservable expects an object as first argument",
+    m016: "extendObservable should not be used on maps, use map.merge instead",
+    m017: "all arguments of extendObservable should be objects",
+    m018: "extending an object with another observable (object) is not supported. Please construct an explicit propertymap, using `toJS` if need. See issue #540",
+    m019: "[mobx.isObservable] isObservable(object, propertyName) is not supported for arrays and maps. Use map.has or array.length instead.",
+    m020: "modifiers can only be used for individual object properties",
+    m021: "observable expects zero or one arguments",
+    m022: "@observable can not be used on getters, use @computed instead",
+    m024: "whyRun() can only be used if a derivation is active, or by passing an computed value / reaction explicitly. If you invoked whyRun from inside a computation; the computation is currently suspended but re-evaluating because somebody requested its value.",
+    m025: "whyRun can only be used on reactions and computed values",
+    m026: "`action` can only be invoked on functions",
+    m028: "It is not allowed to set `useStrict` when a derivation is running",
+    m029: "INTERNAL ERROR only onBecomeUnobserved shouldn't be called twice in a row",
+    m030a: "Since strict-mode is enabled, changing observed observable values outside actions is not allowed. Please wrap the code in an `action` if this change is intended. Tried to modify: ",
+    m030b: "Side effects like changing state are not allowed at this point. Are you trying to modify state from, for example, the render function of a React component? Tried to modify: ",
+    m031: "Computed values are not allowed to cause side effects by changing observables that are already being observed. Tried to modify: ",
+    m032: "* This computation is suspended (not in use by any reaction) and won't run automatically.\n	Didn't expect this computation to be suspended at this point?\n	  1. Make sure this computation is used by a reaction (reaction, autorun, observer).\n	  2. Check whether you are using this computation synchronously (in the same stack as they reaction that needs it).",
+    m033: "`observe` doesn't support the fire immediately property for observable maps.",
+    m034: "`mobx.map` is deprecated, use `new ObservableMap` or `mobx.observable.map` instead",
+    m035: "Cannot make the designated object observable; it is not extensible",
+    m036: "It is not possible to get index atoms from arrays",
+    m037: "Hi there! I'm sorry you have just run into an exception.\nIf your debugger ends up here, know that some reaction (like the render() of an observer component, autorun or reaction)\nthrew an exception and that mobx caught it, to avoid that it brings the rest of your application down.\nThe original cause of the exception (the code that caused this reaction to run (again)), is still in the stack.\n\nHowever, more interesting is the actual stack trace of the error itself.\nHopefully the error is an instanceof Error, because in that case you can inspect the original stack of the error from where it was thrown.\nSee `error.stack` property, or press the very subtle \"(...)\" link you see near the console.error message that probably brought you here.\nThat stack is more interesting than the stack of this console.error itself.\n\nIf the exception you see is an exception you created yourself, make sure to use `throw new Error(\"Oops\")` instead of `throw \"Oops\"`,\nbecause the javascript environment will only preserve the original stack trace in the first form.\n\nYou can also make sure the debugger pauses the next time this very same exception is thrown by enabling \"Pause on caught exception\".\n(Note that it might pause on many other, unrelated exception as well).\n\nIf that all doesn't help you out, feel free to open an issue https://github.com/mobxjs/mobx/issues!\n",
+    m038: "Missing items in this list?\n    1. Check whether all used values are properly marked as observable (use isObservable to verify)\n    2. Make sure you didn't dereference values too early. MobX observes props, not primitives. E.g: use 'person.name' instead of 'name' in your computation.\n"
+};
+function getMessage(id) {
+    return messages[id];
+}
+
+function createAction(actionName, fn) {
+    invariant(typeof fn === "function", getMessage("m026"));
+    invariant(typeof actionName === "string" && actionName.length > 0, "actions should have valid names, got: '" + actionName + "'");
+    var res = function () {
+        return executeAction(actionName, fn, this, arguments);
+    };
+    res.originalFn = fn;
+    res.isMobxAction = true;
+    return res;
+}
+function executeAction(actionName, fn, scope, args) {
+    var runInfo = startAction(actionName, fn, scope, args);
+    try {
+        return fn.apply(scope, args);
+    }
+    finally {
+        endAction(runInfo);
+    }
+}
+function startAction(actionName, fn, scope, args) {
+    var notifySpy = isSpyEnabled() && !!actionName;
+    var startTime = 0;
+    if (notifySpy) {
+        startTime = Date.now();
+        var l = (args && args.length) || 0;
+        var flattendArgs = new Array(l);
+        if (l > 0)
+            for (var i = 0; i < l; i++)
+                flattendArgs[i] = args[i];
+        spyReportStart({
+            type: "action",
+            name: actionName,
+            fn: fn,
+            object: scope,
+            arguments: flattendArgs
+        });
+    }
+    var prevDerivation = untrackedStart();
+    startBatch();
+    var prevAllowStateChanges = allowStateChangesStart(true);
+    return {
+        prevDerivation: prevDerivation,
+        prevAllowStateChanges: prevAllowStateChanges,
+        notifySpy: notifySpy,
+        startTime: startTime
+    };
+}
+function endAction(runInfo) {
+    allowStateChangesEnd(runInfo.prevAllowStateChanges);
+    endBatch();
+    untrackedEnd(runInfo.prevDerivation);
+    if (runInfo.notifySpy)
+        spyReportEnd({ time: Date.now() - runInfo.startTime });
+}
+function useStrict(strict) {
+    invariant(globalState.trackingDerivation === null, getMessage("m028"));
+    globalState.strictMode = strict;
+    globalState.allowStateChanges = !strict;
+}
+function isStrictModeEnabled() {
+    return globalState.strictMode;
+}
+function allowStateChanges(allowStateChanges, func) {
+    // TODO: deprecate / refactor this function in next major
+    // Currently only used by `@observer`
+    // Proposed change: remove first param, rename to `forbidStateChanges`,
+    // require error callback instead of the hardcoded error message now used
+    // Use `inAction` instead of allowStateChanges in derivation.ts to check strictMode
+    var prev = allowStateChangesStart(allowStateChanges);
+    var res;
+    try {
+        res = func();
+    }
+    finally {
+        allowStateChangesEnd(prev);
+    }
+    return res;
+}
+function allowStateChangesStart(allowStateChanges) {
+    var prev = globalState.allowStateChanges;
+    globalState.allowStateChanges = allowStateChanges;
+    return prev;
+}
+function allowStateChangesEnd(prev) {
+    globalState.allowStateChanges = prev;
+}
+
+/**
+ * Constructs a decorator, that normalizes the differences between
+ * TypeScript and Babel. Mainly caused by the fact that legacy-decorator cannot assign
+ * values during instance creation to properties that have a getter setter.
+ *
+ * - Sigh -
+ *
+ * Also takes care of the difference between @decorator field and @decorator(args) field, and different forms of values.
+ * For performance (cpu and mem) reasons the properties are always defined on the prototype (at least initially).
+ * This means that these properties despite being enumerable might not show up in Object.keys() (but they will show up in for...in loops).
+ */
+function createClassPropertyDecorator(
+/**
+ * This function is invoked once, when the property is added to a new instance.
+ * When this happens is not strictly determined due to differences in TS and Babel:
+ * Typescript: Usually when constructing the new instance
+ * Babel, sometimes Typescript: during the first get / set
+ * Both: when calling `runLazyInitializers(instance)`
+ */
+onInitialize, get, set, enumerable, 
+/**
+ * Can this decorator invoked with arguments? e.g. @decorator(args)
+ */
+allowCustomArguments) {
+    function classPropertyDecorator(target, key, descriptor, customArgs, argLen) {
+        if (argLen === void 0) { argLen = 0; }
+        invariant(allowCustomArguments || quacksLikeADecorator(arguments), "This function is a decorator, but it wasn't invoked like a decorator");
+        if (!descriptor) {
+            // typescript (except for getter / setters)
+            var newDescriptor = {
+                enumerable: enumerable,
+                configurable: true,
+                get: function () {
+                    if (!this.__mobxInitializedProps || this.__mobxInitializedProps[key] !== true)
+                        typescriptInitializeProperty(this, key, undefined, onInitialize, customArgs, descriptor);
+                    return get.call(this, key);
+                },
+                set: function (v) {
+                    if (!this.__mobxInitializedProps || this.__mobxInitializedProps[key] !== true) {
+                        typescriptInitializeProperty(this, key, v, onInitialize, customArgs, descriptor);
+                    }
+                    else {
+                        set.call(this, key, v);
+                    }
+                }
+            };
+            if (arguments.length < 3 || (arguments.length === 5 && argLen < 3)) {
+                // Typescript target is ES3, so it won't define property for us
+                // or using Reflect.decorate polyfill, which will return no descriptor
+                // (see https://github.com/mobxjs/mobx/issues/333)
+                Object.defineProperty(target, key, newDescriptor);
+            }
+            return newDescriptor;
+        }
+        else {
+            // babel and typescript getter / setter props
+            if (!hasOwnProperty(target, "__mobxLazyInitializers")) {
+                addHiddenProp(target, "__mobxLazyInitializers", (target.__mobxLazyInitializers && target.__mobxLazyInitializers.slice()) || [] // support inheritance
+                );
+            }
+            var value_1 = descriptor.value, initializer_1 = descriptor.initializer;
+            target.__mobxLazyInitializers.push(function (instance) {
+                onInitialize(instance, key, initializer_1 ? initializer_1.call(instance) : value_1, customArgs, descriptor);
+            });
+            return {
+                enumerable: enumerable,
+                configurable: true,
+                get: function () {
+                    if (this.__mobxDidRunLazyInitializers !== true)
+                        runLazyInitializers(this);
+                    return get.call(this, key);
+                },
+                set: function (v) {
+                    if (this.__mobxDidRunLazyInitializers !== true)
+                        runLazyInitializers(this);
+                    set.call(this, key, v);
+                }
+            };
+        }
+    }
+    if (allowCustomArguments) {
+        /** If custom arguments are allowed, we should return a function that returns a decorator */
+        return function () {
+            /** Direct invocation: @decorator bla */
+            if (quacksLikeADecorator(arguments))
+                return classPropertyDecorator.apply(null, arguments);
+            /** Indirect invocation: @decorator(args) bla */
+            var outerArgs = arguments;
+            var argLen = arguments.length;
+            return function (target, key, descriptor) {
+                return classPropertyDecorator(target, key, descriptor, outerArgs, argLen);
+            };
+        };
+    }
+    return classPropertyDecorator;
+}
+function typescriptInitializeProperty(instance, key, v, onInitialize, customArgs, baseDescriptor) {
+    if (!hasOwnProperty(instance, "__mobxInitializedProps"))
+        addHiddenProp(instance, "__mobxInitializedProps", {});
+    instance.__mobxInitializedProps[key] = true;
+    onInitialize(instance, key, v, customArgs, baseDescriptor);
+}
+function runLazyInitializers(instance) {
+    if (instance.__mobxDidRunLazyInitializers === true)
+        return;
+    if (instance.__mobxLazyInitializers) {
+        addHiddenProp(instance, "__mobxDidRunLazyInitializers", true);
+        instance.__mobxDidRunLazyInitializers &&
+            instance.__mobxLazyInitializers.forEach(function (initializer) { return initializer(instance); });
+    }
+}
+function quacksLikeADecorator(args) {
+    return (args.length === 2 || args.length === 3) && typeof args[1] === "string";
+}
+
+var actionFieldDecorator = createClassPropertyDecorator(function (target, key, value, args, originalDescriptor) {
+    var actionName = args && args.length === 1 ? args[0] : value.name || key || "<unnamed action>";
+    var wrappedAction = action(actionName, value);
+    addHiddenProp(target, key, wrappedAction);
+}, function (key) {
+    return this[key];
+}, function () {
+    invariant(false, getMessage("m001"));
+}, false, true);
+var boundActionDecorator = createClassPropertyDecorator(function (target, key, value) {
+    defineBoundAction(target, key, value);
+}, function (key) {
+    return this[key];
+}, function () {
+    invariant(false, getMessage("m001"));
+}, false, false);
+var action = function action(arg1, arg2, arg3, arg4) {
+    if (arguments.length === 1 && typeof arg1 === "function")
+        return createAction(arg1.name || "<unnamed action>", arg1);
+    if (arguments.length === 2 && typeof arg2 === "function")
+        return createAction(arg1, arg2);
+    if (arguments.length === 1 && typeof arg1 === "string")
+        return namedActionDecorator(arg1);
+    return namedActionDecorator(arg2).apply(null, arguments);
+};
+action.bound = function boundAction(arg1, arg2, arg3) {
+    if (typeof arg1 === "function") {
+        var action_1 = createAction("<not yet bound action>", arg1);
+        action_1.autoBind = true;
+        return action_1;
+    }
+    return boundActionDecorator.apply(null, arguments);
+};
+function namedActionDecorator(name) {
+    return function (target, prop, descriptor) {
+        if (descriptor && typeof descriptor.value === "function") {
+            // TypeScript @action method() { }. Defined on proto before being decorated
+            // Don't use the field decorator if we are just decorating a method
+            descriptor.value = createAction(name, descriptor.value);
+            descriptor.enumerable = false;
+            descriptor.configurable = true;
+            return descriptor;
+        }
+        if (descriptor !== undefined && descriptor.get !== undefined) {
+            throw new Error("[mobx] action is not expected to be used with getters");
+        }
+        // bound instance methods
+        return actionFieldDecorator(name).apply(this, arguments);
+    };
+}
+function runInAction(arg1, arg2, arg3) {
+    var actionName = typeof arg1 === "string" ? arg1 : arg1.name || "<unnamed action>";
+    var fn = typeof arg1 === "function" ? arg1 : arg2;
+    var scope = typeof arg1 === "function" ? arg2 : arg3;
+    invariant(typeof fn === "function", getMessage("m002"));
+    invariant(fn.length === 0, getMessage("m003"));
+    invariant(typeof actionName === "string" && actionName.length > 0, "actions should have valid names, got: '" + actionName + "'");
+    return executeAction(actionName, fn, scope, undefined);
+}
+function isAction(thing) {
+    return typeof thing === "function" && thing.isMobxAction === true;
+}
+function defineBoundAction(target, propertyName, fn) {
+    var res = function () {
+        return executeAction(propertyName, fn, target, arguments);
+    };
+    res.isMobxAction = true;
+    addHiddenProp(target, propertyName, res);
+}
+
+var toString = Object.prototype.toString;
+function deepEqual(a, b) {
+    return eq(a, b);
+}
+// Copied from https://github.com/jashkenas/underscore/blob/5c237a7c682fb68fd5378203f0bf22dce1624854/underscore.js#L1186-L1289
+// Internal recursive comparison function for `isEqual`.
+function eq(a, b, aStack, bStack) {
+    // Identical objects are equal. `0 === -0`, but they aren't identical.
+    // See the [Harmony `egal` proposal](http://wiki.ecmascript.org/doku.php?id=harmony:egal).
+    if (a === b)
+        return a !== 0 || 1 / a === 1 / b;
+    // `null` or `undefined` only equal to itself (strict comparison).
+    if (a == null || b == null)
+        return false;
+    // `NaN`s are equivalent, but non-reflexive.
+    if (a !== a)
+        return b !== b;
+    // Exhaust primitive checks
+    var type = typeof a;
+    if (type !== "function" && type !== "object" && typeof b != "object")
+        return false;
+    return deepEq(a, b, aStack, bStack);
+}
+// Internal recursive comparison function for `isEqual`.
+function deepEq(a, b, aStack, bStack) {
+    // Unwrap any wrapped objects.
+    a = unwrap(a);
+    b = unwrap(b);
+    // Compare `[[Class]]` names.
+    var className = toString.call(a);
+    if (className !== toString.call(b))
+        return false;
+    switch (className) {
+        // Strings, numbers, regular expressions, dates, and booleans are compared by value.
+        case "[object RegExp]":
+        // RegExps are coerced to strings for comparison (Note: '' + /a/i === '/a/i')
+        case "[object String]":
+            // Primitives and their corresponding object wrappers are equivalent; thus, `"5"` is
+            // equivalent to `new String("5")`.
+            return "" + a === "" + b;
+        case "[object Number]":
+            // `NaN`s are equivalent, but non-reflexive.
+            // Object(NaN) is equivalent to NaN.
+            if (+a !== +a)
+                return +b !== +b;
+            // An `egal` comparison is performed for other numeric values.
+            return +a === 0 ? 1 / +a === 1 / b : +a === +b;
+        case "[object Date]":
+        case "[object Boolean]":
+            // Coerce dates and booleans to numeric primitive values. Dates are compared by their
+            // millisecond representations. Note that invalid dates with millisecond representations
+            // of `NaN` are not equivalent.
+            return +a === +b;
+        case "[object Symbol]":
+            return (typeof Symbol !== "undefined" && Symbol.valueOf.call(a) === Symbol.valueOf.call(b));
+    }
+    var areArrays = className === "[object Array]";
+    if (!areArrays) {
+        if (typeof a != "object" || typeof b != "object")
+            return false;
+        // Objects with different constructors are not equivalent, but `Object`s or `Array`s
+        // from different frames are.
+        var aCtor = a.constructor, bCtor = b.constructor;
+        if (aCtor !== bCtor &&
+            !(typeof aCtor === "function" &&
+                aCtor instanceof aCtor &&
+                typeof bCtor === "function" &&
+                bCtor instanceof bCtor) &&
+            ("constructor" in a && "constructor" in b)) {
+            return false;
+        }
+    }
+    // Assume equality for cyclic structures. The algorithm for detecting cyclic
+    // structures is adapted from ES 5.1 section 15.12.3, abstract operation `JO`.
+    // Initializing stack of traversed objects.
+    // It's done here since we only need them for objects and arrays comparison.
+    aStack = aStack || [];
+    bStack = bStack || [];
+    var length = aStack.length;
+    while (length--) {
+        // Linear search. Performance is inversely proportional to the number of
+        // unique nested structures.
+        if (aStack[length] === a)
+            return bStack[length] === b;
+    }
+    // Add the first object to the stack of traversed objects.
+    aStack.push(a);
+    bStack.push(b);
+    // Recursively compare objects and arrays.
+    if (areArrays) {
+        // Compare array lengths to determine if a deep comparison is necessary.
+        length = a.length;
+        if (length !== b.length)
+            return false;
+        // Deep compare the contents, ignoring non-numeric properties.
+        while (length--) {
+            if (!eq(a[length], b[length], aStack, bStack))
+                return false;
+        }
+    }
+    else {
+        // Deep compare objects.
+        var keys = Object.keys(a), key;
+        length = keys.length;
+        // Ensure that both objects contain the same number of properties before comparing deep equality.
+        if (Object.keys(b).length !== length)
+            return false;
+        while (length--) {
+            // Deep compare each member
+            key = keys[length];
+            if (!(has(b, key) && eq(a[key], b[key], aStack, bStack)))
+                return false;
+        }
+    }
+    // Remove the first object from the stack of traversed objects.
+    aStack.pop();
+    bStack.pop();
+    return true;
+}
+function unwrap(a) {
+    if (isObservableArray(a))
+        return a.peek();
+    if (isObservableMap(a))
+        return a.entries();
+    if (isES6Map(a))
+        return iteratorToArray(a.entries());
+    return a;
+}
+function has(a, key) {
+    return Object.prototype.hasOwnProperty.call(a, key);
+}
+
+function identityComparer(a, b) {
+    return a === b;
+}
+function structuralComparer(a, b) {
+    return deepEqual(a, b);
+}
+function defaultComparer(a, b) {
+    return areBothNaN(a, b) || identityComparer(a, b);
+}
+var comparer = {
+    identity: identityComparer,
+    structural: structuralComparer,
+    default: defaultComparer
+};
+
+function autorun(arg1, arg2, arg3) {
+    var name, view, scope;
+    if (typeof arg1 === "string") {
+        name = arg1;
+        view = arg2;
+        scope = arg3;
+    }
+    else {
+        name = arg1.name || "Autorun@" + getNextId();
+        view = arg1;
+        scope = arg2;
+    }
+    invariant(typeof view === "function", getMessage("m004"));
+    invariant(isAction(view) === false, getMessage("m005"));
+    if (scope)
+        view = view.bind(scope);
+    var reaction = new Reaction(name, function () {
+        this.track(reactionRunner);
+    });
+    function reactionRunner() {
+        view(reaction);
+    }
+    reaction.schedule();
+    return reaction.getDisposer();
+}
+function when(arg1, arg2, arg3, arg4) {
+    var name, predicate, effect, scope;
+    if (typeof arg1 === "string") {
+        name = arg1;
+        predicate = arg2;
+        effect = arg3;
+        scope = arg4;
+    }
+    else {
+        name = "When@" + getNextId();
+        predicate = arg1;
+        effect = arg2;
+        scope = arg3;
+    }
+    var disposer = autorun(name, function (r) {
+        if (predicate.call(scope)) {
+            r.dispose();
+            var prevUntracked = untrackedStart();
+            effect.call(scope);
+            untrackedEnd(prevUntracked);
+        }
+    });
+    return disposer;
+}
+function autorunAsync(arg1, arg2, arg3, arg4) {
+    var name, func, delay, scope;
+    if (typeof arg1 === "string") {
+        name = arg1;
+        func = arg2;
+        delay = arg3;
+        scope = arg4;
+    }
+    else {
+        name = arg1.name || "AutorunAsync@" + getNextId();
+        func = arg1;
+        delay = arg2;
+        scope = arg3;
+    }
+    invariant(isAction(func) === false, getMessage("m006"));
+    if (delay === void 0)
+        delay = 1;
+    if (scope)
+        func = func.bind(scope);
+    var isScheduled = false;
+    var r = new Reaction(name, function () {
+        if (!isScheduled) {
+            isScheduled = true;
+            setTimeout(function () {
+                isScheduled = false;
+                if (!r.isDisposed)
+                    r.track(reactionRunner);
+            }, delay);
+        }
+    });
+    function reactionRunner() {
+        func(r);
+    }
+    r.schedule();
+    return r.getDisposer();
+}
+function reaction(expression, effect, arg3) {
+    if (arguments.length > 3) {
+        fail(getMessage("m007"));
+    }
+    if (isModifierDescriptor(expression)) {
+        fail(getMessage("m008"));
+    }
+    var opts;
+    if (typeof arg3 === "object") {
+        opts = arg3;
+    }
+    else {
+        opts = {};
+    }
+    opts.name =
+        opts.name || expression.name || effect.name || "Reaction@" + getNextId();
+    opts.fireImmediately = arg3 === true || opts.fireImmediately === true;
+    opts.delay = opts.delay || 0;
+    opts.compareStructural = opts.compareStructural || opts.struct || false;
+    // TODO: creates ugly spy events, use `effect = (r) => runInAction(opts.name, () => effect(r))` instead
+    effect = action(opts.name, opts.context ? effect.bind(opts.context) : effect);
+    if (opts.context) {
+        expression = expression.bind(opts.context);
+    }
+    var firstTime = true;
+    var isScheduled = false;
+    var value;
+    var equals = opts.equals
+        ? opts.equals
+        : opts.compareStructural || opts.struct ? comparer.structural : comparer.default;
+    var r = new Reaction(opts.name, function () {
+        if (firstTime || opts.delay < 1) {
+            reactionRunner();
+        }
+        else if (!isScheduled) {
+            isScheduled = true;
+            setTimeout(function () {
+                isScheduled = false;
+                reactionRunner();
+            }, opts.delay);
+        }
+    });
+    function reactionRunner() {
+        if (r.isDisposed)
+            return;
+        var changed = false;
+        r.track(function () {
+            var nextValue = expression(r);
+            changed = firstTime || !equals(value, nextValue);
+            value = nextValue;
+        });
+        if (firstTime && opts.fireImmediately)
+            effect(value, r);
+        if (!firstTime && changed === true)
+            effect(value, r);
+        if (firstTime)
+            firstTime = false;
+    }
+    r.schedule();
+    return r.getDisposer();
+}
+
+/**
+ * A node in the state dependency root that observes other nodes, and can be observed itself.
+ *
+ * ComputedValue will remember the result of the computation for the duration of the batch, or
+ * while being observed.
+ *
+ * During this time it will recompute only when one of its direct dependencies changed,
+ * but only when it is being accessed with `ComputedValue.get()`.
+ *
+ * Implementation description:
+ * 1. First time it's being accessed it will compute and remember result
+ *    give back remembered result until 2. happens
+ * 2. First time any deep dependency change, propagate POSSIBLY_STALE to all observers, wait for 3.
+ * 3. When it's being accessed, recompute if any shallow dependency changed.
+ *    if result changed: propagate STALE to all observers, that were POSSIBLY_STALE from the last step.
+ *    go to step 2. either way
+ *
+ * If at any point it's outside batch and it isn't observed: reset everything and go to 1.
+ */
+var ComputedValue = /** @class */ (function () {
+    /**
+     * Create a new computed value based on a function expression.
+     *
+     * The `name` property is for debug purposes only.
+     *
+     * The `equals` property specifies the comparer function to use to determine if a newly produced
+     * value differs from the previous value. Two comparers are provided in the library; `defaultComparer`
+     * compares based on identity comparison (===), and `structualComparer` deeply compares the structure.
+     * Structural comparison can be convenient if you always produce an new aggregated object and
+     * don't want to notify observers if it is structurally the same.
+     * This is useful for working with vectors, mouse coordinates etc.
+     */
+    function ComputedValue(derivation, scope, equals, name, setter) {
+        this.derivation = derivation;
+        this.scope = scope;
+        this.equals = equals;
+        this.dependenciesState = IDerivationState.NOT_TRACKING;
+        this.observing = []; // nodes we are looking at. Our value depends on these nodes
+        this.newObserving = null; // during tracking it's an array with new observed observers
+        this.isPendingUnobservation = false;
+        this.observers = [];
+        this.observersIndexes = {};
+        this.diffValue = 0;
+        this.runId = 0;
+        this.lastAccessedBy = 0;
+        this.lowestObserverState = IDerivationState.UP_TO_DATE;
+        this.unboundDepsCount = 0;
+        this.__mapid = "#" + getNextId();
+        this.value = new CaughtException(null);
+        this.isComputing = false; // to check for cycles
+        this.isRunningSetter = false;
+        this.isTracing = TraceMode.NONE;
+        this.name = name || "ComputedValue@" + getNextId();
+        if (setter)
+            this.setter = createAction(name + "-setter", setter);
+    }
+    ComputedValue.prototype.onBecomeStale = function () {
+        propagateMaybeChanged(this);
+    };
+    ComputedValue.prototype.onBecomeUnobserved = function () {
+        clearObserving(this);
+        this.value = undefined;
+    };
+    /**
+     * Returns the current value of this computed value.
+     * Will evaluate its computation first if needed.
+     */
+    ComputedValue.prototype.get = function () {
+        invariant(!this.isComputing, "Cycle detected in computation " + this.name, this.derivation);
+        if (globalState.inBatch === 0) {
+            // This is an minor optimization which could be omitted to simplify the code
+            // The computedValue is accessed outside of any mobx stuff. Batch observing should be enough and don't need
+            // tracking as it will never be called again inside this batch.
+            startBatch();
+            if (shouldCompute(this)) {
+                if (this.isTracing !== TraceMode.NONE) {
+                    console.log("[mobx.trace] '" + this
+                        .name + "' is being read outside a reactive context and doing a full recompute");
+                }
+                this.value = this.computeValue(false);
+            }
+            endBatch();
+        }
+        else {
+            reportObserved(this);
+            if (shouldCompute(this))
+                if (this.trackAndCompute())
+                    propagateChangeConfirmed(this);
+        }
+        var result = this.value;
+        if (isCaughtException(result))
+            throw result.cause;
+        return result;
+    };
+    ComputedValue.prototype.peek = function () {
+        var res = this.computeValue(false);
+        if (isCaughtException(res))
+            throw res.cause;
+        return res;
+    };
+    ComputedValue.prototype.set = function (value) {
+        if (this.setter) {
+            invariant(!this.isRunningSetter, "The setter of computed value '" + this
+                .name + "' is trying to update itself. Did you intend to update an _observable_ value, instead of the computed property?");
+            this.isRunningSetter = true;
+            try {
+                this.setter.call(this.scope, value);
+            }
+            finally {
+                this.isRunningSetter = false;
+            }
+        }
+        else
+            invariant(false, "[ComputedValue '" + this
+                .name + "'] It is not possible to assign a new value to a computed value.");
+    };
+    ComputedValue.prototype.trackAndCompute = function () {
+        if (isSpyEnabled()) {
+            spyReport({
+                object: this.scope,
+                type: "compute",
+                fn: this.derivation
+            });
+        }
+        var oldValue = this.value;
+        var wasSuspended = 
+        /* see #1208 */ this.dependenciesState === IDerivationState.NOT_TRACKING;
+        var newValue = (this.value = this.computeValue(true));
+        return (wasSuspended ||
+            isCaughtException(oldValue) ||
+            isCaughtException(newValue) ||
+            !this.equals(oldValue, newValue));
+    };
+    ComputedValue.prototype.computeValue = function (track) {
+        this.isComputing = true;
+        globalState.computationDepth++;
+        var res;
+        if (track) {
+            res = trackDerivedFunction(this, this.derivation, this.scope);
+        }
+        else {
+            try {
+                res = this.derivation.call(this.scope);
+            }
+            catch (e) {
+                res = new CaughtException(e);
+            }
+        }
+        globalState.computationDepth--;
+        this.isComputing = false;
+        return res;
+    };
+    ComputedValue.prototype.observe = function (listener, fireImmediately) {
+        var _this = this;
+        var firstTime = true;
+        var prevValue = undefined;
+        return autorun(function () {
+            var newValue = _this.get();
+            if (!firstTime || fireImmediately) {
+                var prevU = untrackedStart();
+                listener({
+                    type: "update",
+                    object: _this,
+                    newValue: newValue,
+                    oldValue: prevValue
+                });
+                untrackedEnd(prevU);
+            }
+            firstTime = false;
+            prevValue = newValue;
+        });
+    };
+    ComputedValue.prototype.toJSON = function () {
+        return this.get();
+    };
+    ComputedValue.prototype.toString = function () {
+        return this.name + "[" + this.derivation.toString() + "]";
+    };
+    ComputedValue.prototype.valueOf = function () {
+        return toPrimitive(this.get());
+    };
+    ComputedValue.prototype.whyRun = function () {
+        var isTracking = Boolean(globalState.trackingDerivation);
+        var observing = unique(this.isComputing ? this.newObserving : this.observing).map(function (dep) { return dep.name; });
+        var observers = unique(getObservers(this).map(function (dep) { return dep.name; }));
+        return ("\nWhyRun? computation '" + this.name + "':\n * Running because: " + (isTracking
+            ? "[active] the value of this computation is needed by a reaction"
+            : this.isComputing
+                ? "[get] The value of this computed was requested outside a reaction"
+                : "[idle] not running at the moment") + "\n" +
+            (this.dependenciesState === IDerivationState.NOT_TRACKING
+                ? getMessage("m032")
+                : " * This computation will re-run if any of the following observables changes:\n    " + joinStrings(observing) + "\n    " + (this.isComputing && isTracking
+                    ? " (... or any observable accessed during the remainder of the current run)"
+                    : "") + "\n    " + getMessage("m038") + "\n\n  * If the outcome of this computation changes, the following observers will be re-run:\n    " + joinStrings(observers) + "\n"));
+    };
+    return ComputedValue;
+}());
+ComputedValue.prototype[primitiveSymbol()] = ComputedValue.prototype.valueOf;
+var isComputedValue = createInstanceofPredicate("ComputedValue", ComputedValue);
+
+var ObservableObjectAdministration = /** @class */ (function () {
+    function ObservableObjectAdministration(target, name) {
+        this.target = target;
+        this.name = name;
+        this.values = {};
+        this.changeListeners = null;
+        this.interceptors = null;
+    }
+    /**
+     * Observes this object. Triggers for the events 'add', 'update' and 'delete'.
+     * See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/observe
+     * for callback details
+     */
+    ObservableObjectAdministration.prototype.observe = function (callback, fireImmediately) {
+        invariant(fireImmediately !== true, "`observe` doesn't support the fire immediately property for observable objects.");
+        return registerListener(this, callback);
+    };
+    ObservableObjectAdministration.prototype.intercept = function (handler) {
+        return registerInterceptor(this, handler);
+    };
+    return ObservableObjectAdministration;
+}());
+function asObservableObject(target, name) {
+    if (isObservableObject(target) && target.hasOwnProperty("$mobx"))
+        return target.$mobx;
+    invariant(Object.isExtensible(target), getMessage("m035"));
+    if (!isPlainObject(target))
+        name = (target.constructor.name || "ObservableObject") + "@" + getNextId();
+    if (!name)
+        name = "ObservableObject@" + getNextId();
+    var adm = new ObservableObjectAdministration(target, name);
+    addHiddenFinalProp(target, "$mobx", adm);
+    return adm;
+}
+function defineObservablePropertyFromDescriptor(adm, propName, descriptor, defaultEnhancer) {
+    if (adm.values[propName] && !isComputedValue(adm.values[propName])) {
+        // already observable property
+        invariant("value" in descriptor, "The property " + propName + " in " + adm.name + " is already observable, cannot redefine it as computed property");
+        adm.target[propName] = descriptor.value; // the property setter will make 'value' reactive if needed.
+        return;
+    }
+    // not yet observable property
+    if ("value" in descriptor) {
+        // not a computed value
+        if (isModifierDescriptor(descriptor.value)) {
+            // x : ref(someValue)
+            var modifierDescriptor = descriptor.value;
+            defineObservableProperty(adm, propName, modifierDescriptor.initialValue, modifierDescriptor.enhancer);
+        }
+        else if (isAction(descriptor.value) && descriptor.value.autoBind === true) {
+            defineBoundAction(adm.target, propName, descriptor.value.originalFn);
+        }
+        else if (isComputedValue(descriptor.value)) {
+            // x: computed(someExpr)
+            defineComputedPropertyFromComputedValue(adm, propName, descriptor.value);
+        }
+        else {
+            // x: someValue
+            defineObservableProperty(adm, propName, descriptor.value, defaultEnhancer);
+        }
+    }
+    else {
+        // get x() { return 3 } set x(v) { }
+        defineComputedProperty(adm, propName, descriptor.get, descriptor.set, comparer.default, true);
+    }
+}
+function defineObservableProperty(adm, propName, newValue, enhancer) {
+    assertPropertyConfigurable(adm.target, propName);
+    if (hasInterceptors(adm)) {
+        var change = interceptChange(adm, {
+            object: adm.target,
+            name: propName,
+            type: "add",
+            newValue: newValue
+        });
+        if (!change)
+            return;
+        newValue = change.newValue;
+    }
+    var observable = (adm.values[propName] = new ObservableValue(newValue, enhancer, adm.name + "." + propName, false));
+    newValue = observable.value; // observableValue might have changed it
+    Object.defineProperty(adm.target, propName, generateObservablePropConfig(propName));
+    notifyPropertyAddition(adm, adm.target, propName, newValue);
+}
+function defineComputedProperty(adm, propName, getter, setter, equals, asInstanceProperty) {
+    if (asInstanceProperty)
+        assertPropertyConfigurable(adm.target, propName);
+    adm.values[propName] = new ComputedValue(getter, adm.target, equals, adm.name + "." + propName, setter);
+    if (asInstanceProperty) {
+        Object.defineProperty(adm.target, propName, generateComputedPropConfig(propName));
+    }
+}
+function defineComputedPropertyFromComputedValue(adm, propName, computedValue) {
+    var name = adm.name + "." + propName;
+    computedValue.name = name;
+    if (!computedValue.scope)
+        computedValue.scope = adm.target;
+    adm.values[propName] = computedValue;
+    Object.defineProperty(adm.target, propName, generateComputedPropConfig(propName));
+}
+var observablePropertyConfigs = {};
+var computedPropertyConfigs = {};
+function generateObservablePropConfig(propName) {
+    return (observablePropertyConfigs[propName] ||
+        (observablePropertyConfigs[propName] = {
+            configurable: true,
+            enumerable: true,
+            get: function () {
+                return this.$mobx.values[propName].get();
+            },
+            set: function (v) {
+                setPropertyValue(this, propName, v);
+            }
+        }));
+}
+function generateComputedPropConfig(propName) {
+    return (computedPropertyConfigs[propName] ||
+        (computedPropertyConfigs[propName] = {
+            configurable: true,
+            enumerable: false,
+            get: function () {
+                return this.$mobx.values[propName].get();
+            },
+            set: function (v) {
+                return this.$mobx.values[propName].set(v);
+            }
+        }));
+}
+function setPropertyValue(instance, name, newValue) {
+    var adm = instance.$mobx;
+    var observable = adm.values[name];
+    // intercept
+    if (hasInterceptors(adm)) {
+        var change = interceptChange(adm, {
+            type: "update",
+            object: instance,
+            name: name,
+            newValue: newValue
+        });
+        if (!change)
+            return;
+        newValue = change.newValue;
+    }
+    newValue = observable.prepareNewValue(newValue);
+    // notify spy & observers
+    if (newValue !== UNCHANGED) {
+        var notify = hasListeners(adm);
+        var notifySpy = isSpyEnabled();
+        var change = notify || notifySpy
+            ? {
+                type: "update",
+                object: instance,
+                oldValue: observable.value,
+                name: name,
+                newValue: newValue
+            }
+            : null;
+        if (notifySpy)
+            spyReportStart(change);
+        observable.setNewValue(newValue);
+        if (notify)
+            notifyListeners(adm, change);
+        if (notifySpy)
+            spyReportEnd();
+    }
+}
+function notifyPropertyAddition(adm, object, name, newValue) {
+    var notify = hasListeners(adm);
+    var notifySpy = isSpyEnabled();
+    var change = notify || notifySpy
+        ? {
+            type: "add",
+            object: object,
+            name: name,
+            newValue: newValue
+        }
+        : null;
+    if (notifySpy)
+        spyReportStart(change);
+    if (notify)
+        notifyListeners(adm, change);
+    if (notifySpy)
+        spyReportEnd();
+}
+var isObservableObjectAdministration = createInstanceofPredicate("ObservableObjectAdministration", ObservableObjectAdministration);
+function isObservableObject(thing) {
+    if (isObject(thing)) {
+        // Initializers run lazily when transpiling to babel, so make sure they are run...
+        runLazyInitializers(thing);
+        return isObservableObjectAdministration(thing.$mobx);
+    }
+    return false;
+}
+
+/**
+ * Returns true if the provided value is reactive.
+ * @param value object, function or array
+ * @param property if property is specified, checks whether value.property is reactive.
+ */
+function isObservable(value, property) {
+    if (value === null || value === undefined)
+        return false;
+    if (property !== undefined) {
+        if (isObservableArray(value) || isObservableMap(value))
+            throw new Error(getMessage("m019"));
+        else if (isObservableObject(value)) {
+            var o = value.$mobx;
+            return o.values && !!o.values[property];
+        }
+        return false;
+    }
+    // For first check, see #701
+    return (isObservableObject(value) ||
+        !!value.$mobx ||
+        isAtom(value) ||
+        isReaction(value) ||
+        isComputedValue(value));
+}
+
+function createDecoratorForEnhancer(enhancer) {
+    invariant(!!enhancer, ":(");
+    return createClassPropertyDecorator(function (target, name, baseValue, _, baseDescriptor) {
+        assertPropertyConfigurable(target, name);
+        invariant(!baseDescriptor || !baseDescriptor.get, getMessage("m022"));
+        var adm = asObservableObject(target, undefined);
+        defineObservableProperty(adm, name, baseValue, enhancer);
+    }, function (name) {
+        var observable = this.$mobx.values[name];
+        if (observable === undefined // See #505
+        )
+            return undefined;
+        return observable.get();
+    }, function (name, value) {
+        setPropertyValue(this, name, value);
+    }, true, false);
+}
+
+function extendObservable(target) {
+    var properties = [];
+    for (var _i = 1; _i < arguments.length; _i++) {
+        properties[_i - 1] = arguments[_i];
+    }
+    return extendObservableHelper(target, deepEnhancer, properties);
+}
+function extendShallowObservable(target) {
+    var properties = [];
+    for (var _i = 1; _i < arguments.length; _i++) {
+        properties[_i - 1] = arguments[_i];
+    }
+    return extendObservableHelper(target, referenceEnhancer, properties);
+}
+function extendObservableHelper(target, defaultEnhancer, properties) {
+    invariant(arguments.length >= 2, getMessage("m014"));
+    invariant(typeof target === "object", getMessage("m015"));
+    invariant(!isObservableMap(target), getMessage("m016"));
+    properties.forEach(function (propSet) {
+        invariant(typeof propSet === "object", getMessage("m017"));
+        invariant(!isObservable(propSet), getMessage("m018"));
+    });
+    var adm = asObservableObject(target);
+    var definedProps = {};
+    // Note could be optimised if properties.length === 1
+    for (var i = properties.length - 1; i >= 0; i--) {
+        var propSet = properties[i];
+        for (var key in propSet)
+            if (definedProps[key] !== true && hasOwnProperty(propSet, key)) {
+                definedProps[key] = true;
+                if (target === propSet && !isPropertyConfigurable(target, key))
+                    continue; // see #111, skip non-configurable or non-writable props for `observable(object)`.
+                var descriptor = Object.getOwnPropertyDescriptor(propSet, key);
+                defineObservablePropertyFromDescriptor(adm, key, descriptor, defaultEnhancer);
+            }
+    }
+    return target;
+}
+
+var deepDecorator = createDecoratorForEnhancer(deepEnhancer);
+var shallowDecorator = createDecoratorForEnhancer(shallowEnhancer);
+var refDecorator = createDecoratorForEnhancer(referenceEnhancer);
+var deepStructDecorator = createDecoratorForEnhancer(deepStructEnhancer);
+var refStructDecorator = createDecoratorForEnhancer(refStructEnhancer);
+/**
+ * Turns an object, array or function into a reactive structure.
+ * @param v the value which should become observable.
+ */
+function createObservable(v) {
+    if (v === void 0) { v = undefined; }
+    // @observable someProp;
+    if (typeof arguments[1] === "string")
+        return deepDecorator.apply(null, arguments);
+    invariant(arguments.length <= 1, getMessage("m021"));
+    invariant(!isModifierDescriptor(v), getMessage("m020"));
+    // it is an observable already, done
+    if (isObservable(v))
+        return v;
+    // something that can be converted and mutated?
+    var res = deepEnhancer(v, undefined, undefined);
+    // this value could be converted to a new observable data structure, return it
+    if (res !== v)
+        return res;
+    // otherwise, just box it
+    return observable.box(v);
+}
+var observableFactories = {
+    box: function (value, name) {
+        if (arguments.length > 2)
+            incorrectlyUsedAsDecorator("box");
+        return new ObservableValue(value, deepEnhancer, name);
+    },
+    shallowBox: function (value, name) {
+        if (arguments.length > 2)
+            incorrectlyUsedAsDecorator("shallowBox");
+        return new ObservableValue(value, referenceEnhancer, name);
+    },
+    array: function (initialValues, name) {
+        if (arguments.length > 2)
+            incorrectlyUsedAsDecorator("array");
+        return new ObservableArray(initialValues, deepEnhancer, name);
+    },
+    shallowArray: function (initialValues, name) {
+        if (arguments.length > 2)
+            incorrectlyUsedAsDecorator("shallowArray");
+        return new ObservableArray(initialValues, referenceEnhancer, name);
+    },
+    map: function (initialValues, name) {
+        if (arguments.length > 2)
+            incorrectlyUsedAsDecorator("map");
+        return new ObservableMap(initialValues, deepEnhancer, name);
+    },
+    shallowMap: function (initialValues, name) {
+        if (arguments.length > 2)
+            incorrectlyUsedAsDecorator("shallowMap");
+        return new ObservableMap(initialValues, referenceEnhancer, name);
+    },
+    object: function (props, name) {
+        if (arguments.length > 2)
+            incorrectlyUsedAsDecorator("object");
+        var res = {};
+        // convert to observable object
+        asObservableObject(res, name);
+        // add properties
+        extendObservable(res, props);
+        return res;
+    },
+    shallowObject: function (props, name) {
+        if (arguments.length > 2)
+            incorrectlyUsedAsDecorator("shallowObject");
+        var res = {};
+        asObservableObject(res, name);
+        extendShallowObservable(res, props);
+        return res;
+    },
+    ref: function () {
+        if (arguments.length < 2) {
+            // although ref creates actually a modifier descriptor, the type of the resultig properties
+            // of the object is `T` in the end, when the descriptors are interpreted
+            return createModifierDescriptor(referenceEnhancer, arguments[0]);
+        }
+        else {
+            return refDecorator.apply(null, arguments);
+        }
+    },
+    shallow: function () {
+        if (arguments.length < 2) {
+            // although ref creates actually a modifier descriptor, the type of the resultig properties
+            // of the object is `T` in the end, when the descriptors are interpreted
+            return createModifierDescriptor(shallowEnhancer, arguments[0]);
+        }
+        else {
+            return shallowDecorator.apply(null, arguments);
+        }
+    },
+    deep: function () {
+        if (arguments.length < 2) {
+            // although ref creates actually a modifier descriptor, the type of the resultig properties
+            // of the object is `T` in the end, when the descriptors are interpreted
+            return createModifierDescriptor(deepEnhancer, arguments[0]);
+        }
+        else {
+            return deepDecorator.apply(null, arguments);
+        }
+    },
+    struct: function () {
+        if (arguments.length < 2) {
+            // although ref creates actually a modifier descriptor, the type of the resultig properties
+            // of the object is `T` in the end, when the descriptors are interpreted
+            return createModifierDescriptor(deepStructEnhancer, arguments[0]);
+        }
+        else {
+            return deepStructDecorator.apply(null, arguments);
+        }
+    }
+};
+var observable = createObservable;
+// weird trick to keep our typings nicely with our funcs, and still extend the observable function
+Object.keys(observableFactories).forEach(function (name) { return (observable[name] = observableFactories[name]); });
+observable.deep.struct = observable.struct;
+observable.ref.struct = function () {
+    if (arguments.length < 2) {
+        return createModifierDescriptor(refStructEnhancer, arguments[0]);
+    }
+    else {
+        return refStructDecorator.apply(null, arguments);
+    }
+};
+function incorrectlyUsedAsDecorator(methodName) {
+    fail("Expected one or two arguments to observable." + methodName + ". Did you accidentally try to use observable." + methodName + " as decorator?");
+}
+
+function isModifierDescriptor(thing) {
+    return typeof thing === "object" && thing !== null && thing.isMobxModifierDescriptor === true;
+}
+function createModifierDescriptor(enhancer, initialValue) {
+    invariant(!isModifierDescriptor(initialValue), "Modifiers cannot be nested");
+    return {
+        isMobxModifierDescriptor: true,
+        initialValue: initialValue,
+        enhancer: enhancer
+    };
+}
+function deepEnhancer(v, _, name) {
+    if (isModifierDescriptor(v))
+        fail("You tried to assign a modifier wrapped value to a collection, please define modifiers when creating the collection, not when modifying it");
+    // it is an observable already, done
+    if (isObservable(v))
+        return v;
+    // something that can be converted and mutated?
+    if (Array.isArray(v))
+        return observable.array(v, name);
+    if (isPlainObject(v))
+        return observable.object(v, name);
+    if (isES6Map(v))
+        return observable.map(v, name);
+    return v;
+}
+function shallowEnhancer(v, _, name) {
+    if (isModifierDescriptor(v))
+        fail("You tried to assign a modifier wrapped value to a collection, please define modifiers when creating the collection, not when modifying it");
+    if (v === undefined || v === null)
+        return v;
+    if (isObservableObject(v) || isObservableArray(v) || isObservableMap(v))
+        return v;
+    if (Array.isArray(v))
+        return observable.shallowArray(v, name);
+    if (isPlainObject(v))
+        return observable.shallowObject(v, name);
+    if (isES6Map(v))
+        return observable.shallowMap(v, name);
+    return fail("The shallow modifier / decorator can only used in combination with arrays, objects and maps");
+}
+function referenceEnhancer(newValue) {
+    // never turn into an observable
+    return newValue;
+}
+function deepStructEnhancer(v, oldValue, name) {
+    // don't confuse structurally compare enhancer with ref enhancer! The latter is probably
+    // more suited for immutable objects
+    if (deepEqual(v, oldValue))
+        return oldValue;
+    // it is an observable already, done
+    if (isObservable(v))
+        return v;
+    // something that can be converted and mutated?
+    if (Array.isArray(v))
+        return new ObservableArray(v, deepStructEnhancer, name);
+    if (isES6Map(v))
+        return new ObservableMap(v, deepStructEnhancer, name);
+    if (isPlainObject(v)) {
+        var res = {};
+        asObservableObject(res, name);
+        extendObservableHelper(res, deepStructEnhancer, [v]);
+        return res;
+    }
+    return v;
+}
+function refStructEnhancer(v, oldValue, name) {
+    if (deepEqual(v, oldValue))
+        return oldValue;
+    return v;
+}
+
+/**
+ * During a transaction no views are updated until the end of the transaction.
+ * The transaction will be run synchronously nonetheless.
+ *
+ * @param action a function that updates some reactive state
+ * @returns any value that was returned by the 'action' parameter.
+ */
+function transaction(action, thisArg) {
+    if (thisArg === void 0) { thisArg = undefined; }
+    startBatch();
+    try {
+        return action.apply(thisArg);
+    }
+    finally {
+        endBatch();
+    }
+}
+
+var ObservableMapMarker = {};
+var ObservableMap = /** @class */ (function () {
+    function ObservableMap(initialData, enhancer, name) {
+        if (enhancer === void 0) { enhancer = deepEnhancer; }
+        if (name === void 0) { name = "ObservableMap@" + getNextId(); }
+        this.enhancer = enhancer;
+        this.name = name;
+        this.$mobx = ObservableMapMarker;
+        this._data = Object.create(null);
+        this._hasMap = Object.create(null); // hasMap, not hashMap >-).
+        this._keys = new ObservableArray(undefined, referenceEnhancer, this.name + ".keys()", true);
+        this.interceptors = null;
+        this.changeListeners = null;
+        this.dehancer = undefined;
+        this.merge(initialData);
+    }
+    ObservableMap.prototype._has = function (key) {
+        return typeof this._data[key] !== "undefined";
+    };
+    ObservableMap.prototype.has = function (key) {
+        if (!this.isValidKey(key))
+            return false;
+        key = "" + key;
+        if (this._hasMap[key])
+            return this._hasMap[key].get();
+        return this._updateHasMapEntry(key, false).get();
+    };
+    ObservableMap.prototype.set = function (key, value) {
+        this.assertValidKey(key);
+        key = "" + key;
+        var hasKey = this._has(key);
+        if (hasInterceptors(this)) {
+            var change = interceptChange(this, {
+                type: hasKey ? "update" : "add",
+                object: this,
+                newValue: value,
+                name: key
+            });
+            if (!change)
+                return this;
+            value = change.newValue;
+        }
+        if (hasKey) {
+            this._updateValue(key, value);
+        }
+        else {
+            this._addValue(key, value);
+        }
+        return this;
+    };
+    ObservableMap.prototype.delete = function (key) {
+        var _this = this;
+        this.assertValidKey(key);
+        key = "" + key;
+        if (hasInterceptors(this)) {
+            var change = interceptChange(this, {
+                type: "delete",
+                object: this,
+                name: key
+            });
+            if (!change)
+                return false;
+        }
+        if (this._has(key)) {
+            var notifySpy = isSpyEnabled();
+            var notify = hasListeners(this);
+            var change = notify || notifySpy
+                ? {
+                    type: "delete",
+                    object: this,
+                    oldValue: this._data[key].value,
+                    name: key
+                }
+                : null;
+            if (notifySpy)
+                spyReportStart(change);
+            transaction(function () {
+                _this._keys.remove(key);
+                _this._updateHasMapEntry(key, false);
+                var observable$$1 = _this._data[key];
+                observable$$1.setNewValue(undefined);
+                _this._data[key] = undefined;
+            });
+            if (notify)
+                notifyListeners(this, change);
+            if (notifySpy)
+                spyReportEnd();
+            return true;
+        }
+        return false;
+    };
+    ObservableMap.prototype._updateHasMapEntry = function (key, value) {
+        // optimization; don't fill the hasMap if we are not observing, or remove entry if there are no observers anymore
+        var entry = this._hasMap[key];
+        if (entry) {
+            entry.setNewValue(value);
+        }
+        else {
+            entry = this._hasMap[key] = new ObservableValue(value, referenceEnhancer, this.name + "." + key + "?", false);
+        }
+        return entry;
+    };
+    ObservableMap.prototype._updateValue = function (name, newValue) {
+        var observable$$1 = this._data[name];
+        newValue = observable$$1.prepareNewValue(newValue);
+        if (newValue !== UNCHANGED) {
+            var notifySpy = isSpyEnabled();
+            var notify = hasListeners(this);
+            var change = notify || notifySpy
+                ? {
+                    type: "update",
+                    object: this,
+                    oldValue: observable$$1.value,
+                    name: name,
+                    newValue: newValue
+                }
+                : null;
+            if (notifySpy)
+                spyReportStart(change);
+            observable$$1.setNewValue(newValue);
+            if (notify)
+                notifyListeners(this, change);
+            if (notifySpy)
+                spyReportEnd();
+        }
+    };
+    ObservableMap.prototype._addValue = function (name, newValue) {
+        var _this = this;
+        transaction(function () {
+            var observable$$1 = (_this._data[name] = new ObservableValue(newValue, _this.enhancer, _this.name + "." + name, false));
+            newValue = observable$$1.value; // value might have been changed
+            _this._updateHasMapEntry(name, true);
+            _this._keys.push(name);
+        });
+        var notifySpy = isSpyEnabled();
+        var notify = hasListeners(this);
+        var change = notify || notifySpy
+            ? {
+                type: "add",
+                object: this,
+                name: name,
+                newValue: newValue
+            }
+            : null;
+        if (notifySpy)
+            spyReportStart(change);
+        if (notify)
+            notifyListeners(this, change);
+        if (notifySpy)
+            spyReportEnd();
+    };
+    ObservableMap.prototype.get = function (key) {
+        key = "" + key;
+        if (this.has(key))
+            return this.dehanceValue(this._data[key].get());
+        return this.dehanceValue(undefined);
+    };
+    ObservableMap.prototype.dehanceValue = function (value) {
+        if (this.dehancer !== undefined) {
+            return this.dehancer(value);
+        }
+        return value;
+    };
+    ObservableMap.prototype.keys = function () {
+        return arrayAsIterator(this._keys.slice());
+    };
+    ObservableMap.prototype.values = function () {
+        return arrayAsIterator(this._keys.map(this.get, this));
+    };
+    ObservableMap.prototype.entries = function () {
+        var _this = this;
+        return arrayAsIterator(this._keys.map(function (key) { return [key, _this.get(key)]; }));
+    };
+    ObservableMap.prototype.forEach = function (callback, thisArg) {
+        var _this = this;
+        this.keys().forEach(function (key) { return callback.call(thisArg, _this.get(key), key, _this); });
+    };
+    /** Merge another object into this object, returns this. */
+    ObservableMap.prototype.merge = function (other) {
+        var _this = this;
+        if (isObservableMap(other)) {
+            other = other.toJS();
+        }
+        transaction(function () {
+            if (isPlainObject(other))
+                Object.keys(other).forEach(function (key) { return _this.set(key, other[key]); });
+            else if (Array.isArray(other))
+                other.forEach(function (_a) {
+                    var key = _a[0], value = _a[1];
+                    return _this.set(key, value);
+                });
+            else if (isES6Map(other))
+                other.forEach(function (value, key) { return _this.set(key, value); });
+            else if (other !== null && other !== undefined)
+                fail("Cannot initialize map from " + other);
+        });
+        return this;
+    };
+    ObservableMap.prototype.clear = function () {
+        var _this = this;
+        transaction(function () {
+            untracked(function () {
+                _this.keys().forEach(_this.delete, _this);
+            });
+        });
+    };
+    ObservableMap.prototype.replace = function (values) {
+        var _this = this;
+        transaction(function () {
+            // grab all the keys that are present in the new map but not present in the current map
+            // and delete them from the map, then merge the new map
+            // this will cause reactions only on changed values
+            var newKeys = getMapLikeKeys(values);
+            var oldKeys = _this.keys();
+            var missingKeys = oldKeys.filter(function (k) { return newKeys.indexOf(k) === -1; });
+            missingKeys.forEach(function (k) { return _this.delete(k); });
+            _this.merge(values);
+        });
+        return this;
+    };
+    Object.defineProperty(ObservableMap.prototype, "size", {
+        get: function () {
+            return this._keys.length;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * Returns a shallow non observable object clone of this map.
+     * Note that the values might still be observable. For a deep clone use mobx.toJS.
+     */
+    ObservableMap.prototype.toJS = function () {
+        var _this = this;
+        var res = {};
+        this.keys().forEach(function (key) { return (res[key] = _this.get(key)); });
+        return res;
+    };
+    ObservableMap.prototype.toJSON = function () {
+        // Used by JSON.stringify
+        return this.toJS();
+    };
+    ObservableMap.prototype.isValidKey = function (key) {
+        if (key === null || key === undefined)
+            return false;
+        if (typeof key === "string" || typeof key === "number" || typeof key === "boolean")
+            return true;
+        return false;
+    };
+    ObservableMap.prototype.assertValidKey = function (key) {
+        if (!this.isValidKey(key))
+            throw new Error("[mobx.map] Invalid key: '" + key + "', only strings, numbers and booleans are accepted as key in observable maps.");
+    };
+    ObservableMap.prototype.toString = function () {
+        var _this = this;
+        return (this.name +
+            "[{ " +
+            this.keys().map(function (key) { return key + ": " + ("" + _this.get(key)); }).join(", ") +
+            " }]");
+    };
+    /**
+     * Observes this object. Triggers for the events 'add', 'update' and 'delete'.
+     * See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/observe
+     * for callback details
+     */
+    ObservableMap.prototype.observe = function (listener, fireImmediately) {
+        invariant(fireImmediately !== true, getMessage("m033"));
+        return registerListener(this, listener);
+    };
+    ObservableMap.prototype.intercept = function (handler) {
+        return registerInterceptor(this, handler);
+    };
+    return ObservableMap;
+}());
+declareIterator(ObservableMap.prototype, function () {
+    return this.entries();
+});
+function map(initialValues) {
+    deprecated("`mobx.map` is deprecated, use `new ObservableMap` or `mobx.observable.map` instead");
+    return observable.map(initialValues);
+}
+/* 'var' fixes small-build issue */
+var isObservableMap = createInstanceofPredicate("ObservableMap", ObservableMap);
+
+var EMPTY_ARRAY = [];
+Object.freeze(EMPTY_ARRAY);
+function getGlobal() {
+    return typeof window !== "undefined" ? window : global;
+}
+function getNextId() {
+    return ++globalState.mobxGuid;
+}
+function fail(message, thing) {
+    invariant(false, message, thing);
+    throw "X"; // unreachable
+}
+function invariant(check, message, thing) {
+    if (!check)
+        throw new Error("[mobx] Invariant failed: " + message + (thing ? " in '" + thing + "'" : ""));
+}
+/**
+ * Prints a deprecation message, but only one time.
+ * Returns false if the deprecated message was already printed before
+ */
+var deprecatedMessages = [];
+function deprecated(msg) {
+    if (deprecatedMessages.indexOf(msg) !== -1)
+        return false;
+    deprecatedMessages.push(msg);
+    console.error("[mobx] Deprecated: " + msg);
+    return true;
+}
+/**
+ * Makes sure that the provided function is invoked at most once.
+ */
+function once(func) {
+    var invoked = false;
+    return function () {
+        if (invoked)
+            return;
+        invoked = true;
+        return func.apply(this, arguments);
+    };
+}
+var noop = function () { };
+function unique(list) {
+    var res = [];
+    list.forEach(function (item) {
+        if (res.indexOf(item) === -1)
+            res.push(item);
+    });
+    return res;
+}
+function joinStrings(things, limit, separator) {
+    if (limit === void 0) { limit = 100; }
+    if (separator === void 0) { separator = " - "; }
+    if (!things)
+        return "";
+    var sliced = things.slice(0, limit);
+    return "" + sliced.join(separator) + (things.length > limit
+        ? " (... and " + (things.length - limit) + "more)"
+        : "");
+}
+function isObject(value) {
+    return value !== null && typeof value === "object";
+}
+function isPlainObject(value) {
+    if (value === null || typeof value !== "object")
+        return false;
+    var proto = Object.getPrototypeOf(value);
+    return proto === Object.prototype || proto === null;
+}
+function objectAssign() {
+    var res = arguments[0];
+    for (var i = 1, l = arguments.length; i < l; i++) {
+        var source = arguments[i];
+        for (var key in source)
+            if (hasOwnProperty(source, key)) {
+                res[key] = source[key];
+            }
+    }
+    return res;
+}
+var prototypeHasOwnProperty = Object.prototype.hasOwnProperty;
+function hasOwnProperty(object, propName) {
+    return prototypeHasOwnProperty.call(object, propName);
+}
+function makeNonEnumerable(object, propNames) {
+    for (var i = 0; i < propNames.length; i++) {
+        addHiddenProp(object, propNames[i], object[propNames[i]]);
+    }
+}
+function addHiddenProp(object, propName, value) {
+    Object.defineProperty(object, propName, {
+        enumerable: false,
+        writable: true,
+        configurable: true,
+        value: value
+    });
+}
+function addHiddenFinalProp(object, propName, value) {
+    Object.defineProperty(object, propName, {
+        enumerable: false,
+        writable: false,
+        configurable: true,
+        value: value
+    });
+}
+function isPropertyConfigurable(object, prop) {
+    var descriptor = Object.getOwnPropertyDescriptor(object, prop);
+    return !descriptor || (descriptor.configurable !== false && descriptor.writable !== false);
+}
+function assertPropertyConfigurable(object, prop) {
+    invariant(isPropertyConfigurable(object, prop), "Cannot make property '" + prop + "' observable, it is not configurable and writable in the target object");
+}
+function createInstanceofPredicate(name, clazz) {
+    var propName = "isMobX" + name;
+    clazz.prototype[propName] = true;
+    return function (x) {
+        return isObject(x) && x[propName] === true;
+    };
+}
+function areBothNaN(a, b) {
+    return typeof a === "number" && typeof b === "number" && isNaN(a) && isNaN(b);
+}
+/**
+ * Returns whether the argument is an array, disregarding observability.
+ */
+function isArrayLike(x) {
+    return Array.isArray(x) || isObservableArray(x);
+}
+function isES6Map(thing) {
+    if (getGlobal().Map !== undefined && thing instanceof getGlobal().Map)
+        return true;
+    return false;
+}
+function getMapLikeKeys(map$$1) {
+    if (isPlainObject(map$$1))
+        return Object.keys(map$$1);
+    if (Array.isArray(map$$1))
+        return map$$1.map(function (_a) {
+            var key = _a[0];
+            return key;
+        });
+    if (isES6Map(map$$1))
+        return Array.from(map$$1.keys());
+    if (isObservableMap(map$$1))
+        return map$$1.keys();
+    return fail("Cannot get keys from " + map$$1);
+}
+function iteratorToArray(it) {
+    var res = [];
+    while (true) {
+        var r = it.next();
+        if (r.done)
+            break;
+        res.push(r.value);
+    }
+    return res;
+}
+function primitiveSymbol() {
+    return (typeof Symbol === "function" && Symbol.toPrimitive) || "@@toPrimitive";
+}
+function toPrimitive(value) {
+    return value === null ? null : typeof value === "object" ? "" + value : value;
+}
+
+/**
+ * These values will persist if global state is reset
+ */
+var persistentKeys = ["mobxGuid", "resetId", "spyListeners", "strictMode", "runId"];
+var MobXGlobals = /** @class */ (function () {
+    function MobXGlobals() {
+        /**
+         * MobXGlobals version.
+         * MobX compatiblity with other versions loaded in memory as long as this version matches.
+         * It indicates that the global state still stores similar information
+         */
+        this.version = 5;
+        /**
+         * Currently running derivation
+         */
+        this.trackingDerivation = null;
+        /**
+         * Are we running a computation currently? (not a reaction)
+         */
+        this.computationDepth = 0;
+        /**
+         * Each time a derivation is tracked, it is assigned a unique run-id
+         */
+        this.runId = 0;
+        /**
+         * 'guid' for general purpose. Will be persisted amongst resets.
+         */
+        this.mobxGuid = 0;
+        /**
+         * Are we in a batch block? (and how many of them)
+         */
+        this.inBatch = 0;
+        /**
+         * Observables that don't have observers anymore, and are about to be
+         * suspended, unless somebody else accesses it in the same batch
+         *
+         * @type {IObservable[]}
+         */
+        this.pendingUnobservations = [];
+        /**
+         * List of scheduled, not yet executed, reactions.
+         */
+        this.pendingReactions = [];
+        /**
+         * Are we currently processing reactions?
+         */
+        this.isRunningReactions = false;
+        /**
+         * Is it allowed to change observables at this point?
+         * In general, MobX doesn't allow that when running computations and React.render.
+         * To ensure that those functions stay pure.
+         */
+        this.allowStateChanges = true;
+        /**
+         * If strict mode is enabled, state changes are by default not allowed
+         */
+        this.strictMode = false;
+        /**
+         * Used by createTransformer to detect that the global state has been reset.
+         */
+        this.resetId = 0;
+        /**
+         * Spy callbacks
+         */
+        this.spyListeners = [];
+        /**
+         * Globally attached error handlers that react specifically to errors in reactions
+         */
+        this.globalReactionErrorHandlers = [];
+    }
+    return MobXGlobals;
+}());
+var globalState = new MobXGlobals();
+var shareGlobalStateCalled = false;
+var runInIsolationCalled = false;
+var warnedAboutMultipleInstances = false;
+{
+    var global_1 = getGlobal();
+    if (!global_1.__mobxInstanceCount) {
+        global_1.__mobxInstanceCount = 1;
+    }
+    else {
+        global_1.__mobxInstanceCount++;
+        setTimeout(function () {
+            if (!shareGlobalStateCalled && !runInIsolationCalled && !warnedAboutMultipleInstances) {
+                warnedAboutMultipleInstances = true;
+                console.warn("[mobx] Warning: there are multiple mobx instances active. This might lead to unexpected results. See https://github.com/mobxjs/mobx/issues/1082 for details.");
+            }
+        }, 1);
+    }
+}
+function isolateGlobalState() {
+    runInIsolationCalled = true;
+    getGlobal().__mobxInstanceCount--;
+}
+function shareGlobalState() {
+    // TODO: remove in 4.0; just use peer dependencies instead.
+    deprecated("Using `shareGlobalState` is not recommended, use peer dependencies instead. See https://github.com/mobxjs/mobx/issues/1082 for details.");
+    shareGlobalStateCalled = true;
+    var global = getGlobal();
+    var ownState = globalState;
+    /**
+     * Backward compatibility check
+     */
+    if (global.__mobservableTrackingStack || global.__mobservableViewStack)
+        throw new Error("[mobx] An incompatible version of mobservable is already loaded.");
+    if (global.__mobxGlobal && global.__mobxGlobal.version !== ownState.version)
+        throw new Error("[mobx] An incompatible version of mobx is already loaded.");
+    if (global.__mobxGlobal)
+        globalState = global.__mobxGlobal;
+    else
+        global.__mobxGlobal = ownState;
+}
+function getGlobalState() {
+    return globalState;
+}
+
+/**
+ * For testing purposes only; this will break the internal state of existing observables,
+ * but can be used to get back at a stable state after throwing errors
+ */
+function resetGlobalState() {
+    globalState.resetId++;
+    var defaultGlobals = new MobXGlobals();
+    for (var key in defaultGlobals)
+        if (persistentKeys.indexOf(key) === -1)
+            globalState[key] = defaultGlobals[key];
+    globalState.allowStateChanges = !globalState.strictMode;
+}
+
+function getAtom(thing, property) {
+    if (typeof thing === "object" && thing !== null) {
+        if (isObservableArray(thing)) {
+            invariant(property === undefined, getMessage("m036"));
+            return thing.$mobx.atom;
+        }
+        if (isObservableMap(thing)) {
+            var anyThing = thing;
+            if (property === undefined)
+                return getAtom(anyThing._keys);
+            var observable = anyThing._data[property] || anyThing._hasMap[property];
+            invariant(!!observable, "the entry '" + property + "' does not exist in the observable map '" + getDebugName(thing) + "'");
+            return observable;
+        }
+        // Initializers run lazily when transpiling to babel, so make sure they are run...
+        runLazyInitializers(thing);
+        if (property && !thing.$mobx)
+            thing[property]; // See #1072 // TODO: remove in 4.0
+        if (isObservableObject(thing)) {
+            if (!property)
+                return fail("please specify a property");
+            var observable = thing.$mobx.values[property];
+            invariant(!!observable, "no observable property '" + property + "' found on the observable object '" + getDebugName(thing) + "'");
+            return observable;
+        }
+        if (isAtom(thing) || isComputedValue(thing) || isReaction(thing)) {
+            return thing;
+        }
+    }
+    else if (typeof thing === "function") {
+        if (isReaction(thing.$mobx)) {
+            // disposer function
+            return thing.$mobx;
+        }
+    }
+    return fail("Cannot obtain atom from " + thing);
+}
+function getAdministration(thing, property) {
+    invariant(thing, "Expecting some object");
+    if (property !== undefined)
+        return getAdministration(getAtom(thing, property));
+    if (isAtom(thing) || isComputedValue(thing) || isReaction(thing))
+        return thing;
+    if (isObservableMap(thing))
+        return thing;
+    // Initializers run lazily when transpiling to babel, so make sure they are run...
+    runLazyInitializers(thing);
+    if (thing.$mobx)
+        return thing.$mobx;
+    invariant(false, "Cannot obtain administration from " + thing);
+}
+function getDebugName(thing, property) {
+    var named;
+    if (property !== undefined)
+        named = getAtom(thing, property);
+    else if (isObservableObject(thing) || isObservableMap(thing))
+        named = getAdministration(thing);
+    else
+        named = getAtom(thing); // valid for arrays as well
+    return named.name;
+}
+
+function getDependencyTree(thing, property) {
+    return nodeToDependencyTree(getAtom(thing, property));
+}
+function nodeToDependencyTree(node) {
+    var result = {
+        name: node.name
+    };
+    if (node.observing && node.observing.length > 0)
+        result.dependencies = unique(node.observing).map(nodeToDependencyTree);
+    return result;
+}
+function getObserverTree(thing, property) {
+    return nodeToObserverTree(getAtom(thing, property));
+}
+function nodeToObserverTree(node) {
+    var result = {
+        name: node.name
+    };
+    if (hasObservers(node))
+        result.observers = getObservers(node).map(nodeToObserverTree);
+    return result;
+}
+
+function hasObservers(observable) {
+    return observable.observers && observable.observers.length > 0;
+}
+function getObservers(observable) {
+    return observable.observers;
+}
+function addObserver(observable, node) {
+    // invariant(node.dependenciesState !== -1, "INTERNAL ERROR, can add only dependenciesState !== -1");
+    // invariant(observable._observers.indexOf(node) === -1, "INTERNAL ERROR add already added node");
+    // invariantObservers(observable);
+    var l = observable.observers.length;
+    if (l) {
+        // because object assignment is relatively expensive, let's not store data about index 0.
+        observable.observersIndexes[node.__mapid] = l;
+    }
+    observable.observers[l] = node;
+    if (observable.lowestObserverState > node.dependenciesState)
+        observable.lowestObserverState = node.dependenciesState;
+    // invariantObservers(observable);
+    // invariant(observable._observers.indexOf(node) !== -1, "INTERNAL ERROR didn't add node");
+}
+function removeObserver(observable, node) {
+    // invariant(globalState.inBatch > 0, "INTERNAL ERROR, remove should be called only inside batch");
+    // invariant(observable._observers.indexOf(node) !== -1, "INTERNAL ERROR remove already removed node");
+    // invariantObservers(observable);
+    if (observable.observers.length === 1) {
+        // deleting last observer
+        observable.observers.length = 0;
+        queueForUnobservation(observable);
+    }
+    else {
+        // deleting from _observersIndexes is straight forward, to delete from _observers, let's swap `node` with last element
+        var list = observable.observers;
+        var map = observable.observersIndexes;
+        var filler = list.pop(); // get last element, which should fill the place of `node`, so the array doesn't have holes
+        if (filler !== node) {
+            // otherwise node was the last element, which already got removed from array
+            var index = map[node.__mapid] || 0; // getting index of `node`. this is the only place we actually use map.
+            if (index) {
+                // map store all indexes but 0, see comment in `addObserver`
+                map[filler.__mapid] = index;
+            }
+            else {
+                delete map[filler.__mapid];
+            }
+            list[index] = filler;
+        }
+        delete map[node.__mapid];
+    }
+    // invariantObservers(observable);
+    // invariant(observable._observers.indexOf(node) === -1, "INTERNAL ERROR remove already removed node2");
+}
+function queueForUnobservation(observable) {
+    if (!observable.isPendingUnobservation) {
+        // invariant(globalState.inBatch > 0, "INTERNAL ERROR, remove should be called only inside batch");
+        // invariant(observable._observers.length === 0, "INTERNAL ERROR, should only queue for unobservation unobserved observables");
+        observable.isPendingUnobservation = true;
+        globalState.pendingUnobservations.push(observable);
+    }
+}
+/**
+ * Batch starts a transaction, at least for purposes of memoizing ComputedValues when nothing else does.
+ * During a batch `onBecomeUnobserved` will be called at most once per observable.
+ * Avoids unnecessary recalculations.
+ */
+function startBatch() {
+    globalState.inBatch++;
+}
+function endBatch() {
+    if (--globalState.inBatch === 0) {
+        runReactions();
+        // the batch is actually about to finish, all unobserving should happen here.
+        var list = globalState.pendingUnobservations;
+        for (var i = 0; i < list.length; i++) {
+            var observable = list[i];
+            observable.isPendingUnobservation = false;
+            if (observable.observers.length === 0) {
+                observable.onBecomeUnobserved();
+                // NOTE: onBecomeUnobserved might push to `pendingUnobservations`
+            }
+        }
+        globalState.pendingUnobservations = [];
+    }
+}
+function reportObserved(observable) {
+    var derivation = globalState.trackingDerivation;
+    if (derivation !== null) {
+        /**
+         * Simple optimization, give each derivation run an unique id (runId)
+         * Check if last time this observable was accessed the same runId is used
+         * if this is the case, the relation is already known
+         */
+        if (derivation.runId !== observable.lastAccessedBy) {
+            observable.lastAccessedBy = derivation.runId;
+            derivation.newObserving[derivation.unboundDepsCount++] = observable;
+        }
+    }
+    else if (observable.observers.length === 0) {
+        queueForUnobservation(observable);
+    }
+}
+/**
+ * NOTE: current propagation mechanism will in case of self reruning autoruns behave unexpectedly
+ * It will propagate changes to observers from previous run
+ * It's hard or maybe impossible (with reasonable perf) to get it right with current approach
+ * Hopefully self reruning autoruns aren't a feature people should depend on
+ * Also most basic use cases should be ok
+ */
+// Called by Atom when its value changes
+function propagateChanged(observable) {
+    // invariantLOS(observable, "changed start");
+    if (observable.lowestObserverState === IDerivationState.STALE)
+        return;
+    observable.lowestObserverState = IDerivationState.STALE;
+    var observers = observable.observers;
+    var i = observers.length;
+    while (i--) {
+        var d = observers[i];
+        if (d.dependenciesState === IDerivationState.UP_TO_DATE) {
+            if (d.isTracing !== TraceMode.NONE) {
+                logTraceInfo(d, observable);
+            }
+            d.onBecomeStale();
+        }
+        d.dependenciesState = IDerivationState.STALE;
+    }
+    // invariantLOS(observable, "changed end");
+}
+// Called by ComputedValue when it recalculate and its value changed
+function propagateChangeConfirmed(observable) {
+    // invariantLOS(observable, "confirmed start");
+    if (observable.lowestObserverState === IDerivationState.STALE)
+        return;
+    observable.lowestObserverState = IDerivationState.STALE;
+    var observers = observable.observers;
+    var i = observers.length;
+    while (i--) {
+        var d = observers[i];
+        if (d.dependenciesState === IDerivationState.POSSIBLY_STALE)
+            d.dependenciesState = IDerivationState.STALE;
+        else if (d.dependenciesState === IDerivationState.UP_TO_DATE // this happens during computing of `d`, just keep lowestObserverState up to date.
+        )
+            observable.lowestObserverState = IDerivationState.UP_TO_DATE;
+    }
+    // invariantLOS(observable, "confirmed end");
+}
+// Used by computed when its dependency changed, but we don't wan't to immediately recompute.
+function propagateMaybeChanged(observable) {
+    // invariantLOS(observable, "maybe start");
+    if (observable.lowestObserverState !== IDerivationState.UP_TO_DATE)
+        return;
+    observable.lowestObserverState = IDerivationState.POSSIBLY_STALE;
+    var observers = observable.observers;
+    var i = observers.length;
+    while (i--) {
+        var d = observers[i];
+        if (d.dependenciesState === IDerivationState.UP_TO_DATE) {
+            d.dependenciesState = IDerivationState.POSSIBLY_STALE;
+            if (d.isTracing !== TraceMode.NONE) {
+                logTraceInfo(d, observable);
+            }
+            d.onBecomeStale();
+        }
+    }
+    // invariantLOS(observable, "maybe end");
+}
+function logTraceInfo(derivation, observable) {
+    console.log("[mobx.trace] '" + derivation.name + "' is invalidated due to a change in: '" + observable.name + "'");
+    if (derivation.isTracing === TraceMode.BREAK) {
+        var lines = [];
+        printDepTree(getDependencyTree(derivation), lines, 1);
+        // prettier-ignore
+        new Function("debugger;\n/*\nTracing '" + derivation.name + "'\n\nYou are entering this break point because derivation '" + derivation.name + "' is being traced and '" + observable.name + "' is now forcing it to update.\nJust follow the stacktrace you should now see in the devtools to see precisely what piece of your code is causing this update\nThe stackframe you are looking for is at least ~6-8 stack-frames up.\n\n" + (derivation instanceof ComputedValue ? derivation.derivation.toString() : "") + "\n\nThe dependencies for this derivation are:\n\n" + lines.join("\n") + "\n*/\n    ")();
+    }
+}
+function printDepTree(tree, lines, depth) {
+    if (lines.length >= 1000) {
+        lines.push("(and many more)");
+        return;
+    }
+    lines.push("" + new Array(depth).join("\t") + tree.name); // MWE: not the fastest, but the easiest way :)
+    if (tree.dependencies)
+        tree.dependencies.forEach(function (child) { return printDepTree(child, lines, depth + 1); });
+}
+
+var IDerivationState;
+(function (IDerivationState) {
+    // before being run or (outside batch and not being observed)
+    // at this point derivation is not holding any data about dependency tree
+    IDerivationState[IDerivationState["NOT_TRACKING"] = -1] = "NOT_TRACKING";
+    // no shallow dependency changed since last computation
+    // won't recalculate derivation
+    // this is what makes mobx fast
+    IDerivationState[IDerivationState["UP_TO_DATE"] = 0] = "UP_TO_DATE";
+    // some deep dependency changed, but don't know if shallow dependency changed
+    // will require to check first if UP_TO_DATE or POSSIBLY_STALE
+    // currently only ComputedValue will propagate POSSIBLY_STALE
+    //
+    // having this state is second big optimization:
+    // don't have to recompute on every dependency change, but only when it's needed
+    IDerivationState[IDerivationState["POSSIBLY_STALE"] = 1] = "POSSIBLY_STALE";
+    // A shallow dependency has changed since last computation and the derivation
+    // will need to recompute when it's needed next.
+    IDerivationState[IDerivationState["STALE"] = 2] = "STALE";
+})(IDerivationState || (IDerivationState = {}));
+var TraceMode;
+(function (TraceMode) {
+    TraceMode[TraceMode["NONE"] = 0] = "NONE";
+    TraceMode[TraceMode["LOG"] = 1] = "LOG";
+    TraceMode[TraceMode["BREAK"] = 2] = "BREAK";
+})(TraceMode || (TraceMode = {}));
+var CaughtException = /** @class */ (function () {
+    function CaughtException(cause) {
+        this.cause = cause;
+        // Empty
+    }
+    return CaughtException;
+}());
+function isCaughtException(e) {
+    return e instanceof CaughtException;
+}
+/**
+ * Finds out whether any dependency of the derivation has actually changed.
+ * If dependenciesState is 1 then it will recalculate dependencies,
+ * if any dependency changed it will propagate it by changing dependenciesState to 2.
+ *
+ * By iterating over the dependencies in the same order that they were reported and
+ * stopping on the first change, all the recalculations are only called for ComputedValues
+ * that will be tracked by derivation. That is because we assume that if the first x
+ * dependencies of the derivation doesn't change then the derivation should run the same way
+ * up until accessing x-th dependency.
+ */
+function shouldCompute(derivation) {
+    switch (derivation.dependenciesState) {
+        case IDerivationState.UP_TO_DATE:
+            return false;
+        case IDerivationState.NOT_TRACKING:
+        case IDerivationState.STALE:
+            return true;
+        case IDerivationState.POSSIBLY_STALE: {
+            var prevUntracked = untrackedStart(); // no need for those computeds to be reported, they will be picked up in trackDerivedFunction.
+            var obs = derivation.observing, l = obs.length;
+            for (var i = 0; i < l; i++) {
+                var obj = obs[i];
+                if (isComputedValue(obj)) {
+                    try {
+                        obj.get();
+                    }
+                    catch (e) {
+                        // we are not interested in the value *or* exception at this moment, but if there is one, notify all
+                        untrackedEnd(prevUntracked);
+                        return true;
+                    }
+                    // if ComputedValue `obj` actually changed it will be computed and propagated to its observers.
+                    // and `derivation` is an observer of `obj`
+                    if (derivation.dependenciesState === IDerivationState.STALE) {
+                        untrackedEnd(prevUntracked);
+                        return true;
+                    }
+                }
+            }
+            changeDependenciesStateTo0(derivation);
+            untrackedEnd(prevUntracked);
+            return false;
+        }
+    }
+}
+function isComputingDerivation() {
+    return globalState.trackingDerivation !== null; // filter out actions inside computations
+}
+function checkIfStateModificationsAreAllowed(atom) {
+    var hasObservers$$1 = atom.observers.length > 0;
+    // Should never be possible to change an observed observable from inside computed, see #798
+    if (globalState.computationDepth > 0 && hasObservers$$1)
+        fail(getMessage("m031") + atom.name);
+    // Should not be possible to change observed state outside strict mode, except during initialization, see #563
+    if (!globalState.allowStateChanges && hasObservers$$1)
+        fail(getMessage(globalState.strictMode ? "m030a" : "m030b") + atom.name);
+}
+/**
+ * Executes the provided function `f` and tracks which observables are being accessed.
+ * The tracking information is stored on the `derivation` object and the derivation is registered
+ * as observer of any of the accessed observables.
+ */
+function trackDerivedFunction(derivation, f, context) {
+    // pre allocate array allocation + room for variation in deps
+    // array will be trimmed by bindDependencies
+    changeDependenciesStateTo0(derivation);
+    derivation.newObserving = new Array(derivation.observing.length + 100);
+    derivation.unboundDepsCount = 0;
+    derivation.runId = ++globalState.runId;
+    var prevTracking = globalState.trackingDerivation;
+    globalState.trackingDerivation = derivation;
+    var result;
+    try {
+        result = f.call(context);
+    }
+    catch (e) {
+        result = new CaughtException(e);
+    }
+    globalState.trackingDerivation = prevTracking;
+    bindDependencies(derivation);
+    return result;
+}
+/**
+ * diffs newObserving with observing.
+ * update observing to be newObserving with unique observables
+ * notify observers that become observed/unobserved
+ */
+function bindDependencies(derivation) {
+    // invariant(derivation.dependenciesState !== IDerivationState.NOT_TRACKING, "INTERNAL ERROR bindDependencies expects derivation.dependenciesState !== -1");
+    var prevObserving = derivation.observing;
+    var observing = (derivation.observing = derivation.newObserving);
+    var lowestNewObservingDerivationState = IDerivationState.UP_TO_DATE;
+    // Go through all new observables and check diffValue: (this list can contain duplicates):
+    //   0: first occurrence, change to 1 and keep it
+    //   1: extra occurrence, drop it
+    var i0 = 0, l = derivation.unboundDepsCount;
+    for (var i = 0; i < l; i++) {
+        var dep = observing[i];
+        if (dep.diffValue === 0) {
+            dep.diffValue = 1;
+            if (i0 !== i)
+                observing[i0] = dep;
+            i0++;
+        }
+        // Upcast is 'safe' here, because if dep is IObservable, `dependenciesState` will be undefined,
+        // not hitting the condition
+        if (dep.dependenciesState > lowestNewObservingDerivationState) {
+            lowestNewObservingDerivationState = dep.dependenciesState;
+        }
+    }
+    observing.length = i0;
+    derivation.newObserving = null; // newObserving shouldn't be needed outside tracking (statement moved down to work around FF bug, see #614)
+    // Go through all old observables and check diffValue: (it is unique after last bindDependencies)
+    //   0: it's not in new observables, unobserve it
+    //   1: it keeps being observed, don't want to notify it. change to 0
+    l = prevObserving.length;
+    while (l--) {
+        var dep = prevObserving[l];
+        if (dep.diffValue === 0) {
+            removeObserver(dep, derivation);
+        }
+        dep.diffValue = 0;
+    }
+    // Go through all new observables and check diffValue: (now it should be unique)
+    //   0: it was set to 0 in last loop. don't need to do anything.
+    //   1: it wasn't observed, let's observe it. set back to 0
+    while (i0--) {
+        var dep = observing[i0];
+        if (dep.diffValue === 1) {
+            dep.diffValue = 0;
+            addObserver(dep, derivation);
+        }
+    }
+    // Some new observed derivations may become stale during this derivation computation
+    // so they have had no chance to propagate staleness (#916)
+    if (lowestNewObservingDerivationState !== IDerivationState.UP_TO_DATE) {
+        derivation.dependenciesState = lowestNewObservingDerivationState;
+        derivation.onBecomeStale();
+    }
+}
+function clearObserving(derivation) {
+    // invariant(globalState.inBatch > 0, "INTERNAL ERROR clearObserving should be called only inside batch");
+    var obs = derivation.observing;
+    derivation.observing = [];
+    var i = obs.length;
+    while (i--)
+        removeObserver(obs[i], derivation);
+    derivation.dependenciesState = IDerivationState.NOT_TRACKING;
+}
+function untracked(action) {
+    var prev = untrackedStart();
+    var res = action();
+    untrackedEnd(prev);
+    return res;
+}
+function untrackedStart() {
+    var prev = globalState.trackingDerivation;
+    globalState.trackingDerivation = null;
+    return prev;
+}
+function untrackedEnd(prev) {
+    globalState.trackingDerivation = prev;
+}
+/**
+ * needed to keep `lowestObserverState` correct. when changing from (2 or 1) to 0
+ *
+ */
+function changeDependenciesStateTo0(derivation) {
+    if (derivation.dependenciesState === IDerivationState.UP_TO_DATE)
+        return;
+    derivation.dependenciesState = IDerivationState.UP_TO_DATE;
+    var obs = derivation.observing;
+    var i = obs.length;
+    while (i--)
+        obs[i].lowestObserverState = IDerivationState.UP_TO_DATE;
+}
+
+function log(msg) {
+    console.log(msg);
+    return msg;
+}
+function whyRun(thing, prop) {
+    deprecated("`whyRun` is deprecated in favor of `trace`");
+    thing = getAtomFromArgs(arguments);
+    if (!thing)
+        return log(getMessage("m024"));
+    if (isComputedValue(thing) || isReaction(thing))
+        return log(thing.whyRun());
+    return fail(getMessage("m025"));
+}
+function trace() {
+    var args = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        args[_i] = arguments[_i];
+    }
+    var enterBreakPoint = false;
+    if (typeof args[args.length - 1] === "boolean")
+        enterBreakPoint = args.pop();
+    var derivation = getAtomFromArgs(args);
+    if (!derivation) {
+        return fail("'trace(break?)' can only be used inside a tracked computed value or a Reaction. Consider passing in the computed value or reaction explicitly");
+    }
+    if (derivation.isTracing === TraceMode.NONE) {
+        console.log("[mobx.trace] '" + derivation.name + "' tracing enabled");
+    }
+    derivation.isTracing = enterBreakPoint ? TraceMode.BREAK : TraceMode.LOG;
+}
+function getAtomFromArgs(args) {
+    switch (args.length) {
+        case 0:
+            return globalState.trackingDerivation;
+        case 1:
+            return getAtom(args[0]);
+        case 2:
+            return getAtom(args[0], args[1]);
+    }
+}
+
+var Reaction = /** @class */ (function () {
+    function Reaction(name, onInvalidate) {
+        if (name === void 0) { name = "Reaction@" + getNextId(); }
+        this.name = name;
+        this.onInvalidate = onInvalidate;
+        this.observing = []; // nodes we are looking at. Our value depends on these nodes
+        this.newObserving = [];
+        this.dependenciesState = IDerivationState.NOT_TRACKING;
+        this.diffValue = 0;
+        this.runId = 0;
+        this.unboundDepsCount = 0;
+        this.__mapid = "#" + getNextId();
+        this.isDisposed = false;
+        this._isScheduled = false;
+        this._isTrackPending = false;
+        this._isRunning = false;
+        this.isTracing = TraceMode.NONE;
+    }
+    Reaction.prototype.onBecomeStale = function () {
+        this.schedule();
+    };
+    Reaction.prototype.schedule = function () {
+        if (!this._isScheduled) {
+            this._isScheduled = true;
+            globalState.pendingReactions.push(this);
+            runReactions();
+        }
+    };
+    Reaction.prototype.isScheduled = function () {
+        return this._isScheduled;
+    };
+    /**
+     * internal, use schedule() if you intend to kick off a reaction
+     */
+    Reaction.prototype.runReaction = function () {
+        if (!this.isDisposed) {
+            startBatch();
+            this._isScheduled = false;
+            if (shouldCompute(this)) {
+                this._isTrackPending = true;
+                this.onInvalidate();
+                if (this._isTrackPending && isSpyEnabled()) {
+                    // onInvalidate didn't trigger track right away..
+                    spyReport({
+                        object: this,
+                        type: "scheduled-reaction"
+                    });
+                }
+            }
+            endBatch();
+        }
+    };
+    Reaction.prototype.track = function (fn) {
+        startBatch();
+        var notify = isSpyEnabled();
+        var startTime;
+        if (notify) {
+            startTime = Date.now();
+            spyReportStart({
+                object: this,
+                type: "reaction",
+                fn: fn
+            });
+        }
+        this._isRunning = true;
+        var result = trackDerivedFunction(this, fn, undefined);
+        this._isRunning = false;
+        this._isTrackPending = false;
+        if (this.isDisposed) {
+            // disposed during last run. Clean up everything that was bound after the dispose call.
+            clearObserving(this);
+        }
+        if (isCaughtException(result))
+            this.reportExceptionInDerivation(result.cause);
+        if (notify) {
+            spyReportEnd({
+                time: Date.now() - startTime
+            });
+        }
+        endBatch();
+    };
+    Reaction.prototype.reportExceptionInDerivation = function (error) {
+        var _this = this;
+        if (this.errorHandler) {
+            this.errorHandler(error, this);
+            return;
+        }
+        var message = "[mobx] Encountered an uncaught exception that was thrown by a reaction or observer component, in: '" + this;
+        var messageToUser = getMessage("m037");
+        console.error(message || messageToUser /* latter will not be true, make sure uglify doesn't remove */, error);
+        /** If debugging brought you here, please, read the above message :-). Tnx! */
+        if (isSpyEnabled()) {
+            spyReport({
+                type: "error",
+                message: message,
+                error: error,
+                object: this
+            });
+        }
+        globalState.globalReactionErrorHandlers.forEach(function (f) { return f(error, _this); });
+    };
+    Reaction.prototype.dispose = function () {
+        if (!this.isDisposed) {
+            this.isDisposed = true;
+            if (!this._isRunning) {
+                // if disposed while running, clean up later. Maybe not optimal, but rare case
+                startBatch();
+                clearObserving(this);
+                endBatch();
+            }
+        }
+    };
+    Reaction.prototype.getDisposer = function () {
+        var r = this.dispose.bind(this);
+        r.$mobx = this;
+        r.onError = registerErrorHandler;
+        return r;
+    };
+    Reaction.prototype.toString = function () {
+        return "Reaction[" + this.name + "]";
+    };
+    Reaction.prototype.whyRun = function () {
+        var observing = unique(this._isRunning ? this.newObserving : this.observing).map(function (dep) { return dep.name; });
+        return "\nWhyRun? reaction '" + this.name + "':\n * Status: [" + (this.isDisposed
+            ? "stopped"
+            : this._isRunning ? "running" : this.isScheduled() ? "scheduled" : "idle") + "]\n * This reaction will re-run if any of the following observables changes:\n    " + joinStrings(observing) + "\n    " + (this._isRunning
+            ? " (... or any observable accessed during the remainder of the current run)"
+            : "") + "\n\t" + getMessage("m038") + "\n";
+    };
+    Reaction.prototype.trace = function (enterBreakPoint) {
+        if (enterBreakPoint === void 0) { enterBreakPoint = false; }
+        trace(this, enterBreakPoint);
+    };
+    return Reaction;
+}());
+function registerErrorHandler(handler) {
+    invariant(this && this.$mobx && isReaction(this.$mobx), "Invalid `this`");
+    invariant(!this.$mobx.errorHandler, "Only one onErrorHandler can be registered");
+    this.$mobx.errorHandler = handler;
+}
+function onReactionError(handler) {
+    globalState.globalReactionErrorHandlers.push(handler);
+    return function () {
+        var idx = globalState.globalReactionErrorHandlers.indexOf(handler);
+        if (idx >= 0)
+            globalState.globalReactionErrorHandlers.splice(idx, 1);
+    };
+}
+/**
+ * Magic number alert!
+ * Defines within how many times a reaction is allowed to re-trigger itself
+ * until it is assumed that this is gonna be a never ending loop...
+ */
+var MAX_REACTION_ITERATIONS = 100;
+var reactionScheduler = function (f) { return f(); };
+function runReactions() {
+    // Trampolining, if runReactions are already running, new reactions will be picked up
+    if (globalState.inBatch > 0 || globalState.isRunningReactions)
+        return;
+    reactionScheduler(runReactionsHelper);
+}
+function runReactionsHelper() {
+    globalState.isRunningReactions = true;
+    var allReactions = globalState.pendingReactions;
+    var iterations = 0;
+    // While running reactions, new reactions might be triggered.
+    // Hence we work with two variables and check whether
+    // we converge to no remaining reactions after a while.
+    while (allReactions.length > 0) {
+        if (++iterations === MAX_REACTION_ITERATIONS) {
+            console.error("Reaction doesn't converge to a stable state after " + MAX_REACTION_ITERATIONS + " iterations." +
+                (" Probably there is a cycle in the reactive function: " + allReactions[0]));
+            allReactions.splice(0); // clear reactions
+        }
+        var remainingReactions = allReactions.splice(0);
+        for (var i = 0, l = remainingReactions.length; i < l; i++)
+            remainingReactions[i].runReaction();
+    }
+    globalState.isRunningReactions = false;
+}
+var isReaction = createInstanceofPredicate("Reaction", Reaction);
+function setReactionScheduler(fn) {
+    var baseScheduler = reactionScheduler;
+    reactionScheduler = function (f) { return fn(function () { return baseScheduler(f); }); };
+}
+
+function asReference(value) {
+    deprecated("asReference is deprecated, use observable.ref instead");
+    return observable.ref(value);
+}
+function asStructure(value) {
+    deprecated("asStructure is deprecated. Use observable.struct, computed.struct or reaction options instead.");
+    return observable.struct(value);
+}
+function asFlat(value) {
+    deprecated("asFlat is deprecated, use observable.shallow instead");
+    return observable.shallow(value);
+}
+function asMap(data) {
+    deprecated("asMap is deprecated, use observable.map or observable.shallowMap instead");
+    return observable.map(data || {});
+}
+
+function createComputedDecorator(equals) {
+    return createClassPropertyDecorator(function (target, name, _, __, originalDescriptor) {
+        invariant(typeof originalDescriptor !== "undefined", getMessage("m009"));
+        invariant(typeof originalDescriptor.get === "function", getMessage("m010"));
+        var adm = asObservableObject(target, "");
+        defineComputedProperty(adm, name, originalDescriptor.get, originalDescriptor.set, equals, false);
+    }, function (name) {
+        var observable = this.$mobx.values[name];
+        if (observable === undefined // See #505
+        )
+            return undefined;
+        return observable.get();
+    }, function (name, value) {
+        this.$mobx.values[name].set(value);
+    }, false, false);
+}
+var computedDecorator = createComputedDecorator(comparer.default);
+var computedStructDecorator = createComputedDecorator(comparer.structural);
+/**
+ * Decorator for class properties: @computed get value() { return expr; }.
+ * For legacy purposes also invokable as ES5 observable created: `computed(() => expr)`;
+ */
+var computed = function computed(arg1, arg2, arg3) {
+    if (typeof arg2 === "string") {
+        return computedDecorator.apply(null, arguments);
+    }
+    invariant(typeof arg1 === "function", getMessage("m011"));
+    invariant(arguments.length < 3, getMessage("m012"));
+    var opts = typeof arg2 === "object" ? arg2 : {};
+    opts.setter = typeof arg2 === "function" ? arg2 : opts.setter;
+    var equals = opts.equals
+        ? opts.equals
+        : opts.compareStructural || opts.struct ? comparer.structural : comparer.default;
+    return new ComputedValue(arg1, opts.context, equals, opts.name || arg1.name || "", opts.setter);
+};
+computed.struct = computedStructDecorator;
+computed.equals = createComputedDecorator;
+
+function isComputed(value, property) {
+    if (value === null || value === undefined)
+        return false;
+    if (property !== undefined) {
+        if (isObservableObject(value) === false)
+            return false;
+        if (!value.$mobx.values[property])
+            return false;
+        var atom = getAtom(value, property);
+        return isComputedValue(atom);
+    }
+    return isComputedValue(value);
+}
+
+function observe(thing, propOrCb, cbOrFire, fireImmediately) {
+    if (typeof cbOrFire === "function")
+        return observeObservableProperty(thing, propOrCb, cbOrFire, fireImmediately);
+    else
+        return observeObservable(thing, propOrCb, cbOrFire);
+}
+function observeObservable(thing, listener, fireImmediately) {
+    return getAdministration(thing).observe(listener, fireImmediately);
+}
+function observeObservableProperty(thing, property, listener, fireImmediately) {
+    return getAdministration(thing, property).observe(listener, fireImmediately);
+}
+
+function intercept(thing, propOrHandler, handler) {
+    if (typeof handler === "function")
+        return interceptProperty(thing, propOrHandler, handler);
+    else
+        return interceptInterceptable(thing, propOrHandler);
+}
+function interceptInterceptable(thing, handler) {
+    return getAdministration(thing).intercept(handler);
+}
+function interceptProperty(thing, property, handler) {
+    return getAdministration(thing, property).intercept(handler);
+}
+
+/**
+ * expr can be used to create temporarily views inside views.
+ * This can be improved to improve performance if a value changes often, but usually doesn't affect the outcome of an expression.
+ *
+ * In the following example the expression prevents that a component is rerender _each time_ the selection changes;
+ * instead it will only rerenders when the current todo is (de)selected.
+ *
+ * reactiveComponent((props) => {
+ *     const todo = props.todo;
+ *     const isSelected = mobx.expr(() => props.viewState.selection === todo);
+ *     return <div className={isSelected ? "todo todo-selected" : "todo"}>{todo.title}</div>
+ * });
+ *
+ */
+function expr(expr, scope) {
+    if (!isComputingDerivation())
+        console.warn(getMessage("m013"));
+    // optimization: would be more efficient if the expr itself wouldn't be evaluated first on the next change, but just a 'changed' signal would be fired
+    return computed(expr, { context: scope }).get();
+}
+
+function toJS(source, detectCycles, __alreadySeen) {
+    if (detectCycles === void 0) { detectCycles = true; }
+    if (__alreadySeen === void 0) { __alreadySeen = []; }
+    // optimization: using ES6 map would be more efficient!
+    // optimization: lift this function outside toJS, this makes recursion expensive
+    function cache(value) {
+        if (detectCycles)
+            __alreadySeen.push([source, value]);
+        return value;
+    }
+    if (isObservable(source)) {
+        if (detectCycles && __alreadySeen === null)
+            __alreadySeen = [];
+        if (detectCycles && source !== null && typeof source === "object") {
+            for (var i = 0, l = __alreadySeen.length; i < l; i++)
+                if (__alreadySeen[i][0] === source)
+                    return __alreadySeen[i][1];
+        }
+        if (isObservableArray(source)) {
+            var res = cache([]);
+            var toAdd = source.map(function (value) { return toJS(value, detectCycles, __alreadySeen); });
+            res.length = toAdd.length;
+            for (var i = 0, l = toAdd.length; i < l; i++)
+                res[i] = toAdd[i];
+            return res;
+        }
+        if (isObservableObject(source)) {
+            var res = cache({});
+            for (var key in source)
+                res[key] = toJS(source[key], detectCycles, __alreadySeen);
+            return res;
+        }
+        if (isObservableMap(source)) {
+            var res_1 = cache({});
+            source.forEach(function (value, key) { return (res_1[key] = toJS(value, detectCycles, __alreadySeen)); });
+            return res_1;
+        }
+        if (isObservableValue(source))
+            return toJS(source.get(), detectCycles, __alreadySeen);
+    }
+    return source;
+}
+
+function createTransformer(transformer, onCleanup) {
+    invariant(typeof transformer === "function" && transformer.length < 2, "createTransformer expects a function that accepts one argument");
+    // Memoizes: object id -> reactive view that applies transformer to the object
+    var objectCache = {};
+    // If the resetId changes, we will clear the object cache, see #163
+    // This construction is used to avoid leaking refs to the objectCache directly
+    var resetId = globalState.resetId;
+    // Local transformer class specifically for this transformer
+    var Transformer = /** @class */ (function (_super) {
+        __extends(Transformer, _super);
+        function Transformer(sourceIdentifier, sourceObject) {
+            var _this = _super.call(this, function () { return transformer(sourceObject); }, undefined, comparer.default, "Transformer-" + transformer.name + "-" + sourceIdentifier, undefined) || this;
+            _this.sourceIdentifier = sourceIdentifier;
+            _this.sourceObject = sourceObject;
+            return _this;
+        }
+        Transformer.prototype.onBecomeUnobserved = function () {
+            var lastValue = this.value;
+            _super.prototype.onBecomeUnobserved.call(this);
+            delete objectCache[this.sourceIdentifier];
+            if (onCleanup)
+                onCleanup(lastValue, this.sourceObject);
+        };
+        return Transformer;
+    }(ComputedValue));
+    return function (object) {
+        if (resetId !== globalState.resetId) {
+            objectCache = {};
+            resetId = globalState.resetId;
+        }
+        var identifier = getMemoizationId(object);
+        var reactiveTransformer = objectCache[identifier];
+        if (reactiveTransformer)
+            return reactiveTransformer.get();
+        // Not in cache; create a reactive view
+        reactiveTransformer = objectCache[identifier] = new Transformer(identifier, object);
+        return reactiveTransformer.get();
+    };
+}
+function getMemoizationId(object) {
+    if (typeof object === "string" || typeof object === "number")
+        return object;
+    if (object === null || typeof object !== "object")
+        throw new Error("[mobx] transform expected some kind of object or primitive value, got: " + object);
+    var tid = object.$transformId;
+    if (tid === undefined) {
+        tid = getNextId();
+        addHiddenProp(object, "$transformId", tid);
+    }
+    return tid;
+}
+
+function interceptReads(thing, propOrHandler, handler) {
+    var target;
+    if (isObservableMap(thing) || isObservableArray(thing) || isObservableValue(thing)) {
+        target = getAdministration(thing);
+    }
+    else if (isObservableObject(thing)) {
+        if (typeof propOrHandler !== "string")
+            return fail("InterceptReads can only be used with a specific property, not with an object in general");
+        target = getAdministration(thing, propOrHandler);
+    }
+    else {
+        return fail("Expected observable map, object or array as first array");
+    }
+    if (target.dehancer !== undefined)
+        return fail("An intercept reader was already established");
+    target.dehancer = typeof propOrHandler === "function" ? propOrHandler : handler;
+    return function () {
+        target.dehancer = undefined;
+    };
+}
+
+/**
+ * (c) Michel Weststrate 2015 - 2016
+ * MIT Licensed
+ *
+ * Welcome to the mobx sources! To get an global overview of how MobX internally works,
+ * this is a good place to start:
+ * https://medium.com/@mweststrate/becoming-fully-reactive-an-in-depth-explanation-of-mobservable-55995262a254#.xvbh6qd74
+ *
+ * Source folders:
+ * ===============
+ *
+ * - api/     Most of the public static methods exposed by the module can be found here.
+ * - core/    Implementation of the MobX algorithm; atoms, derivations, reactions, dependency trees, optimizations. Cool stuff can be found here.
+ * - types/   All the magic that is need to have observable objects, arrays and values is in this folder. Including the modifiers like `asFlat`.
+ * - utils/   Utility stuff.
+ *
+ */
+var extras = {
+    allowStateChanges: allowStateChanges,
+    deepEqual: deepEqual,
+    getAtom: getAtom,
+    getDebugName: getDebugName,
+    getDependencyTree: getDependencyTree,
+    getAdministration: getAdministration,
+    getGlobalState: getGlobalState,
+    getObserverTree: getObserverTree,
+    interceptReads: interceptReads,
+    isComputingDerivation: isComputingDerivation,
+    isSpyEnabled: isSpyEnabled,
+    onReactionError: onReactionError,
+    reserveArrayBuffer: reserveArrayBuffer,
+    resetGlobalState: resetGlobalState,
+    isolateGlobalState: isolateGlobalState,
+    shareGlobalState: shareGlobalState,
+    spyReport: spyReport,
+    spyReportEnd: spyReportEnd,
+    spyReportStart: spyReportStart,
+    setReactionScheduler: setReactionScheduler
+};
+var everything = {
+    Reaction: Reaction,
+    untracked: untracked,
+    Atom: Atom,
+    BaseAtom: BaseAtom,
+    useStrict: useStrict,
+    isStrictModeEnabled: isStrictModeEnabled,
+    spy: spy,
+    comparer: comparer,
+    asReference: asReference,
+    asFlat: asFlat,
+    asStructure: asStructure,
+    asMap: asMap,
+    isModifierDescriptor: isModifierDescriptor,
+    isObservableObject: isObservableObject,
+    isBoxedObservable: isObservableValue,
+    isObservableArray: isObservableArray,
+    ObservableMap: ObservableMap,
+    isObservableMap: isObservableMap,
+    map: map,
+    transaction: transaction,
+    observable: observable,
+    computed: computed,
+    isObservable: isObservable,
+    isComputed: isComputed,
+    extendObservable: extendObservable,
+    extendShallowObservable: extendShallowObservable,
+    observe: observe,
+    intercept: intercept,
+    autorun: autorun,
+    autorunAsync: autorunAsync,
+    when: when,
+    reaction: reaction,
+    action: action,
+    isAction: isAction,
+    runInAction: runInAction,
+    expr: expr,
+    toJS: toJS,
+    createTransformer: createTransformer,
+    whyRun: whyRun,
+    isArrayLike: isArrayLike,
+    extras: extras
+};
+var warnedAboutDefaultExport = false;
+var _loop_1 = function (p) {
+    var val = everything[p];
+    Object.defineProperty(everything, p, {
+        get: function () {
+            if (!warnedAboutDefaultExport) {
+                warnedAboutDefaultExport = true;
+                console.warn("Using default export (`import mobx from 'mobx'`) is deprecated " +
+                    "and won’t work in mobx@4.0.0\n" +
+                    "Use `import * as mobx from 'mobx'` instead");
+            }
+            return val;
+        }
+    });
+};
+for (var p in everything) {
+    _loop_1(p);
+}
+if (typeof __MOBX_DEVTOOLS_GLOBAL_HOOK__ === "object") {
+    __MOBX_DEVTOOLS_GLOBAL_HOOK__.injectMobx({ spy: spy, extras: extras });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (everything);
+
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(52)))
+
+/***/ }),
+
+/***/ 199:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.http = exports.Query = exports.isString = undefined;
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+exports.getTargetContainer = getTargetContainer;
+
+var _constants = __webpack_require__(90);
+
+var isString = exports.isString = function isString(s) {
+  return toString.call(s) === '[object String]';
+};
+
+function getTargetContainer(container) {
+  var targetContainer = void 0;
+  if (container instanceof Element) {
+    targetContainer = container;
+  } else if (isString(container)) {
+    targetContainer = document.getElementById(container);
+  } else {
+    targetContainer = document.createElement('div');
+  }
+
+  return targetContainer;
+}
+
+var Query = exports.Query = {
+  parse: function parse() {
+    var search = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : window.location.search;
+
+    if (!search) return {};
+    var queryString = search[0] === '?' ? search.substring(1) : search;
+    var query = {};
+    queryString.split('&').forEach(function (queryStr) {
+      var _queryStr$split = queryStr.split('='),
+          _queryStr$split2 = _slicedToArray(_queryStr$split, 2),
+          key = _queryStr$split2[0],
+          value = _queryStr$split2[1];
+
+      if (key) query[key] = value;
+    });
+
+    return query;
+  },
+  stringify: function stringify(query) {
+    var prefix = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '?';
+
+    var queryString = Object.keys(query).map(function (key) {
+      return key + '=' + encodeURIComponent(query[key] || '');
+    }).join('&');
+    return queryString ? prefix + queryString : '';
+  }
+};
+
+function ajaxFactory(method) {
+  return function (apiPath) {
+    var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var base = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'https://api.github.com';
+
+    var req = new XMLHttpRequest();
+    var token = localStorage.getItem(_constants.LS_ACCESS_TOKEN_KEY);
+
+    var url = '' + base + apiPath;
+    var body = null;
+    if (method === 'GET' || method === 'DELETE') {
+      url += Query.stringify(data);
+    }
+
+    var p = new Promise(function (resolve, reject) {
+      req.addEventListener('load', function () {
+        var contentType = req.getResponseHeader('content-type');
+        var res = req.responseText;
+        if (!/json/.test(contentType)) {
+          resolve(res);
+          return;
+        }
+        var data = req.responseText ? JSON.parse(res) : {};
+        if (data.message) {
+          reject(new Error(data.message));
+        } else {
+          resolve(data);
+        }
+      });
+      req.addEventListener('error', function (error) {
+        return reject(error);
+      });
+    });
+    req.open(method, url, true);
+
+    req.setRequestHeader('Accept', 'application/vnd.github.squirrel-girl-preview, application/vnd.github.html+json');
+    if (token) {
+      req.setRequestHeader('Authorization', 'token ' + token);
+    }
+    if (method !== 'GET' && method !== 'DELETE') {
+      body = JSON.stringify(data);
+      req.setRequestHeader('Content-Type', 'application/json');
+    }
+
+    req.send(body);
+    return p;
+  };
+}
+
+var http = exports.http = {
+  get: ajaxFactory('GET'),
+  post: ajaxFactory('POST'),
+  delete: ajaxFactory('DELETE'),
+  put: ajaxFactory('PUT')
+};
+//# sourceMappingURL=utils.js.map
+
+/***/ }),
+
+/***/ 200:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+var _icons = __webpack_require__(201);
+
+var _constants = __webpack_require__(90);
+
+function renderHeader(_ref, instance) {
+  var meta = _ref.meta,
+      user = _ref.user,
+      reactions = _ref.reactions;
+
+  var container = document.createElement('div');
+  container.lang = "en-US";
+  container.className = 'gitment-container gitment-header-container';
+
+  var likeButton = document.createElement('span');
+  var likedReaction = reactions.find(function (reaction) {
+    return reaction.content === 'heart' && reaction.user.login === user.login;
+  });
+  likeButton.className = 'gitment-header-like-btn';
+  likeButton.innerHTML = '\n    ' + _icons.heart + '\n    ' + (likedReaction ? 'Unlike' : 'Like') + '\n    ' + (meta.reactions && meta.reactions.heart ? ' \u2022 <strong>' + meta.reactions.heart + '</strong> Liked' : '') + '\n  ';
+
+  if (likedReaction) {
+    likeButton.classList.add('liked');
+    likeButton.onclick = function () {
+      return instance.unlike();
+    };
+  } else {
+    likeButton.classList.remove('liked');
+    likeButton.onclick = function () {
+      return instance.like();
+    };
+  }
+  container.appendChild(likeButton);
+
+  var commentsCount = document.createElement('span');
+  commentsCount.innerHTML = '\n    ' + (meta.comments ? ' \u2022 <strong>' + meta.comments + '</strong> Comments' : '') + '\n  ';
+  container.appendChild(commentsCount);
+
+  var issueLink = document.createElement('a');
+  issueLink.className = 'gitment-header-issue-link';
+  issueLink.href = meta.html_url;
+  issueLink.target = '_blank';
+  issueLink.innerText = 'Issue Page';
+  container.appendChild(issueLink);
+
+  return container;
+}
+
+function renderComments(_ref2, instance) {
+  var meta = _ref2.meta,
+      comments = _ref2.comments,
+      commentReactions = _ref2.commentReactions,
+      currentPage = _ref2.currentPage,
+      user = _ref2.user,
+      error = _ref2.error;
+
+  var container = document.createElement('div');
+  container.lang = "en-US";
+  container.className = 'gitment-container gitment-comments-container';
+
+  if (error) {
+    var errorBlock = document.createElement('div');
+    errorBlock.className = 'gitment-comments-error';
+
+    if (error === _constants.NOT_INITIALIZED_ERROR && user.login && user.login.toLowerCase() === instance.owner.toLowerCase()) {
+      var initHint = document.createElement('div');
+      var initButton = document.createElement('button');
+      initButton.className = 'gitment-comments-init-btn';
+      initButton.onclick = function () {
+        initButton.setAttribute('disabled', true);
+        instance.init().catch(function (e) {
+          initButton.removeAttribute('disabled');
+          alert(e);
+        });
+      };
+      initButton.innerText = 'Initialize Comments';
+      initHint.appendChild(initButton);
+      errorBlock.appendChild(initHint);
+    } else {
+      errorBlock.innerText = error;
+    }
+    container.appendChild(errorBlock);
+    return container;
+  } else if (comments === undefined) {
+    var loading = document.createElement('div');
+    loading.innerText = 'Loading comments...';
+    loading.className = 'gitment-comments-loading';
+    container.appendChild(loading);
+    return container;
+  } else if (!comments.length) {
+    var emptyBlock = document.createElement('div');
+    emptyBlock.className = 'gitment-comments-empty';
+    emptyBlock.innerText = 'No Comment Yet';
+    container.appendChild(emptyBlock);
+    return container;
+  }
+
+  var commentsList = document.createElement('ul');
+  commentsList.className = 'gitment-comments-list';
+
+  comments.forEach(function (comment) {
+    var createDate = new Date(comment.created_at);
+    var updateDate = new Date(comment.updated_at);
+    var commentItem = document.createElement('li');
+    commentItem.className = 'gitment-comment';
+    commentItem.innerHTML = '\n      <a class="gitment-comment-avatar" href="' + comment.user.html_url + '" target="_blank">\n        <img class="gitment-comment-avatar-img" src="' + comment.user.avatar_url + '"/>\n      </a>\n      <div class="gitment-comment-main">\n        <div class="gitment-comment-header">\n          <a class="gitment-comment-name" href="' + comment.user.html_url + '" target="_blank">\n            ' + comment.user.login + '\n          </a>\n          commented on\n          <span title="' + createDate + '">' + createDate.toDateString() + '</span>\n          ' + (createDate.toString() !== updateDate.toString() ? ' \u2022 <span title="comment was edited at ' + updateDate + '">edited</span>' : '') + '\n          <div class="gitment-comment-like-btn">' + _icons.heart + ' ' + (comment.reactions.heart || '') + '</div>\n        </div>\n        <div class="gitment-comment-body gitment-markdown">' + comment.body_html + '</div>\n      </div>\n    ';
+    var likeButton = commentItem.querySelector('.gitment-comment-like-btn');
+    var likedReaction = commentReactions[comment.id] && commentReactions[comment.id].find(function (reaction) {
+      return reaction.content === 'heart' && reaction.user.login === user.login;
+    });
+    if (likedReaction) {
+      likeButton.classList.add('liked');
+      likeButton.onclick = function () {
+        return instance.unlikeAComment(comment.id);
+      };
+    } else {
+      likeButton.classList.remove('liked');
+      likeButton.onclick = function () {
+        return instance.likeAComment(comment.id);
+      };
+    }
+
+    // dirty
+    // use a blank image to trigger height calculating when element rendered
+    var imgTrigger = document.createElement('img');
+    var markdownBody = commentItem.querySelector('.gitment-comment-body');
+    imgTrigger.className = 'gitment-hidden';
+    imgTrigger.src = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
+    imgTrigger.onload = function () {
+      if (markdownBody.clientHeight > instance.maxCommentHeight) {
+        markdownBody.classList.add('gitment-comment-body-folded');
+        markdownBody.style.maxHeight = instance.maxCommentHeight + 'px';
+        markdownBody.title = 'Click to Expand';
+        markdownBody.onclick = function () {
+          markdownBody.classList.remove('gitment-comment-body-folded');
+          markdownBody.style.maxHeight = '';
+          markdownBody.title = '';
+          markdownBody.onclick = null;
+        };
+      }
+    };
+    commentItem.appendChild(imgTrigger);
+
+    commentsList.appendChild(commentItem);
+  });
+
+  container.appendChild(commentsList);
+
+  if (meta) {
+    var pageCount = Math.ceil(meta.comments / instance.perPage);
+    if (pageCount > 1) {
+      var pagination = document.createElement('ul');
+      pagination.className = 'gitment-comments-pagination';
+
+      if (currentPage > 1) {
+        var previousButton = document.createElement('li');
+        previousButton.className = 'gitment-comments-page-item';
+        previousButton.innerText = 'Previous';
+        previousButton.onclick = function () {
+          return instance.goto(currentPage - 1);
+        };
+        pagination.appendChild(previousButton);
+      }
+
+      var _loop = function _loop(i) {
+        var pageItem = document.createElement('li');
+        pageItem.className = 'gitment-comments-page-item';
+        pageItem.innerText = i;
+        pageItem.onclick = function () {
+          return instance.goto(i);
+        };
+        if (currentPage === i) pageItem.classList.add('gitment-selected');
+        pagination.appendChild(pageItem);
+      };
+
+      for (var i = 1; i <= pageCount; i++) {
+        _loop(i);
+      }
+
+      if (currentPage < pageCount) {
+        var nextButton = document.createElement('li');
+        nextButton.className = 'gitment-comments-page-item';
+        nextButton.innerText = 'Next';
+        nextButton.onclick = function () {
+          return instance.goto(currentPage + 1);
+        };
+        pagination.appendChild(nextButton);
+      }
+
+      container.appendChild(pagination);
+    }
+  }
+
+  return container;
+}
+
+function renderEditor(_ref3, instance) {
+  var user = _ref3.user,
+      error = _ref3.error;
+
+  var container = document.createElement('div');
+  container.lang = "en-US";
+  container.className = 'gitment-container gitment-editor-container';
+
+  var shouldDisable = user.login && !error ? '' : 'disabled';
+  var disabledTip = user.login ? '' : 'Login to Comment';
+  container.innerHTML = '\n      ' + (user.login ? '<a class="gitment-editor-avatar" href="' + user.html_url + '" target="_blank">\n            <img class="gitment-editor-avatar-img" src="' + user.avatar_url + '"/>\n          </a>' : user.isLoggingIn ? '<div class="gitment-editor-avatar">' + _icons.spinner + '</div>' : '<a class="gitment-editor-avatar" href="' + instance.loginLink + '" title="login with GitHub">\n              ' + _icons.github + '\n            </a>') + '\n    </a>\n    <div class="gitment-editor-main">\n      <div class="gitment-editor-header">\n        <nav class="gitment-editor-tabs">\n          <button class="gitment-editor-tab gitment-selected">Write</button>\n          <button class="gitment-editor-tab">Preview</button>\n        </nav>\n        <div class="gitment-editor-login">\n          ' + (user.login ? '<a class="gitment-editor-logout-link">Logout</a>' : user.isLoggingIn ? 'Logging in...' : '<a class="gitment-editor-login-link" href="' + instance.loginLink + '">Login</a> with GitHub') + '\n        </div>\n      </div>\n      <div class="gitment-editor-body">\n        <div class="gitment-editor-write-field">\n          <textarea placeholder="Leave a comment" title="' + disabledTip + '" ' + shouldDisable + '></textarea>\n        </div>\n        <div class="gitment-editor-preview-field gitment-hidden">\n          <div class="gitment-editor-preview gitment-markdown"></div>\n        </div>\n      </div>\n    </div>\n    <div class="gitment-editor-footer">\n      <a class="gitment-editor-footer-tip" href="https://guides.github.com/features/mastering-markdown/" target="_blank">\n        Styling with Markdown is supported\n      </a>\n      <button class="gitment-editor-submit" title="' + disabledTip + '" ' + shouldDisable + '>Comment</button>\n    </div>\n  ';
+  if (user.login) {
+    container.querySelector('.gitment-editor-logout-link').onclick = function () {
+      return instance.logout();
+    };
+  }
+
+  var writeField = container.querySelector('.gitment-editor-write-field');
+  var previewField = container.querySelector('.gitment-editor-preview-field');
+
+  var textarea = writeField.querySelector('textarea');
+  textarea.oninput = function () {
+    textarea.style.height = 'auto';
+    var style = window.getComputedStyle(textarea, null);
+    var height = parseInt(style.height, 10);
+    var clientHeight = textarea.clientHeight;
+    var scrollHeight = textarea.scrollHeight;
+    if (clientHeight < scrollHeight) {
+      textarea.style.height = height + scrollHeight - clientHeight + 'px';
+    }
+  };
+
+  var _container$querySelec = container.querySelectorAll('.gitment-editor-tab'),
+      _container$querySelec2 = _slicedToArray(_container$querySelec, 2),
+      writeTab = _container$querySelec2[0],
+      previewTab = _container$querySelec2[1];
+
+  writeTab.onclick = function () {
+    writeTab.classList.add('gitment-selected');
+    previewTab.classList.remove('gitment-selected');
+    writeField.classList.remove('gitment-hidden');
+    previewField.classList.add('gitment-hidden');
+
+    textarea.focus();
+  };
+  previewTab.onclick = function () {
+    previewTab.classList.add('gitment-selected');
+    writeTab.classList.remove('gitment-selected');
+    previewField.classList.remove('gitment-hidden');
+    writeField.classList.add('gitment-hidden');
+
+    var preview = previewField.querySelector('.gitment-editor-preview');
+    var content = textarea.value.trim();
+    if (!content) {
+      preview.innerText = 'Nothing to preview';
+      return;
+    }
+
+    preview.innerText = 'Loading preview...';
+    instance.markdown(content).then(function (html) {
+      return preview.innerHTML = html;
+    });
+  };
+
+  var submitButton = container.querySelector('.gitment-editor-submit');
+  submitButton.onclick = function () {
+    submitButton.innerText = 'Submitting...';
+    submitButton.setAttribute('disabled', true);
+    instance.post(textarea.value.trim()).then(function (data) {
+      textarea.value = '';
+      textarea.style.height = 'auto';
+      submitButton.removeAttribute('disabled');
+      submitButton.innerText = 'Comment';
+    }).catch(function (e) {
+      alert(e);
+      submitButton.removeAttribute('disabled');
+      submitButton.innerText = 'Comment';
+    });
+  };
+
+  return container;
+}
+
+function renderFooter() {
+  var container = document.createElement('div');
+  container.lang = "en-US";
+  container.className = 'gitment-container gitment-footer-container';
+  container.innerHTML = '\n    Powered by\n    <a class="gitment-footer-project-link" href="https://github.com/imsun/gitment" target="_blank">\n      Gitment\n    </a>\n  ';
+  return container;
+}
+
+function render(state, instance) {
+  var container = document.createElement('div');
+  container.lang = "en-US";
+  container.className = 'gitment-container gitment-root-container';
+  container.appendChild(instance.renderHeader(state, instance));
+  container.appendChild(instance.renderComments(state, instance));
+  container.appendChild(instance.renderEditor(state, instance));
+  container.appendChild(instance.renderFooter(state, instance));
+  return container;
+}
+
+exports.default = { render: render, renderHeader: renderHeader, renderComments: renderComments, renderEditor: renderEditor, renderFooter: renderFooter };
+//# sourceMappingURL=default.js.map
+
+/***/ }),
+
+/***/ 201:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/**
+ * Modified from https://github.com/evil-icons/evil-icons
+ */
+
+var close = exports.close = '<svg class="gitment-close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M37.304 11.282l1.414 1.414-26.022 26.02-1.414-1.413z"/><path d="M12.696 11.282l26.022 26.02-1.414 1.415-26.022-26.02z"/></svg>';
+var github = exports.github = '<svg class="gitment-github-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M25 10c-8.3 0-15 6.7-15 15 0 6.6 4.3 12.2 10.3 14.2.8.1 1-.3 1-.7v-2.6c-4.2.9-5.1-2-5.1-2-.7-1.7-1.7-2.2-1.7-2.2-1.4-.9.1-.9.1-.9 1.5.1 2.3 1.5 2.3 1.5 1.3 2.3 3.5 1.6 4.4 1.2.1-1 .5-1.6 1-2-3.3-.4-6.8-1.7-6.8-7.4 0-1.6.6-3 1.5-4-.2-.4-.7-1.9.1-4 0 0 1.3-.4 4.1 1.5 1.2-.3 2.5-.5 3.8-.5 1.3 0 2.6.2 3.8.5 2.9-1.9 4.1-1.5 4.1-1.5.8 2.1.3 3.6.1 4 1 1 1.5 2.4 1.5 4 0 5.8-3.5 7-6.8 7.4.5.5 1 1.4 1 2.8v4.1c0 .4.3.9 1 .7 6-2 10.2-7.6 10.2-14.2C40 16.7 33.3 10 25 10z"/></svg>';
+var heart = exports.heart = '<svg class="gitment-heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M25 39.7l-.6-.5C11.5 28.7 8 25 8 19c0-5 4-9 9-9 4.1 0 6.4 2.3 8 4.1 1.6-1.8 3.9-4.1 8-4.1 5 0 9 4 9 9 0 6-3.5 9.7-16.4 20.2l-.6.5zM17 12c-3.9 0-7 3.1-7 7 0 5.1 3.2 8.5 15 18.1 11.8-9.6 15-13 15-18.1 0-3.9-3.1-7-7-7-3.5 0-5.4 2.1-6.9 3.8L25 17.1l-1.1-1.3C22.4 14.1 20.5 12 17 12z"/></svg>';
+var spinner = exports.spinner = '<svg class="gitment-spinner-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M25 18c-.6 0-1-.4-1-1V9c0-.6.4-1 1-1s1 .4 1 1v8c0 .6-.4 1-1 1z"/><path opacity=".3" d="M25 42c-.6 0-1-.4-1-1v-8c0-.6.4-1 1-1s1 .4 1 1v8c0 .6-.4 1-1 1z"/><path opacity=".3" d="M29 19c-.2 0-.3 0-.5-.1-.4-.3-.6-.8-.3-1.3l4-6.9c.3-.4.8-.6 1.3-.3.4.3.6.8.3 1.3l-4 6.9c-.2.2-.5.4-.8.4z"/><path opacity=".3" d="M17 39.8c-.2 0-.3 0-.5-.1-.4-.3-.6-.8-.3-1.3l4-6.9c.3-.4.8-.6 1.3-.3.4.3.6.8.3 1.3l-4 6.9c-.2.2-.5.4-.8.4z"/><path opacity=".93" d="M21 19c-.3 0-.6-.2-.8-.5l-4-6.9c-.3-.4-.1-1 .3-1.3.4-.3 1-.1 1.3.3l4 6.9c.3.4.1 1-.3 1.3-.2.2-.3.2-.5.2z"/><path opacity=".3" d="M33 39.8c-.3 0-.6-.2-.8-.5l-4-6.9c-.3-.4-.1-1 .3-1.3.4-.3 1-.1 1.3.3l4 6.9c.3.4.1 1-.3 1.3-.2.1-.3.2-.5.2z"/><path opacity=".65" d="M17 26H9c-.6 0-1-.4-1-1s.4-1 1-1h8c.6 0 1 .4 1 1s-.4 1-1 1z"/><path opacity=".3" d="M41 26h-8c-.6 0-1-.4-1-1s.4-1 1-1h8c.6 0 1 .4 1 1s-.4 1-1 1z"/><path opacity=".86" d="M18.1 21.9c-.2 0-.3 0-.5-.1l-6.9-4c-.4-.3-.6-.8-.3-1.3.3-.4.8-.6 1.3-.3l6.9 4c.4.3.6.8.3 1.3-.2.3-.5.4-.8.4z"/><path opacity=".3" d="M38.9 33.9c-.2 0-.3 0-.5-.1l-6.9-4c-.4-.3-.6-.8-.3-1.3.3-.4.8-.6 1.3-.3l6.9 4c.4.3.6.8.3 1.3-.2.3-.5.4-.8.4z"/><path opacity=".44" d="M11.1 33.9c-.3 0-.6-.2-.8-.5-.3-.4-.1-1 .3-1.3l6.9-4c.4-.3 1-.1 1.3.3.3.4.1 1-.3 1.3l-6.9 4c-.1.2-.3.2-.5.2z"/><path opacity=".3" d="M31.9 21.9c-.3 0-.6-.2-.8-.5-.3-.4-.1-1 .3-1.3l6.9-4c.4-.3 1-.1 1.3.3.3.4.1 1-.3 1.3l-6.9 4c-.2.2-.3.2-.5.2z"/></svg>';
+//# sourceMappingURL=icons.js.map
+
+/***/ }),
+
+/***/ 64:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+exports.default = function (instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+};
+
+/***/ }),
+
+/***/ 65:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _defineProperty = __webpack_require__(129);
+
+var _defineProperty2 = _interopRequireDefault(_defineProperty);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      (0, _defineProperty2.default)(target, descriptor.key, descriptor);
+    }
+  }
+
+  return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) defineProperties(Constructor, staticProps);
+    return Constructor;
+  };
+}();
+
+/***/ }),
+
+/***/ 90:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var LS_ACCESS_TOKEN_KEY = exports.LS_ACCESS_TOKEN_KEY = 'gitment-comments-token';
+var LS_USER_KEY = exports.LS_USER_KEY = 'gitment-user-info';
+
+var NOT_INITIALIZED_ERROR = exports.NOT_INITIALIZED_ERROR = new Error('Comments Not Initialized');
+//# sourceMappingURL=constants.js.map
+
+/***/ })
+
+},[185]);

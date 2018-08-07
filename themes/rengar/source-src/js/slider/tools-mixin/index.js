@@ -1,4 +1,4 @@
-import sliderConst from 'common/slider_const'
+import toolsConst from 'common/tools-const'
 import {on} from 'utils/event'
 // safari不支持fetch
 import * as fetch from 'fetch-ie8'
@@ -10,18 +10,18 @@ const localSearchKey = 'rengar-search'
 const localTagKey = 'rengar-tag'
 
 export default {
-    name: 'slider-mixin',
+    name: 'tools-mixin',
     directives: {},
     components: {},
     mixins: [],
     data() {
         /* Notice: 给data里面的变量留下说明文字 */
         return {
-            // slider-type
-            sliderConst,
-            // 当前选中的slider-type
-            sliderSelected: sliderConst.SLIDER_OPTIONS.CLOSE,
-            // 是否显示slider
+            // tools-type
+            toolsConst,
+            // 当前选中的tools-type
+            toolsSelected: toolsConst.TOOLS_OPTIONS.CLOSE,
+            // 是否显示tools
             isShow: false,
             // 搜索内容
             search: '',
@@ -43,8 +43,8 @@ export default {
     filters: {},
     methods: {
         /* Notice: 复杂的方法，写下说明 */
-        // 点击打开slider
-        openSlider(e, type) {
+        // 点击打开tools
+        openTools(e, type) {
             // 阻止默认行为
             e.stopPropagation()
             if (!type) {
@@ -53,7 +53,7 @@ export default {
             // innerArchive: '所有文章'
             // friends: '友情链接'
             // aboutme: '关于我'
-            this.sliderSelected = type
+            this.toolsSelected = type
             // todo ???
             type = true
             this.isShow = true
@@ -64,7 +64,7 @@ export default {
             // 将mousedown事件的元素传入，判断'所有文章/友情链接/关于我'三个按钮
             if (this.isShow && mouseDown.target.className !== 'click-show-tools') {
                 this.isShow = false
-                this.sliderSelected = sliderConst.SLIDER_OPTIONS.CLOSE
+                this.toolsSelected = toolsConst.TOOLS_OPTIONS.CLOSE
             }
         },
         // slider的滚动条置顶
@@ -136,7 +136,7 @@ export default {
             $em.setAttribute('href', 'javascript:void(0)')
             on($em, 'click', (e) => {
                 e.stopPropagation()
-                this.sliderSelected = sliderConst.SLIDER_OPTIONS.INNER_ARCHIVE
+                this.toolsSelected = toolsConst.TOOLS_OPTIONS.INNER_ARCHIVE
                 this.isShow = true
                 this.search = `#${$em.innerHTML}`
                 this.setScrollZero()

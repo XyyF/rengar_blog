@@ -8,14 +8,15 @@
 <div id="container"
      class="container-none"
      :class="{ 'tools-show': isShow, 'container-show': renderContainer }">
+    <!--tools展开的背景动画-->
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
+
+    <!--最左侧个人信息展示栏-->
     <div class="left-col" :class="{ 'tools-show': isShow }">
-        <!--最左侧个人信息展示栏-->
         <%- partial('_partial/left-col/index', null, {cache: !config.relative_link}) %>
-
     </div>
-    <div class="mid-col" :class="{ 'tools-show':isShow, 'hide': isFalse(isShow) }">
 
+    <div class="mid-col" :class="{ 'tools-show':isShow, 'hide': isFalse(isShow) }">
         <!--手机端-->
         <%- partial('_partial/mobile-nav', null, {cache: !config.relative_link}) %>
         <div id="wrapper" class="body-wrap">
@@ -31,11 +32,11 @@
         </div>
 
         <!--底部联系我栏-->
-        <%- partial('_partial/footer') %>
+        <%- partial('_partial/footer/index') %>
     </div>
 
     <!--标签栏-->
-    <%- partial('_partial/tools') %>
+    <%- partial('_partial/tools/index') %>
 
     <!--图片预览-->
     <%- partial('_partial/viewer') %>

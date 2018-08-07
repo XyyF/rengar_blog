@@ -2,7 +2,7 @@ import clickoutside from 'common/vue_plugins/clickoutside'
 
 import {DialogType} from './pages/rg-dialog/dialog_configs'
 import Dialog from './pages/rg-dialog/index'
-import sliderMxin from './slider-mixin/index'
+import toolsMxin from './tools-mixin/index'
 import catalogMixin from './catalog-mixin/index'
 
 // 日期格式确定
@@ -21,7 +21,7 @@ export default {
         // 弹窗组件
         [Dialog.name]: Dialog,
     },
-    mixins: [sliderMxin, catalogMixin],
+    mixins: [toolsMxin, catalogMixin],
     data() {
         /* Notice: 给data里面的变量留下说明文字 */
         return {
