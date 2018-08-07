@@ -3,6 +3,8 @@ import {on} from 'utils/event'
 // safari不支持fetch
 import * as fetch from 'fetch-ie8'
 
+import aboutMe from './about-me/index'
+
 window.fetch = window.fetch || fetch
 
 // localStorage名称
@@ -12,7 +14,9 @@ const localTagKey = 'rengar-tag'
 export default {
     name: 'tools-mixin',
     directives: {},
-    components: {},
+    components: {
+        aboutMe,
+    },
     mixins: [],
     data() {
         /* Notice: 给data里面的变量留下说明文字 */

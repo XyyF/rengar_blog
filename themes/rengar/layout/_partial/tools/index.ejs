@@ -6,28 +6,10 @@ var hasAboutme = theme.smart_menu.aboutme
 <div class="tools-col"
      :class="{ 'tools-show': isShow, 'hide': !isShow }"
      @click="e => stop(e)">
-    <div class="tools-nav header-menu" v-show="isShow">
-        <% var count = 0 %>
-        <% for (var i in theme.smart_menu){ %>
-        <% if (theme.smart_menu[i]) { %>
-        <% count++ %>
-        <% } %>
-        <% } %>
-        <% var ulWidth = '70%' %>
 
-        <ul style="width: <%= ulWidth %>">
-            <% var divide = 100 / count + '%' %>
-            <% for (let i in theme.smart_menu){ %>
-            <% if(theme.smart_menu.hasOwnProperty(i) && theme.smart_menu[i]){ %>
-            <li style="width: <%= divide %>"
-                @click="e => openTools(e, '<%- i %>')">
-                <a href="javascript:void(0)" :class="{ 'active': toolsSelected === '<%- i %>' }"><%= theme.smart_menu[i] %></a>
-            </li>
-            <% } %>
-            <% } %>
-        </ul>
-    </div>
+    <!--tools内容-->
     <div class="tools-wrap" v-clickoutside="clickCloseTools">
+        <!--所有文章-->
         <% if(hasInnerArchive){ %>
         <section class="tools-section tools-section-all" v-show="toolsSelected === 'innerArchive'">
             <div class="search-wrap">
@@ -96,6 +78,7 @@ var hasAboutme = theme.smart_menu.aboutme
         </section>
         <% } %>
 
+        <!--友情链接-->
         <% if(hasFriends){ %>
         <section class="tools-section tools-section-friends" v-show="toolsSelected === 'friends'">
             <% if(theme.friends && theme.friends.length != 0){ %>
@@ -110,13 +93,11 @@ var hasAboutme = theme.smart_menu.aboutme
         </section>
         <% } %>
 
-        <% if(hasAboutme){ %>
-        <section class="tools-section tools-section-me" v-show="toolsSelected === 'aboutme'">
-            <% if(theme.aboutme){ %>
-            <div class="aboutme-wrap" id="js-aboutme"><%= theme.aboutme %></div>
-            <% } %>
-        </section>
-        <% } %>
+        <!--关于我-->
+        <about-me
+            :aboutme="'<%- theme.aboutme %>'"
+            :tools-selected="toolsSelected">
+        </about-me>
     </div>
 
 </div>

@@ -10867,7 +10867,7 @@ var _baseVue = __webpack_require__(230);
 
 var _baseVue2 = _interopRequireDefault(_baseVue);
 
-var _anm = __webpack_require__(262);
+var _anm = __webpack_require__(263);
 
 var _anm2 = _interopRequireDefault(_anm);
 
@@ -11391,7 +11391,7 @@ var _index3 = __webpack_require__(256);
 
 var _index4 = _interopRequireDefault(_index3);
 
-var _index5 = __webpack_require__(261);
+var _index5 = __webpack_require__(262);
 
 var _index6 = _interopRequireDefault(_index5);
 
@@ -13382,22 +13382,27 @@ var _fetchIe = __webpack_require__(260);
 
 var fetch = _interopRequireWildcard(_fetchIe);
 
+var _index = __webpack_require__(261);
+
+var _index2 = _interopRequireDefault(_index);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// safari不支持fetch
 window.fetch = window.fetch || fetch;
 
 // localStorage名称
-
-// safari不支持fetch
 var localSearchKey = 'rengar-search';
 var localTagKey = 'rengar-tag';
 
 exports.default = {
     name: 'tools-mixin',
     directives: {},
-    components: {},
+    components: {
+        aboutMe: _index2.default
+    },
     mixins: [],
     data: function data() {
         /* Notice: 给data里面的变量留下说明文字 */
@@ -14053,6 +14058,81 @@ exports.default = toolsConst;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.default = {
+    name: 'about-me',
+    directives: {},
+    components: {},
+    mixins: [],
+    data: function data() {
+        /* Notice: 给data里面的变量留下说明文字 */
+        return {};
+    },
+
+    props: {
+        /* Notice: 写下props数据的描述、用途 */
+        /* Notice: props 里面的定义，使用此结构，type、default */
+        // 模版配置的aboutme信息
+        aboutme: {
+            type: String,
+            default: ''
+        },
+        // 选择的tools
+        toolsSelected: {
+            type: String,
+            default: ''
+        }
+    },
+    computed: {
+        /* Notice: 写下computed数据的描述 */
+    },
+    filters: {},
+    methods: {
+        /* Notice: 复杂的方法，写下说明 */
+    },
+    render: function render(h) {
+        if (this.toolsSelected === 'aboutme') {
+            return h(
+                'section',
+                { 'class': 'tools-section tools-section-me' },
+                [h('div', {
+                    domProps: {
+                        'innerHTML': this.aboutme
+                    },
+
+                    'class': 'aboutme-wrap',
+                    attrs: { id: 'js-aboutme' }
+                })]
+            );
+        }
+    },
+
+    watch: {
+        /* Notice: 写下说明 */
+    },
+    beforeCreate: function beforeCreate() {},
+    created: function created() {},
+    beforeMount: function beforeMount() {},
+    mounted: function mounted() {},
+    beforeUpdate: function beforeUpdate() {},
+    updated: function updated() {},
+    activated: function activated() {},
+    deactivated: function deactivated() {},
+    beforeDestroy: function beforeDestroy() {},
+    destroyed: function destroyed() {},
+    errorCaptured: function errorCaptured() {}
+};
+
+/***/ }),
+
+/***/ 262:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
 var _dialog_configs = __webpack_require__(102);
 
@@ -14099,7 +14179,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 262:
+/***/ 263:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
