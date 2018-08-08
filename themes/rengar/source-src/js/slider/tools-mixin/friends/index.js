@@ -1,5 +1,5 @@
 export default {
-    name: 'tools-about-me',
+    name: 'tools-friends',
     directives: {},
     components: {},
     mixins: [],
@@ -11,7 +11,7 @@ export default {
         /* Notice: 写下props数据的描述、用途 */
         /* Notice: props 里面的定义，使用此结构，type、default */
         // 模版配置的aboutme信息
-        aboutme: {
+        friends: {
             type: String,
             default: ''
         },
@@ -19,30 +19,43 @@ export default {
         toolsSelected: {
             type: String,
             default: ''
-        }
+        },
     },
     computed: {
         /* Notice: 写下computed数据的描述 */
+        friendsArr() {
+            if (!this.friends) return []
+            const friends = JSON.parse(this.friends)
+            return Object.entries(friends)
+        }
     },
     filters: {},
     methods: {
         /* Notice: 复杂的方法，写下说明 */
     },
-    render(h) {
-        if (this.toolsSelected === 'aboutme') {
+    watch: {
+        /* Notice: 写下说明 */
+    },
+    render() {
+        if (this.toolsSelected === 'friends') {
             return (
-                <section class="tools-section tools-section-me">
-                    <div
-                        domPropsInnerHTML={this.aboutme}
-                        class="aboutme-wrap"
-                        id="js-aboutme">
-                    </div>
+                <section class="tools-section tools-section-friends">
+                    <ul class="search-ul">
+                    { this.friendsArr.map((f, index) => (
+                        <li class="search-li">
+                            <a
+                                href={f[1]}
+                                target="_blank"
+                                class="search-title">
+                                <i class="icon-youqinglianjie icon"></i>
+                                {f[0]}
+                            </a>
+                        </li>
+                    ))}
+                    </ul>
                 </section>
             )
         }
-    },
-    watch: {
-        /* Notice: 写下说明 */
     },
     beforeCreate() {
     },

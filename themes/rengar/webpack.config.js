@@ -93,7 +93,7 @@ module.exports = {
                 // vue.js在正式环境显示错误提示
                 // NODE_ENV: '"development"',
                 // vue.js在正式环境不显示错误提示
-                NODE_ENV: '"production"',
+                NODE_ENV: '"development"',
             }
         }),
         new HtmlWebpackPlugin({

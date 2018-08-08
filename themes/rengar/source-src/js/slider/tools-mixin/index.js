@@ -4,6 +4,7 @@ import {on} from 'utils/event'
 import * as fetch from 'fetch-ie8'
 
 import aboutMe from './about-me/index'
+import friends from './friends/index'
 
 window.fetch = window.fetch || fetch
 
@@ -16,6 +17,7 @@ export default {
     directives: {},
     components: {
         aboutMe,
+        friends,
     },
     mixins: [],
     data() {

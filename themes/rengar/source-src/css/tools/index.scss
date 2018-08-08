@@ -153,10 +153,11 @@
                 }
             }
             .search-title {
+                display: flex;
+                align-items: center;
                 overflow: hidden;
                 white-space: nowrap;
                 text-overflow: ellipsis;
-                display: block;
                 color: rgba(255, 255, 248, 1);
                 text-shadow: 1px 1px rgba(77, 77, 77, 0.25);
                 .icon {
@@ -206,5 +207,10 @@
         color: #fffdd8;
         text-shadow: 1px 1px rgba(77, 77, 77, 0.45);
         text-align: center;
+    }
+
+    .icon-youqinglianjie {
+        font-size: 25px;
+        color: #333 !important;
     }
 }
