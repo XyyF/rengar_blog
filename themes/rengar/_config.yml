@@ -113,6 +113,12 @@ smart_menu:
   aboutme: '关于我'
 
 friends:
-  github: https://github.com/XyyF
+  rengar-github: https://github.com/XyyF
+  leetcode: https://leetcode.com
+  vue官网: https://cn.vuejs.org/index.html
+  jsrun编辑器: http://jsrun.net
+  processon流程图: https://www.processon.com
+  svg编辑: http://svg.wxeditor.com
+  google翻译: https://translate.google.cn
 
 aboutme: Rengar<br />四川大学2018级<br />计算机学院<br />计算机科学与技术

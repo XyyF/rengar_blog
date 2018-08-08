@@ -10,7 +10,7 @@ export default {
     props: {
         /* Notice: 写下props数据的描述、用途 */
         /* Notice: props 里面的定义，使用此结构，type、default */
-        // 模版配置的aboutme信息
+        // 模版配置的friends信息-经过JSON.stringify()转义
         friends: {
             type: String,
             default: ''

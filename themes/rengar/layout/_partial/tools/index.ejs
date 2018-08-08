@@ -25,7 +25,8 @@ var hasAboutme = theme.smart_menu.aboutme
                 <ul class="article-tag-list" v-show="showTags">
                     <% site.tags.forEach(function(tag, i){ %>
                     <li class="article-tag-list-item">
-                        <a href="javascript:void(0)" class="js-tag color<%= tag.name.length % 5 + 1 %>"><%- tag.name %></a>
+                        <a href="javascript:void(0)"
+                           class="js-tag color<%= tag.name.length % 5 + 1 %>"><%- tag.name %></a>
                     </li>
                     <% }) %>
                     <div class="clearfix"></div>
@@ -33,7 +34,8 @@ var hasAboutme = theme.smart_menu.aboutme
             </div>
             <ul class="search-ul">
                 <p v-show="jsonFail" style="padding: 20px; font-size: 12px;">
-                    缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+                    缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content
+                    --save<br/><br/>
                     3、在根目录_config.yml里添加配置：
                 <pre style="font-size: 12px;" v-show="jsonFail">
   jsonContent:
@@ -79,6 +81,7 @@ var hasAboutme = theme.smart_menu.aboutme
         <% } %>
 
         <!--友情链接-->
+        <% if(hasFriends){ %>
         <%
         var friendsStr = JSON.stringify(theme.friends)
         %>
@@ -86,12 +89,15 @@ var hasAboutme = theme.smart_menu.aboutme
             friends="<%= friendsStr %>"
             :tools-selected="toolsSelected">
         </friends>
+        <% } %>
 
         <!--关于我-->
+        <% if(hasAboutme){ %>
         <about-me
             :aboutme="'<%- theme.aboutme %>'"
             :tools-selected="toolsSelected">
         </about-me>
+        <% } %>
     </div>
 
 </div>
