@@ -1,4 +1,5 @@
 import clickoutside from 'common/vue_plugins/clickoutside'
+import loading from 'common/vue_plugins/loading'
 
 import {DialogType} from './pages/rg-dialog/dialog_configs'
 import Dialog from './pages/rg-dialog/index'
@@ -16,6 +17,7 @@ export default {
     name: 'app',
     directives: {
         clickoutside,
+        loading,
     },
     components: {
         // 弹窗组件

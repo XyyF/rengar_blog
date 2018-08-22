@@ -1,0 +1,51 @@
+@import "../zIndex";
+
+.rengar-loading-wrap {
+    width: 100%;
+    height: 100%;
+    background: rgba(49, 49, 38, 0.3);
+    z-index: $zIndex-100--loading;
+    position: absolute;
+
+    .circular {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        margin-left: -31px;
+        margin-top: -31px;
+        height: 62px;
+        width: 62px;
+        animation: loading-rotate 2s linear infinite;
+    }
+
+    .path {
+        animation: loading-dash 1.5s ease-in-out infinite;
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: 0;
+        stroke-width: 2;
+        stroke: #409EFF;
+        stroke-linecap: round;
+    }
+
+    @keyframes loading-rotate {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes loading-dash {
+        0% {
+            stroke-dasharray: 1, 200;
+            stroke-dashoffset: 0;
+        }
+        50% {
+            stroke-dasharray: 90, 150;
+            stroke-dashoffset: -40px;
+        }
+        100% {
+            stroke-dasharray: 90, 150;
+            stroke-dashoffset: -120px;
+        }
+    }
+}
+
