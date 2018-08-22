@@ -1,5 +1,6 @@
+import Vue from 'vue'
 import clickoutside from 'common/vue_plugins/clickoutside'
-import loading from 'common/vue_plugins/loading'
+import Loading from 'common/vue_plugins/loading'
 
 import {DialogType} from './pages/rg-dialog/dialog_configs'
 import Dialog from './pages/rg-dialog/index'
@@ -12,12 +13,14 @@ function fixzero(str) {
     return str.length === 1 ? '0' + str : str
 }
 
+// 全局注册自定义指令
+Vue.use(Loading)
+
 export default {
     el: '#container',
     name: 'app',
     directives: {
         clickoutside,
-        loading,
     },
     components: {
         // 弹窗组件

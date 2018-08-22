@@ -21,26 +21,30 @@ loadingSvg.appendChild(loadingCircle)
 loading.appendChild(loadingSvg)
 
 export default {
-    bind(el, binding, vnode) {
-        originOverflow =  el.style.overflow
-        el.style.overflow = 'hidden'
-        el.appendChild(loading)
-    },
-
-    update(el, binding) {
-        if (binding.oldValue !== binding.value) {
-            if (binding.value) {
+    install(Vue) {
+        Vue.directive('loading', {
+            bind(el, binding, vnode) {
+                originOverflow = el.style.overflow
                 el.style.overflow = 'hidden'
                 el.appendChild(loading)
-            } else {
+            },
+
+            update(el, binding) {
+                if (binding.oldValue !== binding.value) {
+                    if (binding.value) {
+                        el.style.overflow = 'hidden'
+                        el.appendChild(loading)
+                    } else {
+                        el.style.overflow = originOverflow
+                        el.removeChild(loading);
+                    }
+                }
+            },
+
+            unbind(el, binding) {
                 el.style.overflow = originOverflow
                 el.removeChild(loading);
             }
-        }
-    },
-
-    unbind(el, binding) {
-        el.style.overflow = originOverflow
-        el.removeChild(loading);
+        })
     }
-};
+}

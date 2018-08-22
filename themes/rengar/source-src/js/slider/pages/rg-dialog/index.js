@@ -59,7 +59,6 @@ const dialog = {
             if (!config) {
                 console.error(`找不到弹窗类型${dialogType}对应的组件`)
                 return
-                // return this.showDialogResult
             }
             if (dialogType !== DialogType.LOADING) {
                 this.showLoadingAfterAWhile()
@@ -73,13 +72,7 @@ const dialog = {
                 this.currentDialogType = dialogType
                 this.dialogState = STATE_SHOWN
                 this.setupComponent(config, component.default, dialogData)
-                // this.visible = true
-                // this.fullscreen = fullscreen
-
-                // this.callOpenListeners(dialogType)
             })
-
-            // return this.showDialogResult
         },
         // 延迟一下，如果还没加载好，再显示加载动画
         showLoadingAfterAWhile() {

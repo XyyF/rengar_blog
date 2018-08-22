@@ -68,7 +68,7 @@ module.exports = {
         },]
     },
     resolve: {
-        extensions: ['.js'],
+        extensions: ['.js', '.vue'],
         alias: {
             'vue$': 'vue/dist/vue.common.js',
             'utils': resolve('common/utils'),
