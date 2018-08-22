@@ -10,10 +10,13 @@ import Gotop from './gotop'
 import Gitment from './gitment'
 
 import {addLoadEvent} from './util'
+// 波纹
+import Ripple from './ripple/index'
 
 addLoadEvent(function() {
 	new Share().init()
 	new Viewer().init()
 	new Gotop().init()
     new Gitment().init()
+    new Ripple().init()
 })

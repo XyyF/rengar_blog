@@ -23,6 +23,8 @@
 @import "./dialog/index";
 @import "./catalog-button/index";
 
+@import "./../js/ripple/index";
+
 @media screen and (max-width: 800px) {
     @import "./mobile";
     @import "./mobile-slider";
