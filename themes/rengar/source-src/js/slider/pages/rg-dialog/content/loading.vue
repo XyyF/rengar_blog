@@ -13,7 +13,7 @@
     }
 </script>
 
-<style lang="scss" rel="stylesheet/scss">
+<style lang="scss" rel="stylesheet/scss" scoped>
     .loading-dialog {
         height: 200px;
         margin-bottom: 65px;

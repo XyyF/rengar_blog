@@ -1,32 +1,32 @@
 webpackJsonp([2],{
 
-/***/ 185:
+/***/ 188:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(186);
+__webpack_require__(189);
 
-var _viewer = __webpack_require__(187);
+var _viewer = __webpack_require__(190);
 
 var _viewer2 = _interopRequireDefault(_viewer);
 
-var _share = __webpack_require__(194);
+var _share = __webpack_require__(197);
 
 var _share2 = _interopRequireDefault(_share);
 
-var _gotop = __webpack_require__(195);
+var _gotop = __webpack_require__(198);
 
 var _gotop2 = _interopRequireDefault(_gotop);
 
-var _gitment = __webpack_require__(196);
+var _gitment = __webpack_require__(199);
 
 var _gitment2 = _interopRequireDefault(_gitment);
 
-var _util = __webpack_require__(133);
+var _util = __webpack_require__(136);
 
-var _index = __webpack_require__(226);
+var _index = __webpack_require__(229);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -51,14 +51,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 186:
+/***/ 189:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 187:
+/***/ 190:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -72,17 +72,17 @@ var _createClass2 = __webpack_require__(59);
 
 var _createClass3 = _interopRequireDefault(_createClass2);
 
-var _photoswipe = __webpack_require__(190);
+var _photoswipe = __webpack_require__(193);
 
 var _photoswipe2 = _interopRequireDefault(_photoswipe);
 
-var _photoswipeUiDefault = __webpack_require__(191);
+var _photoswipeUiDefault = __webpack_require__(194);
 
 var _photoswipeUiDefault2 = _interopRequireDefault(_photoswipeUiDefault);
 
-__webpack_require__(192);
+__webpack_require__(195);
 
-__webpack_require__(193);
+__webpack_require__(196);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -140,7 +140,7 @@ module.exports = Viewer;
 
 /***/ }),
 
-/***/ 190:
+/***/ 193:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! PhotoSwipe - v4.1.2 - 2017-04-05
@@ -3884,7 +3884,7 @@ _registerModule('History', {
 
 /***/ }),
 
-/***/ 191:
+/***/ 194:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! PhotoSwipe Default UI - 4.1.2 - 2017-04-05
@@ -4756,21 +4756,21 @@ return PhotoSwipeUI_Default;
 
 /***/ }),
 
-/***/ 192:
+/***/ 195:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 193:
+/***/ 196:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 194:
+/***/ 197:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4784,15 +4784,15 @@ var _createClass2 = __webpack_require__(59);
 
 var _createClass3 = _interopRequireDefault(_createClass2);
 
-var _addClass = __webpack_require__(131);
+var _addClass = __webpack_require__(134);
 
 var _addClass2 = _interopRequireDefault(_addClass);
 
-var _removeClass = __webpack_require__(132);
+var _removeClass = __webpack_require__(135);
 
 var _removeClass2 = _interopRequireDefault(_removeClass);
 
-var _event = __webpack_require__(91);
+var _event = __webpack_require__(94);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4884,7 +4884,7 @@ module.exports = Share;
 
 /***/ }),
 
-/***/ 195:
+/***/ 198:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4967,7 +4967,7 @@ module.exports = Gotop;
 
 /***/ }),
 
-/***/ 196:
+/***/ 199:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4981,7 +4981,7 @@ var _createClass2 = __webpack_require__(59);
 
 var _createClass3 = _interopRequireDefault(_createClass2);
 
-var _rengarGitment = __webpack_require__(197);
+var _rengarGitment = __webpack_require__(200);
 
 var _rengarGitment2 = _interopRequireDefault(_rengarGitment);
 
@@ -5013,7 +5013,7 @@ module.exports = Gitment;
 
 /***/ }),
 
-/***/ 197:
+/***/ 200:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5021,13 +5021,13 @@ module.exports = Gitment;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _mobx = __webpack_require__(198);
+var _mobx = __webpack_require__(201);
 
-var _constants = __webpack_require__(92);
+var _constants = __webpack_require__(95);
 
-var _utils = __webpack_require__(199);
+var _utils = __webpack_require__(202);
 
-var _default = __webpack_require__(200);
+var _default = __webpack_require__(203);
 
 var _default2 = _interopRequireDefault(_default);
 
@@ -5460,7 +5460,7 @@ module.exports = Gitment;
 
 /***/ }),
 
-/***/ 198:
+/***/ 201:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9300,7 +9300,7 @@ if (typeof __MOBX_DEVTOOLS_GLOBAL_HOOK__ === "object") {
 
 /***/ }),
 
-/***/ 199:
+/***/ 202:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9315,7 +9315,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
 exports.getTargetContainer = getTargetContainer;
 
-var _constants = __webpack_require__(92);
+var _constants = __webpack_require__(95);
 
 var isString = exports.isString = function isString(s) {
   return toString.call(s) === '[object String]';
@@ -9421,7 +9421,7 @@ var http = exports.http = {
 
 /***/ }),
 
-/***/ 200:
+/***/ 203:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9433,9 +9433,9 @@ Object.defineProperty(exports, "__esModule", {
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
-var _icons = __webpack_require__(201);
+var _icons = __webpack_require__(204);
 
-var _constants = __webpack_require__(92);
+var _constants = __webpack_require__(95);
 
 function renderHeader(_ref, instance) {
   var meta = _ref.meta,
@@ -9735,7 +9735,7 @@ exports.default = { render: render, renderHeader: renderHeader, renderComments: 
 
 /***/ }),
 
-/***/ 201:
+/***/ 204:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9756,7 +9756,7 @@ var spinner = exports.spinner = '<svg class="gitment-spinner-icon" xmlns="http:/
 
 /***/ }),
 
-/***/ 226:
+/***/ 229:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9950,7 +9950,7 @@ exports.default = function (instance, Constructor) {
 
 exports.__esModule = true;
 
-var _defineProperty = __webpack_require__(129);
+var _defineProperty = __webpack_require__(132);
 
 var _defineProperty2 = _interopRequireDefault(_defineProperty);
 
@@ -9976,7 +9976,7 @@ exports.default = function () {
 
 /***/ }),
 
-/***/ 92:
+/***/ 95:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9993,4 +9993,4 @@ var NOT_INITIALIZED_ERROR = exports.NOT_INITIALIZED_ERROR = new Error('Comments 
 
 /***/ })
 
-},[185]);
+},[188]);
