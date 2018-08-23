@@ -1,14 +1,12 @@
 <template>
-    <div class="tools-about-me-root" v-if="toolsSelected === 'aboutme'">
-        <section class="tools-section tools-section-me">
-            <div class="aboutme-wrap" id="js-aboutme" v-html="aboutme"></div>
-        </section>
+    <div class="dialog-call-me-root">
+        <div id="call-me-dialog"></div>
     </div>
 </template>
 
 <script>
     export default {
-        name: 'tools-about-me',
+        name: 'dialog-call-me',
         directives: {},
         components: {},
         mixins: [],
@@ -19,16 +17,6 @@
         props: {
             /* Notice: 写下props数据的描述、用途 */
             /* Notice: props 里面的定义，使用此结构，type、default */
-            // 模版配置的aboutme信息
-            aboutme: {
-                type: String,
-                default: ''
-            },
-            // 选择的tools
-            toolsSelected: {
-                type: String,
-                default: ''
-            }
         },
         computed: {
             /* Notice: 写下computed数据的描述 */
@@ -66,18 +54,9 @@
 </script>
 
 <style lang="scss" rel='stylesheet/scss' scoped>
-    .tools-about-me-root {
-        width: 100%;
-        height: 100%;
-        .aboutme-wrap {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            color: #fffdd8;
-            text-shadow: 1px 1px rgba(77, 77, 77, 0.45);
-            text-align: center;
-        }
+    #call-me-dialog {
+        width: 287px;
+        height: 287px;
+        background: url('./../../../../../css/img/renagr.png');
     }
 </style>

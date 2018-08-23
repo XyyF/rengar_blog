@@ -1,6 +1,6 @@
 <template>
-    <div class="tools-friends-root">
-        <section class="tools-section tools-section-friends" v-if="toolsSelected === 'friends'">
+    <div class="tools-friends-root" v-if="toolsSelected === 'friends'">
+        <section class="tools-section tools-section-friends">
             <ul class="search-ul">
                 <li class="search-li" v-for="f in friendsArr">
                     <a
@@ -81,6 +81,11 @@
 </script>
 
 <style lang="scss" rel='stylesheet/scss' scoped>
+    %trans {
+        transition: all 0.2s ease-in;
+        -ms-transition: all 0.2s ease-in;
+    }
+
     .tools-friends-root {
         .tools-section-friends {
             padding-top: 30px;

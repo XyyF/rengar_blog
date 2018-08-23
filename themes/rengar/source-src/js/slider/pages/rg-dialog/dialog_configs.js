@@ -29,7 +29,7 @@ export const DialogStyle = {
 export const componentConfigs = [{
     // 联系我
     type: DialogType.CALL_ME,
-    loader: () => import(/* webpackChunkName: "slider" */'./content/call-me.js'),
+    loader: () => import(/* webpackChunkName: "slider" */'./content/call-me.vue'),
     dialogClass: DialogStyle.MIDDLE_DIALOG,
     closeOnClickOutside: true,
 }, {

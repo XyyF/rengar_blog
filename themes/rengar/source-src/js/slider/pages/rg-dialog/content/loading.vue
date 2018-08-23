@@ -16,6 +16,5 @@
 <style lang="scss" rel="stylesheet/scss" scoped>
     .loading-dialog {
         height: 200px;
-        margin-bottom: 65px;
     }
 </style>
