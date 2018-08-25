@@ -32,8 +32,9 @@
                         class="article-tag-list-item">
                         <a
                             href="javascript:void(0)"
-                            class="js-tag">
-                            <!--:class="{`color${tag.name.length % 5 + 1}`: true}">-->
+                            class="js-tag"
+                            :class="tag.tagColor"
+                            @click="e => choseTag(e, tag.name)">
                             {{tag.name}}
                         </a>
                     </li>
@@ -145,8 +146,11 @@
             /* Notice: 写下computed数据的描述 */
             tags() {
                 const tagsInSite = JSON.parse(this.tagsInSite)
-                return Object.values(tagsInSite.data)
-            }
+                return Object.values(tagsInSite.data).map(e => ({
+                    ...e,
+                    tagColor: `color${e.name.length % 5 + 1}`
+                }))
+            },
         },
         filters: {
             urlForMat(str) {
@@ -375,7 +379,7 @@
                 width: 14px;
                 height: 14px;
                 position: absolute;
-                top: 19px;
+                top: 16px;
                 left: 1px;
                 -webkit-transform: translateY(-50%);
                 border-radius: 100%;
